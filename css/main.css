@@ -148,3 +148,7 @@ textarea {
 .glass-card:hover {
     border: 1px solid #0E8388;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+}

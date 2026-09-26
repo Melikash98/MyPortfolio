@@ -1,3 +1,5 @@
+/*============================================ Main ============================================*/
+/* TODO ============================================ HOME SECTION ============================================*/
 .container {
     max-width: 1320px;
     margin-inline: auto;
@@ -206,7 +208,7 @@
     position: absolute;
     top: 54%;
     right: 3rem;
-    width: 42rem;
+    width: 37.90rem;
     transform: translateY(-50%);
     border-radius: 0 0 100vw 100vw;
     overflow: visible;
@@ -268,32 +270,96 @@
     color: var(--main-text-color);
     text-align: center;
 }
-.exInfo-text{
+
+.exInfo-text {
     font-family: var(--subtitle-font);
     color: var(--main-text-color);
     font-size: 1.1rem;
 }
-.exInfo-text span{
+
+.exInfo-text span {
     color: var(--text-select-color);
 }
-.shape{
+
+.shape {
     position: absolute;
     z-index: -10;
 }
-.shape-1{
+
+.shape-1 {
     width: 14rem;
-    top: 7%;
+    top: 10%;
     right: 0%;
 }
+
 .shape-2,
-.shape-3{
+.shape-3 {
     width: 8.75rem;
 }
-.shape-2{
+
+.shape-2 {
     bottom: 10%;
     left: -1%;
 }
-.shape-3{
-    bottom:7%;
+
+.shape-3 {
+    bottom: 7%;
     right: 3%;
+}
+
+/* TODO ============================================ HEADER SECTION  ============================================*/
+.header {
+    width: 100%;
+    height: max-content;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 5rem;
+    padding-block: 0rem;
+    z-index: 1000;
+    background: rgba(0, 13, 22, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.logoCard {
+    display: flex;
+    align-items: center;
+}
+
+.logoCard img {
+    display: block;
+    width: 15rem;
+    height: auto;
+}
+
+.controlIcon {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.controlIcon>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-text-color);
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.controlIcon>div:hover {
+    color: var(--button-select-color);
+    transform: translateY(-1px);
+}
+
+.themeMoode i,
+.menuOpen i,
+.translate i {
+    font-size: 2rem;
 }
