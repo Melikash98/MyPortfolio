@@ -33,8 +33,8 @@
     --text-select-color: #14868C;
     --description-color: #787A91;
     --subtitle-color: #8787A3;
-    --button-default-color:#000D16;
-    --button-select-color:#0E8388;
+    --button-default-color: #000D16;
+    --button-select-color: #0E8388;
 
     /*============================================ Transition ============================================*/
     --transition-icon: cubic-bezier(0.3, 0, 0.3);
@@ -50,6 +50,7 @@
 body {
     min-height: 100vh;
     background-size: cover;
+    overflow-x: hidden;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -66,6 +67,12 @@ body {
 .section {
     padding-block: 7rem 3.5rem;
 }
+.home {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 
 a {
     text-decoration: none;
