@@ -73,7 +73,8 @@ body {
     padding-block: 7rem 3.5rem;
 }
 
-.home {
+.home,
+.services {
     height: 100vh;
     min-height: 100vh;
     overflow: hidden;
@@ -148,7 +149,8 @@ textarea {
 .glass-card:hover {
     border: 1px solid #0E8388;
 }
-.header{
+
+.header {
     display: flex;
     justify-content: space-between;
 }

@@ -61,3 +61,18 @@ const servicesSwiper = new Swiper('.services-swiper', {
         },
     },
 });
+// ! Services Popup => Show Details Services
+const servicesPopup = document.querySelector('.servicesPopupModel');
+const serviceLinks = document.querySelectorAll('.linkeDetails');
+const closePopup = document.querySelector('.containerSClosed');
+
+serviceLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        servicesPopup.classList.add('active');
+    });
+});
+
+closePopup.addEventListener('click', () => {
+    servicesPopup.classList.remove('active');
+});
