@@ -54,7 +54,8 @@
     color: var(--main-text-color);
     -webkit-text-stroke: 2px var(--text-select-color);
 }
-.rolName{
+
+.rolName {
     font-family: var(--subtitle-font);
     color: var(--main-text-color);
     font-size: 1.5rem;
@@ -63,7 +64,8 @@
     line-height: 2rem;
     margin-bottom: 1rem;
 }
-.descriptionAbout{
+
+.descriptionAbout {
     max-width: 35rem;
     text-align: start;
     direction: ltr;
@@ -75,16 +77,67 @@
     font-family: var(--main-description-font);
     color: var(--description-color);
 }
-.SocialLinks{
+
+.SocialLinks {
     display: inline-flex;
     column-gap: 1.25rem;
 }
-.socialLink{
+
+.socialLink {
     transition: color 0.7s var(--transition-icon);
-    font-size: 1.5rem;
-    color: var(--main-text-color);
+    font-size: 2rem;
     cursor: pointer;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--main-text-color);
 }
-.socialLink:hover{
-    
+
+.socialLink:hover {
+    color: var(--icon-hover-color);
+}
+
+.btn,
+.skillsLink {
+    color: var(--main-text-color);
+    font-family: var(--tittle-font);
+    font-size: 1rem;
+    font-weight: var(--bold-font-weight);
+    position: relative;
+}
+
+.btn {
+    border: 2px solid var(--button-default-color);
+    box-shadow: 4px 4px var(--description-color);
+    padding: 1rem 2.5rem;
+    transition: color 0.7s var(--transition-icon);
+}
+.btns:hover{
+    color: var(--main-text-color);
+}
+.btn::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: var(--button-select-color);
+    border-radius: inherit;
+    transform: scale(0.3);
+    filter: blur(10px);
+    opacity: 0;
+    transition: all 0.7s var(--transition-icon);
+    z-index: -10;
+}
+.btn:hover::before{
+    transform: scale(1);
+    filter: blur(0);
+    opacity: 1;
+}
+.skillsLink::before{
+    content: '';
+    position: absolute;
+    left: -124%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: aqua;
 }
