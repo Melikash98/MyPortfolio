@@ -1,4 +1,4 @@
-// ***************************************************************About Me Section**********************************************************************//
+// TODO: ***************************************************************HOME Section**********************************************************************//
 // TODO: Word Transition Effect for Role Text
 const roles = ["Melika", "Software Developer", "Backend Developer", "Android Developer"];
 const roleElement = document.getElementById('role-animation');
@@ -30,9 +30,34 @@ function updateRole() {
 }
 updateRole();
 
-// TODO: ***************************************************************About Me Section**********************************************************************//
-// TODO: Word Transition Effect for Role Text
+// TODO: *************************************************************** GLOBAL ANIMATION **********************************************************************//
+// ! Word Transition Effect for Role Text
 AOS.init({
   duration: 1000,
   once: true
+});
+// TODO: *************************************************************** SERVICES Section**********************************************************************//
+// ! Swiper Services Items
+const servicesSwiper = new Swiper('.services-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    grabCursor: true,
+    loop: false,
+
+    pagination: {
+        el: '.services-swiper .swiper-pagination',
+        clickable: true,
+    },
+
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+        },
+
+        1208: {
+            slidesPerView: 3,
+            spaceBetween: 32,
+        },
+    },
 });

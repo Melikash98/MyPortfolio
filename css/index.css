@@ -363,3 +363,147 @@
 .translate i {
     font-size: 2rem;
 }
+
+/* TODO ============================================ SERVICES SECTION  ============================================*/
+
+
+.services-swiper .swiper-slide.card {
+    padding: 1rem 1.25rem;
+    border-radius: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 0px 0px rgba(255, 255, 255, 0);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: 19rem;
+    bottom: 0rem;
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/dot-modol3-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.services-swiper .card>* {
+    position: relative;
+    z-index: 2;
+}
+
+
+.subtitle-service {
+    font-family: var(--subtitle-font);
+    font-size: 1rem;
+    position: absolute;
+    top: 9%;
+    color: var(--text-select-color);
+    font-weight: var(--normal-font-weight);
+}
+
+.tittle-service {
+    font-size: 1.5rem;
+    margin-block: 4rem 1rem;
+    color: var(--main-text-color);
+    font-weight: var(--bold-font-weight);
+}
+
+.description-service {
+    font-size: 1.3rem;
+    font-family: var(--main-description-font);
+    color: var(--description-color);
+    font-weight: var(--normal-font-weight);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    direction: ltr;
+    text-align: start;
+
+    width: 350px;
+}
+
+.linkeDetails {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: var(--main-text-color);
+    font-family: var(--text-first-font);
+    font-weight: var(--bold-font-weight);
+}
+
+.linkeDetails:hover {
+    color: var(--text-select-color);
+}
+.services-swiper .swiper-pagination {
+    position: relative !important;
+    width: 58px !important;
+    height: 14px !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+}
+.services-swiper .swiper-pagination::before {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-text-color);
+    opacity: 0.8;
+    z-index: 0;
+}
+.services-swiper .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    max-width: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 50%;
+    border: 1px solid var(--main-text-color);
+    background: #00151F !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 2;
+    transform: scale(1);
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.services-swiper .swiper-pagination-bullet-active {
+    width: 10px !important;
+    height: 10px !important;
+    min-width: 10px !important;
+    max-width: 10px !important;
+    border: 2px solid var(--main-text-color) !important;
+    background: var(--text-select-color) !important;
+    transform: scale(1) !important;
+    box-shadow: 0 0 7px rgba(25, 199, 181, 0.4);
+    z-index: 3;
+}
+
