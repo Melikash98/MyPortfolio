@@ -10,33 +10,63 @@
 
     <!--Main & index CSS-->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/splash.css">
 
     <!-- ! RemixIcon Import -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- ! AOS Animation -->
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="splashBody">
     <div class="profileCard glass-card">
         <div class="mainCard">
             <div class="details">
                 <h1 class="name">Melika Shooryabi</h1>
                 <h4 class="roleWork">Software Engineer & Backend Developer</h4>
             </div>
-            <div class="imageCard"><img src="" alt="profile image" class="imge"></div>
+            <hr>
+            <div class="imageCard">
+                <img src="images/splashImg.png" alt="profile image">
+            </div>
             <div class="socialContainer">
-                 <!-- TODO: Telegram,Linkedin,Github,Email -->
-                <a href="#" class="socialItem"><i class="ri-telegram-line"></i></a>
-                <a href="#" class="socialItem"><i class="ri-linkedin-box-line"></i></a>
-                <a href="#" class="socialItem"><i class="ri-github-line"></i></a>
-                <a href="#" class="socialItem"><i class="ri-mail-line"></i></a>
+                <div class="container">
+                    <!-- TODO: Telegram,Linkedin,Github,Email -->
+                    <a href="https://t.me/melika_sh_de" class="socialItem"><i class="ri-telegram-line"></i></a>
+                    <a href="https://www.linkedin.com/in/melika-shooryabi/" class="socialItem"><i
+                            class="ri-linkedin-box-line"></i></a>
+                    <a href="https://github.com/Melikash98" class="socialItem"><i class="ri-github-line"></i></a>
+                    <a href="mailto:Melika.shooryabi24@gmail.com" class="socialItem"><i class="ri-mail-line"></i></a>
+                </div>
             </div>
         </div>
         <!--Loading Spinner-->
+        <div class="loading">
+            <div class="loader">
+                <div class="circle">
+                    <div class="dot"></div>
+                    <div class="outline"></div>
+                </div>
+                <div class="circle">
+                    <div class="dot"></div>
+                    <div class="outline"></div>
+                </div>
+                <div class="circle">
+                    <div class="dot"></div>
+                    <div class="outline"></div>
+                </div>
+                <div class="circle">
+                    <div class="dot"></div>
+                    <div class="outline"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- ! AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!--Js-->
+    <script src="js/splash.js"></script>
 </body>
 
 </html>

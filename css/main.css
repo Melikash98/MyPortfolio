@@ -4,31 +4,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* => ** Dark Mode  & Main Properties** <= */
 :root {
 
     /*============================================ font's ============================================*/
     --name-font: 'Bungee Shade';
+    --name-second-font: "Montserrat Alternates", sans-serif;
     --text-first-font: 'Itim';
     --main-description-font: 'Dongle';
     --tittle-font: 'Baumans';
+    --name-splash-font: "Londrina Shadow", sans-serif;
     --subtitle-font: 'Patrick Hand';
 
     /*============================================ font Weight ============================================*/
 
     --light-font-weight: 300;
     --normal-font-weight: 600;
-    --bold-font-weight: 800;
+    --bold-font-weight: 900;
     /*============================================ font Colors ============================================*/
     --main-background: url('../images/main-back-dark.svg');
+    --main-background-splash: url('../images/splash-background.svg');
     --icon-default-color: #0E8388;
     --icon-hover-color: #301B3F;
     --main-text-color: #F2F9FF;
     --text-select-color: #14868C;
     --description-color: #787A91;
     --subtitle-color: #8787A3;
+
+    /*============================================ Transition ============================================*/
+    --transition-icon: cubic-bezier(0.3, 0, 0.3);
 }
 
 /*============================================ Global Style ============================================*/
@@ -40,15 +47,39 @@
 
 body {
     min-height: 100vh;
-    background: var(--main-background);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+.splashBody {
+    background-image: var(--main-background-splash);
+}
 
+.indexBody {
+    background-image: var(--main-background);
+}
 
+.section {
+    padding-block: 7rem 3.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input,
+textarea {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
 
 /* * Glassmorphism Card
    Creates a modern glass-style card using transparency,

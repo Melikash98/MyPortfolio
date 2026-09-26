@@ -1,10 +1,90 @@
-//box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-.profileCard{
-    padding:2rem;
-    position:absolute;
-    top:32%;
-    left:32%;
-    justify-content:flex-start;
-    border-radius: 1rem;
+.container {
+    max-width: 1320px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}
+
+.homeContainer {
+    padding-block: 4.25rem;
+}
+
+.homeInfo {
+    position: relative;
+}
+
+.homeProfilePic {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+.picBack {
+    width: 42rem;
+}
+
+.picBack img {
+    display: block;
+    max-width: 100%;
+}
+
+.startText {
+    color: var(--main-text-color);
+    font-family: var(--text-first-font);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.startText .randomText {
+    color: var(--text-select-color);
+    font-family: .9rem;
+}
+
+.nameText {
+    font-family: var(--name-second-font);
+    color: var(--text-select-color);
+    font-size: 3.5rem;
+    line-height: 5rem;
+    font-weight: var(--bold-font-weight);
+    -webkit-text-stroke: 2px var(--main-text-color);
+    margin-bottom: 1rem;
+}
+
+.nameText span {
+    color: var(--main-text-color);
+    -webkit-text-stroke: 2px var(--text-select-color);
+}
+.rolName{
+    font-family: var(--subtitle-font);
+    color: var(--main-text-color);
+    font-size: 1.5rem;
+    font-weight: var(--normal-font-weight);
+    margin-inline-start: 3rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+.descriptionAbout{
+    max-width: 35rem;
+    text-align: start;
+    direction: ltr;
+    justify-self: start;
+    font-weight: var(--normal-font-weight);
+    font-size: 1.2rem;
+    line-height: 1rem;
+    margin-bottom: 2rem;
+    font-family: var(--main-description-font);
+    color: var(--description-color);
+}
+.SocialLinks{
+    display: inline-flex;
+    column-gap: 1.25rem;
+}
+.socialLink{
+    transition: color 0.7s var(--transition-icon);
+    font-size: 1.5rem;
+    color: var(--main-text-color);
+    cursor: pointer;
+}
+.socialLink:hover{
     
 }
