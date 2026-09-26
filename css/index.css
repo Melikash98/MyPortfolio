@@ -203,7 +203,7 @@
 }
 .homeProfilePic{
     position: absolute;
-    top: 46%;
+    top:54%;
     right: 3rem;
     width: 42rem;
     transform: translateY(-50%);
@@ -229,5 +229,5 @@
     width: 100%;
     aspect-ratio: 21 / 25;
     overflow: visible;
-    transform: translateY(3rem);
+    transform: translateY(2rem);
 }
