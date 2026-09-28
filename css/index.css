@@ -1911,43 +1911,229 @@
     color: var(--text-select-color);
 }
 
-.tutorialsSwiper {
-    position: relative;
-    width: 100%;
+.tutorialsSwiper .swiper-pagination {
+    position: relative !important;
+    width: 58px !important;
+    height: 14px !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
     overflow: visible;
-    padding-bottom: 45px;
+}
+
+.tutorialsSwiper .swiper-pagination::before {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-text-color);
+    opacity: 0.8;
+    z-index: 0;
 }
 
 .tutorialsSwiper .swiper-pagination-bullet {
-   width: 8px;
-    height: 8px;
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    max-width: 8px !important;
     margin: 0 !important;
-    background: var(--description-color);
-    opacity: 0.35;
-    transition: all 0.3s ease;
+    padding: 0 !important;
+    border-radius: 50%;
+    border: 1px solid var(--main-text-color);
+    background: #00151F !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 2;
+    transform: scale(1);
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
-
 
 .tutorialsSwiper .swiper-pagination-bullet-active {
-   width: 20px;
-    height: 8px;
-    border-radius: 999px;
-    background: var(--text-select-color);
-    opacity: 1;
+    width: 10px !important;
+    height: 10px !important;
+    min-width: 10px !important;
+    max-width: 10px !important;
+    border: 2px solid var(--main-text-color) !important;
+    background: var(--text-select-color) !important;
+    transform: scale(1) !important;
+    box-shadow: 0 0 7px rgba(25, 199, 181, 0.4);
+    z-index: 3;
 }
 
-.tutorialsSwiper .swiper-pagination {
-    position: absolute !important;
-    left: 50% !important;
+/* TODO ============================================ Comments SECTION  ============================================*/
+.comments-swiper {
+    width: 100%;
+    padding: 2rem 0 4rem;
+}
+
+.comments-swiper .swiper-slide.commentCard {
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
+    padding: 1rem 1.25rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.comments-swiper .swiper-pagination {
+    position: relative !important;
+    width: 58px !important;
+    height: 14px !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 0 !important;
+    left: auto !important;
     right: auto !important;
-    bottom: 5px !important;
-    top: auto !important;
-    width: max-content !important;
+    bottom: auto !important;
+    transform: none !important;
     display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+}
+
+.comments-swiper .swiper-pagination::before {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-text-color);
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.comments-swiper .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    max-width: 8px !important;
     margin: 0 !important;
-    transform: translateX(-50%) !important;
-    z-index: 20;
+    padding: 0 !important;
+    border-radius: 50%;
+    border: 1px solid var(--main-text-color);
+    background: #00151F !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 2;
+    transform: scale(1);
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.comments-swiper .swiper-pagination-bullet-active {
+    width: 10px !important;
+    height: 10px !important;
+    min-width: 10px !important;
+    max-width: 10px !important;
+    border: 2px solid var(--main-text-color) !important;
+    background: var(--text-select-color) !important;
+    transform: scale(1) !important;
+    box-shadow: 0 0 7px rgba(25, 199, 181, 0.4);
+    z-index: 3;
+}
+
+.imageCommentCard {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.imageCommentCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.commaCard {
+    position: absolute;
+    top: 47px;
+    left: 1.2rem;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background:#000D16;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom-right-radius: 20%;
+    border-top-left-radius: 20%;
+    transform: translateY(-50%);
+}
+
+.commaCard img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+.commentCard p{
+    font-family: var(--main-description-font);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: var(--normal-font-weight);
+    color: var(--description-color);
+    width: 95%;
+    margin-left: .5rem;
+}
+.infoPersone{
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+}
+.infoPersone h3{
+    font-family: var(--tittle-font);
+    font-size: 1.2rem;
+    color: var(--main-text-color);
+    font-weight: var(--bold-font-weight);
+}
+.infoPersone h6{
+    font-family: var(--subtitle-font);
+    color: var(--text-select-color);
+    font-size: 1rem;
+    margin-top: .5rem;
+    margin-left: .75rem;
+}
+.commentCard::before {
+    content: '';
+    position: absolute;
+    left: 19rem;
+    bottom: -2rem;
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/dot-modol3-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
 }

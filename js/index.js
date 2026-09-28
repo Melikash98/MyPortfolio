@@ -319,15 +319,41 @@ closeProjectPopup.addEventListener('click', () => {
   projectPopup.classList.remove('active');
 });
 // TODO: *************************************************************** Tutorials Section **********************************************************************//
-var swiperTutorials = new Swiper('.tutorialsSwiper', {
-  slidesPerView: 2,
+const tutorialsSwiper = new Swiper('.tutorialsSwiper', {
+  slidesPerView: 1,
   spaceBetween: 24,
   grabCursor: true,
   loop: false,
+
   pagination: {
-    el: '.swiper-pagination',
-    dynamicBullets: true,
+    el: '.tutorialsSwiper .swiper-pagination',
+    clickable: true,
   },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+
+    1208: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+  },
+});
+// TODO: *************************************************************** Comments Section **********************************************************************//
+const commentSwiper = new Swiper('.comments-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  grabCursor: true,
+  loop: false,
+
+  pagination: {
+    el: '.comments-swiper .swiper-pagination',
+    clickable: true,
+  },
+
   breakpoints: {
     768: {
       slidesPerView: 2,

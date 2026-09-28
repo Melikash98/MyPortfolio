@@ -69,7 +69,7 @@ body {
 }
 
 .section {
-    min-height: 100vh;
+    min-height: 150vh;
 }
 
 .home {
@@ -79,8 +79,12 @@ body {
 .home,
 .services,
 .experience,
-.skills {
-    min-height: 100vh;
+.skills,
+.projects,
+.tutorials,
+.comments,
+.contact {
+    min-height: 110vh;
     overflow: hidden;
 }
 .grid{
