@@ -83,7 +83,9 @@ body {
     min-height: 100vh;
     overflow: hidden;
 }
-
+.grid{
+    display: grid;
+}
 
 a {
     text-decoration: none;

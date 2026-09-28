@@ -252,8 +252,6 @@ function openResumeItem(item, details, icon) {
   icon.classList.remove("ri-add-large-fill");
   icon.classList.add("ri-subtract-fill");
 }
-
-
 // TODO: Close Resume Item
 function closeResumeItem(item, details, icon) {
   item.classList.remove("active");
@@ -261,3 +259,24 @@ function closeResumeItem(item, details, icon) {
   icon.classList.remove("ri-subtract-fill");
   icon.classList.add("ri-add-large-fill");
 }
+// TODO: *************************************************************** Skills Section **********************************************************************//
+const tabs = document.querySelectorAll("[data-target]");
+const tabContent = document.querySelectorAll("[data-content]");
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = document.querySelector(
+      tab.dataset.target
+    );
+    if (!target) return;
+    tabContent.forEach((tabContents) => {
+      tabContents.classList.remove("skillsActive");
+    });
+    tabs.forEach((tabItem) => {
+      tabItem.classList.remove("skillsActive");
+    });
+    tab.classList.add("skillsActive");
+    target.classList.add("skillsActive");
+
+  });
+
+});
