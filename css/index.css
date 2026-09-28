@@ -1530,32 +1530,37 @@
     padding: 1rem;
     border-radius: 10px;
 }
-.firstDetails{
+
+.firstDetails {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.nameProject{
+
+.nameProject {
     font-family: var(--tittle-font);
     font-weight: var(--bold-font-weight);
     font-size: 2rem;
     color: var(--main-text-color);
 }
-.comapnyName{
+
+.comapnyName {
     font-family: var(--subtitle-font);
     margin-left: 2rem;
     font-size: 1.2rem;
     font-weight: var(--normal-font-weight);
     color: var(--text-select-color);
 }
-.firstDetails p{
+
+.firstDetails p {
     font-family: var(--description-color);
     font-size: 1rem;
     font-weight: var(--normal-font-weight);
     color: var(--description-color);
     margin-top: 2rem;
 }
-.projectCategory{
+
+.projectCategory {
     position: absolute;
     right: 0;
     top: 0;
@@ -1564,39 +1569,46 @@
     font-weight: var(--bold-font-weight);
     font-size: 1.3rem;
 }
-.showProject{
+
+.showProject {
     position: absolute;
     bottom: 2rem;
     left: 2rem;
     font-size: 1.5rem;
     color: var(--main-text-color);
 }
-.showProject:hover{
+
+.showProject:hover {
     color: var(--text-select-color);
 }
-.projectCardImg{
+
+.projectCardImg {
     width: 300px;
     height: max-content;
 }
-.projectCardImg img{
+
+.projectCardImg img {
     width: 100%;
     height: 100%;
     border-radius: 10%;
     box-shadow: 3px 3px var(--description-color);
-    object-fit:fill;
+    object-fit: fill;
 }
-.demoInfo{
+
+.demoInfo {
     display: inline-flex;
     justify-content: space-between;
 }
-.infoText .nameProject{
+
+.infoText .nameProject {
     margin-left: 1.5rem;
     margin-top: .5rem;
     font-size: 1.8rem;
     text-align: start;
     font-weight: var(--normal-font-weight);
 }
-.infoText .companyName{
+
+.infoText .companyName {
     text-align: start;
     margin-left: 2.5rem;
     margin-top: .3rem;
@@ -1605,7 +1617,8 @@
     font-weight: var(--normal-font-weight);
     color: var(--text-select-color);
 }
-.dateFiishProject{
+
+.dateFiishProject {
     font-family: var(--subtitle-font);
     font-weight: var(--normal-font-weight);
     font-size: 1rem;
@@ -1613,7 +1626,8 @@
     margin-top: 1rem;
     color: var(--main-text-color);
 }
-.explainProject{
+
+.explainProject {
     font-family: var(--description-color);
     font-weight: var(--normal-font-weight);
     color: var(--description-color);
@@ -1623,6 +1637,7 @@
     margin-left: 1rem;
     width: 90%;
 }
+
 .infoList {
     font-family: var(--robot-font);
     font-weight: 800;
@@ -1678,17 +1693,20 @@
     cursor: pointer;
     border: var(--text-select-color);
 }
+
 .dotImgCard .shape {
     max-width: 126px;
     height: 126px;
     bottom: -60px;
     right: -3rem;
 }
-.services-swiper .swiper-slide.tutorialsCard {
+
+.tutorialsCard {
     padding: 1rem 1.25rem;
     border-radius: 1.25rem;
     position: relative;
     overflow: hidden;
+    width: 300px;
     height: 350px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px);
@@ -1702,7 +1720,7 @@
         inset 0 0 0px 0px rgba(255, 255, 255, 0);
 }
 
-.tutorialsCard::before {
+/*.tutorialsCard::before {
     content: '';
     position: absolute;
     left: 19rem;
@@ -1716,8 +1734,52 @@
     z-index: 0;
     pointer-events: none;
 }
-
+*/
 .services-swiper .tutorialsCard>* {
     position: relative;
     z-index: 1;
+}
+
+.cardTutorialsImg {
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+
+}
+
+.cardTutorialsImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 5%;
+}
+
+.roleTutorials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: .1rem .1rem;
+    width: 110px;
+    height: 32px;
+    border-radius: 9999px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.roleTutorials h4{
+    font-family: var(--subtitle-font);
+    color: var(--text-select-color);
+    font-weight: var(--bold-font-weight);
+    font-size: .9rem;
+    margin-left: .3rem;
+}
+.roleTutorials img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }

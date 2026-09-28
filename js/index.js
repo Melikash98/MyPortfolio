@@ -320,7 +320,7 @@ closeProjectPopup.addEventListener('click', () => {
 });
 // TODO: *************************************************************** Tutorials Section **********************************************************************//
 var swiperTutorials = new Swiper('.tutorialsSwiper', {
-  slidesPerView: 1,
+  slidesPerView: 2,
   spaceBetween: 24,
   grabCursor: true,
   loop: false,
