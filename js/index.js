@@ -280,3 +280,28 @@ tabs.forEach((tab) => {
   });
 
 });
+// TODO: *************************************************************** Projects Section **********************************************************************//
+// !Filtering Projects
+const filterButtons = document.querySelectorAll('.filterItems');
+const projectItems = document.querySelectorAll('.boxCard');
+
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach((btn) => btn.classList.remove('active'));
+    button.classList.add('active');
+
+
+
+    const filterValue = button.getAttribute('data-filter');
+
+    projectItems.forEach((item) => {
+      if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+        item.style.display = 'block';
+      }
+      else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
