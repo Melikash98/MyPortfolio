@@ -211,3 +211,53 @@ serviceLinks.forEach(link => {
 closePopup.addEventListener('click', () => {
   servicesPopup.classList.remove('active');
 });
+// TODO: *************************************************************** Experience Section **********************************************************************//
+const resumeItems = document.querySelectorAll(".resumeItem");
+resumeItems.forEach((item) => {
+  const toggle = item.querySelector(".resumeToggle");
+  const button = item.querySelector(".detailsBtn, .detailsEXBtn");
+  const details = item.querySelector(".detailItem");
+  const icon = button?.querySelector("i");
+  if (!toggle || !button || !details || !icon) return;
+  toggle.addEventListener("click", () => {
+    const isOpen = item.classList.contains("active");
+    if (isOpen) {
+      closeResumeItem(item, details, icon);
+      return;
+    }
+    const column = item.parentElement;
+    const otherItems = column.querySelectorAll(".resumeItem");
+    otherItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        const otherDetails = otherItem.querySelector(".detailItem");
+        const otherIcon = otherItem.querySelector(
+          ".detailsBtn i, .detailsEXBtn i"
+        );
+        if (otherDetails && otherIcon) {
+          closeResumeItem(
+            otherItem,
+            otherDetails,
+            otherIcon
+          );
+        }
+      }
+    });
+    openResumeItem(item, details, icon);
+  });
+});
+// TODO: Open Resume Item
+function openResumeItem(item, details, icon) {
+  item.classList.add("active");
+  details.style.maxHeight = `${details.scrollHeight}px`;
+  icon.classList.remove("ri-add-large-fill");
+  icon.classList.add("ri-subtract-fill");
+}
+
+
+// TODO: Close Resume Item
+function closeResumeItem(item, details, icon) {
+  item.classList.remove("active");
+  details.style.maxHeight = "0px";
+  icon.classList.remove("ri-subtract-fill");
+  icon.classList.add("ri-add-large-fill");
+}

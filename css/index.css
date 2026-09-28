@@ -21,7 +21,7 @@
 .homeProfilePic {
     position: absolute;
     top: 50%;
-    right: 5%;
+    right: 0%;
     transform: translateY(-50%);
 }
 
@@ -211,7 +211,7 @@
 .homeProfilePic {
     position: absolute;
     top: 54%;
-    right: 3rem;
+    right: 0rem;
     width: 37.90rem;
     transform: translateY(-50%);
     border-radius: 0 0 100vw 100vw;
@@ -999,59 +999,104 @@
 }
 
 .mainItem h3 {
-    font-family: var(--name-second-font);
+    margin: 0;
+    font-family: var(--robot-font);
     color: var(--main-text-color);
+    font-weight: var(--light-font-weight);
     font-size: 1.3rem;
 }
 
-.educationItem {
+.educationItem,
+.experienceItem {
+    cursor: pointer;
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: .15rem;
     border-bottom: 2px solid var(--description-color);
 }
-.detailsBtn {
+
+.detailsBtn,
+.detailsEXBtn {
+    width: 32px;
+    height: 32px;
     display: flex;
-    position: absolute;
-    bottom: -.98rem;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    align-content: center;
     align-items: center;
-    align-self: center;
+    justify-content: center;
+    position: absolute;
+    right: -1.35rem;
+    bottom: -17px;
     border: 2px solid var(--description-color);
     border-radius: 50%;
     background-color: #00151F;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow:
+        0 3px 5px var(--description-color),
+        0 0 0 2px rgba(255, 255, 255, 0.04);
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
 }
-.detailItem {
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-}
-.detailItem.show {
-    opacity: 1;
-    visibility: visible;
-}
-.detailsBtn i {
+
+.detailsBtn i,
+.detailsEXBtn i {
+    display: flex;
     align-items: center;
-    align-self: center;
-    align-content: center;
-    text-align: center;
-    color: var(--description-color);
-    font-size: 1.2rem;
     justify-content: center;
-    justify-self: center;
-    justify-items: center;
+    color: var(--description-color);
+    font-size: 1.1rem;
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.detailItem {
+    margin-top: 2rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height 0.45s ease,
+        opacity 0.3s ease,
+        padding 0.3s ease;
+}
+
+.educationItem.active .detailItem,
+.experienceItem.active .detailItem {
+    opacity: 1;
+    padding-bottom: 1.25rem;
+}
+
+.detailUni h3,
+.detailUni h4 {
+    margin: 0;
+}
+
+
+
+.detailsBtn i,
+.detailsEXBtn i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--description-color);
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.detailsBtn:hover,
+:detailsEXBtn:hover {
+    border-color: var(--text-select-color);
+}
+
+.detailsBtn:hover i,
+.detailsEXBtn:hover i {
+    color: var(--text-select-color);
 }
 
 .detailUni {
-    width: 100%;
+    width: 95%;
     display: inline-flex;
     justify-content: space-between;
     font-family: var(--subtitle-font);
@@ -1067,12 +1112,125 @@
     font-family: var(--number-font);
     justify-content: end;
     color: var(--text-select-color);
+    white-space: nowrap;
 }
 
 .explainItem {
+    margin: 0;
     font-family: var(--main-description-font);
     color: var(--description-color);
     font-weight: var(--normal-font-weight);
     font-size: 1rem;
+    line-height: 1.7;
     text-align: justify;
+}
+
+.educationItem+.educationItem::before,
+.experienceItem+.experienceItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -.4rem;
+    width: 2px;
+    background-color: var(--description-color);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.tittleWork {
+    display: inline-flex;
+    width: 100%;
+}
+
+.imgCompany {
+    width: 50px;
+    height: 50px;
+
+}
+
+.imgCompany img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+.tittleWork h3 {
+    margin-left: 1rem;
+    font-family: var(--robot-font);
+}
+
+.dateEx {
+    margin-left: 2rem;
+    display: inline-flex;
+    width: 80%;
+    justify-content: space-between;
+    font-family: var(--subtitle-font);
+    color: var(--text-select-color);
+    font-size: 1.1rem;
+}
+
+.dateEx .value {
+    margin-right: .5rem;
+    font-family: var(--number-font);
+}
+
+.dateEx .valueDateEx {
+    font-size: 1.1rem;
+}
+
+.workItem {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.workItem::before {
+    content: "";
+    position: absolute;
+    top: 0.65rem;
+    left: 1.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--text-select-color);
+    z-index: 2;
+}
+
+.workItem:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    bottom: -1rem;
+    left: 1.75rem;
+    width: 2px;
+    background-color: var(--text-select-color);
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.sectioWorkTittle {
+    margin: 0;
+}
+
+.explainWork {
+    margin: 0.75rem 0 0;
+    line-height: 1.7;
+}
+
+.roleCompany {
+    margin: 0;
+    font-family: var(--tittle-font);
+    color: var(--main-text-color);
+}
+
+.dataWorkTittle {
+    margin: 0.2rem 0 0;
+    font-family: var(--subtitle-font);
+    color: var(--text-select-color);
+}
+
+.explainWork {
+    width: 99%;
+    font-family: var(--main-description-font);
+    color: var(--description-color);
+    line-height: 1.7;
 }
