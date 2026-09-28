@@ -366,3 +366,81 @@ const commentSwiper = new Swiper('.comments-swiper', {
     },
   },
 });
+// TODO: *************************************************************** Contact Section **********************************************************************//
+const locationContact = document.getElementById("locationContact");
+const emailContact = document.getElementById("emailContact");
+const telegramContact = document.getElementById("telegramContact");
+const linkedinContact = document.getElementById("linkedinContact");
+const contactForm = document.getElementById("contactForm");
+const formBottom = document.querySelector(".formBottom");
+const terms = document.querySelector(".terms");
+const contactButton = document.querySelector(".contactButton");
+const contactMap = document.querySelector(".contact-map");
+function hideContactForm() {
+  contactForm.style.visibility = "hidden";
+  contactForm.style.opacity = "0";
+
+  formBottom.style.visibility = "hidden";
+  formBottom.style.opacity = "0";
+
+  terms.style.visibility = "hidden";
+  terms.style.opacity = "0";
+
+  contactButton.style.visibility = "hidden";
+  contactButton.style.opacity = "0";
+}
+function showContactForm() {
+  contactMap.style.visibility = "hidden";
+  contactMap.style.opacity = "0";
+
+  contactForm.style.visibility = "visible";
+  contactForm.style.opacity = "1";
+
+  formBottom.style.visibility = "visible";
+  formBottom.style.opacity = "1";
+
+  terms.style.visibility = "visible";
+  terms.style.opacity = "1";
+
+  contactButton.style.visibility = "visible";
+  contactButton.style.opacity = "1";
+}
+function hideContactMap() {
+  contactMap.style.visibility = "hidden";
+  contactMap.style.opacity = "0";
+}
+function showContactMap() {
+  hideContactForm();
+
+  contactMap.style.visibility = "visible";
+  contactMap.style.opacity = "1";
+}
+emailContact.addEventListener("click", () => {
+  showContactForm();
+  contactForm.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+});
+locationContact.addEventListener("click", () => {
+  showContactMap();
+  contactMap.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+});
+telegramContact.addEventListener("click", () => {
+  const telegramUsername = "melika_sh_de";
+
+  window.open(
+    `https://t.me/${telegramUsername}`,
+    "_blank"
+  );
+});
+linkedinContact.addEventListener("click", () => {
+
+  window.open(
+    "https://www.linkedin.com/in/melika-shooryabi/",
+    "_blank"
+  );
+});

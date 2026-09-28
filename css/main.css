@@ -45,6 +45,12 @@
 }
 
 /*============================================ Global Style ============================================*/
+html[lang="fa"] body,
+html[lang="ar"] body {
+    direction: rtl;
+    text-align: right;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -87,7 +93,8 @@ body {
     min-height: 110vh;
     overflow: hidden;
 }
-.grid{
+
+.grid {
     display: grid;
 }
 
