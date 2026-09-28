@@ -70,16 +70,17 @@ body {
 
 .section {
     min-height: 100vh;
-    max-height: 100vh;
-    overflow: hidden;
 }
-.home{
+
+.home {
     padding-block: 7rem 3.5rem;
 }
+
 .home,
 .services,
-.experience {
-    height: 100vh;
+.experience,
+.skills {
+    min-height: 100vh;
     overflow: hidden;
 }
 

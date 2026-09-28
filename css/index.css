@@ -966,11 +966,11 @@
 /* TODO ============================================ EXPERIENCE SECTION ============================================*/
 .experience .container {
     position: relative;
-    height: 100%;
+    height: auto;
 }
 
 .experienceContent {
-    margin-top: -5rem;
+    margin-top: -0rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -978,6 +978,7 @@
     justify-content: center;
     position: relative;
     z-index: 2;
+    align-items: flex-start;
 }
 
 .experiencekColumns {
@@ -1007,7 +1008,8 @@
 }
 
 .educationItem,
-.experienceItem {
+.experienceItem,
+.awardItem {
     cursor: pointer;
     position: relative;
     padding-left: 1.5rem;
@@ -1063,13 +1065,16 @@
 }
 
 .educationItem.active .detailItem,
-.experienceItem.active .detailItem {
+.experienceItem.active .detailItem,
+.awardItem.active .detailItem {
     opacity: 1;
     padding-bottom: 1.25rem;
 }
 
 .detailUni h3,
-.detailUni h4 {
+.detailUni h4,
+.detailAward h3,
+.detailAward h4 {
     margin: 0;
 }
 
@@ -1095,7 +1100,8 @@
     color: var(--text-select-color);
 }
 
-.detailUni {
+.detailUni,
+.detailAward {
     width: 95%;
     display: inline-flex;
     justify-content: space-between;
@@ -1126,7 +1132,8 @@
 }
 
 .educationItem+.educationItem::before,
-.experienceItem+.experienceItem::before {
+.experienceItem+.experienceItem::before,
+.awardItem+.awardItem::before {
     content: "";
     position: absolute;
     top: 0;
