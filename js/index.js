@@ -284,8 +284,6 @@ tabs.forEach((tab) => {
 // !Filtering Projects
 const filterButtons = document.querySelectorAll('.filterItems');
 const projectItems = document.querySelectorAll('.boxCard');
-
-
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     filterButtons.forEach((btn) => btn.classList.remove('active'));
@@ -304,4 +302,41 @@ filterButtons.forEach((button) => {
       }
     });
   });
+});
+// ! Project Popup => Show Details Project
+const projectPopup = document.querySelector('.projectsPopupModel');
+const projectLinks = document.querySelectorAll('.showProject');
+const closeProjectPopup = document.querySelector('.containerPClosed');
+
+projectLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    projectPopup.classList.add('active');
+  });
+});
+
+closeProjectPopup.addEventListener('click', () => {
+  projectPopup.classList.remove('active');
+});
+// TODO: *************************************************************** Tutorials Section **********************************************************************//
+var swiperTutorials = new Swiper('.tutorialsSwiper', {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  grabCursor: true,
+  loop: false,
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+
+    1208: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+  },
 });

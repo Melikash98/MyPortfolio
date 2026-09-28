@@ -789,7 +789,8 @@
     padding-block: 3.75rem;
 }
 
-.servicesPopupModel {
+.servicesPopupModel,
+.projectsPopupModel {
     position: fixed;
     top: 0;
     left: 0;
@@ -805,7 +806,8 @@
     transition: all 0.3s ease-in-out;
 }
 
-.servicesPopupModel.active {
+.servicesPopupModel.active,
+.projectsPopupModel.active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -829,7 +831,8 @@
         inset 0 0 0px 0px rgba(255, 255, 255, 0);
 }
 
-.containerSClosed {
+.containerSClosed,
+.containerPClosed {
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -842,12 +845,14 @@
     z-index: 100000;
 }
 
-.containerSClosed:hover i {
+.containerSClosed:hover i,
+.containerPClosed:hover i {
     color: var(--text-select-color);
     transform: scale(1.1);
 }
 
-.popupBox {
+.popupBox,
+.popupProjectBox {
     width: 100%;
     height: 100%;
     position: relative;
@@ -1476,9 +1481,10 @@
 }
 
 .boxCard {
-    width: 350px;
+    width: 100%;
     height: 250px;
     display: flex;
+    position: relative;
     background: rgba(0, 0, 0, 0);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(2.5px);
@@ -1488,12 +1494,10 @@
 }
 
 .boxCardImg {
-    width: 450px;
+    width: 100%;
     height: 250px;
     overflow: hidden;
     border-radius: 10px;
-    transition: transform .3 ease;
-    z-index: -1;
 }
 
 .boxCardImg img {
@@ -1509,6 +1513,7 @@
 
 
 .box-show {
+    overflow: hidden;
     width: 100%;
     height: 250px;
     display: none;
@@ -1561,11 +1566,158 @@
 }
 .showProject{
     position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 2rem;
+    left: 2rem;
     font-size: 1.5rem;
     color: var(--main-text-color);
 }
 .showProject:hover{
     color: var(--text-select-color);
+}
+.projectCardImg{
+    width: 300px;
+    height: max-content;
+}
+.projectCardImg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    box-shadow: 3px 3px var(--description-color);
+    object-fit:fill;
+}
+.demoInfo{
+    display: inline-flex;
+    justify-content: space-between;
+}
+.infoText .nameProject{
+    margin-left: 1.5rem;
+    margin-top: .5rem;
+    font-size: 1.8rem;
+    text-align: start;
+    font-weight: var(--normal-font-weight);
+}
+.infoText .companyName{
+    text-align: start;
+    margin-left: 2.5rem;
+    margin-top: .3rem;
+    font-family: var(--subtitle-font);
+    font-size: 1.1rem;
+    font-weight: var(--normal-font-weight);
+    color: var(--text-select-color);
+}
+.dateFiishProject{
+    font-family: var(--subtitle-font);
+    font-weight: var(--normal-font-weight);
+    font-size: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: var(--main-text-color);
+}
+.explainProject{
+    font-family: var(--description-color);
+    font-weight: var(--normal-font-weight);
+    color: var(--description-color);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    text-align: justify;
+    margin-left: 1rem;
+    width: 90%;
+}
+.infoList {
+    font-family: var(--robot-font);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--main-text-color);
+    font-weight: var(--normal-font-weight);
+    margin-top: 1.2rem;
+}
+
+.infoList li {
+    margin-bottom: .2rem;
+}
+
+.infoList li span {
+    font-family: var(--subtitle-font);
+    font-weight: 1.1rem;
+    font-weight: var(--bold-font-weight);
+    color: var(--text-select-color);
+}
+
+.btn-project-more {
+    margin-top: 10rem;
+    background-color: var(--box-color);
+    border: 1px solid var(--box-color);
+    color: var(--main-color);
+    padding: .5rem 1rem;
+    border-radius: 5rem;
+    text-align: center;
+    align-items: center;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    margin-top: 2rem;
+}
+
+.btn-project-more i {
+    margin-left: .75rem;
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+.btn-project-more a {
+    font-family: var(--robot-font);
+    font-size: 1.1rem;
+    font-weight: 900;
+    justify-content: center;
+    justify-self: center;
+    color: var(--main-text-color);
+}
+
+.btn-project-more:hover {
+    background-color: var(--text-select-color);
+    cursor: pointer;
+    border: var(--text-select-color);
+}
+.dotImgCard .shape {
+    max-width: 126px;
+    height: 126px;
+    bottom: -60px;
+    right: -3rem;
+}
+.services-swiper .swiper-slide.tutorialsCard {
+    padding: 1rem 1.25rem;
+    border-radius: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 0px 0px rgba(255, 255, 255, 0);
+}
+
+.tutorialsCard::before {
+    content: '';
+    position: absolute;
+    left: 19rem;
+    bottom: 0rem;
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/dot-modol3-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.services-swiper .tutorialsCard>* {
+    position: relative;
+    z-index: 1;
 }
