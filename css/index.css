@@ -557,17 +557,27 @@
 }
 
 .closedMenuSlide {
-    cursor: pointer;
     position: absolute;
-    right: 3rem;
     top: 2rem;
-    font-size: 2rem;
-    font-weight: var(--bold-font-weight);
+    right: 3rem;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
     color: var(--main-text-color);
+    cursor: pointer;
+    z-index: 2000;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.closedMenuSlide:hover i {
-    cursor: pointer;
+.closedMenuSlide:hover {
     color: var(--text-select-color);
 }
 
