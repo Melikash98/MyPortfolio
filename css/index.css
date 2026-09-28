@@ -478,7 +478,7 @@
     width: max-content;
     font-family: var(--name-second-font);
     color: var(--main-text-color);
-    font-weight: var(--light-font-weight);
+    font-weight: var(--normal-font-weight);
     font-size: 1.05rem;
     text-decoration: none;
     margin-bottom: 0.5rem;
@@ -556,7 +556,7 @@
 
 }
 
-.closedMenuSlide {
+.closedMenuSlide  {
     position: absolute;
     top: 2rem;
     right: 3rem;
@@ -576,11 +576,30 @@
         color 0.3s ease,
         transform 0.3s ease;
 }
-
+.closedMenuSlide i {
+    display: inline-block;
+    transform-origin: center center;
+    font-size: 2rem;
+}
 .closedMenuSlide:hover {
     color: var(--text-select-color);
 }
+.closedMenuSlide.is-closing i {
+    animation: closeIconSpin 0.45s cubic-bezier(0.77, 0, 0.18, 1);
+}
 
+
+@keyframes closeIconSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
 /* TODO ============================================ SERVICES SECTION  ============================================*/
 
 
