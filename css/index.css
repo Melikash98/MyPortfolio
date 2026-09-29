@@ -1170,7 +1170,7 @@ iframe.skiptranslate {
 }
 
 .detailItem {
-    margin-top: 2rem;
+    margin-top: 0.75rem;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -1238,15 +1238,23 @@ iframe.skiptranslate {
 }
 
 .explainItem {
+    display: grid;
     margin: 0;
     font-family: var(--main-description-font);
     color: var(--description-color);
     font-weight: var(--normal-font-weight);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
     text-align: justify;
 }
-
+.explainItem svg{
+    fill: var(--text-select-color);
+    margin-right: .3rem;
+}
+.explainItem li i{
+    font-size: .75rem;
+    color: var(--text-select-color);
+}
 .educationItem+.educationItem::before,
 .experienceItem+.experienceItem::before,
 .awardItem+.awardItem::before {
@@ -1275,6 +1283,8 @@ iframe.skiptranslate {
 .imgCompany img {
     width: 100%;
     border-radius: 10%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .tittleWork h3 {
@@ -1283,13 +1293,21 @@ iframe.skiptranslate {
 }
 
 .dateEx {
-    margin-left: 2rem;
+    margin-left: 1rem;
+    margin-top: -.5rem;
     display: inline-flex;
     width: 80%;
     justify-content: space-between;
     font-family: var(--subtitle-font);
     color: var(--text-select-color);
     font-size: 1.1rem;
+}
+.tittleWork .subjectDegreeItem{
+    font-family: var(--subtitle-font);
+    font-size: 1.1rem;
+    font-weight: var(--bold-font-weight);
+    padding-left: .5rem;
+    color: var(--text-select-color);
 }
 
 .dateEx .value {
