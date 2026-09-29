@@ -44,13 +44,272 @@
     --transition-icon: cubic-bezier(0.3, 0, 0.3);
 }
 
-/*============================================ Global Style ============================================*/
-html[lang="fa"] body,
-html[lang="ar"] body {
-    direction: rtl;
-    text-align: right;
+:root.sun-mood {
+    --main-background: url('../images/light-background.svg');
+    --main-text-color: #010736;
+    --text-select-color: #20697e;
+    --icon-default-color: #4c1d95;
+    --description-color: gray;
 }
 
+
+.sun-mood .nameText span {
+    color: var(--main-text-color);
+    -webkit-text-stroke: 2px #2e1065;
+}
+
+.sun-mood .nameText {
+    color: #F4F8FE;
+    -webkit-text-stroke: 2px #6d28d9;
+}
+
+.sun-mood .section-deco::before,
+.sun-mood .section-deco::after {
+    background-color: #F4F8FE;
+    box-shadow: 2px 2px grey;
+
+}
+
+.shape-light {
+    display: none;
+}
+
+.sun-mood .shape-dark {
+    display: none;
+}
+
+.sun-mood .shape-light {
+    display: block;
+}
+
+.sun-mood .homeProfilePic::before {
+    background-color: #D9EAFD;
+}
+
+.sun-mood .exInfo {
+    background-color: #D9EAFD;
+    box-shadow: 2px 2px gray;
+}
+
+.sun-mood .btn {
+    box-shadow: 2px 2px gray;
+}
+
+.sun-mood .skillsLink::before {
+    background: linear-gradient(to right,
+            gray 50%,
+            #2e1065 50%);
+}
+
+.sun-mood .detailsBtn,
+.sun-mood .detailsEXBtn {
+    background-color: #F4F8FE;
+    border-color: #787A91;
+}
+
+.sun-mood .skillIcon {
+    color: #214087;
+}
+
+.sun-mood .skillsBar {
+    background-color: gray;
+}
+
+.sun-mood .skillsScoreBar {
+    background-color: #214087;
+}
+
+.sun-mood .skillItem::before {
+    background-color: #214087;
+}
+
+.sun-mood .skillItem:not(:last-child)::after {
+    background-color: #214087;
+}
+
+.sun-mood .skillName i {
+    color: #214087;
+}
+
+.sun-mood .services-swiper .swiper-slide.card {
+    border: 2px solid #214087;
+    box-shadow: 2px 3px gray;
+    border-radius: 20px;
+}
+
+.sun-mood .popupContainer {
+    background-color: #D9EAFD;
+}
+
+.sun-mood .popupBox .section-deco.decoLeft::before,
+.sun-mood .popupBox .section-deco.decoLeft::after {
+    background-color: #D9EAFD;
+    box-shadow: 2px 2px gray;
+}
+
+.sun-mood .containerSClosed:hover i,
+.sun-mood .containerPClosed:hover i {
+    color: #8D5BF5;
+    z-index: 10000000;
+}
+
+.sun-mood .commaCard {
+    background-color: #D9EAFD;
+}
+
+.sun-mood .box-show {
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+    display: none;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.sun-mood .roleTutorials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(171, 240, 233, 0.32);
+    border: 1px solid rgba(171, 240, 233, 0.65);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 4px 18px rgba(171, 240, 233, 0.15);
+
+    padding: .1rem .1rem;
+    width: 95px;
+    height: 32px;
+    border-radius: 9999px;
+    margin-top: .9rem;
+    margin-left: 1rem;
+}
+
+.sun-mood .roleTutorials h4 {
+    color: var(--text-select-color);
+}
+
+.sun-mood .locationOne {
+    width: 70px;
+    background: rgba(219, 26, 26, 0.32);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 4px 18px rgba(219, 26, 26, 0.18);
+}
+
+.sun-mood .locationTwo {
+    width: auto;
+    max-width: 115px;
+    background: rgba(30, 136, 229, 0.32);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 4px 18px rgba(30, 136, 229, 0.18);
+}
+
+.sun-mood .formGroup input,
+.sun-mood .formGroup textarea {
+    color: #010736;
+    border-color: #010736;
+}
+
+.sun-mood .contactButton {
+    border-color: #010736;
+}
+
+.sun-mood .header {
+    background: rgba(244, 248, 254, 0.22);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    box-shadow:
+        0 8px 32px rgba(217, 234, 253, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.sun-mood .filterList li.active {
+    background-color: #D9EAFD;
+}
+
+.sun-mood .translate>i {
+    color: #010736;
+}
+
+.sun-mood .translateMenu {
+    background: rgba(244, 248, 254, 0.72);
+    border: 1px solid rgba(217, 234, 253, 0.85);
+    border-radius: 14px;
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+        0 15px 40px rgba(1, 7, 54, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.96);
+    transform-origin: top right;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+}
+
+.sun-mood .translateOption {
+    color: #000D16;
+}
+
+.sun-mood .slideHeder {
+    height: 100vh;
+    min-height: 100vh;
+    width: min(420px, 100vw);
+    background: rgba(244, 248, 254, 0.99);
+    border: 1px solid gray;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow:
+        0 8px 32px rgba(1, 7, 54, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75),
+        inset 0 -1px 0 rgba(217, 234, 253, 0.4),
+        inset 0 0 0 0 rgba(255, 255, 255, 0);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transform-origin: right center;
+    transition:
+        transform 0.65s cubic-bezier(0.77, 0, 0.18, 1),
+        visibility 0s linear 0.65s;
+
+    visibility: visible;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sun-mood .slideHeder .section-deco::before,
+.sun-mood .slideHeder .section-deco::after {
+    background: rgba(244, 248, 254, 0.99);
+       box-shadow: 2px 2px gray;
+}
+.sun-mood .socialLink:hover {
+    color: #4c1d95;
+}
+/*============================================ Global Style ============================================*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -64,6 +323,43 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    top: 0 !important;
+    position: static !important;
+}
+
+html {
+    top: 0 !important;
+}
+
+#google_translate_element {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    display: none !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+.goog-te-ftab {
+    display: none !important;
+}
+
+.goog-te-menu-frame {
+    display: none !important;
+}
+
+.goog-tooltip {
+    display: none !important;
+}
+
+.goog-te-balloon-frame {
+    display: none !important;
 }
 
 .splashBody {

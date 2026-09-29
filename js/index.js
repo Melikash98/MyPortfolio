@@ -371,76 +371,224 @@ const locationContact = document.getElementById("locationContact");
 const emailContact = document.getElementById("emailContact");
 const telegramContact = document.getElementById("telegramContact");
 const linkedinContact = document.getElementById("linkedinContact");
+
 const contactForm = document.getElementById("contactForm");
 const formBottom = document.querySelector(".formBottom");
 const terms = document.querySelector(".terms");
 const contactButton = document.querySelector(".contactButton");
+
+const contactLocation = document.querySelector(".contactLocation");
 const contactMap = document.querySelector(".contact-map");
-function hideContactForm() {
-  contactForm.style.visibility = "hidden";
-  contactForm.style.opacity = "0";
 
-  formBottom.style.visibility = "hidden";
-  formBottom.style.opacity = "0";
-
-  terms.style.visibility = "hidden";
-  terms.style.opacity = "0";
-
-  contactButton.style.visibility = "hidden";
-  contactButton.style.opacity = "0";
-}
 function showContactForm() {
+  contactLocation.style.display = "none";
+  contactLocation.style.visibility = "hidden";
+  contactLocation.style.opacity = "0";
+  contactLocation.style.pointerEvents = "none";
+
+  contactMap.style.display = "none";
   contactMap.style.visibility = "hidden";
   contactMap.style.opacity = "0";
 
+  contactForm.style.display = "flex";
   contactForm.style.visibility = "visible";
   contactForm.style.opacity = "1";
+  contactForm.style.pointerEvents = "auto";
 
+  formBottom.style.display = "flex";
   formBottom.style.visibility = "visible";
   formBottom.style.opacity = "1";
 
+  terms.style.display = "block";
   terms.style.visibility = "visible";
   terms.style.opacity = "1";
 
+  contactButton.style.display = "inline-block";
   contactButton.style.visibility = "visible";
   contactButton.style.opacity = "1";
+  contactButton.style.pointerEvents = "auto";
 }
-function hideContactMap() {
-  contactMap.style.visibility = "hidden";
-  contactMap.style.opacity = "0";
+
+function hideContactForm() {
+  contactForm.style.display = "none";
+  contactForm.style.visibility = "hidden";
+  contactForm.style.opacity = "0";
+  contactForm.style.pointerEvents = "none";
+
+  formBottom.style.display = "none";
+  formBottom.style.visibility = "hidden";
+  formBottom.style.opacity = "0";
+
+  terms.style.display = "none";
+  terms.style.visibility = "hidden";
+  terms.style.opacity = "0";
+
+  contactButton.style.display = "none";
+  contactButton.style.visibility = "hidden";
+  contactButton.style.opacity = "0";
+  contactButton.style.pointerEvents = "none";
 }
+
 function showContactMap() {
   hideContactForm();
 
-  contactMap.style.visibility = "visible";
-  contactMap.style.opacity = "1";
-}
-emailContact.addEventListener("click", () => {
-  showContactForm();
-  contactForm.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
+  contactLocation.style.display = "block";
+  contactLocation.style.visibility = "visible";
+  contactLocation.style.opacity = "1";
+  contactLocation.style.pointerEvents = "auto";
+
+  contactMap.style.display = "block";
+
+  requestAnimationFrame(() => {
+    contactMap.style.visibility = "visible";
+    contactMap.style.opacity = "1";
   });
-});
+}
+
+function hideContactMap() {
+  contactMap.style.opacity = "0";
+  contactMap.style.visibility = "hidden";
+  contactMap.style.pointerEvents = "none";
+
+  contactLocation.style.opacity = "0";
+  contactLocation.style.visibility = "hidden";
+  contactLocation.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    contactMap.style.display = "none";
+    contactLocation.style.display = "none";
+  }, 400);
+}
+
 locationContact.addEventListener("click", () => {
   showContactMap();
-  contactMap.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-  });
 });
+
+emailContact.addEventListener("click", () => {
+  hideContactMap();
+  showContactForm();
+});
+
 telegramContact.addEventListener("click", () => {
   const telegramUsername = "melika_sh_de";
 
   window.open(
     `https://t.me/${telegramUsername}`,
-    "_blank"
+    "_blank",
+    "noopener,noreferrer"
   );
 });
-linkedinContact.addEventListener("click", () => {
 
+linkedinContact.addEventListener("click", () => {
   window.open(
     "https://www.linkedin.com/in/melika-shooryabi/",
-    "_blank"
+    "_blank",
+    "noopener,noreferrer"
   );
+});
+
+showContactForm();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const translateButton = document.getElementById("translateButton");
+  const translateDropdown = document.getElementById("translateDropdown");
+  const translateOptions = document.querySelectorAll(".translateOption");
+
+  if (!translateButton || !translateDropdown) {
+    return;
+  }
+
+
+  /* ==============================
+     OPEN / CLOSE MENU
+     ============================== */
+
+  translateButton.addEventListener("click", (event) => {
+
+    if (event.target.closest(".translateOption")) {
+      return;
+    }
+
+    translateDropdown.classList.toggle("show");
+
+  });
+
+
+  /* ==============================
+     CLOSE WHEN CLICK OUTSIDE
+     ============================== */
+
+  document.addEventListener("click", (event) => {
+
+    if (!translateButton.contains(event.target)) {
+      translateDropdown.classList.remove("show");
+    }
+
+  });
+
+
+  /* ==============================
+     LANGUAGE CHANGE
+     ============================== */
+
+  translateOptions.forEach((option) => {
+
+    option.addEventListener("click", (event) => {
+
+      event.stopPropagation();
+
+      const language = option.dataset.lang;
+
+      changeLanguage(language);
+
+      translateDropdown.classList.remove("show");
+
+    });
+
+  });
+
+
+  /* ==============================
+     GOOGLE TRANSLATE
+     ============================== */
+
+  function changeLanguage(language) {
+
+    const googleSelect = document.querySelector(".goog-te-combo");
+
+    if (!googleSelect) {
+
+      console.error(
+        "Google Translate is not ready yet."
+      );
+
+      setTimeout(() => {
+        changeLanguage(language);
+      }, 500);
+
+      return;
+    }
+
+
+    /* Save selected language */
+
+    document.cookie =
+      "googtrans=/en/" +
+      language +
+      ";path=/;max-age=31536000";
+
+
+    /* Tell Google Translate to change */
+
+    googleSelect.value = language;
+
+    googleSelect.dispatchEvent(
+      new Event("change", {
+        bubbles: true
+      })
+    );
+
+  }
+
 });

@@ -34,8 +34,13 @@
             </a>
         </div>
         <div class="controlIcon">
-            <div class="translate">
+            <div class="translate" id="translateButton">
                 <i class="ri-translate"></i>
+                <div class="translateMenu" id="translateDropdown">
+                    <div class="translateOption" data-lang="de">Deutsch</div>
+                    <div class="translateOption" data-lang="en">English</div>
+                    <div class="translateOption" data-lang="ar">العربية</div>
+                </div>
             </div>
             <div class="themeMoode">
                 <i class="uil uil-sun"></i>
@@ -43,6 +48,7 @@
             <div class="menuOpen">
                 <i class="uil uil-list-ui-alt"></i>
             </div>
+            <div id="google_translate_element"></div>
         </div>
         <div class="slideHeder">
             <div class="closedMenuSlide">
@@ -59,7 +65,8 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="section-deco decoLeft">
-                <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
             </div>
         </div>
     </header>
@@ -92,6 +99,10 @@
                         <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-1">
                         <img src="../images/dot-modol2-dark.png" alt="" class="shape shape-2">
                         <img src="../images/dot-modol3-dark.png" alt="" class="shape shape-3">
+                        <!--!Light Mood-->
+                        <img src="../images/dot-modol1.png" alt="" class="shape shape-1 shape-light">
+                        <img src="../images/dot-modol2.png" alt="" class="shape shape-2 shape-light">
+                        <img src="../images/dot-modol3.png" alt="" class="shape shape-3 shape-light">
 
                     </div>
                     <p class="descriptionAbout" data-aos="fade-down">Lorem ipsum dolor sit amet consectetur, adipisicing
@@ -119,13 +130,14 @@
                     </div>
                 </div>
                 <div class="section-deco decoLeft">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                 </div>
             </div>
         </section>
         <!-- !Experience -->
         <section class="section experience" id="experience">
-            <h2 class="sectionTittle" data-tittle="My Experience">My Resume</h2>
+            <h2 class="sectionTittle" data-tittle="My Resume">The Foundation of My Expertise</h2>
             <div class="container">
                 <div class="experienceContent">
                     <div class="experiencekColumns">
@@ -289,7 +301,8 @@
                     </div>
                 </div>
                 <div class="section-deco decoRight">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                 </div>
             </div>
         </section>
@@ -297,9 +310,6 @@
         <section class="section skills" id="skills">
             <h2 class="sectionTittle" data-tittle="My Talent">Professional Skills</h2>
             <div class="container">
-                <div class="section-deco decoLeft">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
-                </div>
                 <div class="skillsContent">
                     <div class="skillsTab">
                         <div class="skillsHeader skillsActive" data-target="#language" data-aos="fade-down">
@@ -383,6 +393,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="section-deco decoLeft">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
+                </div>
             </div>
         </section>
         <!-- !Services -->
@@ -435,7 +449,8 @@
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="section-deco decoRight">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                 </div>
                 <h6 class="finalTextS">Let’s turn your ideas into something extraordinary.</h6>
             </div>
@@ -511,7 +526,8 @@
                     </div>
                 </div>
                 <div class="section-deco decoLeft">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                 </div>
             </div>
         </section>
@@ -740,7 +756,8 @@
                     <div class="swiper-pagination"></div>
                 </div>
                 <div class="section-deco decoRight">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                 </div>
             </div>
         </section>
@@ -828,10 +845,9 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-
-
                 <div class="section-deco decoLeft">
-                    <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                    <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                    <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                 </div>
             </div>
         </section>
@@ -843,8 +859,18 @@
                     <div class="contactInfo">
                         <div class="contactItem" id="locationContact">
                             <div class="contactIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#F2F9FF"
-                                    viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="shape-dark" width="32" height="32"
+                                    fill="#F2F9FF" viewBox="0 0 24 24">
+                                    <path
+                                        d="M16 10c0-2.21-1.79-4-4-4s-4 1.79-4 4 1.79 4 4 4 4-1.79 4-4m-6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2">
+                                    </path>
+                                    <path
+                                        d="M11.42 21.81c.17.12.38.19.58.19s.41-.06.58-.19c.3-.22 7.45-5.37 7.42-11.82 0-4.41-3.59-8-8-8s-8 3.59-8 8c-.03 6.44 7.12 11.6 7.42 11.82M12 4c3.31 0 6 2.69 6 6 .02 4.44-4.39 8.43-6 9.74-1.61-1.31-6.02-5.29-6-9.74 0-3.31 2.69-6 6-6">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="shape-light" width="32" height="32"
+                                    fill="#010736" viewBox="0 0 24 24">
+                                    <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
                                     <path
                                         d="M16 10c0-2.21-1.79-4-4-4s-4 1.79-4 4 1.79 4 4 4 4-1.79 4-4m-6 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2">
                                     </path>
@@ -860,8 +886,15 @@
                         </div>
                         <div class="contactItem" id="emailContact">
                             <div class="contactIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#F2F9FF"
-                                    viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="shape-dark" width="32" height="32"
+                                    fill="#F2F9FF" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.47 0 2.96-.37 4.44-1.1l-.89-1.79c-1.2.59-2.4.9-3.56.9-4.41 0-8-3.59-8-8S7.59 4 12 4s8 3.59 8 8v1c0 .69-.31 2-1.5 2-1.4 0-1.49-1.82-1.5-2V8h-2v.03C14.16 7.4 13.13 7 12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c1.45 0 2.75-.63 3.66-1.62.52.89 1.41 1.62 2.84 1.62 2.27 0 3.5-2.06 3.5-4v-1c0-5.51-4.49-10-10-10m0 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="shape-light" width="32" height="32"
+                                    fill="#010736" viewBox="0 0 24 24">
+                                    <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
                                     <path
                                         d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.47 0 2.96-.37 4.44-1.1l-.89-1.79c-1.2.59-2.4.9-3.56.9-4.41 0-8-3.59-8-8S7.59 4 12 4s8 3.59 8 8v1c0 .69-.31 2-1.5 2-1.4 0-1.49-1.82-1.5-2V8h-2v.03C14.16 7.4 13.13 7 12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5c1.45 0 2.75-.63 3.66-1.62.52.89 1.41 1.62 2.84 1.62 2.27 0 3.5-2.06 3.5-4v-1c0-5.51-4.49-10-10-10m0 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3">
                                     </path>
@@ -945,7 +978,8 @@
                         </div>
                     </div>
                     <div class="section-deco decoRight">
-                        <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                        <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                        <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                     </div>
                 </div>
             </div>
@@ -978,7 +1012,8 @@
                         </ul>
                     </div>
                     <div class="section-deco decoLeft">
-                        <img src="../images/dot-modol1-dark.png" alt="" class="shape">
+                        <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
+                        <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
                     </div>
                 </div>
             </div>
@@ -1015,9 +1050,6 @@
                     <span class="btn-project-more">
                         <a href="../html/projects.html">See More<i class="ri-share-forward-fill"></i></a>
                     </span>
-                    <div class="section-deco decoLeft">
-                        <img src="../images/dot-modol1-dark.png" alt="" class="shape">
-                    </div>
                 </div>
             </div>
         </div>
@@ -1034,6 +1066,19 @@
     <!--Js-->
     <script src="../js/main.js"></script>
     <script src="../js/index.js"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "en,de,ar",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
