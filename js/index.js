@@ -489,106 +489,80 @@ linkedinContact.addEventListener("click", () => {
 
 showContactForm();
 
+// !Send Email Function
 document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const sendButton = document.querySelector(".contactButton");
 
-  const translateButton = document.getElementById("translateButton");
-  const translateDropdown = document.getElementById("translateDropdown");
-  const translateOptions = document.querySelectorAll(".translateOption");
-
-  if (!translateButton || !translateDropdown) {
+  if (!form || !sendButton) {
     return;
   }
 
+  sendButton.addEventListener("click", async (event) => {
+    event.preventDefault();
 
-  /* ==============================
-     OPEN / CLOSE MENU
-     ============================== */
-
-  translateButton.addEventListener("click", (event) => {
-
-    if (event.target.closest(".translateOption")) {
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
 
-    translateDropdown.classList.toggle("show");
+    sendButton.disabled = true;
+    sendButton.textContent = "Sending...";
 
-  });
+    const templateParams = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      subject: document.getElementById("subject").value.trim(),
+      message: document.getElementById("message").value.trim(),
+      time: new Date().toLocaleString()
+    };
 
+    const templateAutoParams = {
+      name: templateParams.name,
+      email: templateParams.email,
+      text: "Your feedback means a lot — thank you! It’s always a pleasure to hear from people who take a moment to share their thoughts. Whether you’ve spotted something worth improving or just wanted to say something kind, I truly appreciate it. Your voice helps shape a better experience for everyone.",
+      time: templateParams.time
+    };
 
-  /* ==============================
-     CLOSE WHEN CLICK OUTSIDE
-     ============================== */
+    try {
+      console.log("Main Email:", templateParams);
+      console.log("Auto Email:", templateAutoParams);
 
-  document.addEventListener("click", (event) => {
-
-    if (!translateButton.contains(event.target)) {
-      translateDropdown.classList.remove("show");
-    }
-
-  });
-
-
-  /* ==============================
-     LANGUAGE CHANGE
-     ============================== */
-
-  translateOptions.forEach((option) => {
-
-    option.addEventListener("click", (event) => {
-
-      event.stopPropagation();
-
-      const language = option.dataset.lang;
-
-      changeLanguage(language);
-
-      translateDropdown.classList.remove("show");
-
-    });
-
-  });
-
-
-  /* ==============================
-     GOOGLE TRANSLATE
-     ============================== */
-
-  function changeLanguage(language) {
-
-    const googleSelect = document.querySelector(".goog-te-combo");
-
-    if (!googleSelect) {
-
-      console.error(
-        "Google Translate is not ready yet."
+      const firstResponse = await emailjs.send(
+        "service_s615d4v",
+        "template_3uzazjb",
+        templateParams
       );
 
-      setTimeout(() => {
-        changeLanguage(language);
-      }, 500);
+      console.log(
+        "Main email sent successfully:",
+        firstResponse.status,
+        firstResponse.text
+      );
 
-      return;
+      const secondResponse = await emailjs.send(
+        "service_s615d4v",
+        "template_xsclzib",
+        templateAutoParams
+      );
+
+      console.log(
+        "Auto email sent successfully:",
+        secondResponse.status,
+        secondResponse.text
+      );
+
+      alert("Your message has been sent successfully!");
+
+      form.reset();
+
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+
+      alert("Failed to send your message. Please try again.");
+    } finally {
+      sendButton.disabled = false;
+      sendButton.textContent = "Send Message";
     }
-
-
-    /* Save selected language */
-
-    document.cookie =
-      "googtrans=/en/" +
-      language +
-      ";path=/;max-age=31536000";
-
-
-    /* Tell Google Translate to change */
-
-    googleSelect.value = language;
-
-    googleSelect.dispatchEvent(
-      new Event("change", {
-        bubbles: true
-      })
-    );
-
-  }
-
+  });
 });

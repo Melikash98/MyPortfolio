@@ -39,6 +39,9 @@
     --subtitle-color: #8787A3;
     --button-default-color: #000D16;
     --button-select-color: #0E8388;
+    --scroll-track: #040D12;
+    --scroll-thumb: #0E8388;
+    --scroll-hover: #14868C;
 
     /*============================================ Transition ============================================*/
     --transition-icon: cubic-bezier(0.3, 0, 0.3);
@@ -50,6 +53,9 @@
     --text-select-color: #20697e;
     --icon-default-color: #4c1d95;
     --description-color: gray;
+    --scroll-track: #F4F8FE;
+    --scroll-thumb: #B8D3EC;
+    --scroll-hover: #0E8388;
 }
 
 
@@ -304,11 +310,13 @@
 .sun-mood .slideHeder .section-deco::before,
 .sun-mood .slideHeder .section-deco::after {
     background: rgba(244, 248, 254, 0.99);
-       box-shadow: 2px 2px gray;
+    box-shadow: 2px 2px gray;
 }
+
 .sun-mood .socialLink:hover {
     color: #4c1d95;
 }
+
 /*============================================ Global Style ============================================*/
 * {
     box-sizing: border-box;
@@ -377,6 +385,7 @@ html {
 .home {
     padding-block: 7rem 3.5rem;
 }
+
 
 .home,
 .services,
@@ -466,4 +475,28 @@ textarea {
 .header {
     display: flex;
     justify-content: space-between;
+}
+
+/*============================================ Scroll Style ============================================*/
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 20px;
+    border: 2px solid var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-hover);
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
