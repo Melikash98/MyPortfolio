@@ -200,10 +200,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             console.log("EmailJS success:", response);
+
             statusMessage.textContent =
-                "Your message has been sent successfully!";
+                "✓ Your message has been sent successfully!";
 
             statusMessage.style.color = "#14868C";
+
             contactForm.reset();
 
         } catch (error) {
