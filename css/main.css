@@ -500,3 +500,12 @@ html {
     scrollbar-width: thin;
     scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
+/*============================================ Email JS ============================================*/
+#emailStatus {
+    width: 100%;
+    text-align: right;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
