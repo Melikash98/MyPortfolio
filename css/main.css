@@ -397,6 +397,7 @@ html {
 .contact {
     min-height: 110vh;
     overflow: hidden;
+    height: 100%;
 }
 
 .grid {

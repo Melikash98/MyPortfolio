@@ -566,3 +566,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+const skillSwipers = document.querySelectorAll('.skillsList.swiper');
+
+skillSwipers.forEach((swiperElement) => {
+    new Swiper(swiperElement, {
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        freeMode: true,
+        mousewheel: true,
+
+        scrollbar: {
+            el: swiperElement.querySelector('.swiper-scrollbar'),
+            draggable: true,
+        },
+    });
+});

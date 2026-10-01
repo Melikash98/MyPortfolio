@@ -1407,7 +1407,7 @@ iframe.skiptranslate {
 
 .skillsHeader {
     width: max-content;
-    max-width: 500px;
+    max-width: 700px;
     display: inline-flex;
     align-items: flex-start;
     cursor: pointer;
@@ -1419,7 +1419,10 @@ iframe.skiptranslate {
         transform .3s ease,
         opacity .3s ease;
 }
-
+#python {
+    width: 2rem;
+    height: 2rem;
+}
 .skillsHeader:hover {
     transform: translateY(-4px);
 }
@@ -1489,7 +1492,7 @@ iframe.skiptranslate {
 
 .skillsList {
     display: grid;
-    row-gap: 3.5rem;
+    row-gap: 2rem;
     width: 100%;
 }
 
@@ -1506,18 +1509,19 @@ iframe.skiptranslate {
 }
 
 .skillName {
+    max-width: 300px;
+    width: 100%;
     margin: 0;
-    font-size: 1.2rem;
-    letter-spacing: .1rem;
-    font-family: var(--robot-font);
-    font-weight: var(--bold-font-weight);
+    font-size: 1.3rem;
+    font-family: var(--subtitle-font);
+    font-weight: var(--normal-font-weight);
     color: var(--main-text-color);
 }
 
 .skillName i {
     color: var(--text-select-color);
     margin-right: .5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .skillNumber {
