@@ -1236,7 +1236,12 @@ iframe.skiptranslate {
     color: var(--text-select-color);
     white-space: nowrap;
 }
-
+.detailItem .x{
+    display: inline-flex;
+}
+.detailItem .x span{
+    margin-top: .5rem;
+}
 .explainItem {
     display: grid;
     margin: 0;
