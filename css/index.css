@@ -620,6 +620,7 @@
     }
 
 }
+
 .translate {
     position: relative;
     width: 42px;
@@ -631,14 +632,14 @@
     z-index: 99999;
 }
 
-.translate > i {
+.translate>i {
     font-size: 1.6rem;
     color: #F2F9FF;
 
     transition: color 0.25s ease;
 }
 
-.translate:hover > i {
+.translate:hover>i {
     color: #0E8388;
 }
 
@@ -669,6 +670,7 @@
         visibility 0.2s ease,
         transform 0.2s ease;
 }
+
 .translateMenu.show {
     opacity: 1;
     visibility: visible;
@@ -704,6 +706,7 @@ iframe.skiptranslate {
     display: none !important;
     visibility: hidden !important;
 }
+
 .controlIcon {
     display: flex;
     align-items: center;
@@ -715,6 +718,7 @@ iframe.skiptranslate {
 
     z-index: 99999;
 }
+
 /* TODO ============================================ SERVICES SECTION  ============================================*/
 
 
@@ -924,6 +928,20 @@ iframe.skiptranslate {
     pointer-events: auto;
 }
 
+.servicesPopupModel .popupContainer {
+    transform: scale(0.75);
+    opacity: 0;
+
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.25s ease;
+}
+
+.servicesPopupModel.active .popupContainer {
+    transform: scale(1);
+    opacity: 1;
+}
+
 .popupContainer {
     width: 80%;
     max-width: 700px;
@@ -1077,6 +1095,10 @@ iframe.skiptranslate {
     font-family: var(--text-first-font);
     color: var(--icon-hover-color);
     font-size: 1rem;
+}
+
+.detailServices {
+    display: none !important;
 }
 
 /* TODO ============================================ EXPERIENCE SECTION ============================================*/
@@ -1236,12 +1258,15 @@ iframe.skiptranslate {
     color: var(--text-select-color);
     white-space: nowrap;
 }
-.detailItem .x{
+
+.detailItem .x {
     display: inline-flex;
 }
-.detailItem .x span{
+
+.detailItem .x span {
     margin-top: .5rem;
 }
+
 .explainItem {
     display: grid;
     margin: 0;
@@ -1252,14 +1277,17 @@ iframe.skiptranslate {
     line-height: 1.4rem;
     text-align: justify;
 }
-.explainItem svg{
+
+.explainItem svg {
     fill: var(--text-select-color);
     margin-right: .3rem;
 }
-.explainItem li i{
+
+.explainItem li i {
     font-size: .75rem;
     color: var(--text-select-color);
 }
+
 .educationItem+.educationItem::before,
 .experienceItem+.experienceItem::before,
 .awardItem+.awardItem::before {
@@ -1282,7 +1310,7 @@ iframe.skiptranslate {
 .imgCompany {
     width: 50px;
     height: 50px;
-    display:none;
+    display: none;
     visibility: hidden;
     opacity: 0;
 }
@@ -1309,7 +1337,8 @@ iframe.skiptranslate {
     color: var(--text-select-color);
     font-size: 1.1rem;
 }
-.tittleWork .subjectDegreeItem{
+
+.tittleWork .subjectDegreeItem {
     font-family: var(--subtitle-font);
     font-size: 1.1rem;
     font-weight: var(--bold-font-weight);
@@ -1424,10 +1453,12 @@ iframe.skiptranslate {
         transform .3s ease,
         opacity .3s ease;
 }
+
 #python {
     width: 2rem;
     height: 2rem;
 }
+
 .skillsHeader:hover {
     transform: translateY(-4px);
 }
@@ -1581,7 +1612,9 @@ iframe.skiptranslate {
 }
 
 /* TODO ============================================ Projects SECTION ============================================*/
-
+.projectDetail{
+    display: none;
+}
 .filterList {
     display: flex;
     justify-content: flex-start;
@@ -1678,9 +1711,10 @@ iframe.skiptranslate {
 }
 
 .nameProject {
-    font-family: var(--tittle-font);
-    font-weight: var(--bold-font-weight);
-    font-size: 2rem;
+    max-width: 300px;
+    font-family: var(--robot-font);
+    font-weight: var(--normal-font-weight);
+    font-size: 1.5rem;
     color: var(--main-text-color);
 }
 

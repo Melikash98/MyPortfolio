@@ -211,6 +211,117 @@ serviceLinks.forEach(link => {
 closePopup.addEventListener('click', () => {
   servicesPopup.classList.remove('active');
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const servicePopup = document.querySelector(".servicesPopupModel");
+
+  if (!servicePopup) return;
+
+  const popupContainer = servicePopup.querySelector(".popupContainer");
+  const closeButton = servicePopup.querySelector(".containerSClosed");
+
+  const popupSubtitle = servicePopup.querySelector(".popupSubtitle");
+  const popupTitle = servicePopup.querySelector(".popupTitle");
+  const popupDescription = servicePopup.querySelector(".popupDescription");
+  const popupListGroup = servicePopup.querySelector(".popupListGroup");
+
+  const serviceLinks = document.querySelectorAll(
+    ".services-swiper .linkeDetails"
+  );
+
+  function openServicePopup(card) {
+
+    if (!card) return;
+
+    const detailServices = card.querySelector(".detailServices");
+
+    if (!detailServices) return;
+    const subtitle = detailServices.querySelector("h4");
+    const title = detailServices.querySelector("h3");
+    const description = detailServices.querySelector("p");
+    const listItems = detailServices.querySelectorAll("li");
+
+    popupSubtitle.textContent = subtitle
+      ? subtitle.textContent.trim()
+      : "";
+
+    popupTitle.textContent = title
+      ? title.textContent.trim()
+      : "";
+
+    popupDescription.textContent = description
+      ? description.textContent.trim()
+      : "";
+    popupListGroup.innerHTML = "";
+    listItems.forEach(item => {
+
+      const li = document.createElement("li");
+      li.className = "popupListItem";
+
+      const icon = document.createElement("i");
+      icon.className = "ri-git-commit-fill popupListIcon";
+
+      const text = document.createElement("p");
+      text.className = "popupListText";
+      text.textContent = item.textContent.trim();
+
+      li.appendChild(icon);
+      li.appendChild(text);
+
+      popupListGroup.appendChild(li);
+    });
+    servicePopup.classList.add("active");
+    document.body.classList.add("popup-open");
+  }
+
+  function closeServicePopup() {
+
+    servicePopup.classList.remove("active");
+
+    document.body.classList.remove("popup-open");
+  }
+  serviceLinks.forEach(link => {
+
+    link.addEventListener("click", event => {
+
+      event.preventDefault();
+
+      const card = link.closest(".services-swiper .card");
+
+      openServicePopup(card);
+    });
+  });
+
+  closeButton.addEventListener("click", () => {
+    closeServicePopup();
+  });
+  servicePopup.addEventListener("click", event => {
+
+    if (event.target === servicePopup) {
+      closeServicePopup();
+    }
+  });
+  if (popupContainer) {
+
+    popupContainer.addEventListener("click", event => {
+      event.stopPropagation();
+    });
+  }
+  document.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Escape" &&
+      servicePopup.classList.contains("active")
+    ) {
+      closeServicePopup();
+    }
+  });
+
+});
+
+
+
 // TODO: *************************************************************** Experience Section **********************************************************************//
 const resumeItems = document.querySelectorAll(".resumeItem");
 resumeItems.forEach((item) => {
@@ -280,6 +391,23 @@ tabs.forEach((tab) => {
   });
 
 });
+
+
+const skillSwipers = document.querySelectorAll('.skillsList.swiper');
+
+skillSwipers.forEach((swiperElement) => {
+  new Swiper(swiperElement, {
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    freeMode: true,
+    mousewheel: true,
+
+    scrollbar: {
+      el: swiperElement.querySelector('.swiper-scrollbar'),
+      draggable: true,
+    },
+  });
+});
 // TODO: *************************************************************** Projects Section **********************************************************************//
 // !Filtering Projects
 const filterButtons = document.querySelectorAll('.filterItems');
@@ -317,6 +445,141 @@ projectLinks.forEach(link => {
 
 closeProjectPopup.addEventListener('click', () => {
   projectPopup.classList.remove('active');
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const projectsPopup = document.querySelector(".projectsPopupModel");
+
+  if (!projectsPopup) return;
+
+  const popupContainer = projectsPopup.querySelector(".popupContainer");
+  const closeButton = projectsPopup.querySelector(".containerPClosed");
+
+  const popupImage = projectsPopup.querySelector(".projectCardImg img");
+  const popupName = projectsPopup.querySelector(".nameProject");
+  const popupCompany = projectsPopup.querySelector(".companyName");
+  const popupDate = projectsPopup.querySelector(".dateFiishProject");
+  const popupDescription = projectsPopup.querySelector(".explainProject");
+
+  const popupList = projectsPopup.querySelector(".infoList ul");
+
+  const projectCards = document.querySelectorAll(".projectContainer .boxCard");
+  function openProjectPopup(card) {
+
+    if (!card) return;
+
+    const detail = card.querySelector(".projectDetail");
+
+    if (!detail) return;
+
+    const detailImage = detail.querySelector("img");
+    const detailName = detail.querySelector("h4");
+    const detailCompany = detail.querySelector("h6");
+    const detailDate = detail.querySelector("h5");
+    const detailDescription = detail.querySelector("p");
+    const detailListItems = detail.querySelectorAll("ul li");
+    if (popupImage && detailImage) {
+      popupImage.src = detailImage.src;
+      popupImage.alt = detailImage.alt || "";
+    }
+
+    if (popupName && detailName) {
+      popupName.textContent = detailName.textContent.trim();
+    }
+
+    if (popupCompany && detailCompany) {
+      popupCompany.textContent = detailCompany.textContent.trim();
+    }
+
+    if (popupDate && detailDate) {
+
+      popupDate.innerHTML = detailDate.innerHTML;
+
+    }
+
+    if (popupDescription && detailDescription) {
+      popupDescription.textContent =
+        detailDescription.textContent.trim();
+    }
+
+    if (popupList) {
+
+      popupList.innerHTML = "";
+
+      detailListItems.forEach(item => {
+
+        const newItem = document.createElement("li");
+
+        newItem.innerHTML = item.innerHTML;
+
+        popupList.appendChild(newItem);
+
+      });
+    }
+
+    projectsPopup.classList.add("active");
+
+    document.body.classList.add("popup-open");
+  }
+  projectCards.forEach(card => {
+
+    const showProject = card.querySelector(".showProject");
+
+    if (!showProject) return;
+
+    showProject.addEventListener("click", event => {
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      openProjectPopup(card);
+
+    });
+  });
+
+  function closeProjectPopup() {
+
+    projectsPopup.classList.remove("active");
+
+    document.body.classList.remove("popup-open");
+  }
+
+  if (closeButton) {
+
+    closeButton.addEventListener("click", () => {
+      closeProjectPopup();
+    });
+
+  }
+  projectsPopup.addEventListener("click", event => {
+
+    if (event.target === projectsPopup) {
+      closeProjectPopup();
+    }
+
+  });
+
+  if (popupContainer) {
+
+    popupContainer.addEventListener("click", event => {
+      event.stopPropagation();
+    });
+
+  }
+  document.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Escape" &&
+      projectsPopup.classList.contains("active")
+    ) {
+
+      closeProjectPopup();
+
+    }
+
+  });
+
 });
 // TODO: *************************************************************** Tutorials Section **********************************************************************//
 const tutorialsSwiper = new Swiper('.tutorialsSwiper', {
@@ -567,19 +830,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-const skillSwipers = document.querySelectorAll('.skillsList.swiper');
-
-skillSwipers.forEach((swiperElement) => {
-    new Swiper(swiperElement, {
-        direction: 'vertical',
-        slidesPerView: 'auto',
-        freeMode: true,
-        mousewheel: true,
-
-        scrollbar: {
-            el: swiperElement.querySelector('.swiper-scrollbar'),
-            draggable: true,
-        },
-    });
-});
