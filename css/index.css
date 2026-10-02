@@ -2338,7 +2338,9 @@ iframe.skiptranslate {
 .imageCommentCard img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
+    object-position: center;
+
 }
 
 .commaCard {
@@ -2364,7 +2366,14 @@ iframe.skiptranslate {
     height: 22px;
     object-fit: contain;
 }
-
+.commentCard{
+    overflow: hidden;
+}
+.swiper-wrapper .m{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
 .commentCard p {
     font-family: var(--main-description-font);
     font-size: 1.2rem;
