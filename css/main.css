@@ -28,6 +28,7 @@
     --light-font-weight: 400;
     --normal-font-weight: 600;
     --bold-font-weight: 900;
+
     /*============================================ font Colors ============================================*/
     --main-background: url('../images/main-back-dark.svg');
     --main-background-splash: url('../images/splash-background.svg');
@@ -45,6 +46,8 @@
 
     /*============================================ Transition ============================================*/
     --transition-icon: cubic-bezier(0.3, 0, 0.3);
+
+    --project-gap: 25px;
 }
 
 :root.sun-mood {
@@ -400,9 +403,9 @@ html {
     height: 100%;
 }
 
-.grid {
+/*.grid {
     display: grid;
-}
+}*/
 
 a {
     text-decoration: none;

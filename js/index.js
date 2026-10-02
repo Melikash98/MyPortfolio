@@ -368,6 +368,33 @@ filterButtons.forEach((button) => {
     });
   });
 });
+// ! Swiper Projects Items
+const projectsSwiper = new Swiper('.projects-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  grabCursor: true,
+  loop: false,
+  grid: {
+    rows: 2,
+    fill: 'row',
+  },
+  pagination: {
+    el: '.projects-swiper .swiper-pagination',
+    clickable: true,
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+
+    1208: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+  },
+});
 // ! Project Popup => Show Details Project
 const projectPopup = document.querySelector('.projectsPopupModel');
 const projectLinks = document.querySelectorAll('.showProject');
