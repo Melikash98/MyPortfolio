@@ -35,7 +35,7 @@
     --icon-hover-color: #301B3F;
     --main-text-color: #F2F9FF;
     --text-select-color: #14868C;
-    --description-color: #DDDDDD;
+    --description-color: #BFC9D1;
     --subtitle-color: #8787A3;
     --button-default-color: #000D16;
     --button-select-color: #0E8388;
@@ -500,4 +500,57 @@ textarea {
 html {
     scrollbar-width: thin;
     scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+.tutorialsCard {
+    position: relative;
+}
+
+.tutorialStatus {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100000;
+    padding: 6px 12px;
+    background: #03AED2;
+    color: #000000;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tutorialsCard[data-status="coming-soon"] .tutorialStatus {
+    display: block;
+}
+
+.tutorialsCard[data-status="coming-soon"],
+.tutorialsCard[data-status="finished"],
+.tutorialsCard[data-status="disabled"] {
+    opacity: 0.45;
+    filter: grayscale(0.8);
+}
+
+.tutorialsCard[data-status="disabled"] {
+    pointer-events: none;
+    cursor: default;
+}
+
+.tutorialsCard[data-status="coming-soon"],
+.tutorialsCard[data-status="finished"] {
+    cursor: default;
+}
+
+.tutorialsCard[data-status="coming-soon"] .cardTutorialsImg img,
+.tutorialsCard[data-status="finished"] .cardTutorialsImg img,
+.tutorialsCard[data-status="disabled"] .cardTutorialsImg img {
+    filter: grayscale(1);
+}
+
+.tutorialsCard[data-status="coming-soon"] .watchMove,
+.tutorialsCard[data-status="finished"] .watchMove,
+.tutorialsCard[data-status="disabled"] .watchMove {
+    opacity: 0.5;
 }

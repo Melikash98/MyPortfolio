@@ -765,14 +765,15 @@ iframe.skiptranslate {
     font-family: var(--subtitle-font);
     font-size: 1rem;
     position: absolute;
-    top: 9%;
+    top: 1%;
     color: var(--text-select-color);
     font-weight: var(--normal-font-weight);
 }
 
 .tittle-service {
+    font-family: var(--robot-font);
     font-size: 1.5rem;
-    margin-block: 4rem 1rem;
+    margin-block: 3rem -.5rem;
     color: var(--main-text-color);
     font-weight: var(--bold-font-weight);
 }
@@ -792,7 +793,7 @@ iframe.skiptranslate {
 
 .linkeDetails {
     position: absolute;
-    bottom: .4rem;
+    bottom: -2rem;
     left: 1rem;
     display: inline-flex;
     align-items: center;
@@ -1979,7 +1980,8 @@ iframe.skiptranslate {
     position: relative;
     overflow: hidden;
     width: 300px;
-    height: 350px;
+    height: 100%;
+    min-height: 420px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -2056,8 +2058,8 @@ iframe.skiptranslate {
 
 .roleTutorials svg {
     color: var(--text-select-color);
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
@@ -2163,9 +2165,11 @@ iframe.skiptranslate {
     display: inline-flex;
     position: absolute;
     right: .5rem;
-    bottom: -.2rem;
+    bottom: -2.5rem;
 }
-
+.watchMove a{
+    display: inline-flex;
+}
 .watchMove h2 {
     font-family: var(--subtitle-font);
     font-size: 1rem;
@@ -2177,7 +2181,11 @@ iframe.skiptranslate {
     font-size: 1.3rem;
     color: var(--text-select-color);
 }
-
+.watchMove:hover{
+    color: var(--text-select-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 .tutorialsSwiper .swiper-pagination {
     position: relative !important;
     width: 58px !important;
