@@ -267,6 +267,11 @@
     right: 3.5rem;
 }
 
+.infoThree {
+    bottom: 42%;
+    left: -7.5rem;
+}
+
 .exInfo-number {
     font-family: var(--number-font);
     font-size: 2.5rem;
@@ -979,9 +984,10 @@ iframe.skiptranslate {
     transform: scale(1.1);
 }
 
-.detailServices{
+.detailServices {
     display: none;
 }
+
 .popupBox,
 .popupProjectBox {
     width: 100%;
@@ -2167,9 +2173,11 @@ iframe.skiptranslate {
     right: .5rem;
     bottom: -2.5rem;
 }
-.watchMove a{
+
+.watchMove a {
     display: inline-flex;
 }
+
 .watchMove h2 {
     font-family: var(--subtitle-font);
     font-size: 1rem;
@@ -2181,11 +2189,13 @@ iframe.skiptranslate {
     font-size: 1.3rem;
     color: var(--text-select-color);
 }
-.watchMove:hover{
+
+.watchMove:hover {
     color: var(--text-select-color);
     font-size: 1.5rem;
     cursor: pointer;
 }
+
 .tutorialsSwiper .swiper-pagination {
     position: relative !important;
     width: 58px !important;
@@ -2374,14 +2384,17 @@ iframe.skiptranslate {
     height: 22px;
     object-fit: contain;
 }
-.commentCard{
+
+.commentCard {
     overflow: hidden;
 }
-.swiper-wrapper .m{
+
+.swiper-wrapper .m {
     display: none;
     visibility: hidden;
     opacity: 0;
 }
+
 .commentCard p {
     font-family: var(--main-description-font);
     font-size: 1.2rem;
