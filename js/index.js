@@ -202,126 +202,65 @@ const serviceLinks = document.querySelectorAll('.linkeDetails');
 const closePopup = document.querySelector('.containerSClosed');
 
 serviceLinks.forEach(link => {
-  link.addEventListener('click', (event) => {
+  link.addEventListener('click', event => {
     event.preventDefault();
-    servicesPopup.classList.add('active');
-  });
-});
 
-closePopup.addEventListener('click', () => {
-  servicesPopup.classList.remove('active');
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const servicePopup = document.querySelector(".servicesPopupModel");
-
-  if (!servicePopup) return;
-
-  const popupContainer = servicePopup.querySelector(".popupContainer");
-  const closeButton = servicePopup.querySelector(".containerSClosed");
-
-  const popupSubtitle = servicePopup.querySelector(".popupSubtitle");
-  const popupTitle = servicePopup.querySelector(".popupTitle");
-  const popupDescription = servicePopup.querySelector(".popupDescription");
-  const popupListGroup = servicePopup.querySelector(".popupListGroup");
-
-  const serviceLinks = document.querySelectorAll(
-    ".services-swiper .linkeDetails"
-  );
-
-  function openServicePopup(card) {
-
-    if (!card) return;
-
-    const detailServices = card.querySelector(".detailServices");
+    const serviceCard = link.closest('.services-swiper .card');
+    const detailServices = serviceCard?.querySelector('.detailServices');
 
     if (!detailServices) return;
-    const subtitle = detailServices.querySelector("h4");
-    const title = detailServices.querySelector("h3");
-    const description = detailServices.querySelector("p");
-    const listItems = detailServices.querySelectorAll("li");
 
-    popupSubtitle.textContent = subtitle
-      ? subtitle.textContent.trim()
-      : "";
+    const popupMainBox = servicesPopup.querySelector('.mainBox');
 
-    popupTitle.textContent = title
-      ? title.textContent.trim()
-      : "";
+    popupMainBox.innerHTML = `
+            <h6 class="popupSubtitle">
+                ${detailServices.querySelector('h4')?.textContent || ''}
+            </h6>
 
-    popupDescription.textContent = description
-      ? description.textContent.trim()
-      : "";
-    popupListGroup.innerHTML = "";
-    listItems.forEach(item => {
+            <h1 class="popupTitle">
+                ${detailServices.querySelector('h3')?.textContent || ''}
+            </h1>
 
-      const li = document.createElement("li");
-      li.className = "popupListItem";
+            <p class="popupDescription">
+                ${detailServices.querySelector('p')?.textContent || ''}
+            </p>
 
-      const icon = document.createElement("i");
-      icon.className = "ri-git-commit-fill popupListIcon";
+            <ul class="popupListGroup grid">
+                ${[...(detailServices.querySelectorAll('li'))].map(item => `
+                    <li class="popupListItem">
+                        <i class="ri-git-commit-fill popupListIcon"></i>
+                        <p class="popupListText">${item.textContent}</p>
+                    </li>
+                `).join('')}
+            </ul>
+        `;
 
-      const text = document.createElement("p");
-      text.className = "popupListText";
-      text.textContent = item.textContent.trim();
-
-      li.appendChild(icon);
-      li.appendChild(text);
-
-      popupListGroup.appendChild(li);
-    });
-    servicePopup.classList.add("active");
-    document.body.classList.add("popup-open");
-  }
-
-  function closeServicePopup() {
-
-    servicePopup.classList.remove("active");
-
-    document.body.classList.remove("popup-open");
-  }
-  serviceLinks.forEach(link => {
-
-    link.addEventListener("click", event => {
-
-      event.preventDefault();
-
-      const card = link.closest(".services-swiper .card");
-
-      openServicePopup(card);
-    });
+    servicesPopup.classList.add('active');
+    document.body.style.overflow = 'hidden';
   });
-
-  closeButton.addEventListener("click", () => {
-    closeServicePopup();
-  });
-  servicePopup.addEventListener("click", event => {
-
-    if (event.target === servicePopup) {
-      closeServicePopup();
-    }
-  });
-  if (popupContainer) {
-
-    popupContainer.addEventListener("click", event => {
-      event.stopPropagation();
-    });
-  }
-  document.addEventListener("keydown", event => {
-
-    if (
-      event.key === "Escape" &&
-      servicePopup.classList.contains("active")
-    ) {
-      closeServicePopup();
-    }
-  });
-
 });
 
+closePopup?.addEventListener('click', () => {
+  servicesPopup.classList.remove('active');
+  document.body.style.overflow = '';
+});
 
+servicesPopup?.addEventListener('click', event => {
+  if (event.target === servicesPopup) {
+    servicesPopup.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
 
+document.addEventListener('keydown', event => {
+  if (
+    event.key === 'Escape' &&
+    servicesPopup?.classList.contains('active')
+  ) {
+    servicesPopup.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
 // TODO: *************************************************************** Experience Section **********************************************************************//
 const resumeItems = document.querySelectorAll(".resumeItem");
 resumeItems.forEach((item) => {
@@ -392,9 +331,7 @@ tabs.forEach((tab) => {
 
 });
 
-
 const skillSwipers = document.querySelectorAll('.skillsList.swiper');
-
 skillSwipers.forEach((swiperElement) => {
   new Swiper(swiperElement, {
     direction: 'vertical',
@@ -751,7 +688,7 @@ linkedinContact.addEventListener("click", () => {
 });
 
 showContactForm();
-
+// TODO: *************************************************************** Email JS **********************************************************************//
 // !Send Email Function
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
