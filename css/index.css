@@ -2582,21 +2582,6 @@ iframe.skiptranslate {
     margin-left: calc(50% - 50vw);
     height: 125px;
     overflow: hidden;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-    background:
-        linear-gradient(90deg,
-            rgba(255, 255, 255, 0.008),
-            rgba(255, 255, 255, 0.028),
-            rgba(255, 255, 255, 0.008));
-
-    box-shadow:
-        inset 0 0 40px rgba(255, 255, 255, 0.018);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
 }
 
 .companyClip {
