@@ -346,38 +346,20 @@ skillSwipers.forEach((swiperElement) => {
   });
 });
 // TODO: *************************************************************** Projects Section **********************************************************************//
-// !Filtering Projects
-const filterButtons = document.querySelectorAll('.filterItems');
-const projectItems = document.querySelectorAll('.boxCard');
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    filterButtons.forEach((btn) => btn.classList.remove('active'));
-    button.classList.add('active');
-
-
-
-    const filterValue = button.getAttribute('data-filter');
-
-    projectItems.forEach((item) => {
-      if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-        item.style.display = 'block';
-      }
-      else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
 // ! Swiper Projects Items
+const projectItems = [...document.querySelectorAll('.boxCard')];
+
 const projectsSwiper = new Swiper('.projects-swiper', {
   slidesPerView: 1,
   spaceBetween: 24,
   grabCursor: true,
   loop: false,
+
   grid: {
     rows: 2,
     fill: 'row',
   },
+
   pagination: {
     el: '.projects-swiper .swiper-pagination',
     clickable: true,
@@ -395,43 +377,101 @@ const projectsSwiper = new Swiper('.projects-swiper', {
     },
   },
 });
-// ! Project Popup => Show Details Project
-const projectPopup = document.querySelector('.projectsPopupModel');
-const projectLinks = document.querySelectorAll('.showProject');
-const closeProjectPopup = document.querySelector('.containerPClosed');
 
-projectLinks.forEach(link => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-    projectPopup.classList.add('active');
+
+// ! Project Filtering
+const filterButtons = document.querySelectorAll('.filterItems');
+
+filterButtons.forEach((button) => {
+
+  button.addEventListener('click', () => {
+
+    // Active button
+    filterButtons.forEach((btn) => {
+      btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    const filterValue = button.getAttribute('data-filter');
+
+    // Remove current slides
+    projectsSwiper.removeAllSlides();
+
+    // Filter projects
+    const filteredProjects = projectItems.filter((item) => {
+
+      const category = item.getAttribute('data-category');
+
+      return filterValue === 'all' || category === filterValue;
+
+    });
+
+    // Add filtered slides
+    projectsSwiper.appendSlide(filteredProjects);
+
+    // Update swiper
+    projectsSwiper.update();
+
+    // Start from first slide
+    projectsSwiper.slideTo(0, 0);
+
   });
-});
 
-closeProjectPopup.addEventListener('click', () => {
-  projectPopup.classList.remove('active');
 });
-
+// ! Project Popup => Show Details Project
 document.addEventListener("DOMContentLoaded", () => {
 
-  const projectsPopup = document.querySelector(".projectsPopupModel");
-
-  if (!projectsPopup) return;
-
-  const popupContainer = projectsPopup.querySelector(".popupContainer");
-  const closeButton = projectsPopup.querySelector(".containerPClosed");
-
-  const popupImage = projectsPopup.querySelector(".projectCardImg img");
-  const popupName = projectsPopup.querySelector(".nameProject");
-  const popupCompany = projectsPopup.querySelector(".companyName");
-  const popupDate = projectsPopup.querySelector(".dateFiishProject");
-  const popupDescription = projectsPopup.querySelector(".explainProject");
-
-  const popupList = projectsPopup.querySelector(".infoList ul");
-
+  const projectPopup = document.querySelector(".projectsPopupModel");
   const projectCards = document.querySelectorAll(".projectContainer .boxCard");
-  function openProjectPopup(card) {
 
-    if (!card) return;
+  if (!projectPopup) return;
+
+  const popupContainer = projectPopup.querySelector(".popupContainer");
+  const closeButton = projectPopup.querySelector(".containerPClosed");
+
+  const popupImage = projectPopup.querySelector(".projectCardImg img");
+  const popupImageBox = projectPopup.querySelector(".projectCardImg");
+
+  const popupName = projectPopup.querySelector(".nameProject");
+  const popupCompany = projectPopup.querySelector(".companyName");
+  const popupDate = projectPopup.querySelector(".dateFiishProject");
+  const popupDescription = projectPopup.querySelector(".explainProject");
+  const popupList = projectPopup.querySelector(".infoList ul");
+
+  const popupGithubWrapper =
+    projectPopup.querySelector(".btn-github-linke");
+
+  const popupGithub =
+    projectPopup.querySelector(".btn-github-linke a");
+
+  const popupMore =
+    projectPopup.querySelector(".btn-project-more a");
+
+
+  function setPopupImage(detailImage) {
+
+    if (!popupImage || !detailImage) return;
+
+    popupImageBox.classList.remove("landscape", "portrait");
+
+    popupImage.src = detailImage.src;
+    popupImage.alt = detailImage.alt || "";
+
+    popupImage.onload = () => {
+
+      if (popupImage.naturalWidth > popupImage.naturalHeight) {
+        popupImageBox.classList.add("landscape");
+      } else {
+        popupImageBox.classList.add("portrait");
+      }
+
+    };
+
+  }
+
+
+  function openProjectPopup(card) {
 
     const detail = card.querySelector(".projectDetail");
 
@@ -443,56 +483,109 @@ document.addEventListener("DOMContentLoaded", () => {
     const detailDate = detail.querySelector("h5");
     const detailDescription = detail.querySelector("p");
     const detailListItems = detail.querySelectorAll("ul li");
-    if (popupImage && detailImage) {
-      popupImage.src = detailImage.src;
-      popupImage.alt = detailImage.alt || "";
-    }
+
+    const detailGithub =
+      detail.querySelector(".btn-github-linke a");
+
+    const detailMore =
+      detail.querySelector(".btn-project-more a");
+
+
+    setPopupImage(detailImage);
+
 
     if (popupName && detailName) {
-      popupName.textContent = detailName.textContent.trim();
+      popupName.textContent =
+        detailName.textContent.trim();
     }
+
 
     if (popupCompany && detailCompany) {
-      popupCompany.textContent = detailCompany.textContent.trim();
+      popupCompany.textContent =
+        detailCompany.textContent.trim();
     }
+
 
     if (popupDate && detailDate) {
-
-      popupDate.innerHTML = detailDate.innerHTML;
-
+      popupDate.innerHTML =
+        detailDate.innerHTML;
     }
+
 
     if (popupDescription && detailDescription) {
-      popupDescription.textContent =
-        detailDescription.textContent.trim();
+      popupDescription.innerHTML =
+        detailDescription.innerHTML.trim();
     }
+
 
     if (popupList) {
 
       popupList.innerHTML = "";
 
-      detailListItems.forEach(item => {
+      detailListItems.forEach((item) => {
 
-        const newItem = document.createElement("li");
+        const newItem =
+          document.createElement("li");
 
-        newItem.innerHTML = item.innerHTML;
+        newItem.innerHTML =
+          item.innerHTML;
 
         popupList.appendChild(newItem);
 
       });
+
     }
 
-    projectsPopup.classList.add("active");
 
+    if (popupGithubWrapper && popupGithub) {
+
+      if (detailGithub) {
+
+        popupGithub.href =
+          detailGithub.getAttribute("href");
+
+        popupGithub.target = "_blank";
+
+        popupGithub.rel =
+          "noopener noreferrer";
+
+        popupGithubWrapper.style.display = "";
+
+      } else {
+
+        popupGithub.removeAttribute("href");
+
+        popupGithub.removeAttribute("target");
+
+        popupGithub.removeAttribute("rel");
+
+        popupGithubWrapper.style.display = "none";
+
+      }
+
+    }
+
+
+    if (popupMore && detailMore) {
+      popupMore.href =
+        detailMore.getAttribute("href");
+    }
+
+
+    projectPopup.classList.add("active");
     document.body.classList.add("popup-open");
-  }
-  projectCards.forEach(card => {
 
-    const showProject = card.querySelector(".showProject");
+  }
+
+
+  projectCards.forEach((card) => {
+
+    const showProject =
+      card.querySelector(".showProject");
 
     if (!showProject) return;
 
-    showProject.addEventListener("click", event => {
+    showProject.addEventListener("click", (event) => {
 
       event.preventDefault();
       event.stopPropagation();
@@ -500,46 +593,51 @@ document.addEventListener("DOMContentLoaded", () => {
       openProjectPopup(card);
 
     });
+
   });
+
 
   function closeProjectPopup() {
 
-    projectsPopup.classList.remove("active");
-
+    projectPopup.classList.remove("active");
     document.body.classList.remove("popup-open");
+
   }
+
 
   if (closeButton) {
-
-    closeButton.addEventListener("click", () => {
-      closeProjectPopup();
-    });
-
+    closeButton.addEventListener(
+      "click",
+      closeProjectPopup
+    );
   }
-  projectsPopup.addEventListener("click", event => {
 
-    if (event.target === projectsPopup) {
+
+  projectPopup.addEventListener("click", (event) => {
+
+    if (event.target === projectPopup) {
       closeProjectPopup();
     }
 
   });
 
+
   if (popupContainer) {
 
-    popupContainer.addEventListener("click", event => {
+    popupContainer.addEventListener("click", (event) => {
       event.stopPropagation();
     });
 
   }
-  document.addEventListener("keydown", event => {
+
+
+  document.addEventListener("keydown", (event) => {
 
     if (
       event.key === "Escape" &&
-      projectsPopup.classList.contains("active")
+      projectPopup.classList.contains("active")
     ) {
-
       closeProjectPopup();
-
     }
 
   });

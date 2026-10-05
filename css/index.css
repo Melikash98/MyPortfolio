@@ -1728,6 +1728,7 @@ iframe.skiptranslate {
     box-shadow: 0 0 7px rgba(25, 199, 181, 0.4);
     z-index: 3;
 }
+
 .filterList {
     display: flex;
     justify-content: flex-start;
@@ -1769,7 +1770,7 @@ iframe.skiptranslate {
     display: flex;
     position: relative;
     background: rgba(0, 0, 0, 0);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(2.5px);
     border-radius: 30px;
@@ -1837,8 +1838,8 @@ iframe.skiptranslate {
 }
 
 .firstDetails p {
-    font-family: var(--description-color);
-    font-size: 1rem;
+    font-family: var(--main-description-font);
+    font-size: 1.5rem;
     font-weight: var(--normal-font-weight);
     color: var(--description-color);
     margin-top: 2rem;
@@ -1868,15 +1869,24 @@ iframe.skiptranslate {
 
 .projectCardImg {
     width: 300px;
-    height: max-content;
+    height: 180px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 4%;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 3px 3px var(--description-color);
 }
+
 
 .projectCardImg img {
     width: 100%;
     height: 100%;
-    border-radius: 10%;
-    box-shadow: 3px 3px var(--description-color);
+    border-radius: 4%;
     object-fit: fill;
+    object-position: center;
 }
 
 .demoInfo {
@@ -1911,14 +1921,22 @@ iframe.skiptranslate {
     color: var(--main-text-color);
 }
 
+.projectsPopupModel .explainProject strong,
+.projectsPopupModel .explainProject b,
+.projectsPopupModel .explainProject .boldText {
+    font-weight: 700 !important;
+    color: var(--text-select-color);
+}
+
 .explainProject {
-    font-family: var(--description-color);
-    font-weight: var(--normal-font-weight);
+    font-family: var(--main-description-font);
+    font-weight: var(--light-font-weigh);
     color: var(--description-color);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin-top: 2rem;
     text-align: justify;
     margin-left: 1rem;
+    line-height: 1.5rem;
     width: 90%;
 }
 
@@ -1944,8 +1962,6 @@ iframe.skiptranslate {
 
 .btn-project-more {
     margin-top: 10rem;
-    background-color: var(--box-color);
-    border: 1px solid var(--box-color);
     color: var(--main-color);
     padding: .5rem 1rem;
     border-radius: 5rem;
@@ -1955,6 +1971,39 @@ iframe.skiptranslate {
     position: absolute;
     bottom: 0;
     margin-top: 2rem;
+}
+
+.popupProjectBox .btn-github-linke {
+    margin-top: 10rem;
+}
+
+.popupProjectBox .btn-github-linke a {
+    margin-top: 20rem;
+    color: var(--main-text-color);
+    font-family: var(--subtitle-font);
+    font-weight: var(--bold-font-weight);
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    line-height: 3rem;
+}
+
+.popupProjectBox .btn-github-linke .arrowIcon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.popupProjectBox .btn-github-linke i {
+    margin-left: .5rem;
+}
+
+.popupProjectBox .btn-github-linke:hover .arrowIcon {
+    transform: translateX(6px);
+}
+
+.popupProjectBox .btn-github-linke:hover {
+    cursor: pointer;
+    color: var(--text-select-color);
 }
 
 .btn-project-more i {
@@ -2037,6 +2086,30 @@ iframe.skiptranslate {
     height: auto;
     z-index: 0;
 }
+
+.projectCardImg.landscape {
+    width: 300px;
+    height: 180px;
+
+}
+
+.projectCardImg.landscape img {
+    border-radius: 4%;
+    box-shadow: 3px 3px var(--description-color);
+    object-fit: fill;
+}
+
+.projectCardImg.portrait img {
+    border-radius: 4%;
+    box-shadow: 3px 3px var(--description-color);
+    object-fit: fill;
+}
+
+.projectCardImg.portrait {
+    width: 200px;
+    height: 300px;
+}
+
 /* TODO ============================================ Tutorials SECTION ============================================*/
 .tutorialsCard {
     padding: 1rem 1.25rem;
