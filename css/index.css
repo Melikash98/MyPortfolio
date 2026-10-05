@@ -2571,6 +2571,369 @@ iframe.skiptranslate {
     pointer-events: none;
 }
 
+.workedWith {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.companyBar {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    height: 125px;
+    overflow: hidden;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.008),
+            rgba(255, 255, 255, 0.028),
+            rgba(255, 255, 255, 0.008));
+
+    box-shadow:
+        inset 0 0 40px rgba(255, 255, 255, 0.018);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.companyClip {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.companyTrack {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: max-content;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 5;
+
+    animation: companyScroll 24s linear infinite;
+
+    will-change: transform;
+
+    pointer-events: auto;
+}
+
+
+.companySet {
+    display: flex;
+    align-items: center;
+
+    gap: clamp(2.5rem, 5vw, 5rem);
+
+    width: max-content;
+    flex: 0 0 auto;
+}
+
+
+
+@keyframes companyScroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.companyItem {
+    position: relative;
+
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    opacity: 0.42;
+
+    transform: scale(0.88);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s cubic-bezier(.2, .8, .2, 1);
+
+    z-index: 10;
+}
+
+
+.companyLogo {
+    width: 70px;
+    height: 70px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.35s cubic-bezier(.2, .8, .2, 1);
+}
+
+.companyLogo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        grayscale(100%)
+        brightness(0.62)
+        contrast(1.05);
+
+    transition:
+        filter 0.3s ease,
+        transform 0.3s cubic-bezier(.2, .8, .2, 1);
+}
+
+.companyItem:hover,
+.companyItem.active {
+    opacity: 1;
+
+    transform:
+        scale(1.15) translateY(-3px);
+
+    z-index: 30;
+}
+
+.companyItem:hover .companyLogo,
+.companyItem.active .companyLogo {
+    transform: scale(1.08);
+}
+
+.companyItem:hover .companyLogo img,
+.companyItem.active .companyLogo img {
+    filter:
+        grayscale(100%) brightness(0) invert(1) contrast(1);
+
+    transform: scale(1.08);
+}
+
+.companyGlow {
+    position: absolute;
+
+    left: 8%;
+    top: 50%;
+
+    width: 175px;
+    height: 115px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(ellipse at center,
+            rgba(255, 255, 255, 0.24) 0%,
+            rgba(255, 255, 255, 0.14) 22%,
+            rgba(255, 255, 255, 0.075) 42%,
+            rgba(255, 255, 255, 0.035) 62%,
+            rgba(255, 255, 255, 0) 82%);
+
+    filter: blur(18px);
+
+    mix-blend-mode: screen;
+
+    opacity: 0.9;
+
+    transform:
+        translate(-50%, -50%) scale(1);
+
+    animation:
+        glowOrbit 9s ease-in-out infinite;
+
+    will-change:
+        left,
+        top,
+        transform;
+}
+
+.companyGlow.pointerMode {
+    animation: none;
+
+    width: 185px;
+    height: 125px;
+
+    opacity: 1;
+}
+
+@keyframes glowOrbit {
+
+    0% {
+        left: 8%;
+        top: 50%;
+
+        transform:
+            translate(-50%, -50%) scale(0.95);
+    }
+
+    20% {
+        left: 28%;
+        top: 35%;
+
+        transform:
+            translate(-50%, -50%) scale(1.05);
+    }
+
+    40% {
+        left: 55%;
+        top: 65%;
+
+        transform:
+            translate(-50%, -50%) scale(1.12);
+    }
+
+    60% {
+        left: 76%;
+        top: 38%;
+
+        transform:
+            translate(-50%, -50%) scale(1.02);
+    }
+
+    80% {
+        left: 92%;
+        top: 60%;
+
+        transform:
+            translate(-50%, -50%) scale(1.08);
+    }
+
+    100% {
+        left: 8%;
+        top: 50%;
+
+        transform:
+            translate(-50%, -50%) scale(0.95);
+    }
+}
+
+.companyTooltip {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: max-content;
+
+    padding:
+        0.48rem 0.8rem;
+
+    border-radius: 9px;
+
+    background:
+        rgba(8, 12, 18, 0.96);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, 8px) scale(0.88);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+
+    z-index: 9999;
+}
+
+.companyTooltip.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translate(-50%, 0) scale(1);
+}
+
+.companyTooltip strong {
+    font-family: var(--subtitle-font);
+    font-size: 1.2rem;
+    font-weight: var(--bold-font-weight);
+    color: var(--text-select-color);
+    white-space: nowrap;
+}
+
+.companyTooltip span {
+    margin-top: 0.15rem;
+    font-family: var(--robot-font);
+    font-size: 1rem;
+    font-weight: var(--light-font-weigh);
+    color: var(--description-color);
+    white-space: nowrap;
+}
+
+.companyBar::before,
+.companyBar::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 150px;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.companyBar::before {
+    left: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(3, 15, 23, 1) 0%,
+            rgba(3, 15, 23, 0.82) 22%,
+            rgba(3, 15, 23, 0) 100%);
+}
+
+.companyBar::after {
+    right: 0;
+
+    background:
+        linear-gradient(270deg,
+            rgba(3, 15, 23, 1) 0%,
+            rgba(3, 15, 23, 0.82) 22%,
+            rgba(3, 15, 23, 0) 100%);
+}
+
 /* TODO ============================================ Contact SECTION  ============================================*/
 .contactForms {
     position: relative;

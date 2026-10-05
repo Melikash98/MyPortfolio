@@ -23,14 +23,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <!-- ! AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script>document.documentElement.classList.add('js')</script>
     <meta name="google-site-verification" content="c90EYqFA5SkozbS_Jdh_0YUdy-NhvHxr5TCZ3IIXfjQ" />
     <!-- !Email JS-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">(function () {
-            emailjs.init({
-                publicKey: "dHviDYQd7YtLv5flq",
-            });
-        })();
+                emailjs.init({
+                    publicKey: "dHviDYQd7YtLv5flq",
+                });
+            })();
     </script>
     <script defer data-domain="mshoryabidev.com"
         src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
@@ -153,7 +154,8 @@
         </section>
         <!-- !Experience -->
         <section class="section experience" id="experience">
-            <h2 class="sectionTittle delay-[500ms] duration-[1000ms] taos:opacity-0" data-taos-offset="400" data-tittle="My Resume">The Foundation of My Expertise</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="My Resume">The Foundation of My Expertise</h2>
             <div class="container">
                 <div class="experienceContent">
                     <div class="experiencekColumns">
@@ -421,7 +423,8 @@
         </section>
         <!-- !Skills -->
         <section class="section skills" id="skills">
-            <h2 class="sectionTittle" data-tittle="My Talent">Professional Skills</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="My Talent">Professional Skills</h2>
             <div class="container">
                 <div class="skillsContent">
                     <div class="skillsTab">
@@ -717,11 +720,12 @@
         </section>
         <!-- !Services -->
         <section class="section services" id="services">
-            <h2 class="sectionTittle" data-tittle="My Services">What I Do</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="My Services">What I Do</h2>
             <div class="container">
                 <div class="swiper services-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide card" data-aos="fade-right">
+                        <div class="swiper-slide card" data-aos="fade-right" data-aos-delay="400">
                             <h4 class="subtitle-service">Backend Development</h4>
                             <h3 class="tittle-service">Java & Spring Boot</h3>
                             <p class="description-service">I develop backend applications and REST APIs that manage
@@ -743,7 +747,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="swiper-slide card" data-aos="zoom-in">
+                        <div class="swiper-slide card" data-aos="zoom-in" data-aos-delay="450">
                             <h4 class="subtitle-service">Mobile Development</h4>
                             <h3 class="tittle-service">Native Android Applications</h3>
                             <p class="description-service">I build native Android applications with Java, focusing on...
@@ -767,7 +771,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="swiper-slide card" data-aos="fade-left">
+                        <div class="swiper-slide card" data-aos="fade-left" data-aos-delay="500">
                             <h4 class="subtitle-service">API Development</h4>
                             <h3 class="tittle-service">RESTful API Solutions</h3>
                             <p class="description-service"> I design and implement APIs that provide structured...</p>
@@ -865,15 +869,28 @@
         </section>
         <!-- !Projects -->
         <section class="section projects" id="projects">
-            <h2 class="sectionTittle" data-tittle="The Heart of My Projects">My Projects</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="The Heart of My Projects">My Projects</h2>
             <div class="container">
                 <ul class="filterList">
-                    <li class="filterItems active" data-filter="all">All <span></span></li>
-                    <li class="filterItems" data-filter="app">Application <span></span></li>
-                    <li class="filterItems" data-filter="web">Web <span></span></li>
-                    <li class="filterItems" data-filter="python">python <span></span></li>
-                    <li class="filterItems" data-filter="library">Library <span></span></li>
-                    <li class="filterItems" data-filter="design">Design <span></span></li>
+                    <li class="filterItems active" data-aos="fade-right" data-aos-delay="0" data-filter="all">All
+                        <span></span>
+                    </li>
+                    <li class="filterItems" data-aos="fade-right" data-aos-delay="50" data-filter="app">Application
+                        <span></span>
+                    </li>
+                    <li class="filterItems" data-aos="fade-right" data-aos-delay="100" data-filter="web">Web
+                        <span></span>
+                    </li>
+                    <li class="filterItems" data-aos="fade-right" data-aos-delay="150" data-filter="python">python
+                        <span></span>
+                    </li>
+                    <li class="filterItems" data-aos="fade-right" data-aos-delay="200" data-filter="library">Library
+                        <span></span>
+                    </li>
+                    <li class="filterItems" data-aos="fade-right" data-aos-delay="250" data-filter="design">Design
+                        <span></span>
+                    </li>
                 </ul>
                 <div class="projectContainer swiper projects-swiper">
                     <div class="swiper-wrapper">
@@ -1630,11 +1647,13 @@
         </section>
         <!-- !Tutorials -->
         <section class="section tutorials" id="tutorials">
-            <h2 class="sectionTittle" data-tittle="Teaching & Tutorials">Learn With Me</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="Teaching & Tutorials">Learn With Me</h2>
             <div class="container">
                 <div class="swiper tutorialsSwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right">
+                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                            data-aos-delay="450">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
                                 <img src="../images/Advanced Java_ Build Real-World Skills.png" alt="tutorialsOne">
@@ -1690,7 +1709,8 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right">
+                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                            data-aos-delay="500">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
                                 <img src="../images/springBootF.png" alt="tutorialsOne">
@@ -1735,7 +1755,8 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right">
+                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                            data-aos-delay="550">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
                                 <img src="../images/Firebase Course_ From Zero to Advanced.png" alt="tutorialsOne">
@@ -1790,7 +1811,8 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right">
+                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                            data-aos-delay="600">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
                                 <img src="../images/Neon Software Testing Course Banner.png" alt="tutorialsOne">
@@ -1831,7 +1853,8 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard m" data-status="coming-soon" data-aos="fade-right">
+                        <div class="swiper-slide  tutorialsCard m" data-status="coming-soon" data-aos="fade-right"
+                            data-aos-delay="750">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
                                 <img src="../images//tutorialsOne.png" alt="tutorialsOne">
@@ -1888,11 +1911,12 @@
         </section>
         <!-- !Comments -->
         <section class="section comments" id="comments">
-            <h2 class="sectionTittle" data-tittle="Testimoials">Here's What My Clients Say</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="Testimoials">Here's What My Clients Say</h2>
             <div class="container">
                 <div class="swiper comments-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide commentCard" data-aos="fade-right">
+                        <div class="swiper-slide commentCard" data-aos="fade-right" data-aos-delay="400">
                             <div class="commaCard">
                                 <img src="../images/quote-right.svg" alt="">
                             </div>
@@ -1910,7 +1934,7 @@
                                 <h6>Computer Engineering Student</h6>
                             </div>
                         </div>
-                        <div class="swiper-slide commentCard" data-aos="zoom-in">
+                        <div class="swiper-slide commentCard" data-aos="zoom-in" data-aos-delay="450">
                             <div class="commaCard">
                                 <img src="../images/quote-right.svg" alt="">
                             </div>
@@ -1927,7 +1951,7 @@
                                 <h6>Flutter Developer ,Flutter ,Dart</h6>
                             </div>
                         </div>
-                        <div class="swiper-slide commentCard" data-aos="fade-left">
+                        <div class="swiper-slide commentCard" data-aos="fade-left" data-aos-delay="500">
                             <div class="commaCard">
                                 <img src="../images/quote-right.svg" alt="">
                             </div>
@@ -1944,7 +1968,7 @@
                                 <h6>.Net Developer</h6>
                             </div>
                         </div>
-                        <div class="swiper-slide commentCard m">
+                        <div class="swiper-slide commentCard m" data-aos="zoom-in-down" data-aos-delay="550">
                             <div class="commaCard">
                                 <img src="../images/quote-right.svg" alt="">
                             </div>
@@ -1959,7 +1983,7 @@
                                 <h6>MelikaCompany</h6>
                             </div>
                         </div>
-                        <div class="swiper-slide commentCard m">
+                        <div class="swiper-slide commentCard m" data-aos="zoom-in-down" data-aos-delay="600">
                             <div class="commaCard">
                                 <img src="../images/quote-right.svg" alt="">
                             </div>
@@ -1977,6 +2001,102 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
+                <div class="workedWith">
+                    <div class="companyBar" aria-label="Companies and platforms">
+                        <div class="companyClip">
+                            <div class="companyGlow" aria-hidden="true"></div>
+
+                            <div class="companyTrack">
+                                <div class="companySet">
+                                    <a href="https://www.arbeitsagentur.de/" class="companyItem"
+                                        data-name="Arbeitsagentur" data-role="Career Platform" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/arbeitsagentur.svg" alt="Arbeitsagentur">
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.instaffo.com/en/talent" class="companyItem"
+                                        data-name="Instaffo" data-role="Talent Platform" target="_blank"
+                                        rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/instaffo-whiteLogo-qV88Grqg.png" alt="Instaffo">
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.jobware.de/" class="companyItem" data-name="Jobware"
+                                        data-role="Career Platform" target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/jobware-seeklogo.svg" alt="Jobware">
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.triology.de/karriere" class="companyItem" data-name="Triology"
+                                        data-role="Careers" target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/triology.svg" alt="Triology">
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.xing.com/profile-preview" class="companyItem" data-name="XING"
+                                        data-role="Professional Network" target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/xing.svg" alt="XING">
+                                        </div>
+                                    </a>
+
+                                    <a href="https://profile.indeed.com/" class="companyItem" data-name="Indeed"
+                                        data-role="Career Platform" target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/indeed.webp" alt="Indeed">
+                                        </div>
+                                    </a>
+
+                                    <a href="https://touch.ferchau.com/de/de?sortingType=actuality&amp;sortingDirection=DESC"
+                                        class="companyItem" data-name="FERCHAU" data-role="Engineering and IT"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/ferchau_logo.jpeg" alt="FERCHAU">
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="companyItem" data-name="Faradars" data-role="Education Platform"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/faradars.svg" alt="Faradars">
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="companyItem" data-name="Daneshjooyar"
+                                        data-role="Education Platform" target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/logotype.svg" alt="Daneshjooyar">
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="companyItem" data-name="Maktabkhooneh"
+                                        data-role="Education Platform" target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/maktabkhone.jpeg" alt="Maktabkhooneh">
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="companyItem" data-name="IITS Consulting" data-role="Consulting"
+                                        target="_blank" rel="noopener noreferrer">
+                                        <div class="companyLogo">
+                                            <img src="../images/iits-consulting.svg" alt="IITS Consulting">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="companyTooltip" role="status" aria-live="polite">
+                        <strong></strong>
+                        <span></span>
+                    </div>
+                </div>
                 <div class="section-deco decoLeft">
                     <img src="../images/dot-modol1-dark.png" alt="" class="shape shape-dark">
                     <img src="../images/dot-modol1.png" alt="" class="shape shape-light">
@@ -1985,7 +2105,8 @@
         </section>
         <!-- !Contact -->
         <section class="section contact" id="contact">
-            <h2 class="sectionTittle" data-tittle="Contact Me">Let's Get In Touch !</h2>
+            <h2 class="sectionTittle" data-aos="zoom-in" data-aos="fade-up" data-aos-delay="300"
+                data-tittle="Contact Me">Let's Get In Touch !</h2>
             <div class="container">
                 <div class="contactContent">
                     <div class="contactInfo">
@@ -2195,6 +2316,8 @@
 
     <!-- ! AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ! AOS Animation -->
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
     <!-- ! Unicons Import -->
     <script src="https://unicons.iconscout.com/release/v4.2.0/script/monochrome/bundle.js"></script>
     <!-- ! Swiper.com -->

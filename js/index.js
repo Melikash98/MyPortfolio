@@ -892,3 +892,419 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// TODO: ***************************************************************  Worked With Scroll **********************************************************************//
+document.addEventListener("DOMContentLoaded", () => {
+
+  const bar = document.querySelector(".companyBar");
+  const track = document.querySelector(".companyTrack");
+  const originalSet = document.querySelector(".companySet");
+  const glow = document.querySelector(".companyGlow");
+  const tooltip = document.querySelector(".companyTooltip");
+
+  if (!bar || !track || !originalSet || !glow || !tooltip) {
+    return;
+  }
+
+  const clonedSet = originalSet.cloneNode(true);
+  track.appendChild(clonedSet);
+
+  const items = [...track.querySelectorAll(".companyItem")];
+
+  let pointerInside = false;
+  let currentItem = null;
+  let animationFrame = null;
+
+  let targetX = 0;
+  let targetY = 0;
+
+  let currentX = 0;
+  let currentY = 0;
+
+  function clearActive() {
+    items.forEach(item => {
+      item.classList.remove("active");
+    });
+
+    currentItem = null;
+  }
+
+  function showTooltip(item) {
+    if (!item) {
+      return;
+    }
+
+    const rect = item.getBoundingClientRect();
+
+    tooltip.querySelector("strong").textContent =
+      item.dataset.name || "";
+
+    tooltip.querySelector("span").textContent =
+      item.dataset.role || "";
+
+    tooltip.style.left =
+      `${rect.left + rect.width / 2}px`;
+
+    tooltip.style.top =
+      `${rect.bottom + 12}px`;
+
+    tooltip.classList.add("show");
+
+    requestAnimationFrame(() => {
+
+      const tooltipRect =
+        tooltip.getBoundingClientRect();
+
+      if (tooltipRect.right > window.innerWidth - 10) {
+        tooltip.style.left =
+          `${window.innerWidth - tooltipRect.width / 2 - 10}px`;
+      }
+
+      if (tooltipRect.left < 10) {
+        tooltip.style.left =
+          `${tooltipRect.width / 2 + 10}px`;
+      }
+
+      if (tooltipRect.bottom > window.innerHeight - 10) {
+        tooltip.style.top =
+          `${rect.top - tooltipRect.height - 12}px`;
+      }
+    });
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove("show");
+  }
+
+  function setActive(item, tooltipEnabled = false) {
+
+    if (!item) {
+      clearActive();
+
+      if (!tooltipEnabled) {
+        hideTooltip();
+      }
+
+      return;
+    }
+
+    if (currentItem !== item) {
+
+      items.forEach(element => {
+        element.classList.remove("active");
+      });
+
+      item.classList.add("active");
+
+      currentItem = item;
+    }
+
+    if (tooltipEnabled) {
+      showTooltip(item);
+    }
+  }
+
+  function getPointerItem(x, y) {
+
+    const element =
+      document.elementFromPoint(x, y);
+
+    if (!element) {
+      return null;
+    }
+
+    const item =
+      element.closest(".companyItem");
+
+    if (!item) {
+      return null;
+    }
+
+    return items.includes(item)
+      ? item
+      : null;
+  }
+
+  function getGlowCenter() {
+
+    const rect =
+      glow.getBoundingClientRect();
+
+    return {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    };
+  }
+
+  function getGlowItem() {
+
+    const center =
+      getGlowCenter();
+
+    let bestItem = null;
+    let bestDistance = Infinity;
+
+    const activationDistance = 78;
+
+    items.forEach(item => {
+
+      const rect =
+        item.getBoundingClientRect();
+
+      if (
+        rect.right < 0 ||
+        rect.left > window.innerWidth ||
+        rect.bottom < 0 ||
+        rect.top > window.innerHeight
+      ) {
+        return;
+      }
+
+      const itemCenterX =
+        rect.left + rect.width / 2;
+
+      const itemCenterY =
+        rect.top + rect.height / 2;
+
+      const dx =
+        center.x - itemCenterX;
+
+      const dy =
+        center.y - itemCenterY;
+
+      const distance =
+        Math.sqrt(dx * dx + dy * dy);
+
+      if (
+        distance <= activationDistance &&
+        distance < bestDistance
+      ) {
+        bestDistance = distance;
+        bestItem = item;
+      }
+    });
+
+    return bestItem;
+  }
+
+  function updateAutomaticHighlight() {
+
+    if (pointerInside) {
+      animationFrame =
+        requestAnimationFrame(
+          updateAutomaticHighlight
+        );
+
+      return;
+    }
+
+    const item =
+      getGlowItem();
+
+    if (item) {
+
+      setActive(
+        item,
+        false
+      );
+
+    } else {
+
+      clearActive();
+    }
+
+    animationFrame =
+      requestAnimationFrame(
+        updateAutomaticHighlight
+      );
+  }
+
+  function updateGlow(clientX, clientY) {
+
+    const rect =
+      bar.getBoundingClientRect();
+
+    targetX =
+      clientX - rect.left;
+
+    targetY =
+      clientY - rect.top;
+
+    targetX =
+      Math.max(
+        20,
+        Math.min(
+          targetX,
+          rect.width - 20
+        )
+      );
+
+    targetY =
+      Math.max(
+        15,
+        Math.min(
+          targetY,
+          rect.height - 15
+        )
+      );
+  }
+
+  function animatePointerGlow() {
+
+    currentX +=
+      (targetX - currentX) * 0.16;
+
+    currentY +=
+      (targetY - currentY) * 0.16;
+
+    glow.style.left =
+      `${currentX}px`;
+
+    glow.style.top =
+      `${currentY}px`;
+
+    if (pointerInside) {
+      requestAnimationFrame(
+        animatePointerGlow
+      );
+    }
+  }
+
+  bar.addEventListener(
+    "pointerenter",
+    event => {
+
+      pointerInside = true;
+
+      const rect =
+        bar.getBoundingClientRect();
+
+      currentX =
+        event.clientX - rect.left;
+
+      currentY =
+        event.clientY - rect.top;
+
+      targetX = currentX;
+      targetY = currentY;
+
+      glow.classList.add("pointerMode");
+
+      glow.style.left =
+        `${currentX}px`;
+
+      glow.style.top =
+        `${currentY}px`;
+
+      animatePointerGlow();
+
+      const item =
+        getPointerItem(
+          event.clientX,
+          event.clientY
+        );
+
+      if (item) {
+
+        setActive(
+          item,
+          true
+        );
+
+      } else {
+
+        clearActive();
+        hideTooltip();
+      }
+    }
+  );
+
+  bar.addEventListener(
+    "pointermove",
+    event => {
+
+      if (!pointerInside) {
+        return;
+      }
+
+      updateGlow(
+        event.clientX,
+        event.clientY
+      );
+
+      const item =
+        getPointerItem(
+          event.clientX,
+          event.clientY
+        );
+
+      if (item) {
+
+        setActive(
+          item,
+          true
+        );
+
+      } else {
+
+        clearActive();
+        hideTooltip();
+      }
+    }
+  );
+
+  bar.addEventListener(
+    "pointerleave",
+    () => {
+
+      pointerInside = false;
+
+      glow.classList.remove("pointerMode");
+
+      glow.style.left = "";
+      glow.style.top = "";
+
+      clearActive();
+      hideTooltip();
+    }
+  );
+
+  items.forEach(item => {
+
+    item.addEventListener(
+      "pointerenter",
+      () => {
+
+        if (!pointerInside) {
+          return;
+        }
+
+        setActive(
+          item,
+          true
+        );
+      }
+    );
+
+  });
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      if (
+        pointerInside &&
+        currentItem
+      ) {
+        showTooltip(currentItem);
+      }
+    }
+  );
+
+  if (!animationFrame) {
+    animationFrame =
+      requestAnimationFrame(
+        updateAutomaticHighlight
+      );
+  }
+
+});

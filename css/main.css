@@ -441,6 +441,104 @@
 .sun-mood .popupListItem{
     color:#F2F9FF;
 }
+.sun-mood .companyBar {
+    border-top: 1px solid rgba(14, 131, 136, 0.12);
+    border-bottom: 1px solid rgba(14, 131, 136, 0.12);
+
+    background:
+        linear-gradient(90deg,
+            rgba(14, 131, 136, 0.018),
+            rgba(14, 131, 136, 0.05),
+            rgba(14, 131, 136, 0.018));
+
+    box-shadow:
+        inset 0 0 40px rgba(14, 131, 136, 0.025);
+}
+
+.sun-mood .companyLogo img {
+    filter:
+        grayscale(100%) brightness(1.15) contrast(0.92);
+
+    transition:
+        filter 0.3s ease,
+        transform 0.3s cubic-bezier(.2, .8, .2, 1);
+}
+
+.sun-mood .companyItem {
+    opacity: 0.48;
+}
+
+.sun-mood .companyItem:hover,
+.sun-mood .companyItem.active {
+    opacity: 1;
+}
+
+.sun-mood .companyItem:hover .companyLogo img,
+.sun-mood .companyItem.active .companyLogo img {
+    filter:
+        grayscale(100%) brightness(0.25) contrast(1.05);
+
+    transform: scale(1.08);
+}
+
+.sun-mood .companyGlow {
+    background:
+        radial-gradient(ellipse at center,
+            rgba(14, 131, 136, 0.20) 0%,
+            rgba(14, 131, 136, 0.12) 22%,
+            rgba(14, 131, 136, 0.065) 42%,
+            rgba(14, 131, 136, 0.025) 62%,
+            rgba(14, 131, 136, 0) 82%);
+
+    mix-blend-mode: multiply;
+
+    opacity: 0.75;
+}
+
+.sun-mood .companyGlow.pointerMode {
+    opacity: 0.9;
+}
+
+.sun-mood .companyTooltip {
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border:
+        1px solid rgba(14, 131, 136, 0.14);
+
+    box-shadow:
+        0 12px 30px rgba(20, 30, 40, 0.14);
+}
+
+.sun-mood .companyTooltip strong {
+    color: var(--text-select-color);
+}
+
+.sun-mood .companyTooltip span {
+    color: var(--description-color);
+}
+
+.sun-mood .companyBar::before {
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.82) 22%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.sun-mood .companyBar::after {
+    background:
+        linear-gradient(270deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.82) 22%,
+            rgba(255, 255, 255, 0) 100%);
+}
+.sun-mood .companyLogo img {
+    filter:
+        grayscale(100%)
+        brightness(0.78)
+        contrast(1.05);
+}
 /*============================================ Global Style ============================================*/
 * {
     box-sizing: border-box;
@@ -504,7 +602,7 @@ html {
 
 .section {
     min-height: 190vh;
-    height: 100%;
+    height: max-content;
 }
 
 .home {
