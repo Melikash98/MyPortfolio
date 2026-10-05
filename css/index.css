@@ -1191,7 +1191,7 @@ iframe.skiptranslate {
     margin: 0;
     font-family: var(--robot-font);
     color: var(--main-text-color);
-    font-weight: var(--light-font-weight);
+    font-weight: var(--bold-font-weight);
     font-size: 1.3rem;
 }
 

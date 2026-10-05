@@ -108,7 +108,7 @@
     border-radius: 50%;
     background-color: #F2F9FF;
     border: 2px solid #F2F9FF;
-    box-shadow: 2px 2px 0 #F2F9FF
+    box-shadow: 2px 2px 0 #F2F9FF;
     transform: translateX(-50%);
     z-index: 2;
 }
@@ -116,7 +116,12 @@
 .sun-mood .shape-light {
     display: block;
 }
-
+.sun-mood .shape-dark {
+    display: none;
+}
+.shape-light{
+    display: none;
+}
 .sun-mood .homeProfilePic::before {
     background-color: #D9EAFD;
 }
