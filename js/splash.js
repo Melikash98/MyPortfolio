@@ -38,4 +38,4 @@ setTimeout(function () {
     setTimeout(function () {
         window.location.href = "html/index.html";
     }, 1000);
-}, 6000);
+}, 800);

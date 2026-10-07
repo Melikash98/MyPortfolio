@@ -60,10 +60,12 @@
     --scroll-thumb: #B8D3EC;
     --scroll-hover: #0E8388;
 }
+
 .sun-mood .skillTittles .skillName i,
-.skillsTab .skillsHeader .skillIcon{
+.skillsTab .skillsHeader .skillIcon {
     color: #14868C;
 }
+
 .sun-mood .nameText span {
     color: var(--main-text-color);
     -webkit-text-stroke: 2px #2e1065;
@@ -81,6 +83,7 @@
 .sun-mood .shape-dark {
     display: none;
 }
+
 .sun-mood .popupBox .shape-light {
     display: none;
 }
@@ -88,6 +91,7 @@
 .sun-mood .popupBox .shape-dark {
     display: block;
 }
+
 .sun-mood .popupBox .section-deco.decoLeft {
     position: absolute;
     top: 4rem;
@@ -98,6 +102,7 @@
     background-color: #F2F9FF;
     z-index: 1;
 }
+
 .sun-mood .popupBox .section-deco.decoLeft::before,
 .sun-mood .popupBox .section-deco.decoLeft::after {
     content: "";
@@ -116,12 +121,15 @@
 .sun-mood .shape-light {
     display: block;
 }
+
 .sun-mood .shape-dark {
     display: none;
 }
-.shape-light{
+
+.shape-light {
     display: none;
 }
+
 .sun-mood .homeProfilePic::before {
     background-color: #D9EAFD;
 }
@@ -372,39 +380,50 @@
     padding: 1rem;
     border-radius: 30px;
 }
-.sun-mood .nameProject{
+
+.sun-mood .nameProject {
     color: #F2F9FF;
 }
-.sun-mood .showProject{
+
+.sun-mood .showProject {
     color: #F2F9FF;
 }
-.sun-mood .infoList{
-    color: #F2F9FF;
-} 
-.sun-mood .popupProjectBox .btn-github-linke a{
+
+.sun-mood .infoList {
     color: #F2F9FF;
 }
-.sun-mood .popupProjectBox .btn-github-linke:hover{
+
+.sun-mood .popupProjectBox .btn-github-linke a {
+    color: #F2F9FF;
+}
+
+.sun-mood .popupProjectBox .btn-github-linke:hover {
     color: #00F7FF;
 }
-.sun-mood .btn-project-more a{
+
+.sun-mood .btn-project-more a {
     color: #F2F9FF;
 }
-.sun-mood .btn-project-more:hover a{
-    color:#000D16;
+
+.sun-mood .btn-project-more:hover a {
+    color: #000D16;
 }
-.sun-mood .dateFiishProject{
+
+.sun-mood .dateFiishProject {
     color: #EEEEEE;
 }
-.sun-mood .card .description-service{
+
+.sun-mood .card .description-service {
     color: #9DB2BF;
 }
+
 .sun-mood .contactDetails p,
 .sun-mood .commentCard p,
 .sun-mood .infos p,
-.sun-mood .skillTabSubject  {
+.sun-mood .skillTabSubject {
     color: #526D82;
 }
+
 .sun-mood .educationItem,
 .sun-mood .experienceItem,
 .sun-mood .awardItem,
@@ -416,31 +435,39 @@
 .sun-mood .explainItem li,
 .sun-mood .explainItem,
 .sun-mood .descriptionAbout {
-    border-bottom-color:#526D82;
-    color:#526D82; ;
+    border-bottom-color: #526D82;
+    color: #526D82;
+    ;
 }
+
 .sun-mood .educationItem+.educationItem::before,
 .sun-mood .experienceItem+.experienceItem::before,
-.sun-mood .awardItem+.awardItem::before{
- background-color:#526D82; 
+.sun-mood .awardItem+.awardItem::before {
+    background-color: #526D82;
 }
+
 .sun-mood .containerPClosed,
-.sun-mood .containerSClosed{
+.sun-mood .containerSClosed {
     color: #f2f9ff;
 }
+
 .sun-mood .containerPClosed:hover,
-.sun-mood .containerSClosed:hover{
+.sun-mood .containerSClosed:hover {
     color: #00F7FF;
 }
-.sun-mood .popupTitle{
-    color:#F2F9FF;
+
+.sun-mood .popupTitle {
+    color: #F2F9FF;
 }
-.sun-mood .popupDescription{
-    color:#EEEEEE;
+
+.sun-mood .popupDescription {
+    color: #EEEEEE;
 }
-.sun-mood .popupListItem{
-    color:#F2F9FF;
+
+.sun-mood .popupListItem {
+    color: #F2F9FF;
 }
+
 .sun-mood .companyBar {
     border-top: 1px solid rgba(14, 131, 136, 0.12);
     border-bottom: 1px solid rgba(14, 131, 136, 0.12);
@@ -533,12 +560,12 @@
             rgba(255, 255, 255, 0.82) 22%,
             rgba(255, 255, 255, 0) 100%);
 }
+
 .sun-mood .companyLogo img {
     filter:
-        grayscale(100%)
-        brightness(0.78)
-        contrast(1.05);
+        grayscale(100%) brightness(0.78) contrast(1.05);
 }
+
 /*============================================ Global Style ============================================*/
 * {
     box-sizing: border-box;
@@ -776,4 +803,122 @@ html {
 .tutorialsCard[data-status="finished"] .watchMove,
 .tutorialsCard[data-status="disabled"] .watchMove {
     opacity: 0.5;
+}
+
+.bottomNavigation {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*============================================ Main Responsive ============================================*/
+@media (min-width: 375px) and (max-width:490px) {
+    .header {
+        position: fixed;
+        display: inline-flex;
+        width: 100%;
+    }
+
+
+    .header .logoCard {
+        width: 200px;
+        margin-left: -4rem;
+    }
+
+    .header .logoCard img {
+        width: 100%;
+        height: 100%;
+    }
+      .header .controlIcon{
+        margin-right: -3.5rem;
+      }
+    .header .controlIcon .menuOpen{
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .indexBody {
+        position: relative;
+    }
+
+    .bottomNavigation {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        width: 80%;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        z-index: 9999;
+        padding: 10px 15px;
+        background: #010736;
+        border: 1px solid #010736;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .bottomNavigation ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 15px;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .bottomNavigation li {
+        position: relative;
+    }
+
+    .bottomNavigation a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .bottomNavigation a i {
+        font-size: 1.6rem;
+        color: var(--main-text-color);
+        transition: all 0.3s ease;
+    }
+
+    .bottomNavigation a::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) translateY(5px);
+        padding: 6px 10px;
+        background: var(--text-select-color);
+        color: var(--main-text-color);
+        font-family: var(--subtitle-font);
+        font-weight: var(--bold-font-weight);
+        font-size: 1rem;
+        white-space: nowrap;
+        border-radius: 6px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.25s ease;
+    }
+
+    .bottomNavigation a:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .bottomNavigation a.active i {
+        color: var(--text-select-color);
+    }
+
 }

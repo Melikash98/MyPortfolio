@@ -133,6 +133,89 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const bottomNavLinks = document.querySelectorAll('.bottomNavigation a');
+  const sections = document.querySelectorAll('main .section');
+
+  function setActiveLink(currentId) {
+    bottomNavLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+
+      if (href === `#${currentId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  bottomNavLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href');
+
+      if (!href || !href.startsWith('#')) {
+        return;
+      }
+
+      const targetSection = document.querySelector(href);
+
+      if (!targetSection) {
+        return;
+      }
+
+      event.preventDefault();
+
+      bottomNavLinks.forEach((item) => {
+        item.classList.remove('active');
+      });
+
+      link.classList.add('active');
+
+      const header = document.querySelector('.header');
+      const headerHeight = header ? header.offsetHeight : 0;
+
+      const targetPosition =
+        targetSection.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight;
+
+      window.scrollTo({
+        top: Math.max(0, targetPosition),
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          setActiveLink(currentId);
+        }
+      });
+    },
+    {
+      threshold: 0.55
+    }
+  );
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+
+  const currentHash = window.location.hash.replace('#', '');
+
+  if (currentHash) {
+    const currentSection = document.getElementById(currentHash);
+
+    if (currentSection) {
+      setActiveLink(currentHash);
+    }
+  } else {
+    setActiveLink('home');
+  }
+});
 // TODO: ***************************************************************HOME Section**********************************************************************//
 // TODO: Word Transition Effect for Role Text
 const roles = ["Melika", "Software Developer", "Backend Developer", "Android Developer"];
