@@ -439,7 +439,7 @@ const projectsSwiper = new Swiper('.projects-swiper', {
   loop: false,
 
   grid: {
-    rows: 2,
+    rows: 3,
     fill: 'row',
   },
 
@@ -449,6 +449,9 @@ const projectsSwiper = new Swiper('.projects-swiper', {
   },
 
   breakpoints: {
+    491: {
+      grid: { rows: 1, fill: 'row' },
+    },
     768: {
       slidesPerView: 2,
       spaceBetween: 24,

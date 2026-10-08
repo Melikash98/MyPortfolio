@@ -76,6 +76,16 @@
     -webkit-text-stroke: 2px #6d28d9;
 }
 
+.sun-mood .nameTextTwo span {
+    color: var(--main-text-color);
+    -webkit-text-stroke: 2px #2e1065;
+}
+
+.sun-mood .nameTextTwo {
+    color: #F4F8FE;
+    -webkit-text-stroke: 2px #6d28d9;
+}
+
 .sun-mood .shape-light {
     display: none;
 }
@@ -811,8 +821,30 @@ html {
     visibility: hidden;
 }
 
+.homeInfoTwo {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
 /*============================================ Main Responsive ============================================*/
 @media (min-width: 375px) and (max-width:490px) {
+    .indexBody {
+        min-height: 100vh;
+        background-image: var(--main-background);
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: fill !important;
+        background-attachment: fixed !important;
+    }
+
+    .section {
+        min-height: 100svh !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+
     .header {
         position: fixed;
         display: inline-flex;
@@ -829,10 +861,12 @@ html {
         width: 100%;
         height: 100%;
     }
-      .header .controlIcon{
+
+    .header .controlIcon {
         margin-right: -3.5rem;
-      }
-    .header .controlIcon .menuOpen{
+    }
+
+    .header .controlIcon .menuOpen {
         display: none;
         visibility: hidden;
         opacity: 0;
@@ -921,4 +955,466 @@ html {
         color: var(--text-select-color);
     }
 
+    .homeContainer.container {
+        width: 100% !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+        padding: 0 1rem !important;
+    }
+
+    .homeContent {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        min-height: 0 !important;
+        padding: 0 0 3rem !important;
+        margin-top: 3rem;
+    }
+
+
+
+    .homeContent .homeInfo,
+    .homeContent .descriptionAbout,
+    .homeContent .socialGroup,
+    .homeContent .btns,
+    .homeContent .section-deco {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .homeProfilePic .exInfo {
+        width: 160px;
+        height: 50px;
+    }
+
+    .homeProfilePic .infoOne {
+        bottom: 20%;
+        left: -1rem;
+    }
+
+    .homeProfilePic .infoTwo {
+        bottom: 32%;
+        right: -1.5rem;
+    }
+
+    .homeProfilePic .infoThree {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .homeProfilePic .exInfo-number {
+        font-size: 2.1rem;
+        margin-left: -2rem;
+        margin-top: -1rem;
+    }
+
+    .homeProfilePic .exInfo-text {
+        font-size: 1rem;
+    }
+
+    .homeContent .homeProfilePic {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        height: 100svh !important;
+        display: grid !important;
+        place-items: center !important;
+    }
+
+    .homeContent .picBack {
+        position: relative !important;
+        z-index: 1 !important;
+        width: 25rem !important;
+        aspect-ratio: 1 / 1 !important;
+        margin-left: 50%;
+        margin-right: 65%;
+        transform: none !important;
+    }
+
+    .homeContent .homeProfilePic::before {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 25rem !important;
+        height: 25rem !important;
+        transform: translate(-50%, -50%) !important;
+        border-radius: 50% 50% 50% 50%;
+        z-index: 0 !important;
+    }
+
+    .homeContent .homeProfilePic .shape-1 {
+        width: 14rem;
+        top: 14%;
+    }
+
+    .homeContent .homeProfilePic .shape-2,
+    .homeContent .homeProfilePic .shape-3 {
+        width: 8.75rem;
+    }
+
+    .homeContent .homeProfilePic .shape-2 {
+        bottom: 13%;
+        left: -1%;
+    }
+
+    .homeContent .homeProfilePic .shape-3 {
+        bottom: 16%;
+        right: -4%;
+    }
+
+    .homeInfoTwo {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .startTextTwo {
+        justify-content: center;
+        justify-self: center;
+        color: var(--main-text-color);
+        font-family: var(--text-first-font);
+        font-size: 1.2rem;
+        margin-left: 0rem;
+        margin-bottom: 1rem;
+    }
+
+    .startTextTwo .randomText {
+        color: var(--text-select-color);
+        font-family: .9rem;
+        justify-content: center;
+        justify-self: center;
+    }
+
+    .homeInfoTwo {
+        margin-top: -2rem;
+        margin-bottom: 4rem;
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        justify-self: center;
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+
+    .rolNameTwo {
+        justify-content: start;
+        justify-self: start;
+        text-align: start;
+        align-items: start;
+        font-family: var(--subtitle-font);
+        width: 100%;
+        color: var(--main-text-color);
+        font-size: 1.4rem;
+        font-weight: var(--normal-font-weight);
+        margin-inline-start: 0rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .descriptionAboutTwo {
+
+        justify-content: start;
+        justify-self: start;
+        text-align: justify;
+        align-items: start;
+        color: var(--main-text-color);
+        font-family: var(--main-description-font);
+        font-weight: var(--light-font-weight);
+        font-size: 1.1rem;
+        justify-self: flex-start;
+        line-height: 1rem;
+    }
+
+    .nameTextTwo {
+        font-family: var(--name-second-font);
+        font-size: 2rem;
+        justify-content: center;
+        justify-self: center;
+        text-align: center;
+        align-items: center;
+        font-weight: var(--bold-font-weight);
+        -webkit-text-stroke: 2px var(--main-text-color);
+        margin-bottom: 1rem;
+    }
+
+    .nameTextTwo span {
+        color: var(--main-text-color);
+        -webkit-text-stroke: 2px var(--text-select-color);
+    }
+
+    .experience .sectionTittle {
+        font-size: 3rem;
+        width: 100%;
+        justify-content: center;
+        justify-self: center;
+    }
+
+    .experienceContent .experiencekColumns {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 5rem;
+    }
+
+    .skills .container {
+        padding-inline: 1rem;
+    }
+
+    .skillsContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 2rem auto 0;
+        gap: 1.5rem;
+    }
+
+    .skillsTab {
+        width: 100%;
+        margin: 0;
+        align-items: stretch;
+    }
+
+    .skillsHeader {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        align-items: center;
+        gap: .75rem;
+        padding: .8rem;
+        margin: 0 0 .5rem;
+    }
+
+    .skillsHeader>div {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .skillsHeader .skillTabTittle {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .skillsHeader .skillTabSubject {
+        font-size: .9rem;
+    }
+
+    .skillsHeader .skillArrow {
+        margin-left: -1.5rem;
+        margin-top: -.1rem;
+    }
+
+    .skilldContent .skillsGroup,
+    .skilldContent .skillsList {
+        width: 100%;
+        margin-left: -1rem;
+        margin-bottom: 3rem;
+        margin-top: -4rem;
+    }
+
+    .skillsList {
+        row-gap: 1.5rem;
+    }
+
+    .skillItem {
+        box-sizing: border-box;
+        padding-left: 2rem;
+    }
+
+    .skillItem::before {
+        left: .5rem;
+    }
+
+    .skillItem:not(:last-child)::after {
+        left: calc(.5rem + 4px);
+    }
+
+    .skillTittles {
+        align-items: flex-start;
+        gap: .5rem;
+    }
+
+    .skillName {
+        width: auto;
+        max-width: none;
+        min-width: 0;
+        flex: 1;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    .skillName i {
+        font-size: 1.2rem;
+    }
+
+    .skillNumber {
+        flex-shrink: 0;
+        font-size: 1rem;
+    }
+
+    #python {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .services-swiper .swiper-pagination {
+        position: relative !important;
+        display: flex !important;
+        width: 15rem !important;
+        height: 1rem !important;
+        justify-content: space-between !important;
+        margin: 1.5rem auto 0 !important;
+    }
+
+    .services-swiper .swiper-pagination::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: .3rem !important;
+        right: .3rem !important;
+        width: auto !important;
+        height: 2px !important;
+        transform: translateY(-50%) !important;
+        background: var(--main-text-color) !important;
+        opacity: 1 !important;
+        z-index: 0 !important;
+    }
+
+    .services-swiper .swiper-pagination-bullet {
+        flex: 0 0 .6rem !important;
+        width: .6rem !important;
+        height: .6rem !important;
+        min-width: .6rem !important;
+        max-width: .6rem !important;
+        margin: 0 !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    .services-swiper .swiper-pagination-bullet-active {
+        flex-basis: .75rem !important;
+        width: .75rem !important;
+        height: .75rem !important;
+        min-width: .75rem !important;
+        max-width: .75rem !important;
+    }
+    .moreBtn{
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+    .moreBtn svg{
+        fill:var(--text-select-color);
+    }
+    .popupBox .section-deco,
+    .mainprojectBox .section-deco {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .servicesPopupModel,
+    .projectsPopupModel {
+        padding: .5rem;
+    }
+
+    .servicesPopupModel .popupContainer,
+    .projectsPopupModel .popupContainer {
+        width: 100%;
+        max-width: none;
+        max-height: 85vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 1.25rem;
+        overflow: hidden;
+    }
+
+    .servicesPopupModel .popupBox,
+    .projectsPopupModel .popupProjectBox {
+        height: auto;
+        max-height: 75vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .popupBox .mainBox .popupSubtitle {
+        display: flex;
+        margin-left: -1rem;
+        font-size: .9rem;
+    }
+
+    .popupBox .mainBox .popupTitle {
+        font-size: 1.5rem;
+        width: 100%;
+        margin-left: -.5rem;
+    }
+
+    .servicesPopupModel .mainBox {
+        padding-left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .servicesPopupModel .popupDescription {
+        width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+        text-align: left;
+        font-size: 1.2rem;
+    }
+
+    .servicesPopupModel .popupListGroup {
+        gap: -4.5rem;
+        padding: 0rem;
+        margin-left: -.1rem;
+    }
+
+    .servicesPopupModel .popupListItem {
+        gap: -5.5rem;
+        font-size: 1.2rem;
+    }
+    .projects .filterList {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .2rem;
+        margin: 1rem auto;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+    }
+
+    .projects .filterList .filterItems {
+        padding: .4rem .75rem;
+        font-size: 1rem;
+    }
+    .mainprojectBox .explainProject {
+         font-size: 1.2rem;
+           margin-left: 0rem;
+           width: 99%;
+    }
+    .infoList {
+         font-size: 1rem;
+    }
+    .infoList li span {
+        font-size: .9rem;
+        letter-spacing: .1rem;
+    }
+    .popupProjectBox .btn-project-more {
+        position: absolute;
+        bottom: -10rem;
+    }
 }
