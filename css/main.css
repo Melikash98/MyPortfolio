@@ -1309,14 +1309,22 @@ html {
         min-width: .75rem !important;
         max-width: .75rem !important;
     }
-    .moreBtn{
+
+    .mainBox .moreBtn {
+        position: absolute;
+        left: 0;
         display: flex;
         opacity: 1;
         visibility: visible;
+        z-index: 1000000;
     }
-    .moreBtn svg{
-        fill:var(--text-select-color);
+
+    .mainBox .moreBtn svg {
+        width: 40px;
+        height: 40px;
+        fill: var(--text-select-color);
     }
+
     .popupBox .section-deco,
     .mainprojectBox .section-deco {
         display: none;
@@ -1331,13 +1339,13 @@ html {
 
     .servicesPopupModel .popupContainer,
     .projectsPopupModel .popupContainer {
-        width: 100%;
-        max-width: none;
-        max-height: 85vh;
+        width: min(202vw, 30rem)!important;;
+        max-width: 30rem !important;
+        max-height: 65svh !important;
+        overflow-y: auto !important;
         padding: 1rem;
         box-sizing: border-box;
         border-radius: 1.25rem;
-        overflow: hidden;
     }
 
     .servicesPopupModel .popupBox,
@@ -1384,6 +1392,7 @@ html {
         gap: -5.5rem;
         font-size: 1.2rem;
     }
+
     .projects .filterList {
         width: 100%;
         display: flex;
@@ -1401,18 +1410,22 @@ html {
         padding: .4rem .75rem;
         font-size: 1rem;
     }
+
     .mainprojectBox .explainProject {
-         font-size: 1.2rem;
-           margin-left: 0rem;
-           width: 99%;
+        font-size: 1.2rem;
+        margin-left: 0rem;
+        width: 99%;
     }
+
     .infoList {
-         font-size: 1rem;
+        font-size: 1rem;
     }
+
     .infoList li span {
         font-size: .9rem;
         letter-spacing: .1rem;
     }
+
     .popupProjectBox .btn-project-more {
         position: absolute;
         bottom: -10rem;
