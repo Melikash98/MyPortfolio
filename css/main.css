@@ -827,6 +827,13 @@ html {
     visibility: hidden;
 }
 
+.popupBox .mainBox .arrowDownScroll,
+.popupBox .mainBox .moreBtn {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
 /*============================================ Main Responsive ============================================*/
 @media (min-width: 375px) and (max-width:490px) {
     .indexBody {
@@ -1268,6 +1275,13 @@ html {
         height: 1.3rem;
     }
 
+    .popupBox .mainBox .arrowDownScroll,
+    .popupBox .mainBox .moreBtn {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
     .services-swiper .swiper-pagination {
         position: relative !important;
         display: flex !important;
@@ -1310,20 +1324,6 @@ html {
         max-width: .75rem !important;
     }
 
-    .mainBox .moreBtn {
-        position: absolute;
-        left: 0;
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-        z-index: 1000000;
-    }
-
-    .mainBox .moreBtn svg {
-        width: 40px;
-        height: 40px;
-        fill: var(--text-select-color);
-    }
 
     .popupBox .section-deco,
     .mainprojectBox .section-deco {
@@ -1339,10 +1339,10 @@ html {
 
     .servicesPopupModel .popupContainer,
     .projectsPopupModel .popupContainer {
-        width: min(202vw, 30rem)!important;;
+        width: min(202vw, 30rem) !important;
         max-width: 30rem !important;
         max-height: 65svh !important;
-        overflow-y: auto !important;
+        overflow: hidden;
         padding: 1rem;
         box-sizing: border-box;
         border-radius: 1.25rem;
@@ -1350,10 +1350,33 @@ html {
 
     .servicesPopupModel .popupBox,
     .projectsPopupModel .popupProjectBox {
-        height: auto;
-        max-height: 75vh;
-        overflow-y: auto;
-        overflow-x: hidden;
+        height: 100%;
+        min-height: 0;
+        max-height: none !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
+    .servicesPopupModel .mainBox.is-collapsed .popupListItem:nth-child(n + 4) {
+        display: none;
+    }
+
+    .servicesPopupModel .mainBox .moreBtn:not([hidden]),
+    .servicesPopupModel .mainBox .arrowDownScroll:not([hidden]) {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+        cursor: pointer;
+    }
+
+    .servicesPopupModel .mainBox .moreBtn[hidden],
+    .servicesPopupModel .mainBox .arrowDownScroll[hidden] {
+        display: none !important;
     }
 
     .popupBox .mainBox .popupSubtitle {
@@ -1369,6 +1392,7 @@ html {
     }
 
     .servicesPopupModel .mainBox {
+        height: max-content;
         padding-left: 0;
         width: 100%;
         box-sizing: border-box;

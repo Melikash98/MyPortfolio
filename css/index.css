@@ -940,7 +940,6 @@ iframe.skiptranslate {
     visibility: visible;
     pointer-events: auto;
 }
-
 .servicesPopupModel .popupContainer,
 .projectsPopupModel .popupContainer {
     width: 80%;

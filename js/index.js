@@ -284,9 +284,11 @@ const servicesPopup = document.querySelector('.servicesPopupModel');
 const serviceLinks = document.querySelectorAll('.linkeDetails');
 const closePopup = document.querySelector('.containerSClosed');
 
-serviceLinks.forEach(link => {
-  link.addEventListener('click', event => {
+serviceLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
     event.preventDefault();
+
+    if (!servicesPopup) return;
 
     const serviceCard = link.closest('.services-swiper .card');
     const detailServices = serviceCard?.querySelector('.detailServices');
@@ -294,54 +296,133 @@ serviceLinks.forEach(link => {
     if (!detailServices) return;
 
     const popupMainBox = servicesPopup.querySelector('.mainBox');
+    const popupBox = servicesPopup.querySelector('.popupBox');
+
+    if (!popupMainBox || !popupBox) return;
+
+    const subtitle =
+      detailServices.querySelector('h4')?.textContent.trim() || '';
+
+    const title =
+      detailServices.querySelector('h3')?.textContent.trim() || '';
+
+    const description =
+      detailServices.querySelector('p')?.textContent.trim() || '';
+
+    const listItems = [...detailServices.querySelectorAll('li')];
 
     popupMainBox.innerHTML = `
-            <h6 class="popupSubtitle">
-                ${detailServices.querySelector('h4')?.textContent || ''}
-            </h6>
+      <h6 class="popupSubtitle">${subtitle}</h6>
 
-            <h1 class="popupTitle">
-                ${detailServices.querySelector('h3')?.textContent || ''}
-            </h1>
+      <h1 class="popupTitle">${title}</h1>
 
-            <p class="popupDescription">
-                ${detailServices.querySelector('p')?.textContent || ''}
-            </p>
+      <p class="popupDescription">${description}</p>
 
-            <ul class="popupListGroup grid">
-                ${[...(detailServices.querySelectorAll('li'))].map(item => `
-                    <li class="popupListItem">
-                        <i class="ri-git-commit-fill popupListIcon"></i>
-                        <p class="popupListText">${item.textContent}</p>
-                    </li>
-                `).join('')}
-            </ul>
-        `;
+      <ul class="popupListGroup grid">
+        ${listItems.map((item) => `
+          <li class="popupListItem">
+            <i class="ri-git-commit-fill popupListIcon"></i>
+            <p class="popupListText">${item.textContent.trim()}</p>
+          </li>
+        `).join('')}
+      </ul>
+
+      <div class="arrowDownScroll"
+           role="button"
+           tabindex="0"
+           aria-label="Scroll down">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             fill="currentColor"
+             viewBox="0 0 24 24">
+          <path d="M16.29 10.79 13 14.09V6h-2v8.09l-3.29-3.3-1.42 1.42 5.71 5.7 5.71-5.7z"></path>
+        </svg>
+      </div>
+
+      <div class="moreBtn"
+           data-btn="More"
+           role="button"
+           tabindex="0"
+           aria-label="Show all services">
+        <i class="ri-more-fill"></i>
+      </div>
+    `;
+
+    const isPhone = window.matchMedia('(max-width: 490px)').matches;
+    const popupItems = popupMainBox.querySelectorAll('.popupListItem');
+    const moreBtn = popupMainBox.querySelector('.moreBtn');
+    const arrow = popupMainBox.querySelector('.arrowDownScroll');
+    const shouldShowMore = isPhone && popupItems.length > 3;
+
+    popupMainBox.classList.toggle('is-collapsed', shouldShowMore);
+    moreBtn.hidden = !shouldShowMore;
+    arrow.hidden = true;
+    popupBox.scrollTop = 0;
+
+    if (shouldShowMore) {
+      moreBtn.addEventListener('click', () => {
+        popupMainBox.classList.remove('is-collapsed');
+        moreBtn.hidden = true;
+        arrow.hidden = false;
+
+        const fourthItem = popupItems[3];
+        const offset =
+          fourthItem.getBoundingClientRect().top -
+          popupBox.getBoundingClientRect().top;
+
+        popupBox.scrollBy({
+          top: Math.max(0, offset - 16),
+          behavior: 'smooth'
+        });
+      }, { once: true });
+    }
+
+    arrow.addEventListener('click', () => {
+      popupBox.scrollBy({
+        top: popupBox.clientHeight * 0.75,
+        behavior: 'smooth'
+      });
+    });
+
+    const addKeyboardClick = (element) => {
+      element.addEventListener('keydown', (keyEvent) => {
+        if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+          keyEvent.preventDefault();
+          element.click();
+        }
+      });
+    };
+
+    addKeyboardClick(moreBtn);
+    addKeyboardClick(arrow);
 
     servicesPopup.classList.add('active');
     document.body.style.overflow = 'hidden';
   });
 });
 
-closePopup?.addEventListener('click', () => {
+function closeServicesPopup() {
+  if (!servicesPopup) return;
+
   servicesPopup.classList.remove('active');
   document.body.style.overflow = '';
-});
+}
 
-servicesPopup?.addEventListener('click', event => {
+closePopup?.addEventListener('click', closeServicesPopup);
+
+servicesPopup?.addEventListener('click', (event) => {
   if (event.target === servicesPopup) {
-    servicesPopup.classList.remove('active');
-    document.body.style.overflow = '';
+    closeServicesPopup();
   }
 });
 
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', (event) => {
   if (
     event.key === 'Escape' &&
     servicesPopup?.classList.contains('active')
   ) {
-    servicesPopup.classList.remove('active');
-    document.body.style.overflow = '';
+    closeServicesPopup();
   }
 });
 // TODO: *************************************************************** Experience Section **********************************************************************//
