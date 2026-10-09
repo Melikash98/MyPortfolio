@@ -36,6 +36,6 @@ setTimeout(function () {
     mainElement.classList.add("zoom-out");
 
     setTimeout(function () {
-        window.location.href = "html/index.html";
+        window.location.href = "index.html";
     }, 1000);
-}, 800);
+}, 3000);
