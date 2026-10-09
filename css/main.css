@@ -65,12 +65,14 @@
     --scroll-thumb: #B8D3EC;
     --scroll-hover: #0E8388;
 }
+
 :root.sun-mood .cookie-banner {
     --cookie-bg: rgba(244, 248, 254, 0.98);
     --cookie-text: #010736;
     --cookie-muted: #526D82;
     --cookie-border: rgba(14, 131, 136, 0.3);
 }
+
 .sun-mood .skillTittles .skillName i,
 .skillsTab .skillsHeader .skillIcon {
     color: #14868C;
@@ -648,10 +650,12 @@ html {
 }
 
 .section {
-    overflow: hidden;
+    position: relative;
+    overflow: visible;
     min-height: 190vh;
-    height: max-content;
+    height: 100%;
 }
+
 
 .home {
     padding-block: 7rem 3.5rem;
@@ -857,7 +861,8 @@ html {
     }
 
     .section {
-        min-height: 100svh !important;
+        min-height: 120svh !important;
+        height: 100% !important;
         height: auto !important;
         overflow: visible !important;
         padding: 0 !important;

@@ -322,7 +322,7 @@
     width: 2px;
     height: 100%;
     background-color: var(--main-text-color);
-    z-index: 1000000000000000;
+    z-index: 6;
 }
 
 .decoLeft {
@@ -885,6 +885,7 @@ iframe.skiptranslate {
 }
 
 .sectionTittle {
+    margin-top: 10rem;
     font-size: 2.5rem;
     font-family: var(--tittle-font);
     font-weight: var(--bold-font-weight);
