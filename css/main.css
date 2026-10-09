@@ -834,7 +834,6 @@ html {
     opacity: 0;
     visibility: hidden;
 }
-
 /*============================================ Main Responsive ============================================*/
 @media (min-width: 375px) and (max-width:490px) {
     .indexBody {
@@ -1523,7 +1522,8 @@ html {
         position: absolute;
         bottom: -10rem;
     }
-      .section.contact {
+
+    .section.contact {
         min-height: 0 !important;
         height: auto !important;
         padding: 6rem 1rem 7rem !important;
