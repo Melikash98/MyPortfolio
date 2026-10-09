@@ -1350,13 +1350,74 @@ html {
 
     .servicesPopupModel .popupBox,
     .projectsPopupModel .popupProjectBox {
+        position: relative;
         height: 100%;
         min-height: 0;
         max-height: none !important;
-        overflow-y: auto !important;
+        overflow-y: hidden !important;
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
+    }
+
+    .servicesPopupModel .mainBox .moreBtn {
+        position: absolute;
+        font-size: 2rem;
+        color: var(--text-select-color);
+        right: 1rem;
+        top: 20rem;
+    }
+
+    .servicesPopupModel .mainBox .arrowDownScroll {
+        position: absolute;
+        right: 0;
+        bottom: 3rem;
+    }
+
+    .card .linkeDetails {
+        bottom: -2rem;
+    }
+
+
+    .servicesPopupModel .mainBox .arrowDownScroll svg {
+
+        width: 30px;
+        height: 30px;
+        fill: var(--text-select-color);
+        animation: servicesArrowBounce 1s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    @keyframes servicesArrowBounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(5px);
+        }
+    }
+
+    .servicesPopupModel .mainBox .popupListGroup {
+        scrollbar-width: thin;
+        scrollbar-color: var(--main-text-color) var(--text-select-color);
+    }
+
+    .servicesPopupModel .mainBox .popupListGroup::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .servicesPopupModel .mainBox .popupListGroup::-webkit-scrollbar-track {
+        background: var(--text-select-color);
+        border-radius: 8px;
+    }
+
+    .servicesPopupModel .mainBox .popupListGroup::-webkit-scrollbar-thumb {
+        background: var(--main-text-color);
+        border-radius: 8px;
     }
 
     .servicesPopupModel .mainBox.is-collapsed .popupListItem:nth-child(n + 4) {
@@ -1412,6 +1473,13 @@ html {
         margin-left: -.1rem;
     }
 
+    .servicesPopupModel .mainBox .popupListGroup {
+        min-height: 0;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
     .servicesPopupModel .popupListItem {
         gap: -5.5rem;
         font-size: 1.2rem;
@@ -1453,5 +1521,34 @@ html {
     .popupProjectBox .btn-project-more {
         position: absolute;
         bottom: -10rem;
+    }
+
+    .contactContent {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .contactInfo {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem 1rem;
+    }
+
+    .contactForms,
+    .contactForm {
+        width: 100%;
+    }
+
+    .contactForms {
+        min-height: auto;
+    }
+
+    .contactForm {
+        margin-right: 0;
+    }
+
+    .formRow,
+    .formRow.single {
+        grid-template-columns: minmax(0, 1fr);
     }
 }

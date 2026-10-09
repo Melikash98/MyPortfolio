@@ -280,42 +280,38 @@ const servicesSwiper = new Swiper('.services-swiper', {
   },
 });
 // ! Services Popup => Show Details Services
-const servicesPopup = document.querySelector('.servicesPopupModel');
-const serviceLinks = document.querySelectorAll('.linkeDetails');
-const closePopup = document.querySelector('.containerSClosed');
+const servicesPopup = document.querySelector(".servicesPopupModel");
+const serviceLinks = document.querySelectorAll(".linkeDetails");
+const closePopup = document.querySelector(".containerSClosed");
 
 serviceLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
+  link.addEventListener("click", (event) => {
     event.preventDefault();
 
     if (!servicesPopup) return;
 
-    const serviceCard = link.closest('.services-swiper .card');
-    const detailServices = serviceCard?.querySelector('.detailServices');
+    const serviceCard = link.closest(".services-swiper .card");
+    const detailServices = serviceCard?.querySelector(".detailServices");
 
     if (!detailServices) return;
 
-    const popupMainBox = servicesPopup.querySelector('.mainBox');
-    const popupBox = servicesPopup.querySelector('.popupBox');
-
-    if (!popupMainBox || !popupBox) return;
+    const popupMainBox = servicesPopup.querySelector(".mainBox");
+    if (!popupMainBox) return;
 
     const subtitle =
-      detailServices.querySelector('h4')?.textContent.trim() || '';
+      detailServices.querySelector("h4")?.textContent.trim() || "";
 
     const title =
-      detailServices.querySelector('h3')?.textContent.trim() || '';
+      detailServices.querySelector("h3")?.textContent.trim() || "";
 
     const description =
-      detailServices.querySelector('p')?.textContent.trim() || '';
+      detailServices.querySelector("p")?.textContent.trim() || "";
 
-    const listItems = [...detailServices.querySelectorAll('li')];
+    const listItems = [...detailServices.querySelectorAll("li")];
 
     popupMainBox.innerHTML = `
       <h6 class="popupSubtitle">${subtitle}</h6>
-
       <h1 class="popupTitle">${title}</h1>
-
       <p class="popupDescription">${description}</p>
 
       <ul class="popupListGroup grid">
@@ -324,14 +320,15 @@ serviceLinks.forEach((link) => {
             <i class="ri-git-commit-fill popupListIcon"></i>
             <p class="popupListText">${item.textContent.trim()}</p>
           </li>
-        `).join('')}
+        `).join("")}
       </ul>
 
       <div class="arrowDownScroll"
            role="button"
            tabindex="0"
-           aria-label="Scroll down">
-        <svg xmlns="http://www.w3.org/2000/svg"
+           aria-label="Scroll through service items">
+        <svg class="scrollArrowSvg"
+             xmlns="http://www.w3.org/2000/svg"
              width="24"
              height="24"
              fill="currentColor"
@@ -344,50 +341,55 @@ serviceLinks.forEach((link) => {
            data-btn="More"
            role="button"
            tabindex="0"
-           aria-label="Show all services">
+           aria-label="Show remaining service items">
         <i class="ri-more-fill"></i>
       </div>
     `;
 
-    const isPhone = window.matchMedia('(max-width: 490px)').matches;
-    const popupItems = popupMainBox.querySelectorAll('.popupListItem');
-    const moreBtn = popupMainBox.querySelector('.moreBtn');
-    const arrow = popupMainBox.querySelector('.arrowDownScroll');
-    const shouldShowMore = isPhone && popupItems.length > 3;
+    const isPhone = window.matchMedia("(max-width: 490px)").matches;
+    const popupList = popupMainBox.querySelector(".popupListGroup");
+    const popupItems = popupMainBox.querySelectorAll(".popupListItem");
+    const moreBtn = popupMainBox.querySelector(".moreBtn");
+    const arrow = popupMainBox.querySelector(".arrowDownScroll");
+    const shouldShowMore = isPhone && popupItems.length > 2;
 
-    popupMainBox.classList.toggle('is-collapsed', shouldShowMore);
+    popupMainBox.classList.toggle("is-collapsed", shouldShowMore);
     moreBtn.hidden = !shouldShowMore;
     arrow.hidden = true;
-    popupBox.scrollTop = 0;
 
     if (shouldShowMore) {
-      moreBtn.addEventListener('click', () => {
-        popupMainBox.classList.remove('is-collapsed');
+      moreBtn.addEventListener("click", () => {
+        popupList.style.boxSizing = "border-box";
+        popupList.style.height =
+          `${popupList.getBoundingClientRect().height}px`;
+
+        popupMainBox.classList.remove("is-collapsed");
+        popupList.style.overflowY = "scroll";
+
         moreBtn.hidden = true;
         arrow.hidden = false;
 
-        const fourthItem = popupItems[3];
-        const offset =
-          fourthItem.getBoundingClientRect().top -
-          popupBox.getBoundingClientRect().top;
+        const thirdItem = popupItems[2];
+        const listTop = popupList.getBoundingClientRect().top;
+        const itemTop = thirdItem.getBoundingClientRect().top;
 
-        popupBox.scrollBy({
-          top: Math.max(0, offset - 16),
-          behavior: 'smooth'
+        popupList.scrollTo({
+          top: popupList.scrollTop + itemTop - listTop,
+          behavior: "smooth"
         });
       }, { once: true });
     }
 
-    arrow.addEventListener('click', () => {
-      popupBox.scrollBy({
-        top: popupBox.clientHeight * 0.75,
-        behavior: 'smooth'
+    arrow.addEventListener("click", () => {
+      popupList.scrollBy({
+        top: popupList.clientHeight * 0.75,
+        behavior: "smooth"
       });
     });
 
     const addKeyboardClick = (element) => {
-      element.addEventListener('keydown', (keyEvent) => {
-        if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+      element.addEventListener("keydown", (keyEvent) => {
+        if (keyEvent.key === "Enter" || keyEvent.key === " ") {
           keyEvent.preventDefault();
           element.click();
         }
@@ -397,30 +399,30 @@ serviceLinks.forEach((link) => {
     addKeyboardClick(moreBtn);
     addKeyboardClick(arrow);
 
-    servicesPopup.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    servicesPopup.classList.add("active");
+    document.body.style.overflow = "hidden";
   });
 });
 
 function closeServicesPopup() {
   if (!servicesPopup) return;
 
-  servicesPopup.classList.remove('active');
-  document.body.style.overflow = '';
+  servicesPopup.classList.remove("active");
+  document.body.style.overflow = "";
 }
 
-closePopup?.addEventListener('click', closeServicesPopup);
+closePopup?.addEventListener("click", closeServicesPopup);
 
-servicesPopup?.addEventListener('click', (event) => {
+servicesPopup?.addEventListener("click", (event) => {
   if (event.target === servicesPopup) {
     closeServicesPopup();
   }
 });
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener("keydown", (event) => {
   if (
-    event.key === 'Escape' &&
-    servicesPopup?.classList.contains('active')
+    event.key === "Escape" &&
+    servicesPopup?.classList.contains("active")
   ) {
     closeServicesPopup();
   }
