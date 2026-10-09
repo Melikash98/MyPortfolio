@@ -2436,8 +2436,41 @@
             </div>
         </div>
     </main>
-    <footer class="footer"></footer>
+    <button class="scrollControl" type="button" data-direction="down" aria-label="Scroll to bottom">
+        <span class="scrollControl__halos" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
 
+        <span class="scrollControl__mouse" aria-hidden="true">
+            <span class="scrollControl__wheel"></span>
+        </span>
+    </button>
+    <footer class="footer">
+        <div class="proc"></div>
+    </footer>
+
+
+    <aside id="cookieBanner" class="cookie-banner" aria-labelledby="cookieTitle" hidden>
+        <div class="cookie-banner__content">
+            <span class="cookie-banner__label">COOKIE PREFERENCES</span>
+            <h2 id="cookieTitle">Your privacy matters</h2>
+            <p>
+                We use essential cookies to make this site work. With your permission,
+                we may also use optional cookies.
+            </p>
+        </div>
+
+        <div class="cookie-banner__actions">
+            <button type="button" class="cookie-button cookie-button--secondary" data-cookie-choice="reject">
+                Reject non-essential
+            </button>
+            <button type="button" class="cookie-button cookie-button--primary" data-cookie-choice="accept">
+                Accept all
+            </button>
+        </div>
+    </aside>
 
     <!-- ! AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

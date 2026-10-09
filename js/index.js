@@ -1478,3 +1478,45 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+/* TODO ============================================ SCROLL MOUSE  ============================================*/
+document.addEventListener('DOMContentLoaded', () => {
+  const control = document.querySelector('.scrollControl');
+  if (!control) return;
+
+  const maxScroll = () =>
+    Math.max(
+      0,
+      document.documentElement.scrollHeight - window.innerHeight
+    );
+
+  const setDirection = (direction) => {
+    control.dataset.direction = direction;
+    control.setAttribute(
+      'aria-label',
+      direction === 'down' ? 'Scroll to bottom' : 'Scroll to top'
+    );
+  };
+
+  const syncDirection = () => {
+    if (window.scrollY <= 2) {
+      setDirection('down');
+    } else if (window.scrollY >= maxScroll() - 2) {
+      setDirection('up');
+    }
+  };
+
+  control.addEventListener('click', () => {
+    const target = control.dataset.direction === 'down' ? maxScroll() : 0;
+
+    window.scrollTo({
+      top: target,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', syncDirection, { passive: true });
+  window.addEventListener('resize', syncDirection);
+  window.addEventListener('load', syncDirection);
+
+  syncDirection();
+});

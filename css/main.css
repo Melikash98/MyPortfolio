@@ -44,9 +44,13 @@
     --scroll-track: #040D12;
     --scroll-thumb: #0E8388;
     --scroll-hover: #14868C;
-
-    /*============================================ Transition ============================================*/
-    --transition-icon: cubic-bezier(0.3, 0, 0.3);
+    --cookie-bg: rgba(4, 13, 18, 0.97);
+    --cookie-text: #F2F9FF;
+    --cookie-muted: #BFC9D1;
+    --cookie-accent: #0E8388;
+    --cookie-border: rgba(14, 131, 136, 0.45)
+        /*============================================ Transition ============================================*/
+        --transition-icon: cubic-bezier(0.3, 0, 0.3);
 
     --project-gap: 25px;
 }
@@ -61,7 +65,12 @@
     --scroll-thumb: #B8D3EC;
     --scroll-hover: #0E8388;
 }
-
+:root.sun-mood .cookie-banner {
+    --cookie-bg: rgba(244, 248, 254, 0.98);
+    --cookie-text: #010736;
+    --cookie-muted: #526D82;
+    --cookie-border: rgba(14, 131, 136, 0.3);
+}
 .sun-mood .skillTittles .skillName i,
 .skillsTab .skillsHeader .skillIcon {
     color: #14868C;
@@ -639,6 +648,7 @@ html {
 }
 
 .section {
+    overflow: hidden;
     min-height: 190vh;
     height: max-content;
 }
@@ -1522,7 +1532,8 @@ html {
         position: absolute;
         bottom: -10rem;
     }
-      .section.contact {
+
+    .section.contact {
         min-height: 0 !important;
         height: auto !important;
         padding: 6rem 1rem 7rem !important;
@@ -1645,5 +1656,41 @@ html {
         width: 100% !important;
         height: 260px;
         border: 0;
+    }
+}
+
+@media (max-width: 1512px) {
+    .main>section.section>.container .section-deco.decoLeft {
+        left: clamp(-72px, calc(684px - 50vw), 24px);
+    }
+
+    .main>section.section>.container .section-deco.decoRight {
+        right: clamp(-72px, calc(684px - 50vw), 24px);
+    }
+}
+
+@media (min-width: 375px) and (max-width: 490px) {
+    .main>section.section>.container>.homeContent>.section-deco.decoLeft {
+        left: 8px;
+    }
+
+    .main>section.section>.container>.homeContent>.section-deco.decoRight {
+        right: 8px;
+    }
+}
+
+.main>section.section {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
+    overflow: visible;
+}
+
+@media (min-width: 375px) and (max-width: 490px) {
+    .main>section.section.contact {
+        min-height: 100vh !important;
+        min-height: 100svh !important;
     }
 }
