@@ -816,13 +816,13 @@ html {
     opacity: 0.5;
 }
 
-.bottomNavigation {
+.indexBody .bottomNavigation {
     display: none;
     opacity: 0;
     visibility: hidden;
 }
 
-.homeInfoTwo {
+.homeContent .homeInfoTwo {
     display: none;
     opacity: 0;
     visibility: hidden;
