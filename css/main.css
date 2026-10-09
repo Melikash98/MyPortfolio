@@ -985,8 +985,7 @@ html {
     .homeContent .homeInfo,
     .homeContent .descriptionAbout,
     .homeContent .socialGroup,
-    .homeContent .btns,
-    .homeContent .section-deco {
+    .homeContent .btns {
         display: none;
         opacity: 0;
         visibility: hidden;
