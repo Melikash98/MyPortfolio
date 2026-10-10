@@ -1765,6 +1765,44 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
+                <section class="githubActivity" data-github-activity data-endpoint="github-activity.php"
+                    aria-labelledby="githubActivityTitle">
+                    <div class="githubActivity__header">
+                        <div>
+                            <h3 class="githubActivity__title" id="githubActivityTitle">GitHub Activity</h3>
+                            <p class="githubActivity__intro">My contributions over the last year, updated automatically.</p>
+                        </div>
+                        <a class="githubActivity__profileLink" href="https://github.com/Melikash98"
+                            target="_blank" rel="noopener noreferrer">
+                            View GitHub profile <i class="ri-arrow-up-right-line" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <p class="githubActivity__status" data-github-status role="status" aria-live="polite">
+                        Loading GitHub activity...
+                    </p>
+                    <div class="githubActivity__panel" data-github-panel hidden>
+                        <p class="githubActivity__summary" data-github-summary></p>
+                        <div class="githubActivity__scroll" tabindex="0" role="region"
+                            aria-label="Scrollable GitHub contribution calendar">
+                            <div class="githubActivity__calendar">
+                                <div class="githubActivity__months" data-github-months aria-hidden="true"></div>
+                                <div class="githubActivity__chart" data-github-chart role="img"></div>
+                            </div>
+                        </div>
+                        <div class="githubActivity__footer">
+                            <span class="githubActivity__updated" data-github-updated></span>
+                            <span class="githubActivity__legend" aria-hidden="true">
+                                <span>Less</span>
+                                <i data-level="0"></i>
+                                <i data-level="1"></i>
+                                <i data-level="2"></i>
+                                <i data-level="3"></i>
+                                <i data-level="4"></i>
+                                <span>More</span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
                 <div class="section-deco decoLeft">
                     <img loading="lazy" src="images/dot-modol1-dark.png" alt="" class="shape shape-dark">
                     <img loading="lazy" src="images/dot-modol1.png" alt="" class="shape shape-light">
@@ -2500,6 +2538,7 @@
     <!--Js-->
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/github-activity.js"></script>
     <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement(
