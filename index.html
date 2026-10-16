@@ -2445,7 +2445,6 @@
                                 <path d="M16.29 10.79 13 14.09V6h-2v8.09l-3.29-3.3-1.42 1.42 5.71 5.7 5.71-5.7z"></path>
                             </svg>
                         </div>
-                        <div class="moreBtn" data-btn="More">
                             <i class="ri-more-fill"></i>
                         </div>
                     </div>
@@ -2485,10 +2484,11 @@
                             </ul>
                         </div>
                         <div class="infoTextTwo">
-                            <h3 class="box1Btn">
+                            <h3 class="box1Btn" role="button" tabindex="0" aria-expanded="false"
+                                aria-controls="demoInformationDetails">
                                 <i class="ri-arrow-right-line arrowIconDemo"></i> Demo Information
                             </h3>
-                            <ul class="ditailInfoDemo">
+                            <ul class="ditailInfoDemo" id="demoInformationDetails">
                                 <li>
                                     <h4><i class="ri-circle-fill"></i>Name: <span>Safe Plase</span></h4>
                                 </li>
@@ -2502,15 +2502,20 @@
 
                         </div>
                         <div class="explainProjectBox">
-                            <h3 class="box1Btn">
+                            <h3 class="box1Btn" role="button" tabindex="0" aria-expanded="false"
+                                aria-controls="projectOverviewText">
                                 <i class="ri-arrow-right-line arrowIconDemo"></i> OwerView
                             </h3>
-                            <p class="explainProjectTwo">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            <p class="explainProjectTwo" id="projectOverviewText" tabindex="0"
+                                aria-label="Project overview description">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
                                 Excepturi ab quidem incidunt illo unde recusandae iusto consequatur aliquam aliquid
                                 aperiam assumenda, tempora dolorum officiis amet nemo quae. Magni, assumenda
                                 dolorum?
                             </p>
-                            <i class="ri-more-fill moreBtn"></i>
+                            <i class="ri-more-fill moreBtnDis" role="button" tabindex="0"
+                                aria-label="Show full project description" aria-controls="projectOverviewText"
+                                aria-expanded="false" hidden></i>
                         </div>
                     </div>
                     <span class="btn-github-linke">

@@ -1781,40 +1781,52 @@ html {
     }
 
     .box1Btn {
-        font-family: var(--subtitle-font);
-        color: var(--main-text-color);
-        margin-inline-start: 1rem;
         margin-top: 1rem;
-        font-weight: var(--bold-font-weight);
+        margin-inline-start: 1rem;
+        color: var(--main-text-color);
+        font-family: var(--subtitle-font);
         font-size: 1.5rem;
+        font-weight: var(--bold-font-weight);
+        cursor: pointer;
+    }
+
+    .box1Btn[role="button"]:focus-visible,
+    .explainProjectBox .moreBtn:focus-visible {
+        outline: 2px solid var(--text-select-color);
+        outline-offset: 3px;
     }
 
     .ditailInfoDemo {
-        margin-top: 1rem;
         display: none;
+        margin-top: 1rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ditailInfoDemo.show {
+        display: block;
     }
 
     .ditailInfoDemo li h4,
     .ditailInfoDemo li h6,
     .ditailInfoDemo li h5 {
-        font-family: var(--robot-font);
-        font-weight: var(--normal-font-weight);
-        font-size: .9rem;
-        margin-inline-start: 4rem;
-        margin-top: .5rem;
+        display: flex;
+        align-items: baseline;
+        gap: .5rem;
+        margin: .5rem 0 0;
+        margin-inline-start: 1rem;
         color: var(--main-text-color);
+        font-family: var(--robot-font);
+        font-size: .9rem;
+        font-weight: var(--normal-font-weight);
     }
 
     .ditailInfoDemo li h4 i,
     .ditailInfoDemo li h6 i,
     .ditailInfoDemo li h5 i {
-        font-size: .4rem;
+        flex: 0 0 auto;
         color: var(--button-select-color);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-top: -3rem !important;
-        margin-right: .5rem;
+        font-size: .4rem;
     }
 
     .infoTextTwo {
@@ -1823,24 +1835,26 @@ html {
         opacity: 1;
     }
 
+    .infoTextTwo .ditailInfoDemo li h4,
+    .infoTextTwo .ditailInfoDemo li h6,
+    .infoTextTwo .ditailInfoDemo li h5{
+        margin-inline-start: 3rem;
+    }
+
     .infoTextTwo .ditailInfoDemo li h4 span,
     .infoTextTwo .ditailInfoDemo li h6 span,
     .infoTextTwo .ditailInfoDemo li h5 span {
         color: var(--text-select-color);
-        font-family: 1.6rem;
+        font-size: 1rem;
     }
 
     .arrowIconDemo {
         display: inline-block;
-        transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .ditailInfoDemo.show {
-        display: block;
+        transition: transform .3s ease, color .3s ease;
     }
 
     .arrowIconDemo.rotate {
-        transform: rotate(45deg);
+        transform: rotate(90deg);
     }
 
     .arrowIconDemo.active {
@@ -1849,43 +1863,38 @@ html {
 
     .explainProjectBox .explainProjectTwo {
         display: none;
-        font-family: var(--main-description-font);
-        font-weight: var(--light-font-weigh);
-        color: var(--description-color);
-        line-height: 1.5rem;
-        font-size: 1.5rem;
-        text-align: justify;
-        margin-top: 2rem;
-        margin-bottom: 0;
-        margin-inline-start: 3rem;
-        margin-inline-end: 0;
         max-height: 1.5rem;
+        margin: 1rem 0 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        color: var(--description-color);
+        font-family: var(--main-description-font);
+        font-size: 1.2rem;
+        font-weight: var(--light-font-weight, 300);
+        line-height: 1.5rem;
+        text-align: justify;
         box-sizing: border-box;
     }
 
     .explainProjectBox .explainProjectTwo.show {
         display: inline-block;
-        width: auto;
-        max-width: calc(100% - 4rem);
-        max-height: 1.5rem;
+        margin-inline-start: 2rem !important;
+        width: 310px !important;
         overflow: hidden;
         vertical-align: middle;
     }
 
     .explainProjectBox .explainProjectTwo.expanded {
         display: block;
-        width: 320px;
-        max-width: calc(100% - 6rem);
+        width: 100%;
+        max-width: 100%;
         max-height: 160px;
-
-        overflow-y: auto;
+        margin: 1rem 0 0;
+        padding: 0 .5rem .5rem 0;
         overflow-x: hidden;
-
-        margin-inline-start: 3rem;
-        margin-inline-end: 3rem;
-        padding-right: 0.5rem;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
     }
 
     .explainProjectBox .explainProjectTwo.expanded::-webkit-scrollbar {
@@ -1897,25 +1906,29 @@ html {
         border-radius: 10px;
     }
 
-    .explainProjectBox .moreBtn {
+    .explainProjectBox .moreBtnDis {
         display: none;
-        margin-inline-start: 0.3rem;
-        margin-top: 0.5rem;
+        margin: 1rem 0 0 .3rem;
         color: var(--text-select-color);
         font-size: 1.5rem;
+        line-height: 1;
         cursor: pointer;
+        position: absolute;
+        right: 7rem;
         vertical-align: middle;
     }
 
-    .explainProjectBox i{
-        
-    }
-    .explainProjectBox .moreBtn.show {
-        display: inline-block;
+    .explainProjectBox .moreBtnDis.show {
+        display: inline-flex;
+        align-items: center;
     }
 
-    .explainProjectBox .moreBtn.active {
+    .explainProjectBox .moreBtnDis.active {
         color: var(--text-select-color);
+    }
+
+    .explainProjectBox .moreBtnDis[hidden] {
+        display: none !important;
     }
 }
 

@@ -1522,65 +1522,216 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const showDemoInfoBtn = document.querySelector(".box1Btn");
-const demoInfo = document.querySelector(".ditailInfoDemo");
-const arrowIcon = document.querySelector(".arrowIconDemo");
+document.addEventListener("DOMContentLoaded", () => {
+  const projectPopup = document.querySelector(".projectsPopupModel");
+  if (!projectPopup) return;
 
-showDemoInfoBtn.addEventListener("click", () => {
-  demoInfo.classList.toggle("show");
-  arrowIcon.classList.toggle("rotate");
-  arrowIcon.classList.toggle("active");
-});
+  const mobileRange = window.matchMedia(
+    "(min-width: 375px) and (max-width: 490px)"
+  );
 
-const overviewBox = document.querySelector(".explainProjectBox");
+  const projectCards = document.querySelectorAll(
+    ".projectContainer .boxCard"
+  );
 
-if (overviewBox) {
-  const overviewTitle = overviewBox.querySelector(".box1Btn");
-  const overviewText = overviewBox.querySelector(".explainProjectTwo");
-  const moreIcon = overviewBox.querySelector(".moreBtn");
-  const arrow = overviewTitle?.querySelector(".arrowIconDemo");
+  const demoToggle = projectPopup.querySelector(
+    ".infoTextTwo .box1Btn"
+  );
+  const demoDetails = projectPopup.querySelector(".ditailInfoDemo");
+  const overviewToggle = projectPopup.querySelector(
+    ".explainProjectBox .box1Btn"
+  );
+  const overviewText = projectPopup.querySelector(".explainProjectTwo");
+  const moreIcon = projectPopup.querySelector(
+    ".explainProjectBox .moreBtnDis"
+  );
 
-  if (overviewTitle && overviewText && moreIcon) {
-    const fullDescription = overviewText.textContent
-      .replace(/\s+/g, " ")
-      .trim();
+  const characterLimit = 30;
 
-    const limit = 20;
-    const hasMore = fullDescription.length > limit;
-    const shortDescription = hasMore
-      ? fullDescription.slice(0, limit)
-      : fullDescription;
+  if (
+    !demoToggle ||
+    !demoDetails ||
+    !overviewToggle ||
+    !overviewText ||
+    !moreIcon
+  ) {
+    return;
+  }
 
-    overviewText.textContent = shortDescription;
+  function normalizeText(text) {
+    return text.replace(/\s+/g, " ").trim();
+  }
+
+  overviewText.dataset.fullText = normalizeText(
+    overviewText.textContent
+  );
+
+  function getFullDescription() {
+    return overviewText.dataset.fullText || "";
+  }
+
+  function setArrow(toggle, isOpen) {
+    const arrow = toggle.querySelector(".arrowIconDemo");
+
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    arrow?.classList.toggle("rotate", isOpen);
+    arrow?.classList.toggle("active", isOpen);
+  }
+
+  function closeDemo() {
+    demoDetails.classList.remove("show");
+    setArrow(demoToggle, false);
+  }
+
+  function closeOverview() {
     overviewText.classList.remove("show", "expanded");
+    overviewText.textContent = getFullDescription();
+    overviewText.scrollTop = 0;
+
+    moreIcon.hidden = true;
     moreIcon.classList.remove("show", "active");
+    moreIcon.setAttribute("aria-expanded", "false");
+    moreIcon.setAttribute(
+      "aria-label",
+      "Show full project description"
+    );
 
-    overviewTitle.addEventListener("click", () => {
-      const isOpen = !overviewText.classList.contains("show");
+    setArrow(overviewToggle, false);
+  }
 
-      overviewText.classList.toggle("show", isOpen);
-      overviewText.classList.remove("expanded");
-      overviewText.textContent = shortDescription;
-      overviewText.scrollTop = 0;
+  function closeAll() {
+    closeDemo();
+    closeOverview();
+  }
 
-      moreIcon.classList.toggle("show", isOpen && hasMore);
-      moreIcon.classList.remove("active");
+  function setProjectDescription(text) {
+    overviewText.dataset.fullText = normalizeText(text);
+    closeAll();
+    overviewText.textContent = getFullDescription();
+  }
 
-      arrow?.classList.toggle("rotate", isOpen);
-      arrow?.classList.toggle("active", isOpen);
-    });
+  projectCards.forEach((card) => {
+    const showProject = card.querySelector(".showProject");
+    if (!showProject) return;
 
-    moreIcon.addEventListener("click", (event) => {
-      event.stopPropagation();
+    showProject.addEventListener(
+      "click",
+      () => {
+        const detailDescription = card.querySelector(
+          ".projectDetail p"
+        );
 
-      const isExpanded = overviewText.classList.toggle("expanded");
+        if (detailDescription) {
+          setProjectDescription(detailDescription.textContent);
+        }
+      },
+      { capture: true }
+    );
+  });
 
-      overviewText.textContent = isExpanded
-        ? fullDescription
-        : shortDescription;
+  function toggleDemo() {
+    if (!mobileRange.matches) return;
 
-      overviewText.scrollTop = 0;
-      moreIcon.classList.toggle("active", isExpanded);
+    const shouldOpen =
+      demoToggle.getAttribute("aria-expanded") !== "true";
+
+    closeAll();
+
+    if (shouldOpen) {
+      demoDetails.classList.add("show");
+      setArrow(demoToggle, true);
+    }
+  }
+
+  function toggleOverview() {
+    if (!mobileRange.matches) return;
+
+    const shouldOpen =
+      overviewToggle.getAttribute("aria-expanded") !== "true";
+
+    closeAll();
+
+    if (!shouldOpen) return;
+
+    const description = getFullDescription();
+    const hasMore = description.length > characterLimit;
+
+    overviewText.textContent = hasMore
+      ? description.slice(0, characterLimit).trimEnd()
+      : description;
+
+    overviewText.scrollTop = 0;
+    overviewText.classList.add("show");
+    setArrow(overviewToggle, true);
+
+    moreIcon.hidden = !hasMore;
+    moreIcon.classList.toggle("show", hasMore);
+    moreIcon.setAttribute("aria-expanded", "false");
+    moreIcon.setAttribute(
+      "aria-label",
+      "Show full project description"
+    );
+  }
+
+  function addKeyboardSupport(element, handler) {
+    element.addEventListener("click", handler);
+
+    element.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        handler();
+      }
     });
   }
-}
+
+  addKeyboardSupport(demoToggle, toggleDemo);
+  addKeyboardSupport(overviewToggle, toggleOverview);
+
+  moreIcon.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    if (!mobileRange.matches || moreIcon.hidden) return;
+
+    const isExpanded =
+      moreIcon.getAttribute("aria-expanded") !== "true";
+    const description = getFullDescription();
+
+    overviewText.textContent = isExpanded
+      ? description
+      : description.slice(0, characterLimit).trimEnd();
+
+    overviewText.classList.toggle("expanded", isExpanded);
+    overviewText.scrollTop = 0;
+
+    moreIcon.setAttribute("aria-expanded", String(isExpanded));
+    moreIcon.setAttribute(
+      "aria-label",
+      isExpanded
+        ? "Collapse project description"
+        : "Show full project description"
+    );
+    moreIcon.classList.toggle("active", isExpanded);
+
+    if (isExpanded) {
+      requestAnimationFrame(() => {
+        overviewText.focus({ preventScroll: true });
+        overviewText.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "nearest"
+        });
+        overviewText.scrollTop = 0;
+      });
+    }
+  });
+
+  moreIcon.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      moreIcon.click();
+    }
+  });
+
+  mobileRange.addEventListener("change", closeAll);
+  closeAll();
+});
