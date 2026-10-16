@@ -695,7 +695,7 @@ html {
 
 .section {
     position: relative;
-    overflow: visible;
+    overflow: visible !important;
     min-height: 190vh;
     height: 100%;
 }
