@@ -588,6 +588,19 @@
         grayscale(100%) brightness(0.78) contrast(1.05);
 }
 
+.sun-mood #cw-box {
+    background: rgba(255, 255, 255, .45);
+    border-color: rgba(1, 7, 54, .2)
+}
+
+.sun-mood .cw-m.bot {
+    background: rgba(1, 7, 54, .08)
+}
+
+.sun-mood #cw-input {
+    border-color: rgba(1, 7, 54, .35)
+}
+
 /*============================================ Global Style ============================================*/
 * {
     box-sizing: border-box;
@@ -859,7 +872,8 @@ html {
         background-size: fill !important;
         background-attachment: fixed !important;
     }
-    .section-deco{
+
+    .section-deco {
         display: none;
         opacity: 0;
         visibility: hidden;
