@@ -3568,8 +3568,6 @@ iframe.skiptranslate {
 
 
 /* TODO ============================================ Chat Widget  ============================================*/
-/* ================= Chat Widget ================= */
-/* ربات: بدون دایره */
 #cw-fab {
     position: fixed;
     left: 24px;
@@ -3738,4 +3736,39 @@ iframe.skiptranslate {
 .cw-eye {
     transform-box: fill-box;
     transform-origin: center
+}
+
+@media (prefers-reduced-motion:no-preference) {
+    #cw-fab svg {
+        animation: cw-float 3s ease-in-out infinite
+    }
+
+    .cw-eye {
+        animation: cw-blink 4.5s infinite
+    }
+}
+
+@keyframes cw-float {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-3px)
+    }
+}
+
+@keyframes cw-blink {
+
+    0%,
+    92%,
+    100% {
+        transform: scaleY(1)
+    }
+
+    95% {
+        transform: scaleY(.1)
+    }
 }
