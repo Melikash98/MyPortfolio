@@ -53,6 +53,7 @@
         --transition-icon: cubic-bezier(0.3, 0, 0.3);
 
     --project-gap: 25px;
+    --active-x: 50%;
 }
 
 :root.sun-mood {
@@ -868,6 +869,12 @@ html {
     opacity: 0;
 }
 
+@property --active-x {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 50%;
+}
+
 /*============================================ Main Responsive ============================================*/
 @media (min-width: 375px) and (max-width:490px) {
     .scrollControl {
@@ -937,79 +944,187 @@ html {
     }
 
     .indexBody .bottomNavigation {
+        --bottom-nav-accent: #c5e84a;
+        --bottom-nav-surface: rgba(39, 33, 48, 0.9);
+
         display: block;
+        position: fixed;
+        left: 50%;
+        bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        transform: translateX(-50%);
+        z-index: 10001;
+
+        width: calc(100% - 48px);
+        max-width: 420px;
+        height: 60px;
+        box-sizing: border-box;
+        padding: 8px;
+
+        overflow: visible;
+        isolation: isolate;
+        background: transparent;
+        border: 0;
+        border-radius: 24px;
         opacity: 1;
         visibility: visible;
-        position: fixed;
-        width: 80%;
-        left: 50%;
-        bottom: 20px;
-        transform: translateX(-50%);
-        z-index: 9999;
-        padding: 10px 15px;
-        background: #010736;
-        border: 1px solid #010736;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        transition: --active-x 0.4s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(1) > a.active) {
+        --active-x: 8%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(2) > a.active) {
+        --active-x: 20%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(3) > a.active) {
+        --active-x: 32%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(4) > a.active) {
+        --active-x: 44%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(5) > a.active) {
+        --active-x: 56%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(6) > a.active) {
+        --active-x: 68%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(7) > a.active) {
+        --active-x: 80%;
+    }
+
+    .indexBody .bottomNavigation:has(> ul > li:nth-child(8) > a.active) {
+        --active-x: 92%;
+    }
+
+    .indexBody .bottomNavigation::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+
+        background: var(--bottom-nav-surface);
+        border: 1px solid rgba(224, 219, 239, 0.32);
+        border-radius: inherit;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.34);
+
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+
+        -webkit-mask: radial-gradient(circle 25px at var(--active-x) 0,
+                transparent 96%,
+                #000 104%);
+        mask: radial-gradient(circle 25px at var(--active-x) 0,
+                transparent 96%,
+                #000 104%);
     }
 
     .indexBody .bottomNavigation ul {
+        position: relative;
+        z-index: 1;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 2px;
+        width: 100%;
+        height: 100%;
         margin: 0;
         padding: 0;
         list-style: none;
     }
 
     .indexBody .bottomNavigation li {
-        position: relative;
+        display: flex;
+        flex: 1 1 0;
+        justify-content: center;
+        min-width: 0;
+        height: 100%;
     }
 
     .indexBody .bottomNavigation a {
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 14px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: transform 0.4s cubic-bezier(.22, 1, .36, 1);
     }
 
     .indexBody .bottomNavigation a i {
-        font-size: 1.6rem;
-        color: var(--main-text-color);
-        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        color: rgba(223, 218, 235, 0.76);
+        font-size: clamp(1rem, 4.2vw, 1.3rem);
+        line-height: 1;
+        transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .indexBody .bottomNavigation a.active {
+        z-index: 3;
+        transform: translateY(-30px);
+    }
+
+    .indexBody .bottomNavigation a.active::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 44px;
+        height: 44px;
+        box-sizing: border-box;
+        transform: translate(-50%, -50%);
+        border: 2px solid var(--bottom-nav-surface);
+        border-radius: 50%;
+        background: var(--bottom-nav-accent);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .indexBody .bottomNavigation a.active i {
+        color: #28321b;
+        transform: scale(0.95);
     }
 
     .indexBody .bottomNavigation a::after {
         content: attr(data-label);
         position: absolute;
-        bottom: calc(100% + 10px);
+        top: calc(100% + 7px);
+        bottom: auto;
         left: 50%;
-        transform: translateX(-50%) translateY(5px);
-        padding: 6px 10px;
-        background: var(--text-select-color);
-        color: var(--main-text-color);
+        transform: translate(-50%, 5px);
+
+        padding: 0;
+        background: transparent;
+        color: var(--bottom-nav-accent);
         font-family: var(--subtitle-font);
+        font-size: 0.68rem;
         font-weight: var(--bold-font-weight);
-        font-size: 1rem;
+        line-height: 1;
         white-space: nowrap;
-        border-radius: 6px;
+
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: all 0.25s ease;
+        transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
-    .indexBody .bottomNavigation a:hover::after {
+    .indexBody .bottomNavigation a.active::after {
+        top: calc(100% + 23px);
+        transform: translate(-50%, 0);
         opacity: 1;
         visibility: visible;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    .indexBody .bottomNavigation a.active i {
-        color: var(--text-select-color);
     }
 
     .homeContainer.container {
@@ -1754,7 +1869,7 @@ html {
         bottom: auto;
         display: block;
         margin-top: 1rem;
-    
+
     }
 
     .projectsPopupModel .popupProjectBox::-webkit-scrollbar {
@@ -2003,7 +2118,23 @@ html {
         display: none !important;
     }
 
+    .projectsPopupModel .projectCardImg.landscape {
+        width: 100% !important;
+        height: clamp(150px, 46vw, 215px) !important;
+    }
 
+    .projectsPopupModel .projectCardImg.portrait img{
+        width: min(70%, 220px) !important;
+        height: min(62svh, 320px) !important;
+        margin-inline: auto !important;
+        filter: none;
+    }
+
+    .projectsPopupModel .projectCardImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 
 /*
