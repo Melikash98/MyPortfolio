@@ -137,6 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const bottomNavLinks = document.querySelectorAll('.bottomNavigation a');
   const sections = document.querySelectorAll('main .section');
+  let pendingTargetId = null;
+  let pendingScrollTimer = null;
+  let activeUpdateFrame = null;
 
   function setActiveLink(currentId) {
     bottomNavLinks.forEach((link) => {
@@ -165,12 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       event.preventDefault();
-
-      bottomNavLinks.forEach((item) => {
-        item.classList.remove('active');
-      });
-
-      link.classList.add('active');
+      setActiveLink(targetSection.id);
 
       const header = document.querySelector('.header');
       const headerHeight = header ? header.offsetHeight : 0;
@@ -180,6 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollY -
         headerHeight;
 
+      const scrollDistance = Math.abs(window.scrollY - Math.max(0, targetPosition));
+      clearTimeout(pendingScrollTimer);
+      pendingTargetId = scrollDistance > 1 ? targetSection.id : null;
+
       window.scrollTo({
         top: Math.max(0, targetPosition),
         behavior: 'smooth'
@@ -187,35 +189,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const currentId = entry.target.getAttribute('id');
-          setActiveLink(currentId);
-        }
-      });
-    },
-    {
-      threshold: 0.55
+  function updateActiveFromScroll() {
+    activeUpdateFrame = null;
+
+    if (pendingTargetId) {
+      return;
     }
-  );
 
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
+    const activationLine = window.innerHeight * 0.4;
+    let currentSection = sections[0];
 
-  const currentHash = window.location.hash.replace('#', '');
-
-  if (currentHash) {
-    const currentSection = document.getElementById(currentHash);
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= activationLine) {
+        currentSection = section;
+      }
+    });
 
     if (currentSection) {
-      setActiveLink(currentHash);
+      setActiveLink(currentSection.id);
     }
-  } else {
-    setActiveLink('home');
   }
+
+  function finishPendingScroll() {
+    if (!pendingTargetId) {
+      return;
+    }
+
+    clearTimeout(pendingScrollTimer);
+    pendingTargetId = null;
+    updateActiveFromScroll();
+  }
+
+  function handleBottomNavScroll() {
+    if (pendingTargetId) {
+      clearTimeout(pendingScrollTimer);
+      pendingScrollTimer = setTimeout(finishPendingScroll, 140);
+      return;
+    }
+
+    if (activeUpdateFrame === null) {
+      activeUpdateFrame = requestAnimationFrame(updateActiveFromScroll);
+    }
+  }
+
+  window.addEventListener('scroll', handleBottomNavScroll, { passive: true });
+  window.addEventListener('resize', handleBottomNavScroll);
+  window.addEventListener('scrollend', finishPendingScroll);
+  updateActiveFromScroll();
 });
 // TODO: ***************************************************************HOME Section**********************************************************************//
 // TODO: Word Transition Effect for Role Text
