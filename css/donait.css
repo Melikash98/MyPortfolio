@@ -554,8 +554,6 @@
         transition: none;
     }
 }
-
-/* جایگاه دستگاه قهوه در هوم */
 .supportCoffeeSection {
     grid-column: 1 / -1;
     display: grid;
@@ -564,16 +562,12 @@
     min-height: 18rem;
     overflow: visible;
 }
-
-/* بدنه اصلی دستگاه */
 .supportCoffeeMachine {
     position: relative;
     width: 300px;
     height: 280px;
     margin-inline: auto;
 }
-
-/* سر دستگاه */
 .supportCoffeeMachine__header {
     position: absolute;
     top: 0;
@@ -637,8 +631,6 @@
     background: #9b9091;
     box-shadow: -12px 0 #9b9091, -24px 0 #9b9091;
 }
-
-/* بدنه میانی */
 .supportCoffeeMachine__body {
     position: absolute;
     top: 80px;
@@ -658,8 +650,6 @@
     border-radius: 20px 20px 0 0;
     background: #776f6e;
 }
-
-/* خروجی قهوه */
 .supportCoffeeMachine__outlet {
     position: absolute;
     top: 0;
@@ -692,8 +682,6 @@
     transform: translateX(-50%);
     background: #231f20;
 }
-
-/* بازوی دستگاه */
 .supportCoffeeMachine__arm {
     position: absolute;
     top: 15px;
@@ -712,8 +700,6 @@
     content: "";
     background: #9e9495;
 }
-
-/* فنجان */
 .supportCoffeeMachine__cup {
     position: absolute;
     bottom: 0;
