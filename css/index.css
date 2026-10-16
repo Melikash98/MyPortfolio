@@ -3572,7 +3572,7 @@ iframe.skiptranslate {
     position: fixed;
     left: 24px;
     bottom: 24px;
-    z-index: 10002;
+    z-index: 1002;
     padding: 0;
     border: 0;
     background: none;
@@ -3738,6 +3738,30 @@ iframe.skiptranslate {
     transform-origin: center
 }
 
+#cw-fab::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    bottom: 4px;
+    width: 48px;
+    height: 7px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--text-select-color);
+    box-shadow: 0 0 9px rgba(87, 220, 112, .36);
+}
+
+#cw-fab img,
+#cw-fab svg {
+    position: relative;
+    z-index: 1;
+    width:108px;
+    height: 108px;
+    margin-top: -4rem;
+    object-fit: contain;
+}
+
 @media (prefers-reduced-motion:no-preference) {
     #cw-fab svg {
         animation: cw-float 3s ease-in-out infinite
@@ -3745,6 +3769,52 @@ iframe.skiptranslate {
 
     .cw-eye {
         animation: cw-blink 4.5s infinite
+    }
+}
+
+
+@media (max-width: 490px) {
+    #cw-fab {
+        left: 16px;
+        bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+        width: 52px;
+        height: 60px;
+        display: grid;
+        place-items: start center;
+        isolation: isolate;
+    }
+
+    #cw-fab img,
+    #cw-fab svg {
+        position: relative;
+        z-index: 1;
+        width: 68px;
+        height: 68px;
+        margin-top: -1rem;
+        object-fit: contain;
+    }
+
+    #cw-fab::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        left: 65%;
+        bottom: 4px;
+        width: 48px;
+        height: 7px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: var(--text-select-color);
+        box-shadow: 0 0 9px rgba(87, 220, 112, .36);
+    }
+
+    #cw-box {
+        left: 16px;
+        bottom: calc(138px + env(safe-area-inset-bottom, 0px));
+        width: min(340px, calc(100vw - 32px));
+        height: min(380px, calc(100svh - 180px - env(safe-area-inset-bottom, 0px)));
+        min-height: 240px;
+        max-height: calc(100svh - 180px - env(safe-area-inset-bottom, 0px));
     }
 }
 
