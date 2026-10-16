@@ -52,9 +52,21 @@
     --cookie-text: #F2F9FF;
     --cookie-muted: #BFC9D1;
     --cookie-accent: #0E8388;
-    --cookie-border: rgba(14, 131, 136, 0.45)
-        /*============================================ Transition ============================================*/
-        --transition-icon: cubic-bezier(0.3, 0, 0.3);
+    --cookie-border: rgba(14, 131, 136, 0.45);
+    --green: #0E8388;
+    --green-dark: #0E8388;
+    --blue: #202e3a;
+    --metal: #d5d5d5;
+    --metal-dark: #414d57;
+    --stripe: linear-gradient(to right,
+            var(--blue),
+            var(--blue) 3%,
+            var(--metal-dark) 3%,
+            var(--metal-dark) 15%,
+            var(--blue) 15%,
+            var(--blue));
+    /*============================================ Transition ============================================*/
+    --transition-icon: cubic-bezier(0.3, 0, 0.3);
 
     --project-gap: 25px;
     --active-x: 50%;
