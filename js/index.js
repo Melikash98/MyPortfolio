@@ -1538,12 +1538,20 @@ document.addEventListener("DOMContentLoaded", () => {
     ".infoTextTwo .box1Btn"
   );
   const demoDetails = projectPopup.querySelector(".ditailInfoDemo");
+
   const overviewToggle = projectPopup.querySelector(
     ".explainProjectBox .box1Btn"
   );
   const overviewText = projectPopup.querySelector(".explainProjectTwo");
   const moreIcon = projectPopup.querySelector(
     ".explainProjectBox .moreBtnDis"
+  );
+
+  const infoListToggle = projectPopup.querySelector(
+    ".infoListTwo .box1Btn"
+  );
+  const infoListDetails = projectPopup.querySelector(
+    ".infoListTwo .dataTwo"
   );
 
   const characterLimit = 30;
@@ -1553,7 +1561,9 @@ document.addEventListener("DOMContentLoaded", () => {
     !demoDetails ||
     !overviewToggle ||
     !overviewText ||
-    !moreIcon
+    !moreIcon ||
+    !infoListToggle ||
+    !infoListDetails
   ) {
     return;
   }
@@ -1599,9 +1609,15 @@ document.addEventListener("DOMContentLoaded", () => {
     setArrow(overviewToggle, false);
   }
 
+  function closeInfoList() {
+    infoListDetails.classList.remove("show");
+    setArrow(infoListToggle, false);
+  }
+
   function closeAll() {
     closeDemo();
     closeOverview();
+    closeInfoList();
   }
 
   function setProjectDescription(text) {
@@ -1673,6 +1689,20 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  function toggleInfoList() {
+    if (!mobileRange.matches) return;
+
+    const shouldOpen =
+      infoListToggle.getAttribute("aria-expanded") !== "true";
+
+    closeAll();
+
+    if (shouldOpen) {
+      infoListDetails.classList.add("show");
+      setArrow(infoListToggle, true);
+    }
+  }
+
   function addKeyboardSupport(element, handler) {
     element.addEventListener("click", handler);
 
@@ -1686,6 +1716,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addKeyboardSupport(demoToggle, toggleDemo);
   addKeyboardSupport(overviewToggle, toggleOverview);
+  addKeyboardSupport(infoListToggle, toggleInfoList);
 
   moreIcon.addEventListener("click", (event) => {
     event.stopPropagation();

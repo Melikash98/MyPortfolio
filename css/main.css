@@ -1403,25 +1403,28 @@ html {
 
     .servicesPopupModel .popupContainer,
     .projectsPopupModel .popupContainer {
-        width: min(202vw, 30rem) !important;
-        max-width: 30rem !important;
-        max-height: 65svh !important;
+        width: min(calc(100vw - 1rem), 30rem) !important;
+        height: auto !important;
+        max-height: 85svh !important;
+        display: flex;
+        flex-direction: column;
+        padding: 3rem .75rem .75rem !important;
         overflow: hidden;
-        padding: 1rem;
         box-sizing: border-box;
-        border-radius: 1.25rem;
     }
 
     .servicesPopupModel .popupBox,
     .projectsPopupModel .popupProjectBox {
-        position: relative;
-        height: 100%;
+        flex: 0 1 auto;
+        width: 100% !important;
+        height: auto !important;
         min-height: 0;
-        max-height: none !important;
-        overflow-y: hidden !important;
+        max-height: calc(85svh - 4rem) !important;
         overflow-x: hidden !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: contain;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
+        box-sizing: border-box;
     }
 
     .servicesPopupModel .mainBox .moreBtn {
@@ -1736,6 +1739,33 @@ html {
         color: #14868C;
     }
 
+    .projectsPopupModel .mainprojectBox {
+        height: auto !important;
+        min-height: 0;
+        overflow: visible !important;
+    }
+
+    .projectsPopupModel .popupProjectBox .btn-github-linke {
+        margin-top: 1rem;
+    }
+
+    .projectsPopupModel .popupProjectBox .btn-project-more {
+        position: static;
+        bottom: auto;
+        display: block;
+        margin-top: 1rem;
+    
+    }
+
+    .projectsPopupModel .popupProjectBox::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .projectsPopupModel .popupProjectBox::-webkit-scrollbar-thumb {
+        background: var(--text-select-color);
+        border-radius: 10px;
+    }
+
     .projectsPopupModel .popupProjectBox,
     .projectsPopupModel .mainprojectBox,
     .projectsPopupModel .demoInfo,
@@ -1837,7 +1867,7 @@ html {
 
     .infoTextTwo .ditailInfoDemo li h4,
     .infoTextTwo .ditailInfoDemo li h6,
-    .infoTextTwo .ditailInfoDemo li h5{
+    .infoTextTwo .ditailInfoDemo li h5 {
         margin-inline-start: 3rem;
     }
 
@@ -1930,6 +1960,50 @@ html {
     .explainProjectBox .moreBtnDis[hidden] {
         display: none !important;
     }
+
+    .infoListTwo {
+        display: none;
+    }
+
+    .infoListTwo {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    .infoListTwo .dataTwo {
+        display: none;
+        margin: 1rem 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .infoListTwo .dataTwo.show {
+        display: block;
+    }
+
+    .infoListTwo .dataTwo li {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .35rem;
+        margin: .5rem 0 0;
+        margin-inline-start: 1rem;
+        color: var(--main-text-color);
+        font-family: var(--robot-font);
+        font-size: .9rem;
+        font-weight: var(--normal-font-weight);
+    }
+
+    .infoListTwo .dataTwo li span {
+        color: var(--text-select-color);
+        font-family: var(--subtitle-font);
+        font-weight: var(--bold-font-weight);
+    }
+
+    .infoListTwo .dataTwo[hidden] {
+        display: none !important;
+    }
+
+
 }
 
 /*
