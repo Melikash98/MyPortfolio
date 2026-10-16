@@ -178,7 +178,6 @@
 }
 
 .containerSupport {
-    position: fixed;
     overflow: visible;
     border-bottom: 0;
 
@@ -189,7 +188,7 @@
     position: absolute;
     z-index: 2;
     left: 20%;
-    bottom: 0;
+    bottom: 8rem;
     width: 70%;
     height: .5px;
     box-shadow: 0 1px 2px rgba(20, 134, 140, 0.08);
@@ -574,6 +573,11 @@
     }
 }
 
+.machineBox {
+    margin-left: 4rem;
+
+}
+
 .scene {
     display: grid;
     min-height: 100vh;
@@ -583,8 +587,10 @@
 .machine {
     position: relative;
     width: 191px;
+    transform-origin: center;
     height: 311px;
-    transform: scale(0.75);
+    transform: scale(0.60);
+    rotate: -15deg;
     -webkit-box-reflect: below 0 -webkit-linear-gradient(bottom,
             rgba(255, 255, 255, 0.4) 0%,
             transparent 50%,
