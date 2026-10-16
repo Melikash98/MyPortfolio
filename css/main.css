@@ -944,8 +944,8 @@ html {
     }
 
     .indexBody .bottomNavigation {
-        --bottom-nav-accent: #c5e84a;
-        --bottom-nav-surface: rgba(39, 33, 48, 0.9);
+        --bottom-nav-accent: var(--text-select-color);
+        --bottom-nav-surface: rgba(18, 25, 39, 0.48);
 
         display: block;
         position: fixed;
@@ -968,6 +968,10 @@ html {
         opacity: 1;
         visibility: visible;
         transition: --active-x 0.4s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    :root.sun-mood .indexBody .bottomNavigation {
+        --bottom-nav-surface: rgba(244, 248, 254, 0.52);
     }
 
     .indexBody .bottomNavigation:has(> ul > li:nth-child(1) > a.active) {
@@ -1010,19 +1014,19 @@ html {
         pointer-events: none;
 
         background: var(--bottom-nav-surface);
-        border: 1px solid rgba(224, 219, 239, 0.32);
+        border: 0;
         border-radius: inherit;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.34);
 
-        -webkit-backdrop-filter: blur(16px);
-        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(20px) saturate(1.35);
+        backdrop-filter: blur(20px) saturate(1.35);
 
-        -webkit-mask: radial-gradient(circle 25px at var(--active-x) 0,
-                transparent 96%,
-                #000 104%);
-        mask: radial-gradient(circle 25px at var(--active-x) 0,
-                transparent 96%,
-                #000 104%);
+        -webkit-mask: radial-gradient(circle 28px at var(--active-x) 0,
+                transparent 86%,
+                #000 100%);
+        mask: radial-gradient(circle 28px at var(--active-x) 0,
+                transparent 86%,
+                #000 100%);
     }
 
     .indexBody .bottomNavigation ul {
@@ -1066,10 +1070,11 @@ html {
     .indexBody .bottomNavigation a i {
         position: relative;
         z-index: 1;
-        color: rgba(223, 218, 235, 0.76);
+        color: var(--main-text-color);
+        opacity: 0.76;
         font-size: clamp(1rem, 4.2vw, 1.3rem);
         line-height: 1;
-        transition: color 0.25s ease, transform 0.25s ease;
+        transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
     }
 
     .indexBody .bottomNavigation a.active {
@@ -1088,12 +1093,13 @@ html {
         transform: translate(-50%, -50%);
         border: 2px solid var(--bottom-nav-surface);
         border-radius: 50%;
-        background: var(--bottom-nav-accent);
+        background: var(--text-select-color);
         box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
     }
 
     .indexBody .bottomNavigation a.active i {
-        color: #28321b;
+        color: var(--main-text-color);
+        opacity: 1;
         transform: scale(0.95);
     }
 
