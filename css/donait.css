@@ -4,15 +4,12 @@
     right: 0;
     left: 0;
     z-index: 1000;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     width: 100%;
     min-height: 4.25rem;
     padding-inline: 6rem;
-
     background: rgba(0, 13, 22, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -29,7 +26,6 @@
 }
 
 .logoCardSupport img {
-    display: block;
     width: 12rem;
     height: auto;
 }
@@ -207,10 +203,22 @@
     box-sizing: border-box;
 }
 
+.textHomeTwo {
+    position: absolute;
+    right: 15rem;
+    rotate: -20deg;
+    font-family: var(--support-font-three);
+    top: 7rem;
+    font-size: 1.5rem;
+    color: var(--text-select-color);
+}
+
 .picBackSupport {
-    height: clamp(280px, 33.2vw, 405px);
+    margin-right: 5rem;
+    width: 60rem;
+    margin-top: -1rem;
+    margin-left: -3rem;
     overflow: hidden;
-    margin-right: 3rem;
 }
 
 .picBackSupport img {
@@ -259,7 +267,36 @@
     vertical-align: -0.08em;
     -webkit-text-fill-color: initial;
 }
+
 .supportText span svg path {
     stroke-width: 9;
-    stroke= url(#supportHeartGradient) ;
+    stroke: url(#supportHeartGradient);
+}
+
+.desText {
+    width: 500px;
+    font-family: var(--main-description-font);
+    color: var(--description-color);
+    font-weight: var(--normal-font-weight);
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    text-align: justify;
+    text-decoration: none;
+}
+
+.textHomeTwo svg {
+    display: inline-block;
+    width: 0.92em;
+    height: 0.92em;
+
+}
+
+.textHomeTwo svg path {
+    stroke-width: 13;
+    stroke: var(--text-select-color);
+}
+.codCart{
+    position: absolute;
+    right: -3rem;
+    top: 6rem;
 }

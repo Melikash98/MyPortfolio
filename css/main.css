@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 
 /* => ** Dark Mode  & Main Properties** <= */
 :root {
@@ -23,7 +24,8 @@
     --name-splash-font: "Londrina Shadow", sans-serif;
     --subtitle-font: 'Patrick Hand';
     --number-font: "Pacifico", cursive;
-    --support-font-two:"Neonderthaw", cursive;
+    --support-font-two: "Neonderthaw", cursive;
+    --support-font-three: "Engagement", cursive;
     --robot-font: "Roboto", sans-serif;
 
     /*============================================ font Weight ============================================*/
