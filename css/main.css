@@ -310,6 +310,15 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
+.sun-mood .headerSupport {
+    background: rgba(244, 248, 254, 0.22);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    box-shadow:
+        0 8px 32px rgba(217, 234, 253, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
 .sun-mood .filterList li.active {
     background-color: #D9EAFD;
 }
@@ -632,6 +641,7 @@
     color: #607486;
     opacity: 1;
 }
+
 /*============================================ Global Style ============================================*/
 * {
     box-sizing: border-box;
@@ -2153,7 +2163,7 @@ html {
         height: clamp(150px, 46vw, 215px) !important;
     }
 
-    .projectsPopupModel .projectCardImg.portrait img{
+    .projectsPopupModel .projectCardImg.portrait img {
         width: min(70%, 220px) !important;
         height: min(62svh, 320px) !important;
         margin-inline: auto !important;
@@ -2186,8 +2196,9 @@ html {
         filter: none;
     }
 }
-@media (min-width:768px) and (max-width:1024px) {
-}
+
+@media (min-width:768px) and (max-width:1024px) {}
+
 /*
 @media (max-width: 1512px) {
     .main>section.section>.container .section-deco.decoLeft {
