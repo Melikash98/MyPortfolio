@@ -2533,12 +2533,6 @@ iframe.skiptranslate {
     overflow: hidden;
 }
 
-.swiper-wrapper .m {
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-}
-
 .commentCard p {
     font-family: var(--main-description-font);
     font-size: 1.2rem;

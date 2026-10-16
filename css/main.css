@@ -932,7 +932,7 @@ html {
         background-image: var(--main-background);
         background-position: center !important;
         background-repeat: no-repeat !important;
-        background-size: fill !important;
+        background-size: cover !important;
         background-attachment: fixed !important;
     }
 
