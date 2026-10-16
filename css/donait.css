@@ -1,4 +1,3 @@
-
 .headerSupport {
     position: fixed;
     top: 0;
@@ -45,7 +44,7 @@
     gap: 1rem;
 }
 
-.controlIconSupport > div {
+.controlIconSupport>div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +58,7 @@
         transform 0.3s ease;
 }
 
-.controlIconSupport > div:hover {
+.controlIconSupport>div:hover {
     color: var(--button-select-color);
     transform: translateY(-1px);
 }
@@ -77,13 +76,13 @@
     cursor: pointer;
 }
 
-.translate > i {
+.translate>i {
     color: var(--main-text-color);
     font-size: 1.6rem;
     transition: color 0.25s ease;
 }
 
-.translate:hover > i {
+.translate:hover>i {
     color: var(--button-select-color);
 }
 
@@ -148,11 +147,29 @@
         color 0.2s ease;
 }
 
+.main>section.sectionSupport.homeSupport {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    padding: 3.625rem 0 0;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.sectionSupport.homeSupport>.containerSupport.Container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
 .translateOption:hover {
     background: rgba(14, 131, 136, 0.2);
     color: var(--button-select-color);
 }
-.main > section.sectionSupport {
+
+.main>section.sectionSupport {
     width: 100%;
     min-height: 0;
     height: auto;
@@ -168,13 +185,6 @@
     padding: 4.25rem 0 0;
 }
 
-.sectionSupport.homeSupport > .containerSupport.Container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-}
-
 .contentSupport,
 .picSupport,
 .picBackSupport {
@@ -183,11 +193,24 @@
     padding: 0;
 }
 
+.contentSupport {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: 1rem;
+    width: 100%;
+    min-height: clamp(25rem, 33.2vw, 28rem);
+    margin: 0;
+    margin-inline: 3rem;
+    margin-block: 2rem;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
 
 .picBackSupport {
     height: clamp(280px, 33.2vw, 405px);
     overflow: hidden;
-    background: var(--button-default-color);
+    margin-right: 3rem;
 }
 
 .picBackSupport img {
@@ -196,4 +219,47 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.homeSupportText {
+    margin-left: 2rem;
+    margin-top: 5rem;
+}
+
+.supportText {
+    margin: 0;
+    color: #f2f6ff;
+    font-family: var(--robot-font, Arial, sans-serif);
+    font-size: clamp(2.4rem, 4vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.supportText span {
+    background: linear-gradient(100deg,
+            #8B70FF 0%,
+            #4D9BFF 38%,
+            #14868C 72%,
+            #0E8388 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    line-height: 5rem;
+}
+
+.supportText span svg {
+    display: inline-block;
+    width: 0.72em;
+    height: 0.82em;
+    margin-left: 0.12em;
+    vertical-align: -0.08em;
+    -webkit-text-fill-color: initial;
+}
+.supportText span svg path {
+    stroke-width: 9;
+    stroke= url(#supportHeartGradient) ;
 }
