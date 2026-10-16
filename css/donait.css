@@ -850,3 +850,7 @@
     content: "";
     background: #000;
 }
+.sectionCards {
+    display: grid;
+    place-items: center;
+}
