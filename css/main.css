@@ -859,6 +859,11 @@ html {
         background-size: fill !important;
         background-attachment: fixed !important;
     }
+    .section-deco{
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
 
     .section {
         min-height: 120svh !important;
