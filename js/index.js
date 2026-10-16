@@ -1520,3 +1520,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
   syncDirection();
 });
+
+
+const showDemoInfoBtn = document.querySelector(".box1Btn");
+const demoInfo = document.querySelector(".ditailInfoDemo");
+const arrowIcon = document.querySelector(".arrowIconDemo");
+
+showDemoInfoBtn.addEventListener("click", () => {
+  demoInfo.classList.toggle("show");
+  arrowIcon.classList.toggle("rotate");
+  arrowIcon.classList.toggle("active");
+});
+
+const overviewBox = document.querySelector(".explainProjectBox");
+
+if (overviewBox) {
+  const overviewTitle = overviewBox.querySelector(".box1Btn");
+  const overviewText = overviewBox.querySelector(".explainProjectTwo");
+  const moreIcon = overviewBox.querySelector(".moreBtn");
+  const arrow = overviewTitle?.querySelector(".arrowIconDemo");
+
+  if (overviewTitle && overviewText && moreIcon) {
+    const fullDescription = overviewText.textContent
+      .replace(/\s+/g, " ")
+      .trim();
+
+    const limit = 20;
+    const hasMore = fullDescription.length > limit;
+    const shortDescription = hasMore
+      ? fullDescription.slice(0, limit)
+      : fullDescription;
+
+    overviewText.textContent = shortDescription;
+    overviewText.classList.remove("show", "expanded");
+    moreIcon.classList.remove("show", "active");
+
+    overviewTitle.addEventListener("click", () => {
+      const isOpen = !overviewText.classList.contains("show");
+
+      overviewText.classList.toggle("show", isOpen);
+      overviewText.classList.remove("expanded");
+      overviewText.textContent = shortDescription;
+      overviewText.scrollTop = 0;
+
+      moreIcon.classList.toggle("show", isOpen && hasMore);
+      moreIcon.classList.remove("active");
+
+      arrow?.classList.toggle("rotate", isOpen);
+      arrow?.classList.toggle("active", isOpen);
+    });
+
+    moreIcon.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const isExpanded = overviewText.classList.toggle("expanded");
+
+      overviewText.textContent = isExpanded
+        ? fullDescription
+        : shortDescription;
+
+      overviewText.scrollTop = 0;
+      moreIcon.classList.toggle("active", isExpanded);
+    });
+  }
+}

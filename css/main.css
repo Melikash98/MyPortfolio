@@ -862,8 +862,26 @@ html {
     visibility: hidden;
 }
 
+.infoTextTwo {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
 /*============================================ Main Responsive ============================================*/
 @media (min-width: 375px) and (max-width:490px) {
+    .scrollControl {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    #cw-fab {
+        visibility: hidden;
+        display: none;
+        opacity: 0;
+    }
+
     .indexBody {
         min-height: 100vh;
         background-image: var(--main-background);
@@ -918,7 +936,7 @@ html {
         position: relative;
     }
 
-    .bottomNavigation {
+    .indexBody .bottomNavigation {
         display: block;
         opacity: 1;
         visibility: visible;
@@ -935,24 +953,21 @@ html {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     }
 
-    .bottomNavigation ul {
+    .indexBody .bottomNavigation ul {
         display: flex;
         align-items: center;
         justify-content: center;
-
         gap: 15px;
-
         margin: 0;
         padding: 0;
-
         list-style: none;
     }
 
-    .bottomNavigation li {
+    .indexBody .bottomNavigation li {
         position: relative;
     }
 
-    .bottomNavigation a {
+    .indexBody .bottomNavigation a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -961,13 +976,13 @@ html {
         transition: all 0.3s ease;
     }
 
-    .bottomNavigation a i {
+    .indexBody .bottomNavigation a i {
         font-size: 1.6rem;
         color: var(--main-text-color);
         transition: all 0.3s ease;
     }
 
-    .bottomNavigation a::after {
+    .indexBody .bottomNavigation a::after {
         content: attr(data-label);
         position: absolute;
         bottom: calc(100% + 10px);
@@ -987,13 +1002,13 @@ html {
         transition: all 0.25s ease;
     }
 
-    .bottomNavigation a:hover::after {
+    .indexBody .bottomNavigation a:hover::after {
         opacity: 1;
         visibility: visible;
         transform: translateX(-50%) translateY(0);
     }
 
-    .bottomNavigation a.active i {
+    .indexBody .bottomNavigation a.active i {
         color: var(--text-select-color);
     }
 
@@ -1116,6 +1131,21 @@ html {
         display: flex;
         opacity: 1;
         visibility: visible;
+    }
+
+    .homeContent .homeInfoTwo {
+        display: grid;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .main>section.section {
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    .main>section.section>.container:not(.homeContainer) {
+        padding-block: 1rem !important;
     }
 
     .startTextTwo {
@@ -1681,8 +1711,215 @@ html {
         height: 260px;
         border: 0;
     }
+
+    .projectsPopupModel .popupContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 !important;
+    }
+
+
+    .projectsPopupModel .containerPClosed {
+        position: absolute;
+        top: .5rem;
+        right: 1rem;
+        z-index: 10;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        color: #00F7FF;
+    }
+
+    .projectsPopupModel .containerPClosed:hover {
+        color: #14868C;
+    }
+
+    .projectsPopupModel .popupProjectBox,
+    .projectsPopupModel .mainprojectBox,
+    .projectsPopupModel .demoInfo,
+    .projectsPopupModel .projectCardImg {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .projectsPopupModel .projectCardImg {
+        margin: 0 !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        isolation: isolate;
+    }
+
+    .projectsPopupModel .projectCardImg::after {
+        content: "";
+        display: block;
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: rgba(0, 13, 22, 0.2) !important;
+    }
+
+    .projectsPopupModel .projectCardImg img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+        position: relative;
+        z-index: 0;
+        filter: brightness(0.68);
+    }
+
+    .demoInfo .infoText,
+    .explainProject,
+    .infoList {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .box1Btn {
+        font-family: var(--subtitle-font);
+        color: var(--main-text-color);
+        margin-inline-start: 1rem;
+        margin-top: 1rem;
+        font-weight: var(--bold-font-weight);
+        font-size: 1.5rem;
+    }
+
+    .ditailInfoDemo {
+        margin-top: 1rem;
+        display: none;
+    }
+
+    .ditailInfoDemo li h4,
+    .ditailInfoDemo li h6,
+    .ditailInfoDemo li h5 {
+        font-family: var(--robot-font);
+        font-weight: var(--normal-font-weight);
+        font-size: .9rem;
+        margin-inline-start: 4rem;
+        margin-top: .5rem;
+        color: var(--main-text-color);
+    }
+
+    .ditailInfoDemo li h4 i,
+    .ditailInfoDemo li h6 i,
+    .ditailInfoDemo li h5 i {
+        font-size: .4rem;
+        color: var(--button-select-color);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: -3rem !important;
+        margin-right: .5rem;
+    }
+
+    .infoTextTwo {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .infoTextTwo .ditailInfoDemo li h4 span,
+    .infoTextTwo .ditailInfoDemo li h6 span,
+    .infoTextTwo .ditailInfoDemo li h5 span {
+        color: var(--text-select-color);
+        font-family: 1.6rem;
+    }
+
+    .arrowIconDemo {
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .ditailInfoDemo.show {
+        display: block;
+    }
+
+    .arrowIconDemo.rotate {
+        transform: rotate(45deg);
+    }
+
+    .arrowIconDemo.active {
+        color: var(--text-select-color);
+    }
+
+    .explainProjectBox .explainProjectTwo {
+        display: none;
+        font-family: var(--main-description-font);
+        font-weight: var(--light-font-weigh);
+        color: var(--description-color);
+        line-height: 1.5rem;
+        font-size: 1.5rem;
+        text-align: justify;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        margin-inline-start: 3rem;
+        margin-inline-end: 0;
+        max-height: 1.5rem;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .explainProjectBox .explainProjectTwo.show {
+        display: inline-block;
+        width: auto;
+        max-width: calc(100% - 4rem);
+        max-height: 1.5rem;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+
+    .explainProjectBox .explainProjectTwo.expanded {
+        display: block;
+        width: 320px;
+        max-width: calc(100% - 6rem);
+        max-height: 160px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        margin-inline-start: 3rem;
+        margin-inline-end: 3rem;
+        padding-right: 0.5rem;
+    }
+
+    .explainProjectBox .explainProjectTwo.expanded::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .explainProjectBox .explainProjectTwo.expanded::-webkit-scrollbar-thumb {
+        background: var(--text-select-color);
+        border-radius: 10px;
+    }
+
+    .explainProjectBox .moreBtn {
+        display: none;
+        margin-inline-start: 0.3rem;
+        margin-top: 0.5rem;
+        color: var(--text-select-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+
+    .explainProjectBox i{
+        
+    }
+    .explainProjectBox .moreBtn.show {
+        display: inline-block;
+    }
+
+    .explainProjectBox .moreBtn.active {
+        color: var(--text-select-color);
+    }
 }
 
+/*
 @media (max-width: 1512px) {
     .main>section.section>.container .section-deco.decoLeft {
         left: clamp(-72px, calc(684px - 50vw), 24px);
@@ -1717,4 +1954,4 @@ html {
         min-height: 100vh !important;
         min-height: 100svh !important;
     }
-}
+}*/

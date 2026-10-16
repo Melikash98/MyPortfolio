@@ -2484,6 +2484,34 @@
                                 <li class="rateProject">Rate : <span>10000 $</span></li>
                             </ul>
                         </div>
+                        <div class="infoTextTwo">
+                            <h3 class="box1Btn">
+                                <i class="ri-arrow-right-line arrowIconDemo"></i> Demo Information
+                            </h3>
+                            <ul class="ditailInfoDemo">
+                                <li>
+                                    <h4><i class="ri-circle-fill"></i>Name: <span>Safe Plase</span></h4>
+                                </li>
+                                <li>
+                                    <h6><i class="ri-circle-fill"></i>Name Company: <span>MelikaCompany</span></h6>
+                                </li>
+                                <li>
+                                    <h5><i class="ri-circle-fill"></i>Date: May 2025 -May 2026 <span>1year</span></h5>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="explainProjectBox">
+                            <h3 class="box1Btn">
+                                <i class="ri-arrow-right-line arrowIconDemo"></i> OwerView
+                            </h3>
+                            <p class="explainProjectTwo">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                Excepturi ab quidem incidunt illo unde recusandae iusto consequatur aliquam aliquid
+                                aperiam assumenda, tempora dolorum officiis amet nemo quae. Magni, assumenda
+                                dolorum?
+                            </p>
+                            <i class="ri-more-fill moreBtn"></i>
+                        </div>
                     </div>
                     <span class="btn-github-linke">
                         <a href="https://github.com/Melikash98"><i class="ri-arrow-right-line arrowIcon"></i> GitHub<i
@@ -2598,8 +2626,6 @@
 
             const box = $("cw-box"), msgs = $("cw-msgs"), fab = $("cw-fab");
             let since = 0, greeted = false;
-
-            // مراحل: 0 = منتظر سؤال، 1 = پرسیدن نام، 2 = پرسیدن ایمیل، 3 = تمام
             const lead = { name: store.get("cw_name") || "", email: "", question: "" };
             let step = lead.name ? 3 : 0;
 
