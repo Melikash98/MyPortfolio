@@ -1197,8 +1197,10 @@
     min-width: 0;
     margin: 0 auto;
 }
-.giveStar{
-     margin-left: -9rem;
+.giveStar {
+    width: min(770px, calc(100% + 9rem));
+    margin: 1.25rem 0 0 -9rem;
+    box-sizing: border-box;
 }
 .contentMainBox>.giveDoneit {
     margin-left: -9rem;
@@ -1333,12 +1335,11 @@
 }
 
 .donationPanel {
-    position: absolute;
+    position: relative;
     z-index: 5;
-    top: 8rem;
-    right: clamp(1rem, 4vw, 3rem);
-    width: clamp(20rem, 32vw, 29rem);
-    max-width: calc(100vw - 2rem);
+    width: 100%;
+    max-width: 770px;
+    margin-top: 1.25rem;
     overflow: hidden;
     color: var(--main-text-color, #f2f9ff);
     background: linear-gradient(145deg, rgba(8, 24, 43, 0.88), rgba(5, 15, 34, 0.76));
@@ -1509,6 +1510,123 @@
     overflow-wrap: anywhere;
 }
 
+.receiptUpload__files {
+    display: grid;
+    gap: 0.35rem;
+    max-height: 7rem;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.receiptUpload__files:empty {
+    display: none;
+}
+
+.receiptUpload__files li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem 0.65rem;
+    color: var(--main-text-color, #f2f9ff);
+    background: rgba(255, 255, 255, 0.045);
+    border-radius: 0.55rem;
+    font-family: var(--robot-font, Arial, sans-serif);
+    font-size: 0.8rem;
+}
+
+.receiptUpload__files li span:first-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.receiptUpload__files li span:last-child {
+    flex: 0 0 auto;
+    color: var(--description-color, #bfc9d1);
+}
+
+.receiptUpload__consent {
+    display: grid;
+    grid-template-columns: 1.15rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.65rem;
+    color: var(--main-text-color, #f2f9ff);
+    font-family: var(--robot-font, Arial, sans-serif);
+    font-size: 0.83rem;
+    line-height: 1.5;
+}
+
+.receiptUpload__consent input {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.15rem 0 0;
+    accent-color: var(--text-select-color, #14868c);
+}
+
+.receiptUpload__consent input:focus-visible {
+    outline: 2px solid var(--text-select-color, #14868c);
+    outline-offset: 3px;
+}
+
+.receiptUpload__privacy {
+    margin: -0.2rem 0 0;
+    color: var(--description-color, #bfc9d1);
+    font-family: var(--robot-font, Arial, sans-serif);
+    font-size: 0.77rem;
+    line-height: 1.55;
+}
+
+.receiptUpload__submit {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.75rem 1.1rem;
+    border: 0;
+    border-radius: 0.8rem;
+    background: linear-gradient(105deg, #743cff, #398cff);
+    box-shadow: 0 10px 24px rgba(57, 91, 255, 0.22);
+    color: #fff;
+    font: 600 0.95rem/1.2 var(--robot-font, Arial, sans-serif);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.receiptUpload__submit:not(:disabled):hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 14px 30px rgba(57, 91, 255, 0.32);
+}
+
+.receiptUpload__submit:focus-visible {
+    outline: 3px solid #a8c8ff;
+    outline-offset: 3px;
+}
+
+.receiptUpload__submit:disabled {
+    opacity: 0.55;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.receiptUpload__dropzone.is-invalid {
+    border-color: #ff8585;
+}
+
+.receiptUpload__status[data-state="error"] {
+    color: #ff9292;
+}
+
+.receiptUpload__status[data-state="success"] {
+    color: #43d9a3;
+}
+
+.receiptUpload__status[data-state="uploading"] {
+    color: var(--text-select-color, #48bec2);
+}
+
 .sun-mood .donationPanel {
     color: var(--main-text-color, #010736);
     background: linear-gradient(145deg, rgba(244, 248, 254, 0.82), rgba(217, 234, 253, 0.72));
@@ -1530,5 +1648,92 @@
 
 .sun-mood .receiptUpload__dropzone {
     background: linear-gradient(145deg, rgba(20, 134, 140, 0.08), rgba(116, 60, 255, 0.07));
+}
+
+.sun-mood .receiptUpload__files li {
+    background: rgba(1, 7, 54, 0.045);
+}
+
+.sun-mood .receiptUpload__status[data-state="error"] {
+    color: #a52525;
+}
+
+.sun-mood .receiptUpload__status[data-state="success"] {
+    color: #08744f;
+}
+
+@media (max-width: 900px) {
+    .main>section.sectionSupport.cardSection {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "coffee"
+            "donation";
+        gap: 0.5rem;
+    }
+
+    .cardSection>.machineBox {
+        grid-area: coffee;
+        margin: 0 auto;
+    }
+
+    .cardSection>.contentMainBox {
+        grid-area: donation;
+        width: min(100%, 770px);
+    }
+
+    .contentMainBox>.giveDoneit {
+        width: min(100%, 770px);
+        margin: 0 auto;
+    }
+
+    .giveStar {
+        width: 100%;
+        margin: 1rem auto 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .contentMainBox>.giveDoneit {
+        grid-template-areas:
+            "card"
+            "icon"
+            "text"
+            "button";
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        justify-items: center;
+        row-gap: 0.9rem;
+        padding: 1.25rem;
+        text-align: center;
+    }
+
+    .contentMainBox>.giveDoneit>.creditCard {
+        margin-right: 0;
+        zoom: 1.55;
+    }
+
+    .contentMainBox>.giveDoneit>.m-Box {
+        text-align: center;
+    }
+
+    .contentMainBox>.giveDoneit>.CopyBtn {
+        justify-self: center;
+    }
+
+    .donationPanel__text {
+        font-size: 1rem;
+    }
+
+    .donationPanel__content {
+        gap: 0.85rem;
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .receiptUpload__dropzone,
+    .receiptUpload__submit {
+        transition: none;
+    }
 }
 

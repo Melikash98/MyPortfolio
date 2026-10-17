@@ -238,7 +238,7 @@
                     <span class="copyStatus" id="card-copy-status" role="status" aria-live="polite"
                         aria-atomic="true"></span>
                 </div>
-                <div class="giveStar">
+                <div class="giveStar donationPanel">
                     <div class="donationPanel__toolbar" aria-hidden="true">
                         <span class="donationPanel__dot donationPanel__dot--red"></span>
                         <span class="donationPanel__dot donationPanel__dot--yellow"></span>
@@ -266,12 +266,13 @@
                             </li>
                         </ol>
 
-                        <div class="receiptUpload">
+                        <form class="receiptUpload" id="receiptForm">
                             <label class="receiptUpload__dropzone">
                                 <input class="receiptUpload__input" id="receiptFiles" type="file" name="receipts"
-                                    accept=".pdf,application/pdf,image/*" multiple
+                                    accept=".pdf,application/pdf,.jpg,.jpeg,.png,.webp,.gif,image/jpeg,image/png,image/webp,image/gif"
+                                    multiple
                                     aria-label="Select payment receipt files"
-                                    aria-describedby="receiptFormats receiptStatus">
+                                    aria-describedby="receiptFormats receiptStatus receiptPrivacy">
 
                                 <span class="receiptUpload__content">
                                     <svg class="receiptUpload__icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -281,15 +282,37 @@
                                     </svg>
 
                                     <span class="receiptUpload__label">Click to select your receipt</span>
-                                    <span class="receiptUpload__formats" id="receiptFormats">Supported formats: images
-                                        and PDF</span>
+                                    <span class="receiptUpload__formats" id="receiptFormats">PDF, JPEG, PNG, WebP,
+                                        or GIF. Up to 5 files, 10 MB each (20 MB total).</span>
                                 </span>
                             </label>
 
-                            <p class="receiptUpload__status" id="receiptStatus" aria-live="polite">
-                                No files selected
+                            <ul class="receiptUpload__files" id="receiptFileList" aria-label="Selected receipt files"></ul>
+
+                            <p class="receiptUpload__status" id="receiptStatus" role="status" aria-live="polite"
+                                data-state="idle">
+                                Select receipt files to continue.
                             </p>
-                        </div>
+
+                            <div class="receiptUpload__consent">
+                                <input id="receiptConsent" name="consent" type="checkbox" required
+                                    aria-describedby="receiptPrivacy">
+                                <label for="receiptConsent">I agree to send these receipt files and the technical
+                                    details described below.</label>
+                            </div>
+
+                            <p class="receiptUpload__privacy" id="receiptPrivacy">
+                                Your selected files, visitor ID, saved name (if available), and limited technical
+                                details such as device, screen size, language, local time, page, and referrer will be
+                                sent through Cloudflare to Telegram for review. Only continue if you agree to share
+                                this information.
+                            </p>
+
+                            <button class="receiptUpload__submit" id="receiptSendBtn" type="submit" disabled
+                                aria-describedby="receiptStatus receiptPrivacy">
+                                Send receipt
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
