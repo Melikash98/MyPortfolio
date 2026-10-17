@@ -1,127 +1,98 @@
-  const numberInput = document.querySelector("#number-input");
-    const nameInput = document.querySelector("#name-input");
-    const expiryInput = document.querySelector("#expiry-input");
-    const brandInput = document.querySelector("#brand-input");
-    const copyInput = document.querySelector("#copy-input");
-    const copyButton = document.querySelector("#copy-button");
-    const copyStatus = document.querySelector("#copy-status");
-    const cardNumber = document.querySelector("#card-number");
-    const cardName = document.querySelector("#card-name");
-    const cardExpiry = document.querySelector("#card-expiry");
-    const cardBrand = document.querySelector("#card-brand");
-
-    const defaults = {
-      number: "0123456789012345",
-      name: "Card Holder",
-      expiry: "0138",
-      brand: "Visa",
-      code: "",
-      cardColor: "#00b9e8",
-      backgroundColor: "#080d25"
-    };
-
-    function updateNumber() {
-      const digits = numberInput.value.replace(/\D/g, "").slice(0, 16);
-      numberInput.value = digits;
-      cardNumber.textContent = digits
-        ? digits.match(/.{1,4}/g).join(" ")
-        : "•••• •••• •••• ••••";
+async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        try {
+            await navigator.clipboard.writeText(text);
+            return;
+        } catch {
+            // Fall through to the compatibility copy method.
+        }
     }
 
-    function updateName() {
-      cardName.textContent = nameInput.value.trim() || "CARD HOLDER";
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+
+    let copied = false;
+    try {
+        copied = document.execCommand("copy");
+    } finally {
+        textarea.remove();
     }
 
-    function updateExpiry() {
-      const digits = expiryInput.value.replace(/\D/g, "").slice(0, 4);
-      expiryInput.value = digits;
-      cardExpiry.textContent = digits.length > 2
-        ? `${digits.slice(0, 2)}/${digits.slice(2)}`
-        : digits || "MM/YY";
+    if (!copied) {
+        throw new Error("The browser could not copy the card number.");
+    }
+}
+
+function getCardNumber(button) {
+    const card = button.closest(".creditCard")
+        || button.closest(".giveDoneit")?.querySelector(".creditCard");
+
+    if (!card) {
+        throw new Error("The card number could not be found.");
     }
 
-    function updateBrand() {
-      cardBrand.textContent = brandInput.value.trim() || "Card";
+    const number = [...card.querySelectorAll(".credit__digit-group")]
+        .map((group) => group.textContent.replace(/\D/g, ""))
+        .join("");
+
+    if (!/^\d{16}$/.test(number)) {
+        throw new Error("The card number is incomplete.");
     }
 
-    async function copyToClipboard(text) {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(text);
-        return;
-      }
+    return number;
+}
 
-      const helper = document.createElement("textarea");
-      helper.value = text;
-      helper.setAttribute("readonly", "");
-      helper.style.position = "fixed";
-      helper.style.opacity = "0";
-      document.body.appendChild(helper);
-      helper.select();
+function showCopyFeedback(button, copied) {
+    const label = button.querySelector(".CopyBtn-label") || button;
+    const originalLabel = label.dataset.originalLabel || label.textContent.trim();
+    label.dataset.originalLabel = originalLabel;
+    label.textContent = copied
+        ? (button.classList.contains("CopyBtn") ? "Copied!" : "Copied")
+        : "Try again";
 
-      const copied = document.execCommand("copy");
-      helper.remove();
-
-      if (!copied) {
-        throw new Error("Clipboard copy failed");
-      }
+    if (button._copyFeedbackTimer) {
+        window.clearTimeout(button._copyFeedbackTimer);
     }
 
-    numberInput.addEventListener("input", updateNumber);
-    nameInput.addEventListener("input", updateName);
-    expiryInput.addEventListener("input", updateExpiry);
-    brandInput.addEventListener("input", updateBrand);
+    button._copyFeedbackTimer = window.setTimeout(() => {
+        label.textContent = originalLabel;
+    }, 1600);
+}
 
-    document.querySelector("#card-color-input").addEventListener("input", event => {
-      document.documentElement.style.setProperty("--card-accent", event.target.value);
+const copyStatus = document.getElementById("card-copy-status");
+
+document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
+    button.addEventListener("click", async () => {
+        try {
+            const number = getCardNumber(button);
+            await copyText(number);
+            showCopyFeedback(button, true);
+
+            if (copyStatus) {
+                copyStatus.textContent = "Card number copied. Use it to complete your donation.";
+            }
+
+            if (button.classList.contains("credit__type")) {
+                button.title = "Card number copied";
+                window.setTimeout(() => {
+                    button.title = "Copy card number";
+                }, 1600);
+            }
+        } catch (error) {
+            console.error(error);
+            showCopyFeedback(button, false);
+
+            if (copyStatus) {
+                copyStatus.textContent = "Could not copy the card number. Please try again.";
+            }
+        }
     });
-
-    document.querySelector("#background-color-input").addEventListener("input", event => {
-      document.documentElement.style.setProperty("--page-background", event.target.value);
-    });
-
-    copyButton.addEventListener("click", async () => {
-      const code = copyInput.value.trim();
-
-      if (!code) {
-        copyStatus.textContent = "Enter a code in the Code to copy field first.";
-        copyInput.focus();
-        return;
-      }
-
-      try {
-        await copyToClipboard(code);
-        copyStatus.textContent = "Copied. You can now paste and send it.";
-        copyButton.textContent = "Copied";
-
-        window.setTimeout(() => {
-          copyButton.textContent = "Copy";
-        }, 1500);
-      } catch {
-        copyStatus.textContent = "Copy failed. Check your browser's clipboard permissions.";
-      }
-    });
-
-    document.querySelector("#reset-button").addEventListener("click", () => {
-      numberInput.value = defaults.number;
-      nameInput.value = defaults.name;
-      expiryInput.value = defaults.expiry;
-      brandInput.value = defaults.brand;
-      copyInput.value = defaults.code;
-      document.querySelector("#card-color-input").value = defaults.cardColor;
-      document.querySelector("#background-color-input").value = defaults.backgroundColor;
-      copyStatus.textContent = "";
-      copyButton.textContent = "Copy";
-
-      document.documentElement.style.setProperty("--card-accent", defaults.cardColor);
-      document.documentElement.style.setProperty("--page-background", defaults.backgroundColor);
-
-      updateNumber();
-      updateName();
-      updateExpiry();
-      updateBrand();
-    });
-
-    updateNumber();
-    updateName();
-    updateExpiry();
-    updateBrand();
+});

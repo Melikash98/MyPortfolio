@@ -65,6 +65,9 @@
             var(--metal-dark) 15%,
             var(--blue) 15%,
             var(--blue));
+    --card-accent: #0E8388;
+    --page-background: #080d25;
+    --muted-color: #aeb9d7;
     /*============================================ Transition ============================================*/
     --transition-icon: cubic-bezier(0.3, 0, 0.3);
 
