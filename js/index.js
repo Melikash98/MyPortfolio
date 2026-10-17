@@ -1561,7 +1561,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-/* TODO: ============================================ SCROLL MOUSE  ============================================*/
+/* TODO: *************************************** SCROLL MOUSE  ***********************************************/
 document.addEventListener('DOMContentLoaded', () => {
   const control = document.querySelector('.scrollControl');
   if (!control) return;

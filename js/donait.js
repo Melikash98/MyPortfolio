@@ -96,3 +96,28 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         }
     });
 });
+const receiptInput = document.querySelector('#receiptFiles');
+const receiptStatus = document.querySelector('#receiptStatus');
+
+receiptInput.addEventListener('change', () => {
+    const files = Array.from(receiptInput.files);
+
+    if (files.length === 0) {
+        receiptStatus.textContent = 'No files selected';
+        return;
+    }
+
+    const invalidFiles = files.filter((file) => {
+        const isPdf = file.type === 'application/pdf' || /\.pdf$/i.test(file.name);
+        const isImage = file.type.startsWith('image/');
+        return !isPdf && !isImage;
+    });
+
+    if (invalidFiles.length > 0) {
+        receiptStatus.textContent = 'Please select PDF or image files only';
+        receiptInput.value = '';
+        return;
+    }
+
+    receiptStatus.textContent = files.map((file) => file.name).join(', ');
+});

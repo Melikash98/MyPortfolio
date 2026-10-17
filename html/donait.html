@@ -239,7 +239,58 @@
                         aria-atomic="true"></span>
                 </div>
                 <div class="giveStar">
-                    
+                    <div class="donationPanel__toolbar" aria-hidden="true">
+                        <span class="donationPanel__dot donationPanel__dot--red"></span>
+                        <span class="donationPanel__dot donationPanel__dot--yellow"></span>
+                        <span class="donationPanel__dot donationPanel__dot--green"></span>
+                    </div>
+
+                    <div class="donationPanel__content">
+                        <h2 class="donationPanel__title" id="donationPanelTitle">Donation steps</h2>
+
+                        <ol class="donationPanel__steps">
+                            <li class="donationPanel__step">
+                                <span class="donationPanel__number">1</span>
+                                <p class="donationPanel__text">
+                                    Click the “Donate Now” button on the card to copy the card number. Then make the
+                                    transfer through your banking app.
+                                </p>
+                            </li>
+
+                            <li class="donationPanel__step">
+                                <span class="donationPanel__number">2</span>
+                                <p class="donationPanel__text">
+                                    After the transfer, please upload a screenshot or image of the payment receipt in
+                                    the box below.
+                                </p>
+                            </li>
+                        </ol>
+
+                        <div class="receiptUpload">
+                            <label class="receiptUpload__dropzone">
+                                <input class="receiptUpload__input" id="receiptFiles" type="file" name="receipts"
+                                    accept=".pdf,application/pdf,image/*" multiple
+                                    aria-label="Select payment receipt files"
+                                    aria-describedby="receiptFormats receiptStatus">
+
+                                <span class="receiptUpload__content">
+                                    <svg class="receiptUpload__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M3.5 8.5A2.5 2.5 0 0 1 6 6h4l2 2h6a2.5 2.5 0 0 1 2.5 2.5"></path>
+                                        <path d="M3 10h18l-1.5 9h-15L3 10Z"></path>
+                                        <path d="M12 16v-5m0 0-2 2m2-2 2 2"></path>
+                                    </svg>
+
+                                    <span class="receiptUpload__label">Click to select your receipt</span>
+                                    <span class="receiptUpload__formats" id="receiptFormats">Supported formats: images
+                                        and PDF</span>
+                                </span>
+                            </label>
+
+                            <p class="receiptUpload__status" id="receiptStatus" aria-live="polite">
+                                No files selected
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
