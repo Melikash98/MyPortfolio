@@ -170,6 +170,33 @@ if (contactToDonatePageWithSlideBar) {
     }
   });
 }
+const shareControl = document.querySelector('#shareControl');
+
+shareControl.addEventListener('click', async () => {
+  const shareData = {
+    title: document.title,
+    text: 'Check out this page:',
+    url: window.location.href
+  };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await navigator.clipboard.writeText(shareData.url);
+      alert('Link copied');
+    }
+  } catch (error) {
+    if (error.name !== 'AbortError') console.error(error);
+  }
+});
+
+shareControl.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    shareControl.click();
+  }
+});
 document.addEventListener('DOMContentLoaded', () => {
   const bottomNavLinks = document.querySelectorAll('.bottomNavigation a');
   const sections = document.querySelectorAll('main .section');

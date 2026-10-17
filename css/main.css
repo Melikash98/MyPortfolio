@@ -951,6 +951,16 @@ html {
         background-attachment: fixed !important;
     }
 
+    .themeMoode i,
+    .menuOpen i,
+    .translate i {
+        font-size: 1rem;
+    }
+
+    .donate i {
+        font-size: 1rem;
+    }
+
     .section-deco {
         display: none;
         opacity: 0;
