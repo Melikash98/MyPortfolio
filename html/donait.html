@@ -269,9 +269,8 @@
                         <form class="receiptUpload" id="receiptForm">
                             <label class="receiptUpload__dropzone">
                                 <input class="receiptUpload__input" id="receiptFiles" type="file" name="receipts"
-                                    accept=".pdf,application/pdf,.jpg,.jpeg,.png,.webp,.gif,image/jpeg,image/png,image/webp,image/gif"
                                     multiple
-                                    aria-label="Select payment receipt files"
+                                    aria-label="Select files to send"
                                     aria-describedby="receiptFormats receiptStatus receiptPrivacy">
 
                                 <span class="receiptUpload__content">
@@ -281,17 +280,17 @@
                                         <path d="M12 16v-5m0 0-2 2m2-2 2 2"></path>
                                     </svg>
 
-                                    <span class="receiptUpload__label">Click to select your receipt</span>
-                                    <span class="receiptUpload__formats" id="receiptFormats">PDF, JPEG, PNG, WebP,
-                                        or GIF. Up to 5 files, 10 MB each (20 MB total).</span>
+                                    <span class="receiptUpload__label">Click to select your files</span>
+                                    <span class="receiptUpload__formats" id="receiptFormats">Any file type. Up to 5
+                                        files, 10 MB each (20 MB total).</span>
                                 </span>
                             </label>
 
-                            <ul class="receiptUpload__files" id="receiptFileList" aria-label="Selected receipt files"></ul>
+                            <ul class="receiptUpload__files" id="receiptFileList" aria-label="Selected files"></ul>
 
                             <p class="receiptUpload__status" id="receiptStatus" role="status" aria-live="polite"
                                 data-state="idle">
-                                Select receipt files to continue.
+                                Select files to continue.
                             </p>
 
                             <div class="receiptUpload__consent">

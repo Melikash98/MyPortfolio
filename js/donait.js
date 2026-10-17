@@ -114,14 +114,6 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
     const MAX_FILES = 5;
     const MAX_FILE_BYTES = 10 * 1024 * 1024;
     const MAX_TOTAL_BYTES = 20 * 1024 * 1024;
-    const ALLOWED_EXTENSIONS = new Map([
-        ['.pdf', 'application/pdf'],
-        ['.jpg', 'image/jpeg'],
-        ['.jpeg', 'image/jpeg'],
-        ['.png', 'image/png'],
-        ['.webp', 'image/webp'],
-        ['.gif', 'image/gif']
-    ]);
     let isUploading = false;
 
     function safeStorageGet(key) {
@@ -229,7 +221,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         const errors = [];
 
         if (files.length === 0) {
-            errors.push('Select at least one receipt file.');
+            errors.push('Select at least one file.');
             return errors;
         }
 
@@ -240,13 +232,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         let totalBytes = 0;
         files.forEach((file) => {
             totalBytes += file.size;
-            const extension = `.${file.name.split('.').pop().toLowerCase()}`;
-            const expectedMime = ALLOWED_EXTENSIONS.get(extension);
-            const typeMatches = !file.type || file.type.toLowerCase() === expectedMime;
-
-            if (!expectedMime || !typeMatches) {
-                errors.push(`${cleanText(file.name, 100)} is not a supported PDF or image.`);
-            } else if (!file.size) {
+            if (!file.size) {
                 errors.push(`${cleanText(file.name, 100)} is empty.`);
             } else if (file.size > MAX_FILE_BYTES) {
                 errors.push(`${cleanText(file.name, 100)} is larger than 10 MB.`);
@@ -294,7 +280,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         if (errors.length > 0) {
             setStatus(errors.join(' '), 'error');
         } else if (!files.length) {
-            setStatus('Select receipt files to continue.', 'idle');
+            setStatus('Select files to continue.', 'idle');
         } else if (receiptConsent.checked) {
             setStatus(`${files.length} file${files.length === 1 ? '' : 's'} ready to send.`, 'ready');
         } else {
@@ -311,7 +297,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
             too_many_files: 'You can send up to 5 files at a time.',
             file_too_large: 'A file is too large. Each file must be 10 MB or less.',
             upload_too_large: 'The combined upload is too large. The limit is 20 MB.',
-            unsupported_file: 'The server rejected a file format. Choose a PDF, JPEG, PNG, WebP, or GIF.',
+            unsupported_file: 'The server rejected one of the selected file types.',
             rate_limited: 'Too many attempts were made. Please wait a little and try again.',
             turnstile_failed: 'The security check could not be completed. Please refresh the page and try again.',
             telegram_delivery_failed: 'The receipt could not be delivered. Your files are still selected; please try again later.'
@@ -353,7 +339,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         receiptInput.disabled = true;
         receiptConsent.disabled = true;
         receiptSendButton.disabled = true;
-        setStatus('Sending your receipt securely. Please keep this page open.', 'uploading');
+        setStatus('Sending your files securely. Please keep this page open.', 'uploading');
 
         const controller = new AbortController();
         const timeoutId = window.setTimeout(() => controller.abort(), 60000);
@@ -374,11 +360,11 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
             receiptInput.value = '';
             receiptConsent.checked = false;
             updateFileList([]);
-            setStatus('Your receipt was sent successfully. Thank you for your support.', 'success');
+            setStatus('Your files were sent successfully. Thank you for your support.', 'success');
         } catch (error) {
             const message = error?.name === 'AbortError'
                 ? 'The upload timed out. Your files are still selected; please try again.'
-                : 'The receipt service could not be reached. Your files are still selected; please try again later.';
+                : 'The file service could not be reached. Your files are still selected; please try again later.';
             setStatus(message, 'error');
         } finally {
             window.clearTimeout(timeoutId);
