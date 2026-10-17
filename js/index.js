@@ -134,6 +134,42 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 });
+const contactToDonatePage = document.querySelector('.donate');
+
+if (contactToDonatePage) {
+  contactToDonatePage.setAttribute('role', 'link');
+  contactToDonatePage.setAttribute('tabindex', '0');
+
+  const goToDonatePage = () => {
+    window.location.href = new URL('html/donait.html', document.baseURI).href;
+  };
+
+  contactToDonatePage.addEventListener('click', goToDonatePage);
+  contactToDonatePage.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      goToDonatePage();
+    }
+  });
+}
+const contactToDonatePageWithSlideBar = document.querySelector('.goDonate');
+
+if (contactToDonatePageWithSlideBar) {
+  contactToDonatePageWithSlideBar.setAttribute('role', 'link');
+  contactToDonatePageWithSlideBar.setAttribute('tabindex', '0');
+
+  const goToDonatePage = () => {
+    window.location.href = new URL('html/donait.html', document.baseURI).href;
+  };
+
+  contactToDonatePageWithSlideBar.addEventListener('click', goToDonatePage);
+  contactToDonatePageWithSlideBar.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      goToDonatePage();
+    }
+  });
+}
 document.addEventListener('DOMContentLoaded', () => {
   const bottomNavLinks = document.querySelectorAll('.bottomNavigation a');
   const sections = document.querySelectorAll('main .section');

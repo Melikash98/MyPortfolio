@@ -443,6 +443,29 @@
     font-size: 2rem;
 }
 
+.donate i {
+    font-size: 1.5rem;
+}
+
+.mainShare,
+.controlshare {
+    display: inline-flex;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.likeControl {
+    font-size: 1.5rem;
+    color: var(--main-text-color);
+    transition: all .3s ease-in;
+}
+
+.likeControl:hover {
+    cursor: pointer;
+    color: var(--text-select-color);
+    transform: translateY(-4px);
+}
+
 .slideHeder {
     height: 100vh;
     min-height: 100vh;
@@ -3750,7 +3773,7 @@ iframe.skiptranslate {
 #cw-fab svg {
     position: relative;
     z-index: 1;
-    width:108px;
+    width: 108px;
     height: 108px;
     margin-top: -4rem;
     object-fit: contain;
