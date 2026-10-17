@@ -178,20 +178,27 @@
 }
 
 .containerSupport {
+    position: relative;
     overflow: visible;
     border-bottom: 0;
 
 }
+.contentMainBox {
+    position: relative;
+}
 
-.containerSupport ::after {
+.containerSupport::after,
+.contentMainBox::after {
     content: "";
     position: absolute;
     z-index: 2;
     left: 20%;
-    bottom: 8rem;
+    bottom: 0;
     width: 70%;
-    height: .5px;
-    box-shadow: 0 1px 2px rgba(20, 134, 140, 0.08);
+    height: 1px;
+    border-radius: 999px;
+    background: rgba(20, 134, 140, 0.7);
+    box-shadow: 0 2px 12px rgba(20, 134, 140, 0.5);
     pointer-events: none;
 }
 
@@ -1197,7 +1204,7 @@
     min-width: 0;
     margin: 0 auto;
 }
-.giveStar {
+.contentMainBox .giveStar {
     width: min(770px, calc(100% + 9rem));
     margin: 1.25rem 0 0 -9rem;
     box-sizing: border-box;
@@ -1611,7 +1618,7 @@
     cursor: not-allowed;
 }
 
-.receiptUpload__dropzone.is-invalid {
+.receiptUpload__dropzone:has(.receiptUpload__input[aria-invalid="true"]) {
     border-color: #ff8585;
 }
 
@@ -1662,78 +1669,4 @@
     color: #08744f;
 }
 
-@media (max-width: 900px) {
-    .main>section.sectionSupport.cardSection {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "coffee"
-            "donation";
-        gap: 0.5rem;
-    }
-
-    .cardSection>.machineBox {
-        grid-area: coffee;
-        margin: 0 auto;
-    }
-
-    .cardSection>.contentMainBox {
-        grid-area: donation;
-        width: min(100%, 770px);
-    }
-
-    .contentMainBox>.giveDoneit {
-        width: min(100%, 770px);
-        margin: 0 auto;
-    }
-
-    .giveStar {
-        width: 100%;
-        margin: 1rem auto 0;
-    }
-}
-
-@media (max-width: 560px) {
-    .contentMainBox>.giveDoneit {
-        grid-template-areas:
-            "card"
-            "icon"
-            "text"
-            "button";
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto;
-        justify-items: center;
-        row-gap: 0.9rem;
-        padding: 1.25rem;
-        text-align: center;
-    }
-
-    .contentMainBox>.giveDoneit>.creditCard {
-        margin-right: 0;
-        zoom: 1.55;
-    }
-
-    .contentMainBox>.giveDoneit>.m-Box {
-        text-align: center;
-    }
-
-    .contentMainBox>.giveDoneit>.CopyBtn {
-        justify-self: center;
-    }
-
-    .donationPanel__text {
-        font-size: 1rem;
-    }
-
-    .donationPanel__content {
-        gap: 0.85rem;
-        padding: 1rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .receiptUpload__dropzone,
-    .receiptUpload__submit {
-        transition: none;
-    }
-}
 
