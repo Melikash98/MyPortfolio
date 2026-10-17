@@ -107,6 +107,11 @@ const EMAILJS_SERVICE_ID = "service_s615d4v";
 const EMAILJS_TEMPLATE_ID = "template_3uzazjb";
 const EMAILJS_PUBLIC_KEY = "dHviDYQd7YtLv5flq";
 document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contactForm");
+    if (!contactForm) {
+        return;
+    }
+
     if (typeof emailjs === "undefined") {
         console.error("EmailJS library was not loaded.");
         return;
@@ -115,14 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
     emailjs.init({
         publicKey: EMAILJS_PUBLIC_KEY
     });
-    const contactForm = document.getElementById("contactForm");
     const sendButton = document.querySelector(".contactButton");
     const termsText = document.querySelector(".terms");
-
-    if (!contactForm) {
-        console.error("Contact form #contactForm was not found.");
-        return;
-    }
 
     if (!sendButton) {
         console.error("Send button .contactButton was not found.");

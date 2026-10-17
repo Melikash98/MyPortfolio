@@ -378,7 +378,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         } catch (error) {
             const message = error?.name === 'AbortError'
                 ? 'The upload timed out. Your files are still selected; please try again.'
-                : 'The receipt could not be sent. Check your connection; your files are still selected.';
+                : 'The receipt service could not be reached. Your files are still selected; please try again later.';
             setStatus(message, 'error');
         } finally {
             window.clearTimeout(timeoutId);
