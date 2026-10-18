@@ -81,10 +81,16 @@
     height: 42px;
     cursor: pointer;
 }
-
+.themeMoode i,
+.backPage i{
+    font-size: 1.5rem;
+}
+.backPage i{
+    margin-right: .5rem;
+}
 .translate>i {
     color: var(--main-text-color);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     transition: color 0.25s ease;
 }
 
@@ -183,18 +189,20 @@
     border-bottom: 0;
 
 }
+
 .contentMainBox {
     position: relative;
 }
 
-.containerSupport::after,
+.v::after,
 .contentMainBox::after {
     content: "";
     position: absolute;
+    top: -3rem;
     z-index: 2;
-    left: 20%;
+    left: -65%;
     bottom: 0;
-    width: 70%;
+    width: 200%;
     height: 1px;
     border-radius: 999px;
     background: rgba(20, 134, 140, 0.7);
@@ -1204,11 +1212,13 @@
     min-width: 0;
     margin: 0 auto;
 }
+
 .contentMainBox .giveStar {
     width: min(770px, calc(100% + 9rem));
     margin: 1.25rem 0 0 -9rem;
     box-sizing: border-box;
 }
+
 .contentMainBox>.giveDoneit {
     margin-left: -9rem;
     margin-top: -2rem;
@@ -1669,4 +1679,88 @@
     color: #08744f;
 }
 
+.cardContent {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    grid-gap: 4rem;
+    justify-content: center;
+    justify-self: center;
+    margin-top: 2rem;
+}
 
+.pDes {
+    margin-top: .75rem;
+    line-height: 1.4rem;
+    max-width: 250px;
+    color: var(--description-color);
+    font-family: var(--main-description-font);
+    font-size: 1.3rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.textDes {
+    font-family: var(--tittle-font);
+    font-size: 1.5rem;
+    font-weight: var(--normal-font-weight);
+    color: var(--main-text-color);
+    text-align: center;
+    justify-content: center;
+}
+
+.imgDes {
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    margin-bottom: .95rem;
+    color: var(--text-select-color);
+}
+
+.cardDes {
+    position: relative;
+}
+
+.cardDes::after {
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    bottom: auto;
+    content: '';
+    height: 50%;
+    background-color: #00806b;
+    width: 2px;
+
+}
+
+.containerSupport .endText {
+    display: inline-flex;
+    margin-top: 6rem;
+    font-family: var(--support-font-two);
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 35%;
+    font-size: 2rem;
+    color: var(--text-select-color);
+}
+
+.endText h3 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.footer{
+    position:-webkit-sticky;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+}
+.footer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}

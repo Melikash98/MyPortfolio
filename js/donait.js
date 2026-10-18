@@ -562,3 +562,27 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
         initReceiptUpload();
     }
 })();
+
+const goBack = document.querySelector('.backPage');
+
+if (goBack) {
+    goBack.addEventListener('click', () => {
+        const fallbackUrl = new URL('../index.html', window.location.href);
+
+        try {
+            const previousPage = new URL(document.referrer);
+
+            if (
+                document.referrer &&
+                previousPage.origin === window.location.origin &&
+                previousPage.href !== window.location.href
+            ) {
+                window.location.href = previousPage.href;
+                return;
+            }
+        } catch (error) {
+        }
+
+        window.location.href = fallbackUrl.href;
+    });
+}
