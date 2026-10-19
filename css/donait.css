@@ -2,6 +2,11 @@
     overflow: hidden;
 }
 
+iframe.skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+}
+
 .container {
     max-width: 1320px;
     margin-inline: auto;
@@ -1763,4 +1768,159 @@
     object-fit: cover;
     object-position: center;
 
+}
+
+/* Day theme for the support page */
+:root.sun-mood .indexBody {
+    --description-color: #52677b;
+    --page-background: #f4f8fe;
+    --muted-color: #52677b;
+    --blue: #d7e3eb;
+    --metal: #dce6ec;
+    --metal-dark: #81929d;
+    --stripe: linear-gradient(to right,
+            #d7e3eb,
+            #d7e3eb 3%,
+            #81929d 3%,
+            #81929d 15%,
+            #d7e3eb 15%,
+            #d7e3eb);
+    color: #10243a;
+}
+
+.sun-mood .indexBody .headerSupport {
+    background: rgba(244, 248, 254, 0.86);
+    border-bottom: 1px solid rgba(20, 66, 91, 0.1);
+    box-shadow: 0 8px 28px rgba(16, 36, 58, 0.08);
+}
+
+.sun-mood .indexBody .supportText {
+    color: #10243a;
+}
+
+.sun-mood .indexBody .homeSupportText .desText {
+    color: var(--description-color);
+}
+
+.sun-mood .indexBody .thHeart,
+.sun-mood .indexBody .textHomeTwo {
+    color: #08777b;
+}
+
+.sun-mood .indexBody .thHeart svg path,
+.sun-mood .indexBody .textHomeTwo svg path {
+    stroke: currentColor;
+}
+
+.sun-mood .indexBody .socialSupportLink {
+    color: #193b58;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(217, 234, 253, 0.8));
+    border-color: rgba(20, 66, 91, 0.16);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 8px 22px rgba(16, 36, 58, 0.09);
+}
+
+.sun-mood .indexBody .socialSupportLink:hover {
+    color: #fff;
+    border-color: rgba(14, 131, 136, 0.42);
+}
+
+.sun-mood .indexBody .supportHomeGlassCard {
+    background: rgba(247, 250, 255, 0.95);
+    border-color: rgba(49, 86, 125, 0.24);
+    box-shadow:
+        0 1rem 2.25rem rgba(16, 36, 58, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.sun-mood .indexBody .supportHomeGlassCard__toolbar {
+    background: rgba(221, 233, 245, 0.9);
+    border-bottom-color: rgba(49, 86, 125, 0.16);
+}
+
+.sun-mood .indexBody .supportHomeGlassCard .lineNumber {
+    color: #657991;
+}
+
+.sun-mood .indexBody .supportHomeGlassCard .codeLine code {
+    color: #1d344c;
+}
+
+.sun-mood .indexBody .supportHomeGlassCard .codeYellow {
+    color: #785500;
+}
+
+.sun-mood .indexBody .supportHomeGlassCard .codeOrange {
+    color: #a44420;
+}
+
+.sun-mood .indexBody .cardSection .giveDoneit {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(225, 238, 249, 0.78));
+    border: 1px solid rgba(20, 66, 91, 0.14);
+    box-shadow:
+        0 1rem 2.5rem rgba(16, 36, 58, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.sun-mood .indexBody .cardSection .iconBox {
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 0.25rem 1rem rgba(14, 131, 136, 0.16);
+}
+
+.sun-mood .indexBody .cardSection .creditCard {
+    --primary: #16465e;
+    box-shadow:
+        0 0.8rem 1.8rem rgba(16, 36, 58, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.sun-mood .indexBody .cardSection .donationPanel__text,
+.sun-mood .indexBody .cardSection .receiptUpload__formats,
+.sun-mood .indexBody .cardSection .receiptUpload__status,
+.sun-mood .indexBody .cardSection .receiptUpload__privacy {
+    color: var(--description-color);
+}
+
+.sun-mood .indexBody .cardSection .receiptUpload__consent {
+    color: #263d52;
+}
+
+.sun-mood .indexBody .cardSection .receiptUpload__dropzone {
+    border-color: rgba(14, 131, 136, 0.46);
+}
+
+.sun-mood .indexBody .descriptionSection .cardDes {
+    padding: 1.25rem;
+    border: 1px solid rgba(20, 66, 91, 0.1);
+    border-radius: 1.15rem;
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: 0 0.75rem 2rem rgba(16, 36, 58, 0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.sun-mood .indexBody .descriptionSection .cardDes::after {
+    background-color: rgba(8, 119, 123, 0.42);
+}
+
+.sun-mood .indexBody .descriptionSection .textDes {
+    color: #10243a;
+}
+
+.sun-mood .indexBody .descriptionSection .pDes {
+    color: var(--description-color);
+}
+
+.sun-mood .indexBody .descriptionSection .endText {
+    color: #08777b;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .sun-mood .indexBody .headerSupport,
+    .sun-mood .indexBody .socialSupportLink,
+    .sun-mood .indexBody .descriptionSection .cardDes {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
 }
