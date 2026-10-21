@@ -934,8 +934,8 @@ const commentSwiper = new Swiper('.comments-swiper', {
 
   breakpoints: {
     768: {
-      slidesPerView: 2,
-      spaceBetween: 24,
+      slidesPerView: 3,
+      spaceBetween: 14,
     },
 
     1208: {
