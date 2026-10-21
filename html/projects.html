@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msvalidate.01" content="C09BC1B4897BF00BC2C9D50F73BC06AA" />
+    <title>MShooryabi.com</title>
+    <!-- TODO: Define The Website Favicon-->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!--Main & index CSS-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-N27S83QG');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- ! RemixIcon Import -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- ! Unicons Import -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/unicons.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/solid.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/thinline.css">
+    <script src="https://kit.fontawesome.com/bd718b0c33.js" crossorigin="anonymous"></script>
+    <!-- ! Swiper.com -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <!-- ! AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta name="google-site-verification" content="c90EYqFA5SkozbS_Jdh_0YUdy-NhvHxr5TCZ3IIXfjQ" />
+    <!-- !Email JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">(function () {
+                emailjs.init({
+                    publicKey: "dHviDYQd7YtLv5flq",
+                });
+            })();
+    </script>
+    <script defer data-domain="mshoryabidev.com"
+        src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N27S83QG" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- ! AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ! AOS Animation -->
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+    <!-- ! Unicons Import -->
+    <script src="https://unicons.iconscout.com/release/v4.2.0/script/monochrome/bundle.js"></script>
+    <script src="https://kit.fontawesome.com/bd718b0c33.js" crossorigin="anonymous"></script>
+    <!-- ! Swiper.com -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <!--Js-->
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/github-activity.js"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "en,de,ar",
+                    autoDisplay: false
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        (() => {
+            const API = "https://mysite-chat.melika-shooryabi98.workers.dev";
+            const $ = id => document.getElementById(id);
+            const store = {
+                get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { } }
+            };
+
+            let sid = store.get("cw_sid");
+            if (!sid) { sid = crypto.randomUUID(); store.set("cw_sid", sid); }
+
+            const robot = $("cw-robot").innerHTML;
+            $("cw-fab").innerHTML = robot;
+            $("cw-avatar").innerHTML = robot;
+
+            const box = $("cw-box"), msgs = $("cw-msgs"), fab = $("cw-fab");
+            let since = 0, greeted = false;
+            const lead = { name: store.get("cw_name") || "", email: "", question: "" };
+            let step = lead.name ? 3 : 0;
+
+            function add(text, who) {
+                const d = document.createElement("div");
+                d.className = "cw-m " + who;
+                d.textContent = text;
+                msgs.appendChild(d);
+                msgs.scrollTop = msgs.scrollHeight;
+            }
+            const reply = text => setTimeout(() => add(text, "bot"), 600);
+
+            const post = (path, body) => fetch(API + path, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+
+            function getMeta() {
+                const ua = navigator.userAgent;
+                const type = (/iPad|Tablet|PlayBook|Silk/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua))) ? "Tablet"
+                    : /Mobi|iPhone|Android/i.test(ua) ? "Mobile" : "Desktop";
+                const os = /Windows/.test(ua) ? "Windows" : /Android/.test(ua) ? "Android"
+                    : /iPhone|iPad|iPod/.test(ua) ? "iOS" : /Mac OS X/.test(ua) ? "macOS"
+                        : /Linux/.test(ua) ? "Linux" : "Unknown";
+                const browser = /Edg\//.test(ua) ? "Edge" : /OPR\/|Opera/.test(ua) ? "Opera"
+                    : /Firefox\//.test(ua) ? "Firefox" : /Chrome\//.test(ua) ? "Chrome"
+                        : /Safari\//.test(ua) ? "Safari" : "Unknown";
+                return {
+                    device: `${type} · ${os} · ${browser}`,
+                    screen: `${screen.width}x${screen.height}`,
+                    lang: navigator.language,
+                    tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    localTime: new Date().toLocaleString(),
+                    page: location.href,
+                    ref: document.referrer
+                };
+            }
+
+            function toggle(open) {
+                box.classList.toggle("open", open);
+                if (open) {
+                    fab.classList.remove("has-new");
+                    $("cw-input").focus();
+                    if (!greeted) {
+                        greeted = true;
+                        add(step === 3 ? `Welcome back, ${lead.name}! 👋 How can I help?` : "Hi! 👋 How can I help you?", "bot");
+                    }
+                }
+            }
+            fab.onclick = () => toggle(!box.classList.contains("open"));
+            $("cw-close").onclick = () => toggle(false);
+
+            $("cw-form").onsubmit = async e => {
+                e.preventDefault();
+                const text = $("cw-input").value.trim();
+                if (!text) return;
+                $("cw-input").value = "";
+                add(text, "me");
+
+                if (step === 0) {
+                    lead.question = text;
+                    step = 1;
+                    return reply("Thanks for reaching out! 🙌 What's your name?");
+                }
+                if (step === 1) {
+                    lead.name = text.slice(0, 80);
+                    step = 2;
+                    return reply(`Nice to meet you, ${lead.name}! What's your email address?`);
+                }
+                if (step === 2) {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text)) {
+                        return reply("That email doesn't look right. Could you check it and send it again?");
+                    }
+                    lead.email = text;
+                    try {
+                        const r = await post("/lead", {
+                            sid, name: lead.name, email: lead.email, text: lead.question, meta: getMeta()
+                        });
+                        if (!r.ok) throw new Error("lead failed");
+                        step = 3;
+                        store.set("cw_name", lead.name);
+                        reply("Thank you! 🙏 I've received your message and will reply here as soon as I can.");
+                    } catch (err) {
+                        reply("Message not sent. Please send your email again to retry.");
+                    }
+                    return;
+                }
+
+                try {
+                    const r = await post("/send", { sid, text, name: lead.name });
+                    if (!r.ok) throw new Error("send failed");
+                } catch (err) {
+                    reply("Message not sent. Please try again.");
+                }
+            };
+
+            async function poll() {
+                if (document.hidden) return;
+                try {
+                    const r = await fetch(`${API}/poll?sid=${sid}&since=${since}`);
+                    const data = await r.json();
+                    data.forEach(m => {
+                        add(m.text, "bot");
+                        since = Math.max(since, m.id);
+                        if (!box.classList.contains("open")) fab.classList.add("has-new");
+                    });
+                } catch (e) { }
+            }
+            setInterval(poll, 3000);
+        })();
+    </script>
+</body>
+
+</html>
