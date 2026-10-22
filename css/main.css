@@ -4517,6 +4517,359 @@ html {
     .indexBody:not(:has(.homeSupport)) .formBottom {
         margin-right: 0;
     }
+
+    .indexBody:not(:has(.homeSupport)) .main>section.section:not(.home) {
+        padding-bottom: clamp(1rem, 2.5vw, 1.75rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .sectionTittle {
+        margin-top: clamp(2.5rem, 5vw, 3.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .home {
+        padding-top: 4.75rem;
+        padding-bottom: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContainer.container {
+        padding-inline: clamp(1.5rem, 3vw, 2rem);
+        padding-bottom: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        grid-template-areas:
+            "intro visual"
+            "about visual"
+            "social social"
+            "buttons buttons";
+        column-gap: clamp(0.75rem, 2vw, 1.5rem);
+        row-gap: 0.75rem;
+        padding-block: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.homeInfo .nameText {
+        font-size: clamp(2.35rem, 4.7vw, 3.1rem);
+        line-height: 1.18;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.homeInfo .rolName {
+        font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.homeProfilePic {
+        width: min(108%, 36rem);
+        margin-right: -2%;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .shape-1 {
+        top: 5%;
+        right: -4%;
+        width: clamp(6rem, 10vw, 8rem);
+        z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .shape-2,
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .shape-3 {
+        z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.descriptionAbout {
+        align-self: start;
+        max-width: 100%;
+        font-size: clamp(0.95rem, 1.35vw, 1.05rem);
+        line-height: 1.55;
+        text-align: justify;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .descriptionAbout .aboutFullText {
+        display: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .descriptionAbout .aboutTabletExcerpt {
+        display: inline;
+        direction: ltr;
+        text-align: justify;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.socialGroup {
+        justify-self: center;
+        justify-content: center;
+        width: fit-content;
+        margin-top: 0.25rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.btns {
+        justify-self: center;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+        padding-top: 0.65rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.btns .skillsLink::before {
+        top: -0.7rem;
+        left: 50%;
+        width: 2px;
+        height: 0.55rem;
+        transform: translateX(-50%);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns {
+        column-gap: clamp(1.5rem, 4vw, 2.5rem);
+        row-gap: 1.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns>.awardColumn {
+        grid-column: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experienceItem,
+    .indexBody:not(:has(.homeSupport)) .educationItem,
+    .indexBody:not(:has(.homeSupport)) .awardItem {
+        padding-right: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .detailsBtn,
+    .indexBody:not(:has(.homeSupport)) .detailsEXBtn {
+        right: -1.35rem;
+        z-index: 6;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experienceItem+.experienceItem::before,
+    .indexBody:not(:has(.homeSupport)) .educationItem+.educationItem::before,
+    .indexBody:not(:has(.homeSupport)) .awardItem+.awardItem::before {
+        right: -0.45rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .swiper-slide.card,
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .swiper-slide {
+        width: calc((100% - 2rem) / 3) !important;
+        margin-right: 1rem !important;
+        min-width: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .swiper-slide.card {
+        height: 20rem;
+        padding: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .subtitle-service {
+        right: 0.75rem;
+        left: 0.75rem;
+        font-size: 0.8rem;
+        line-height: 1.35;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .tittle-service {
+        margin-block: 2.5rem 0;
+        font-size: clamp(1rem, 1.55vw, 1.2rem);
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .description-service {
+        margin-block: 1rem 2.25rem;
+        font-size: clamp(0.85rem, 1.25vw, 0.98rem);
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .linkeDetails {
+        bottom: 0.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .card::before {
+        right: 0.25rem;
+        bottom: 0.25rem;
+        left: auto;
+        width: 5.5rem;
+        height: 5.5rem;
+        background-image: url('../images/dot-modol3-dark.png');
+        background-size: contain;
+        opacity: 0.9;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show {
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        pointer-events: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .projects-swiper .boxCard:hover .box-show {
+        display: block !important;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show .firstDetails,
+    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show .dotImgCard {
+        display: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show .showProject {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .tutorialsCard {
+        height: 25rem;
+        min-height: 0;
+        padding: 0.85rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .cardTutorialsImg {
+        height: 8.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .infos h2 {
+        font-size: clamp(0.95rem, 1.45vw, 1.1rem);
+        line-height: 1.35;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper {
+        padding-block: 1rem 2.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .swiper-slide.commentCard {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 1;
+        padding: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .imageCommentCard {
+        height: clamp(5.5rem, 12vw, 7rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commaCard {
+        top: 1.25rem;
+        left: 0.85rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commentCard p {
+        display: -webkit-box;
+        width: 100%;
+        margin: 0.55rem 0 0;
+        overflow: hidden;
+        font-size: clamp(0.72rem, 1.1vw, 0.85rem);
+        line-height: 1.4;
+        text-align: justify;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone {
+        position: absolute;
+        right: 0.75rem;
+        bottom: 0.5rem;
+        left: 0.75rem;
+        margin: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone h3 {
+        font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone h6 {
+        margin: 0.2rem 0 0;
+        font-size: clamp(0.65rem, 1vw, 0.8rem);
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commentCard::before {
+        right: 0;
+        bottom: 0;
+        left: auto;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactContent {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(1rem, 2.5vw, 1.75rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactContent>.section-deco {
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactContent {
+        position: relative;
+        z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactInfo,
+    .indexBody:not(:has(.homeSupport)) .contactForms {
+        position: relative;
+        z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactDetails {
+        padding-left: 0.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .formBottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        margin-top: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .formBottom .terms {
+        align-self: flex-start;
+        margin: 0;
+        font-size: clamp(0.85rem, 1.3vw, 1rem);
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .formBottom .contactButton {
+        align-self: flex-start;
+        width: auto;
+        min-width: 9rem;
+        margin: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer {
+        width: min(88vw, 700px);
+        max-height: min(86vh, 760px);
+        overflow: hidden;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .popupBox .mainBox {
+        position: relative;
+        z-index: 2;
+        padding-left: clamp(3rem, 6vw, 4rem);
+        overflow-y: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer>.section-deco.decoLeft {
+        position: absolute;
+        top: 1.5rem;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        right: auto;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer>.section-deco.decoLeft .shape {
+        bottom: 0;
+        left: -4rem;
+        right: auto;
+        width: clamp(5rem, 9vw, 7rem);
+        max-width: none;
+        height: auto;
+    }
 }
 
 /*
