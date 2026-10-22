@@ -3662,6 +3662,18 @@ html {
 }
 
 @media (min-width:768px) and (max-width:1024px) {
+    .infoTextTwo {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .infoListTwo,
+    .explainProjectBox{
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
     .indexBody:has(.homeSupport) {
         width: 100%;
         overflow-x: hidden;
@@ -4106,15 +4118,19 @@ html {
         margin-left: -4rem;
         width: 14rem;
     }
-    .header .logoCard img{
+
+    .header .logoCard img {
         width: 100%;
     }
-    .header .controlIcon>div{
+
+    .header .controlIcon>div {
         font-size: 1.2rem;
     }
-    .header .controlIcon{
-           margin-right: -2.5rem;
+
+    .header .controlIcon {
+        margin-right: -2.5rem;
     }
+
     .container .section-deco {
         display: block;
         top: 0;
@@ -4161,7 +4177,7 @@ html {
         right: -5.5rem;
     }
 
-    .homeProfilePic .picBack{
+    .homeProfilePic .picBack {
         width: 32rem;
     }
 

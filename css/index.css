@@ -34,6 +34,17 @@
     max-width: 100%;
     height: auto;
 }
+.infoTextTwo,
+.explainProjectBox{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+.infoListTwo{
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
 
 .startText {
     color: var(--main-text-color);
