@@ -353,6 +353,11 @@ const servicesSwiper = new Swiper('.services-swiper', {
 
   breakpoints: {
     768: {
+      slidesPerView: 2,
+      spaceBetween: 16,
+    },
+
+    1025: {
       slidesPerView: 3,
       spaceBetween: 16,
     },
@@ -910,6 +915,11 @@ const tutorialsSwiper = new Swiper('.tutorialsSwiper', {
 
   breakpoints: {
     768: {
+      slidesPerView: 2,
+      spaceBetween: 16,
+    },
+
+    1025: {
       slidesPerView: 3,
       spaceBetween: 16,
     },

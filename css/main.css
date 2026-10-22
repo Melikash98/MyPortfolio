@@ -4133,6 +4133,34 @@ html {
         right: 1.5rem;
         left: auto;
     }
+
+    .indexBody:not(:has(.homeSupport)) .main>section.section>.container>:not(.section-deco),
+    .indexBody:not(:has(.homeSupport)) .homeContent>:not(.section-deco) {
+        position: relative;
+        z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main>section.section .container .section-deco,
+    .indexBody:not(:has(.homeSupport)) .homeContent>.section-deco {
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .container .section-deco .shape {
+        width: 11rem;
+        max-width: none;
+        height: auto;
+        bottom: -5.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .container .section-deco.decoLeft .shape {
+        left: -5.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .container .section-deco.decoRight .shape {
+        right: -5.5rem;
+    }
+
     .homeProfilePic .picBack{
         width: 32rem;
     }
@@ -4545,7 +4573,7 @@ html {
             "social social"
             "buttons buttons";
         column-gap: clamp(0.75rem, 2vw, 1.5rem);
-        row-gap: 0.75rem;
+        row-gap: 0.4rem;
         padding-block: 1rem;
     }
 
@@ -4564,10 +4592,19 @@ html {
     }
 
     .indexBody:not(:has(.homeSupport)) .homeProfilePic .shape-1 {
-        top: 5%;
-        right: -4%;
-        width: clamp(6rem, 10vw, 8rem);
+        top: 0;
+        right: -8%;
+        width: clamp(11rem, 18vw, 14rem);
+        z-index: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .picBack {
+        position: relative;
         z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo {
+        z-index: 2;
     }
 
     .indexBody:not(:has(.homeSupport)) .homeProfilePic .shape-2,
@@ -4577,7 +4614,10 @@ html {
 
     .indexBody:not(:has(.homeSupport)) .homeContent>.descriptionAbout {
         align-self: start;
+        justify-self: center;
+        width: min(100%, 35rem);
         max-width: 100%;
+        margin-top: clamp(-4rem, -7vw, -2.5rem);
         font-size: clamp(0.95rem, 1.35vw, 1.05rem);
         line-height: 1.55;
         text-align: justify;
@@ -4603,16 +4643,8 @@ html {
     .indexBody:not(:has(.homeSupport)) .homeContent>.btns {
         justify-self: center;
         justify-content: center;
-        gap: 1rem 1.5rem;
-        padding-top: 0.65rem;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .homeContent>.btns .skillsLink::before {
-        top: -0.7rem;
-        left: 50%;
-        width: 2px;
-        height: 0.55rem;
-        transform: translateX(-50%);
+        gap: 0.75rem 3rem;
+        padding-top: 0;
     }
 
     .indexBody:not(:has(.homeSupport)) .experiencekColumns {
@@ -4632,7 +4664,7 @@ html {
 
     .indexBody:not(:has(.homeSupport)) .detailsBtn,
     .indexBody:not(:has(.homeSupport)) .detailsEXBtn {
-        right: -1.35rem;
+        right: -0.55rem;
         z-index: 6;
     }
 
@@ -4640,13 +4672,6 @@ html {
     .indexBody:not(:has(.homeSupport)) .educationItem+.educationItem::before,
     .indexBody:not(:has(.homeSupport)) .awardItem+.awardItem::before {
         right: -0.45rem;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .services-swiper .swiper-slide.card,
-    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .swiper-slide {
-        width: calc((100% - 2rem) / 3) !important;
-        margin-right: 1rem !important;
-        min-width: 0;
     }
 
     .indexBody:not(:has(.homeSupport)) .services-swiper .swiper-slide.card {
@@ -4676,46 +4701,22 @@ html {
     }
 
     .indexBody:not(:has(.homeSupport)) .services-swiper .linkeDetails {
-        bottom: 0.5rem;
+        bottom: 0.25rem;
     }
 
     .indexBody:not(:has(.homeSupport)) .services-swiper .card::before {
-        right: 0.25rem;
-        bottom: 0.25rem;
+        right: -3.5rem;
+        bottom: -3.5rem;
         left: auto;
-        width: 5.5rem;
-        height: 5.5rem;
+        width: 8rem;
+        height: 8rem;
         background-image: url('../images/dot-modol3-dark.png');
         background-size: contain;
         opacity: 0.9;
     }
 
-    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show {
-        background: transparent;
-        box-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        pointer-events: none;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .projects-swiper .boxCard:hover .box-show {
-        display: block !important;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show .firstDetails,
-    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show .dotImgCard {
-        display: none;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .projects-swiper .box-show .showProject {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        pointer-events: auto;
-    }
-
     .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .tutorialsCard {
+        width: 100%;
         height: 25rem;
         min-height: 0;
         padding: 0.85rem;
@@ -4746,10 +4747,11 @@ html {
     }
 
     .indexBody:not(:has(.homeSupport)) .comments-swiper .commaCard {
-        top: 1.25rem;
-        left: 0.85rem;
-        width: 2.5rem;
-        height: 2.5rem;
+        top: 47px;
+        left: 1.2rem;
+        width: 65px;
+        height: 65px;
+        transform: translateY(-50%);
     }
 
     .indexBody:not(:has(.homeSupport)) .comments-swiper .commentCard p {
@@ -4784,21 +4786,25 @@ html {
     }
 
     .indexBody:not(:has(.homeSupport)) .comments-swiper .commentCard::before {
-        right: 0;
-        bottom: 0;
+        right: -4rem;
+        bottom: -4rem;
         left: auto;
-        width: 4rem;
-        height: 4rem;
+        width: 8rem;
+        height: 8rem;
     }
 
     .indexBody:not(:has(.homeSupport)) .contactContent {
         grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-        gap: clamp(1rem, 2.5vw, 1.75rem);
+        gap: clamp(0.75rem, 1.5vw, 1rem);
     }
 
     .indexBody:not(:has(.homeSupport)) .contactContent>.section-deco {
         z-index: 0;
         pointer-events: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactContent>.section-deco.decoRight {
+        right: -1rem;
     }
 
     .indexBody:not(:has(.homeSupport)) .contactContent {
@@ -4821,9 +4827,13 @@ html {
         align-items: flex-start;
         gap: 0.6rem;
         margin-top: 0.75rem;
+        margin-right: 0;
     }
 
     .indexBody:not(:has(.homeSupport)) .formBottom .terms {
+        display: block;
+        visibility: visible;
+        opacity: 1;
         align-self: flex-start;
         margin: 0;
         font-size: clamp(0.85rem, 1.3vw, 1rem);
@@ -4832,29 +4842,51 @@ html {
     }
 
     .indexBody:not(:has(.homeSupport)) .formBottom .contactButton {
+        display: inline-flex;
+        visibility: visible;
+        opacity: 1;
         align-self: flex-start;
         width: auto;
         min-width: 9rem;
         margin: 0;
     }
 
+    .indexBody:not(:has(.homeSupport)) .formRow.single {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .formRow.single .formGroup {
+        width: 100%;
+        min-width: 0;
+    }
+
     .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer {
         width: min(88vw, 700px);
-        max-height: min(86vh, 760px);
+        height: auto;
+        max-height: 86vh;
         overflow: hidden;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupBox {
+        height: auto;
+        max-height: calc(86vh - 40px);
     }
 
     .indexBody:not(:has(.homeSupport)) .popupBox .mainBox {
         position: relative;
         z-index: 2;
+        height: auto;
+        max-height: calc(86vh - 40px);
         padding-left: clamp(3rem, 6vw, 4rem);
         overflow-y: auto;
+        box-sizing: border-box;
     }
 
     .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer>.section-deco.decoLeft {
         position: absolute;
-        top: 1.5rem;
-        bottom: 1.5rem;
+        top: 4.5rem;
+        bottom: 2rem;
         left: 1.5rem;
         right: auto;
         height: auto;
@@ -4863,12 +4895,16 @@ html {
     }
 
     .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer>.section-deco.decoLeft .shape {
-        bottom: 0;
+        bottom: -4.5rem;
         left: -4rem;
         right: auto;
-        width: clamp(5rem, 9vw, 7rem);
+        width: clamp(7rem, 12vw, 9rem);
         max-width: none;
         height: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem {
+        padding-left: 3rem;
     }
 }
 
