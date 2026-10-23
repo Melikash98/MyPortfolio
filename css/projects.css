@@ -266,24 +266,6 @@
     min-width: 0;
 }
 
-.right {
-    position: relative;
-    isolation: isolate;
-    width: min(100%, 1000px);
-    aspect-ratio: 16 / 9;
-    min-height: 340px;
-    margin-inline: auto;
-}
-
-.right::before,
-.right::after {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-    border-radius: 50%;
-}
-
 .postgap-showcase::before,
 .postgap-showcase::after {
     content: "";
@@ -542,4 +524,157 @@
 .projectsOptionsBox>div:hover {
     box-shadow: 1px 1px 1px 1px var(--text-select-color);
     transform: translateY(-6px);
+}
+
+.overViewContainer {
+    grid-template-columns: minmax(0, 1.05fr) minmax(19rem, 0.95fr);
+    align-items: start;
+}
+
+.overViewContainer > .right {
+    width: 450px;
+    margin-right: -10rem;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: auto;
+    justify-self: end;
+    margin: 0;
+    box-sizing: border-box;
+    direction: ltr;
+    text-align: left;
+    background: rgba(20, 134, 140, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    border: 1px solid rgba(20, 134, 140, 0.4);
+    border-radius: 1.25rem;
+
+    box-shadow:
+        0 4px 20px rgba(20, 134, 140, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+.secTwo {
+    margin-top: 4rem;
+}
+
+.logoBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 0 0 1.75rem;
+    text-align: left;
+}
+
+.logoB {
+    flex: 0 0 4rem;
+    width: 7rem;
+    height: 7rem;
+}
+
+.logoB img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.logoTextB {
+    min-width: 0;
+}
+.logoTextB h4 {
+    font-family: var(--tittle-font);
+    color: var(--main-text-color);
+    font-weight: var(--bold-font-weight);
+    font-size: 1.3rem;
+}
+.logoTextB h6 {
+    font-family: var(--main-description-font);
+    font-size: 0.95rem;
+    font-weight: var(--normal-font-weight);
+    color: var(--description-color);
+    margin-top: 0.2rem;
+}
+.detailsItems{
+    margin-top: 3rem;
+}
+.detailsItems ul {
+    display: grid;
+    gap: 0.65rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.detailsItems ul{
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 50%;
+    height: 2px;
+}
+
+.itemsP {
+    display: grid;
+    grid-template-columns: 1.35rem minmax(7.5rem, 8rem) minmax(0, 1fr);
+    align-items: center;
+    column-gap: 1.15rem;
+    min-height: 2rem;
+    min-width: 0;
+}
+
+.itemsP i {
+    justify-self: center;
+    font-size: 1.2rem;
+    color: #C1884F;
+}
+
+.itemsP .tItems {
+    font-family: var(--robot-font);
+    font-size: 1rem;
+    color: var(--main-text-color);
+    font-weight: var(--bold-font-weight);
+}
+
+.itemsP .aItems {
+    min-width: 0;
+    color: var(--description-color);
+    font-family: var(--subtitle-font);
+    font-size: 1rem;
+    font-weight: var(--normal-font-weight);
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 800px) {
+    .overViewContainer {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .overViewContainer > .right {
+        width: min(100%, 34rem);
+        justify-self: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .overViewContainer > .right {
+        padding: 1.1rem;
+    }
+
+    .itemsP {
+        grid-template-columns: 1.25rem minmax(6rem, 7rem) minmax(0, 1fr);
+        column-gap: 0.75rem;
+    }
+
+    .itemsP .tItems,
+    .itemsP .aItems {
+        font-size: 0.9rem;
+    }
 }
