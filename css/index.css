@@ -3313,6 +3313,7 @@ iframe.skiptranslate {
 }
 
 
+/*============================================ Cookie Consent Banner ============================================*/
 .cookie-banner {
     position: fixed;
     z-index: 10000001;

@@ -1620,8 +1620,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// TODO: *************************************************************** Mobile Project Popup Details **********************************************************************//
 document.addEventListener("DOMContentLoaded", () => {
   const projectPopup = document.querySelector(".projectsPopupModel");
+
   if (!projectPopup) return;
 
   const mobileRange = window.matchMedia(

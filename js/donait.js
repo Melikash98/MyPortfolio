@@ -1,3 +1,4 @@
+// TODO: *************************************************************** Donation Card Copy Controls **********************************************************************//
 async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
         try {
@@ -98,6 +99,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
 });
 
 
+// TODO: *************************************************************** Receipt Upload Workflow **********************************************************************//
 (() => {
     function initReceiptUpload() {
         const receiptForm = document.querySelector('#receiptForm');
@@ -563,6 +565,7 @@ document.querySelectorAll(".credit__type, .CopyBtn").forEach((button) => {
     }
 })();
 
+// TODO: *************************************************************** Back Navigation **********************************************************************//
 const goBack = document.querySelector('.backPage');
 
 if (goBack) {

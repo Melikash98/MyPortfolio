@@ -12,7 +12,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 
-/* => ** Dark Mode  & Main Properties** <= */
+/*============================================ Theme Tokens & Dark Mode Defaults ============================================*/
 :root {
 
     /*============================================ font's ============================================*/
@@ -75,6 +75,7 @@
     --active-x: 50%;
 }
 
+/*============================================ Light Theme Overrides ============================================*/
 :root.sun-mood {
     --main-background: url('../images/light-background.svg');
     --main-text-color: #010736;
@@ -661,7 +662,7 @@
     opacity: 1;
 }
 
-/*============================================ Global Style ============================================*/
+/*============================================ Global Base Styles ============================================*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -826,7 +827,7 @@ textarea {
     justify-content: space-between;
 }
 
-/*============================================ Scroll Style ============================================*/
+/*============================================ Scrollbar Styles ============================================*/
 ::-webkit-scrollbar {
     width: 9px;
 }
@@ -850,6 +851,7 @@ html {
     scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
 
+/*============================================ Tutorial Status & Shared UI States ============================================*/
 .tutorialsCard {
     position: relative;
 }
@@ -934,7 +936,7 @@ html {
     initial-value: 50%;
 }
 
-/*============================================ Main Responsive ============================================*/
+/*============================================ Responsive Layouts ============================================*/
 @media (max-width:360px) {
 
     /* Small-phone layout for the donation page; covers the gap below 375px. */

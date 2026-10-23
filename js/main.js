@@ -3,30 +3,52 @@
 const themeButton = document.querySelector('.themeMoode');
 const themeIcon = themeButton?.querySelector('i');
 
-const savedTheme = localStorage.getItem('theme');
+let savedTheme = null;
+
+try {
+    savedTheme = window.localStorage.getItem('theme');
+} catch (error) {
+    console.error('Unable to read the saved theme preference.', error);
+}
 
 if (savedTheme === 'dark') {
     document.documentElement.classList.add('sun-mood');
-    themeIcon.className = 'ri-sun-fill';
+    if (themeIcon) {
+        themeIcon.className = 'ri-sun-fill';
+    }
 } else {
     document.documentElement.classList.remove('sun-mood');
-    themeIcon.className = 'ri-moon-fill';
+    if (themeIcon) {
+        themeIcon.className = 'ri-moon-fill';
+    }
 }
 
 themeButton?.addEventListener('click', () => {
     const root = document.documentElement;
+    let theme;
 
     if (root.classList.contains('sun-mood')) {
         root.classList.remove('sun-mood');
-        themeIcon.className = 'ri-moon-fill';
-        localStorage.setItem('theme', 'light');
+        theme = 'light';
+        if (themeIcon) {
+            themeIcon.className = 'ri-moon-fill';
+        }
     } else {
         root.classList.add('sun-mood');
-        themeIcon.className = 'ri-sun-fill';
-        localStorage.setItem('theme', 'dark');
+        theme = 'dark';
+        if (themeIcon) {
+            themeIcon.className = 'ri-sun-fill';
+        }
+    }
+
+    try {
+        window.localStorage.setItem('theme', theme);
+    } catch (error) {
+        console.error('Unable to save the theme preference.', error);
     }
 });
 
+// TODO: *************************************************************** Cookie Consent **********************************************************************//
 const cookieBanner = document.getElementById('cookieBanner');
 
 if (cookieBanner) {

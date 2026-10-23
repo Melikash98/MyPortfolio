@@ -1,0 +1,200 @@
+/*!============================================ Projects.css ============================================*/
+.headerProjects {
+    width: 100%;
+    height: max-content;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 5rem;
+    padding-block: 0rem;
+    z-index: 1000;
+    background: rgba(0, 13, 22, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.headerProjects .logoCard {
+    display: flex;
+    align-items: center;
+}
+
+.headerProjects .logoCard img {
+    display: block;
+    width: 15rem;
+    height: auto;
+}
+
+.controlIconProject {
+    margin-right: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.controlIconProject>div,
+.cvDownload {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-text-color);
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.controlIconProject>div:hover,
+.cvDownload:hover a i {
+    color: var(--button-select-color);
+    transform: translateY(-2px);
+}
+
+.cvDownload {
+    margin-right: 1rem;
+}
+
+.cvDownload a {
+    margin-top: .2rem;
+}
+
+.cvDownload a i {
+    color: var(--main-text-color);
+    font-size: 1.35rem;
+}
+
+.homeProject {
+    min-height: 110vh;
+    overflow: hidden;
+    height: 100%;
+    padding-block: 5rem 3.5rem;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.backBtn .btnText,
+.backBtn i {
+    color: var(--main-text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.backBtn i {
+    margin-top: .5rem;
+}
+
+.backBtn:hover .btnText,
+.backBtn:hover i {
+    color: var(--text-select-color);
+}
+
+.backBtn:hover i {
+    transform: translateX(-4px);
+}
+
+.backBtn .btnText {
+    font-family: var(--subtitle-font);
+    font-size: 1.2rem;
+    margin-left: 0;
+    font-weight: var(--normal-font-weight);
+}
+
+.categoryProjrct {
+    width: max-content;
+    margin-top: 4rem;
+    background: rgba(20, 134, 140, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    align-items: center;
+    padding: 0.65rem 1.2rem;
+    border: 1px solid rgba(20, 134, 140, 0.4);
+    border-radius: 30px;
+
+    box-shadow:
+        0 4px 20px rgba(20, 134, 140, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.categoryProjrct h5 {
+    font-family: var(--tittle-font);
+    color: var(--main-text-color);
+    font-size: 1rem;
+}
+
+.mainText h1 {
+    margin-top: 3rem;
+    margin-left: 4rem;
+    font-family: var(--name-second-font);
+    color: var(--text-select-color);
+    font-size: 3.5rem;
+    line-height: 5rem;
+    font-weight: var(--normal-font-weight);
+    -webkit-text-stroke: 3px var(--text-select-color);
+    margin-bottom: 1rem;
+}
+
+.mainText h1 span {
+    color: var(--main-text-color);
+    -webkit-text-stroke: 3px var(--main-text-color);
+}
+
+.mainText h6 {
+    margin-left: 4rem;
+    font-family: var(--main-description-font);
+    font-size: 1.35rem;
+    font-weight: var(--normal-font-weight);
+    color: var(--description-color);
+    width: 500px;
+    line-height: 2rem;
+}
+
+.detailsOption {
+    width: 600px;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.dateProject,
+.modelMobile {
+    display: inline-flex;
+    gap: 1rem;
+}
+
+.texts h5 {
+    font-size: 1rem;
+    font-family: var(--robot-font);
+    margin-bottom: .5rem;
+    color: var(--main-text-color);
+}
+
+.texts h6 {
+    font-family: var(--subtitle-font);
+    color: var(--description-color);
+    font-size: .9rem;
+}
+
+.iconBox {
+    justify-content: center;
+    justify-self: center;
+    margin-top: .5rem;
+}
+
+.iconBox i {
+    font-size: 1.9rem;
+    color: var(--main-text-color);
+}

@@ -1,3 +1,4 @@
+// TODO: *************************************************************** GitHub Activity Widget **********************************************************************//
 document.addEventListener("DOMContentLoaded", () => {
   const widget = document.querySelector("[data-github-activity]");
   if (!widget) return;

@@ -1,3 +1,4 @@
+/*============================================ Shared Layout & Support Header ============================================*/
 .main {
     overflow: hidden;
 }
@@ -171,6 +172,7 @@ iframe.skiptranslate {
     height: 100%;
 }
 
+/*============================================ Support Home Section ============================================*/
 .main>section.sectionSupport.homeSupport {
     width: 100%;
     min-height: 0;
@@ -593,6 +595,7 @@ iframe.skiptranslate {
     }
 }
 
+/*============================================ Animated Coffee Machine ============================================*/
 .machineBox {
     margin-left: -12rem;
     margin-top: -30rem;
@@ -896,6 +899,7 @@ iframe.skiptranslate {
     }
 }
 
+/*============================================ Donation Card & Payment Details ============================================*/
 .contentMainBox,
 .cardSection {
     display: grid;
@@ -1356,6 +1360,7 @@ iframe.skiptranslate {
     }
 }
 
+/*============================================ Donation Instructions & Receipt Upload ============================================*/
 .donationPanel {
     position: relative;
     z-index: 5;
@@ -1684,6 +1689,7 @@ iframe.skiptranslate {
     color: #08744f;
 }
 
+/*============================================ Support Description & Footer ============================================*/
 .cardContent {
     display: grid;
     grid-template-columns: repeat(4, max-content);

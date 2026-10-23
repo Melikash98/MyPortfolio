@@ -10,8 +10,9 @@
     <link rel="icon" type="image/png" href="images/logo.png">
 
     <!--Main & index CSS-->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/projects.css">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -26,6 +27,7 @@
 
     <!-- ! RemixIcon Import -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css">
     <!-- ! Unicons Import -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/unicons.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
@@ -51,8 +53,93 @@
     <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 
-<body>
+<body class="indexBody">
+    <header class="headerProjects">
+        <div class="logoCard">
+            <a href="index.html">
+                <img src="../images/text-logo.png" alt="">
+            </a>
+        </div>
 
+        <div class="controlIconProject">
+            <div class="cvDownload">
+                <a href="../pdf/Lebenslauf.pdf" download="" target="_blank">
+                    <i class="fi fi-sr-CV"></i>
+                </a>
+            </div>
+            <div class="donate">
+                <i class="fa-solid fa-mug-saucer"></i>
+            </div>
+            <div class="translate" id="translateButton">
+                <i class="ri-translate"></i>
+                <div class="translateMenu" id="translateDropdown">
+                    <div class="translateOption" data-lang="de">Deutsch</div>
+                    <div class="translateOption" data-lang="en">English</div>
+                    <div class="translateOption" data-lang="ar">العربية</div>
+                </div>
+            </div>
+            <div class="themeMoode">
+                <i class="uil uil-sun"></i>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="section homeProject">
+            <div class="homeProjectContainer container">
+                <div class="backBtn">
+                    <i class="fi fi-sr-left"></i>
+                    <h6 class="btnText">Back To Main</h6>
+                </div>
+                <div class="categoryProjrct">
+                    <h5>Mobile Application</h5>
+                </div>
+                <div class="demoInfoProject">
+                    <div class="mainText">
+                        <h1>Post<span>Gap</span></h1>
+                        <h6>A social media app for sharing posts, connecting with people and building communities.</h6>
+                    </div>
+                    <div class="detailsOption">
+                        <div class="dateProject">
+                            <div class="iconBox">
+                               <i class="fi fi-rr-daily-calendar"></i>
+                            </div>
+                            <div class="texts">
+                                <h5><span>2024 - 2025</span></h5>
+                                <h6><span>Privet Company</span></h6>
+                            </div>
+                        </div>
+                        <div class="modelMobile">
+                            <div class="iconBox">
+                                <i class="fi fi-rr-mobile-button"></i>
+                            </div>
+                            <div class="texts">
+                                <h5><span>Android (<span>Java</span>) </span></h5>
+                                <h6><span>Mobile Application</span></h6>
+                            </div>
+                        </div>
+                        <div class="mainTeach">
+                            <div class="teachItem">
+                                <h6>Java</h6>
+                            </div>
+                            <div class="teachItem">
+                                <h6>FireBase</h6>
+                            </div>
+                            <div class="teachItem">
+                                <h6>Rest API</h6>
+                            </div>
+                            <div class="teachItem">
+                                <h6>Retrofit</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
 
 
 
