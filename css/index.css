@@ -3889,47 +3889,92 @@ iframe.skiptranslate {
     }
 
     .indexBody:not(:has(.homeSupport)) .main > section.section {
-        min-height: 100vh;
+        min-height: 0;
         height: auto;
         overflow: visible !important;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main > section.section:not(.home) {
+        padding-bottom: clamp(1rem, 2.5vw, 1.75rem);
     }
 
     .indexBody:not(:has(.homeSupport)) .main > section.section > .container {
         overflow: visible;
     }
 
+    .indexBody:not(:has(.homeSupport)) .sectionTittle {
+        margin-top: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .home {
+        padding-block: 5rem 1rem;
+    }
+
     .indexBody:not(:has(.homeSupport)) .homeContent {
+        position: relative;
+        min-height: clamp(34rem, 55vw, 38rem);
+        align-content: center;
         grid-template-areas:
             "intro visual"
             "about visual"
-            "social social"
-            "buttons buttons";
-        row-gap: clamp(0.75rem, 1.5vh, 1.25rem);
+            "social visual"
+            "buttons visual";
+        row-gap: clamp(0.5rem, 1vh, 0.75rem);
     }
 
     .indexBody:not(:has(.homeSupport)) .homeContent > .homeProfilePic {
-        width: min(100%, clamp(17rem, 39vw, 27rem));
-        margin-right: 0;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: min(108%, clamp(20rem, 45vw, 32rem));
+        max-width: none;
+        margin-right: -2%;
+        transform: translateY(-50%);
     }
 
     .indexBody:not(:has(.homeSupport)) .homeContent > .descriptionAbout {
+        align-self: start;
         margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent > .descriptionAbout[data-aos],
+    .indexBody:not(:has(.homeSupport)) .homeContent > .socialGroup .socialLink[data-aos],
+    .indexBody:not(:has(.homeSupport)) .homeContent > .btns [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo {
+        width: clamp(10.5rem, 22vw, 12.5rem);
+        height: 5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo-number {
+        font-size: clamp(1.9rem, 3.2vw, 2.25rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo-text {
+        font-size: clamp(0.8rem, 1.35vw, 0.95rem);
     }
 
     .indexBody:not(:has(.homeSupport)) .homeContent > .socialGroup {
-        justify-self: center;
+        justify-self: start;
+        align-self: start;
         margin-top: 0;
     }
 
     .indexBody:not(:has(.homeSupport)) .homeContent > .btns {
-        justify-self: center;
-        gap: 0.75rem clamp(2rem, 4vw, 3rem);
+        justify-self: start;
+        align-self: start;
+        gap: 0.75rem clamp(2.8rem, 5vw, 3rem);
     }
 
     .indexBody:not(:has(.homeSupport)) .homeContent > .btns > .btn {
-        min-width: 12rem;
+        min-width: 0;
         min-height: 3.5rem;
-        padding-inline: 2rem;
+        padding-inline: clamp(1rem, 2vw, 1.5rem);
         box-sizing: border-box;
     }
 
@@ -3952,37 +3997,17 @@ iframe.skiptranslate {
     }
 
     .indexBody:not(:has(.homeSupport)) .skillsContent {
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        gap: clamp(1rem, 2.5vw, 2rem);
+        grid-template-columns: minmax(13rem, 18rem) minmax(18rem, 21rem);
+        width: fit-content;
+        max-width: 100%;
+        gap: clamp(1rem, 2vw, 1.5rem);
         align-items: start;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .skillsTab {
-        padding-inline: 0.25rem;
-        box-sizing: border-box;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .skillsHeader {
-        padding-inline: 0.35rem;
-        box-sizing: border-box;
+        margin-inline: auto;
     }
 
     .indexBody:not(:has(.homeSupport)) .skilldContent {
-        padding-inline: clamp(0.35rem, 1.5vw, 1rem);
-        box-sizing: border-box;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem {
-        padding-inline: 2.25rem 0.5rem;
-        box-sizing: border-box;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem::before {
-        left: 0.75rem;
-    }
-
-    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem:not(:last-child)::after {
-        left: 1rem;
+        width: 100%;
+        min-width: 0;
     }
 
     .indexBody:not(:has(.homeSupport)) .services-swiper .card::before {

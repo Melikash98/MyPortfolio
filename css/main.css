@@ -3155,7 +3155,11 @@ html {
         width: 100%;
         overflow-x: hidden;
     }
-
+    .homeContent .homeProfilePic .shape-2,
+    .homeContent .homeProfilePic .shape-3و
+    .homeContent .homeProfilePic .shape-1 {
+        z-index: -20;
+    }
     .indexBody:has(.homeSupport) .main {
         width: 100%;
         max-width: 100%;
@@ -3784,7 +3788,7 @@ html {
     }
 
     .indexBody .picSupport .picBackSupport {
-        width: min(132%, 44rem);
+        width: min(172%, 84rem);
         height: auto;
         aspect-ratio: 2 / 1;
         margin: 0;
@@ -4166,15 +4170,20 @@ html {
         width: 11rem;
         max-width: none;
         height: auto;
+        overflow: hidden;
         bottom: -5.5rem;
     }
 
     .indexBody:not(:has(.homeSupport)) .container .section-deco.decoLeft .shape {
-        left: -5.5rem;
+        left: -8.5rem;
+        bottom:  -10rem;
+        overflow: hidden;
     }
 
     .indexBody:not(:has(.homeSupport)) .container .section-deco.decoRight .shape {
-        right: -5.5rem;
+        right: -8.5rem;
+        z-index: -1;
+         bottom:  -10rem;
     }
 
     .homeProfilePic .picBack {
@@ -4814,14 +4823,7 @@ html {
         gap: clamp(0.75rem, 1.5vw, 1rem);
     }
 
-    .indexBody:not(:has(.homeSupport)) .contactContent>.section-deco {
-        z-index: 0;
-        pointer-events: none;
-    }
 
-    .indexBody:not(:has(.homeSupport)) .contactContent>.section-deco.decoRight {
-        right: -1rem;
-    }
 
     .indexBody:not(:has(.homeSupport)) .contactContent {
         position: relative;
