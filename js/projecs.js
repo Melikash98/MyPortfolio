@@ -15,3 +15,41 @@
       }
     }
   });
+
+  const screenshotsElement = document.querySelector(".postgap-screenshots__swiper");
+
+  if (screenshotsElement) {
+    const currentCounter = document.querySelector(".screenshotCurrent");
+    const totalCounter = document.querySelector(".screenshotTotal");
+    const screenshotCount = screenshotsElement.querySelectorAll(".swiper-slide").length;
+
+    if (totalCounter) {
+      totalCounter.textContent = String(screenshotCount).padStart(2, "0");
+    }
+
+    const updateScreenshotCounter = swiper => {
+      if (currentCounter) {
+        currentCounter.textContent = String(swiper.realIndex + 1).padStart(2, "0");
+      }
+    };
+
+    new Swiper(screenshotsElement, {
+      slidesPerView: "auto",
+      spaceBetween: 8,
+      speed: 450,
+      grabCursor: true,
+      watchOverflow: true,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true
+      },
+      navigation: {
+        nextEl: ".screenshotNext",
+        prevEl: ".screenshotPrev"
+      },
+      on: {
+        init: updateScreenshotCounter,
+        slideChange: updateScreenshotCounter
+      }
+    });
+  }
