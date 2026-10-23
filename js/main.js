@@ -27,6 +27,43 @@ themeButton?.addEventListener('click', () => {
     }
 });
 
+const cookieBanner = document.getElementById('cookieBanner');
+
+if (cookieBanner) {
+    const cookieConsentKey = 'cookieConsent';
+    let savedCookieConsent = null;
+
+    try {
+        savedCookieConsent = window.localStorage.getItem(cookieConsentKey);
+    } catch (error) {
+        console.error('Unable to read the cookie consent preference.', error);
+    }
+
+    cookieBanner.hidden = savedCookieConsent === 'accept' || savedCookieConsent === 'reject';
+
+    cookieBanner.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-cookie-choice]');
+
+        if (!button || !cookieBanner.contains(button)) {
+            return;
+        }
+
+        const choice = button.dataset.cookieChoice;
+
+        if (choice !== 'accept' && choice !== 'reject') {
+            return;
+        }
+
+        try {
+            window.localStorage.setItem(cookieConsentKey, choice);
+        } catch (error) {
+            console.error('Unable to save the cookie consent preference.', error);
+        }
+
+        cookieBanner.hidden = true;
+    });
+}
+
 
 // TODO: *************************************************************** Translation **********************************************************************//
 document.addEventListener("DOMContentLoaded", () => {

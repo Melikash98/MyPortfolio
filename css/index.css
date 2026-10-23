@@ -3874,3 +3874,234 @@ iframe.skiptranslate {
         transform: scaleY(.1)
     }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .indexBody:not(:has(.homeSupport)) {
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main {
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main > section.section {
+        min-height: 100vh;
+        height: auto;
+        overflow: visible !important;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main > section.section > .container {
+        overflow: visible;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent {
+        grid-template-areas:
+            "intro visual"
+            "about visual"
+            "social social"
+            "buttons buttons";
+        row-gap: clamp(0.75rem, 1.5vh, 1.25rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent > .homeProfilePic {
+        width: min(100%, clamp(17rem, 39vw, 27rem));
+        margin-right: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent > .descriptionAbout {
+        margin-top: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent > .socialGroup {
+        justify-self: center;
+        margin-top: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent > .btns {
+        justify-self: center;
+        gap: 0.75rem clamp(2rem, 4vw, 3rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent > .btns > .btn {
+        min-width: 12rem;
+        min-height: 3.5rem;
+        padding-inline: 2rem;
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns {
+        grid-template-areas:
+            "education awards"
+            "work work";
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns > .educationColumn {
+        grid-area: education;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns > .awardColumn {
+        grid-area: awards;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns > .workColumn {
+        grid-area: work;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skillsContent {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(1rem, 2.5vw, 2rem);
+        align-items: start;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skillsTab {
+        padding-inline: 0.25rem;
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skillsHeader {
+        padding-inline: 0.35rem;
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skilldContent {
+        padding-inline: clamp(0.35rem, 1.5vw, 1rem);
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem {
+        padding-inline: 2.25rem 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem::before {
+        left: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem:not(:last-child)::after {
+        left: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .card::before {
+        right: -2.5rem;
+        bottom: -2rem;
+        width: 8rem;
+        height: 8rem;
+        opacity: 0.78;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer > .section-deco.decoLeft {
+        top: 5rem;
+        bottom: 3rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer > .section-deco.decoLeft .shape {
+        bottom: -3.25rem;
+        left: -3rem;
+        width: clamp(7rem, 11vw, 8.5rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .tutorialsCard {
+        height: 27rem;
+        min-height: 27rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .cardTutorialsImg {
+        height: clamp(10rem, 18vw, 12rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .infoTutorialsCard {
+        padding-top: 0.4rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .infos h2 {
+        margin-top: 1.25rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .swiper-slide.commentCard {
+        aspect-ratio: auto;
+        min-height: 24rem;
+        padding: 1rem 1.1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .imageCommentCard {
+        height: clamp(9rem, 15vw, 11rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commaCard {
+        top: 1rem;
+        left: 1.1rem;
+        width: 3.75rem;
+        height: 3.75rem;
+        transform: none;
+        border-radius: 0 0 1rem 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commentCard p {
+        display: -webkit-box;
+        margin-top: 0.8rem;
+        font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+        line-height: 1.45;
+        -webkit-line-clamp: 5;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone {
+        right: 1rem;
+        bottom: 0.75rem;
+        left: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone h3 {
+        font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone h6 {
+        font-size: clamp(0.75rem, 1.05vw, 0.9rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .cookie-banner {
+        bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+        width: min(760px, calc(100% - 2rem));
+        max-height: calc(100vh - 2rem);
+        padding: clamp(1rem, 2vw, 1.25rem);
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: clamp(0.75rem, 2vw, 1.25rem);
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .cookie-banner__actions {
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .cookie-button {
+        min-width: 0;
+        min-height: 2.75rem;
+        padding: 0.6rem 0.75rem;
+        font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+        line-height: 1.25;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .indexBody:not(:has(.homeSupport)) .skillItem .skillsScoreBar {
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skillItem.aos-animate .skillsScoreBar {
+        transform: scaleX(1);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (prefers-reduced-motion: reduce) {
+    .indexBody:not(:has(.homeSupport)) .skillItem .skillsScoreBar {
+        transform: none;
+        transition: none;
+    }
+}
