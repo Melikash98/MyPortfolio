@@ -56,7 +56,7 @@
 <body class="indexBody">
     <header class="headerProjects">
         <div class="logoCard">
-            <a href="index.html">
+            <a href="../index.html">
                 <img src="../images/text-logo.png" alt="">
             </a>
         </div>
@@ -87,51 +87,83 @@
     <main class="main">
         <section class="section homeProject">
             <div class="homeProjectContainer container">
-                <div class="backBtn">
-                    <i class="fi fi-sr-left"></i>
-                    <h6 class="btnText">Back To Main</h6>
-                </div>
-                <div class="categoryProjrct">
-                    <h5>Mobile Application</h5>
-                </div>
-                <div class="demoInfoProject">
-                    <div class="mainText">
-                        <h1>Post<span>Gap</span></h1>
-                        <h6>A social media app for sharing posts, connecting with people and building communities.</h6>
+                <div class="left">
+                    <a class="backBtn" href="../index.html#projects">
+                        <i class="fi fi-sr-left"></i>
+                        <span class="btnText">Back to Projects</span>
+                    </a>
+                    <div class="categoryProjrct">
+                        <h5>Android App</h5>
                     </div>
-                    <div class="detailsOption">
-                        <div class="dateProject">
-                            <div class="iconBox">
-                               <i class="fi fi-rr-daily-calendar"></i>
+                    <div class="demoInfoProject">
+                        <div class="mainText">
+                            <h1>Post<span>Gap</span></h1>
+                            <p>A social media app for sharing posts, connecting with people, and building communities.</p>
+                        </div>
+                        <div class="detailsOption" aria-label="Project details">
+                            <div class="dateProject">
+                                <i class="ri-calendar-line" aria-hidden="true"></i>
+                                <span>2023 – 2024</span>
                             </div>
-                            <div class="texts">
-                                <h5><span>2024 - 2025</span></h5>
-                                <h6><span>Privet Company</span></h6>
+                            <div class="projectType">
+                                <i class="ri-user-3-line" aria-hidden="true"></i>
+                                <span>Personal Project</span>
+                            </div>
+                            <div class="modelMobile">
+                                <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+                                <span>Android (Java)</span>
                             </div>
                         </div>
-                        <div class="modelMobile">
-                            <div class="iconBox">
-                                <i class="fi fi-rr-mobile-button"></i>
+                        <div class="mainTeach" aria-label="Technologies">
+                            <div class="teachItem"><h6>Android</h6></div>
+                            <div class="teachItem"><h6>Java</h6></div>
+                            <div class="teachItem"><h6>Firebase</h6></div>
+                            <div class="teachItem"><h6>REST API</h6></div>
+                            <div class="teachItem"><h6>Retrofit</h6></div>
+                            <div class="teachItem"><h6>XML</h6></div>
+                        </div>
+                        <div class="linkBtns">
+                            <div class="githubBtn btn">
+                                <i class="fi fi-brands-github" aria-hidden="true"></i>
+                                <span>View on GitHub</span>
+                                <i class="fi fi-sr-arrow-up-right-from-square" aria-hidden="true"></i>
                             </div>
-                            <div class="texts">
-                                <h5><span>Android (<span>Java</span>) </span></h5>
-                                <h6><span>Mobile Application</span></h6>
+                            <div class="liveMoodBtn btn">
+                                <span>Live Demo</span>
+                                <i class="fi fi-sr-arrow-up-right-from-square" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div class="mainTeach">
-                            <div class="teachItem">
-                                <h6>Java</h6>
+
+                    </div>
+                </div>
+                <div class="postgap-showcase">
+                    <div class="swiper postgap-showcase__swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="postgap-phone">
+                                    <img src="../images/one.png" alt="PostGap home screen">
+                                </div>
                             </div>
-                            <div class="teachItem">
-                                <h6>FireBase</h6>
+                            <div class="swiper-slide">
+                                <div class="postgap-phone">
+                                    <img src="../images/two.png" alt="PostGap home screen">
+                                </div>
                             </div>
-                            <div class="teachItem">
-                                <h6>Rest API</h6>
+                            <div class="swiper-slide">
+                                <div class="postgap-phone">
+                                    <img src="../images/three.png" alt="PostGap home screen">
+                                </div>
                             </div>
-                            <div class="teachItem">
-                                <h6>Retrofit</h6>
+                            <div class="swiper-slide">
+                                <div class="postgap-phone">
+                                    <img src="../images/foure.png" alt="PostGap home screen">
+                                </div>
                             </div>
                         </div>
+                        <button class="postgap-showcase__arrow postgap-showcase__prev" type="button"
+                            aria-label="Previous screen">‹</button>
+                        <button class="postgap-showcase__arrow postgap-showcase__next" type="button"
+                            aria-label="Next screen">›</button>
                     </div>
 
                 </div>
@@ -169,8 +201,9 @@
     <!-- ! Swiper.com -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <!--Js-->
-    <script src="js/main.js"></script>
-    <script src="js/index.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/projecs.js"></script>
     <script src="js/github-activity.js"></script>
     <script>
         function googleTranslateElementInit() {
