@@ -65,7 +65,8 @@
     font-size: 1.35rem;
 }
 
-.homeProject {
+.homeProject,
+.overView {
     max-height: max-content;
     overflow: hidden;
     height: 100%;
@@ -124,7 +125,8 @@
 }
 
 .categoryProjrct,
-.teachItem {
+.teachItem,
+.options {
     width: max-content;
     margin-top: 2rem;
     background: rgba(20, 134, 140, 0.14);
@@ -244,12 +246,14 @@
     width: min(90%, 920px);
     height: 1px;
     border-radius: 1000px;
-    background-color: var(--text-select-color, #6575ff);box-shadow: 0 0 12px rgba(101, 117, 255, .65);
+    background-color: var(--text-select-color, #6575ff);
+    box-shadow: 0 0 12px rgba(101, 117, 255, .65);
     z-index: 5;
     pointer-events: none;
 }
 
-.homeProjectContainer {
+.homeProjectContainer,
+.overViewContainer {
     display: grid;
     position: relative;
     padding-bottom: 1.25rem;
@@ -429,4 +433,113 @@
 
 .postgap-showcase__next {
     right: 8px;
+}
+
+.tittleSection {
+    width: max-content;
+    margin-top: -6rem;
+    display: inline-flex;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.tittleSection::after {
+    position: absolute;
+    content: '';
+    top: 60%;
+    border-radius: 9999px;
+    right: -5rem;
+    width: 4rem;
+    height: 2px;
+    background-color: var(--text-select-color);
+}
+
+.numberSection {
+    font-family: var(--number-font);
+    font-size: 2.5rem;
+    color: var(--text-select-color);
+}
+
+.numberSection span {
+    color: var(--main-text-color);
+    font-family: var(--subtitle-font);
+    font-size: 2rem;
+}
+
+.descriptions {
+    margin-top: 1.5rem;
+    font-family: var(--robot-font);
+    color: var(--description-color);
+    width: 600px;
+}
+
+.descriptions p {
+    margin-top: 1rem;
+    direction: ltr;
+}
+
+.iconBoxOp {
+    text-align: start;
+    margin-left: .75rem;
+    margin-top: .75rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--text-select-color);
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    align-self: center;
+    align-content: center;
+    border-radius: 30%;
+    box-shadow: 1px 1px 1px 1px #000D16;
+}
+
+.iconBoxOp {
+    font-size: 1.5rem;
+    color: var(--main-text-color);
+}
+
+.projectsOptionsBox {
+    display: inline-flex;
+    gap: 1rem;
+}
+
+.textOp h5 {
+    font-family: var(--robot-font);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: var(--main-text-color);
+}
+
+.options {
+    width: 190px;
+    height: max-content;
+    padding: 0;
+    border-radius: 10%;
+}
+
+.textOp h6 {
+    width: 95%;
+    margin: .5rem;
+    text-align: start;
+    font-size: 1.2rem;
+    font-family: var(--main-description-font);
+    color: var(--description-color);
+}
+
+.projectsOptionsBox>div {
+    cursor: pointer;
+    transition:
+        color .5s ease,
+        transform .5s ease;
+}
+
+.projectsOptionsBox>div:hover {
+    box-shadow: 1px 1px 1px 1px var(--text-select-color);
+    transform: translateY(-6px);
 }
