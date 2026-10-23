@@ -3155,11 +3155,12 @@ html {
         width: 100%;
         overflow-x: hidden;
     }
+
     .homeContent .homeProfilePic .shape-2,
-    .homeContent .homeProfilePic .shape-3و
-    .homeContent .homeProfilePic .shape-1 {
+    .homeContent .homeProfilePic .shape-3و .homeContent .homeProfilePic .shape-1 {
         z-index: -20;
     }
+
     .indexBody:has(.homeSupport) .main {
         width: 100%;
         max-width: 100%;
@@ -3666,13 +3667,19 @@ html {
 }
 
 @media (min-width:768px) and (max-width:1024px) {
+    .indexBody:not(:has(.homeSupport)) .homeContent>.homeProfilePic {
+        width: min(105%, 14rem);
+        max-width: none;
+    }
+
     .infoTextTwo {
         display: none;
         opacity: 0;
         visibility: hidden;
     }
+
     .infoListTwo,
-    .explainProjectBox{
+    .explainProjectBox {
         display: none;
         opacity: 0;
         visibility: hidden;
@@ -4176,14 +4183,14 @@ html {
 
     .indexBody:not(:has(.homeSupport)) .container .section-deco.decoLeft .shape {
         left: -8.5rem;
-        bottom:  -10rem;
+        bottom: -10rem;
         overflow: hidden;
     }
 
     .indexBody:not(:has(.homeSupport)) .container .section-deco.decoRight .shape {
         right: -8.5rem;
         z-index: -1;
-         bottom:  -10rem;
+        bottom: -10rem;
     }
 
     .homeProfilePic .picBack {
@@ -4386,6 +4393,12 @@ html {
     .indexBody:not(:has(.homeSupport)) .main>#experience>.container {
         padding-inline: clamp(2.25rem, 4vw, 3rem);
     }
+ .indexBody:not(:has(.homeSupport)) #experience .workColumn {
+        width: min(100%, 20rem);
+        margin-left: -23rem;
+        margin-top: 2rem;
+        justify-self: center;
+    }
 
     .indexBody:not(:has(.homeSupport)) .experienceContent {
         width: 100%;
@@ -4456,6 +4469,25 @@ html {
     .indexBody:not(:has(.homeSupport)) .skillsHeader>div {
         flex: 1 1 auto;
         min-width: 0;
+    }
+
+    .aboutFullText:not(:has(.homeSupport)) .homeContent>.homeProfilePic {
+        width: min(95%, 24rem);
+        max-width: none;
+    }
+
+    .descriptionAbout {
+        padding: 1rem 1.25rem;
+        width: max-content;
+        height: max-content;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.08);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        box-shadow:
+            0 8px 24px rgba(0, 0, 0, 0.16),
+            inset 0 1px rgba(255, 255, 255, 0.12);
     }
 
     .indexBody:not(:has(.homeSupport)) .skillTabTittle {
@@ -4626,9 +4658,30 @@ html {
     .indexBody:not(:has(.homeSupport)) .homeProfilePic .picBack {
         position: relative;
         z-index: 1;
+        width: 100%;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .picBack img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic::before {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        z-index: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic>.shape {
+        z-index: -1;
     }
 
     .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo {
+        width: clamp(5rem, 14vw, 13rem);
+        height: 5.25rem;
+        padding-inline: 0.8rem;
         z-index: 2;
     }
 
@@ -4924,7 +4977,286 @@ html {
     .indexBody:not(:has(.homeSupport)) .skilldContent .skillItem {
         padding-left: 3rem;
     }
+
+    .indexBody:not(:has(.homeSupport)) {
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main {
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main>section.section {
+        min-height: 0;
+        height: auto;
+        overflow: visible !important;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main>section.section:not(.home) {
+        padding-bottom: clamp(1rem, 2.5vw, 1.75rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .main>section.section>.container {
+        overflow: visible;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .sectionTittle {
+        margin-top: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 0.75rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .home {
+        padding-block: 5rem 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent {
+        position: relative;
+        min-height: clamp(34rem, 55vw, 38rem);
+        align-content: center;
+        grid-template-areas:
+            "intro visual"
+            "about visual"
+            "social visual"
+            "buttons visual";
+        row-gap: clamp(0.5rem, 1vh, 0.75rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.homeProfilePic {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: min(115%, 28rem);
+        max-width: none;
+        margin-right: -2%;
+        transform: translateY(-50%);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.descriptionAbout {
+        align-self: start;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.descriptionAbout[data-aos],
+    .indexBody:not(:has(.homeSupport)) .homeContent>.socialGroup .socialLink[data-aos],
+    .indexBody:not(:has(.homeSupport)) .homeContent>.btns [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo {
+        height: 50px;
+        width: 250px;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo-number {
+        font-size: 2rem;
+        margin-left: -2rem;
+        margin-top: -.5rem;
+
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeProfilePic .exInfo-text {
+        font-family: var(--subtitle-font);
+        font-size: 1.1rem;
+        width: max-content;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.socialGroup {
+        justify-self: start;
+        align-self: start;
+        margin-top: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.btns {
+        justify-self: start;
+        align-self: start;
+        gap: 0.75rem clamp(2.8rem, 5vw, 3rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .homeContent>.btns>.btn {
+        min-width: 0;
+        min-height: 3.5rem;
+        padding-inline: clamp(1rem, 2vw, 1.5rem);
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns {
+        grid-template-areas:
+            "education awards"
+            "work work";
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experienceContent {
+        width: min(100%, 56rem);
+        margin-inline: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns>.educationColumn {
+        grid-area: education;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns>.awardColumn {
+        grid-area: awards;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .experiencekColumns>.workColumn {
+        grid-area: work;
+        width: min(100%, 38rem);
+        justify-self: center;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactContent>.section-deco.decoRight {
+        right: -1rem;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .contactInfo,
+    .indexBody:not(:has(.homeSupport)) .contactForms {
+        position: relative;
+        z-index: 1;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skillsContent {
+        grid-template-columns: minmax(13rem, 18rem) minmax(18rem, 21rem);
+        width: fit-content;
+        max-width: 100%;
+        gap: clamp(1rem, 2vw, 1.5rem);
+        align-items: start;
+        margin-inline: auto;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skilldContent {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .services-swiper .card::before {
+        right: -2.5rem;
+        bottom: -2rem;
+        width: 8rem;
+        height: 8rem;
+        opacity: 0.78;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer>.section-deco.decoLeft {
+        top: 5rem;
+        bottom: 3rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .servicesPopupModel .popupContainer>.section-deco.decoLeft .shape {
+        bottom: -3.25rem;
+        left: -3rem;
+        width: clamp(7rem, 11vw, 8.5rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .tutorialsCard {
+        height: 27rem;
+        min-height: 27rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .cardTutorialsImg {
+        height: clamp(10rem, 18vw, 12rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .infoTutorialsCard {
+        padding-top: 0.4rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .tutorialsSwiper .infos h2 {
+        margin-top: 1.25rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .swiper-slide.commentCard {
+        aspect-ratio: auto;
+        min-height: 24rem;
+        padding: 1rem 1.1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .imageCommentCard {
+        height: clamp(9rem, 15vw, 11rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commaCard {
+        top: 1rem;
+        left: 1.1rem;
+        width: 3.75rem;
+        height: 3.75rem;
+        transform: none;
+        border-radius: 0 0 1rem 0;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .commentCard p {
+        display: -webkit-box;
+        margin-top: 0.8rem;
+        font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+        line-height: 1.45;
+        -webkit-line-clamp: 5;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone {
+        right: 1rem;
+        bottom: 0.75rem;
+        left: 1rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone h3 {
+        font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone h6 {
+        font-size: clamp(0.75rem, 1.05vw, 0.9rem);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .cookie-banner {
+        bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+        width: min(760px, calc(100% - 2rem));
+        max-height: calc(100vh - 2rem);
+        padding: clamp(1rem, 2vw, 1.25rem);
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: clamp(0.75rem, 2vw, 1.25rem);
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .cookie-banner__actions {
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
+    .indexBody:not(:has(.homeSupport)) .cookie-button {
+        min-width: 0;
+        min-height: 2.75rem;
+        padding: 0.6rem 0.75rem;
+        font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+        line-height: 1.25;
+    }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .indexBody:not(:has(.homeSupport)) .skillItem .skillsScoreBar {
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .indexBody:not(:has(.homeSupport)) .skillItem.aos-animate .skillsScoreBar {
+        transform: scaleX(1);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (prefers-reduced-motion: reduce) {
+    .indexBody:not(:has(.homeSupport)) .skillItem .skillsScoreBar {
+        transform: none;
+        transition: none;
+    }
+}
+
 
 /*
 @media (max-width: 1512px) {
