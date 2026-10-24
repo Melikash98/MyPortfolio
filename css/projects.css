@@ -1387,3 +1387,54 @@ a.relatedProjectCard:focus-visible {
     color: var(--main-text-color);
     text-decoration: none;
 }
+
+.projectsFooter {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-height: 106px;
+    padding: 16px 48px;
+    border-top: 1px solid rgba(90, 120, 165, 0.18);
+}
+
+.projectsFooterLinks {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.projectsFooterLinks a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: rgba(124, 151, 198, 0.9);
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.projectsFooterLinks a:hover {
+    color: var(--text-select-color);
+    transform: translateY(-2px);
+}
+
+.projectsFooterLinks a:focus-visible {
+    border-radius: 3px;
+    outline: 2px solid var(--text-select-color);
+    outline-offset: 4px;
+}
+
+@media (max-width: 520px) {
+    .projectsFooter {
+        min-height: 84px;
+        padding: 12px 20px;
+    }
+
+    .projectsFooterLinks {
+        gap: 24px;
+    }
+}
