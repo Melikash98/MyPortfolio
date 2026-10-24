@@ -1156,25 +1156,30 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
-    gap: 1rem;
-    min-height: 17.5rem;
+    gap: 14px;
+    height: auto;
+    min-height: 0;
+    padding: 16px;
 }
 
 .relatedProjectCard {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 1rem;
-    grid-template-rows: 8rem minmax(4rem, 1fr);
+    grid-template-columns: minmax(0, 1fr) 20px;
+    grid-template-rows: 100px auto;
     align-items: center;
     min-width: 0;
-    min-height: 14.5rem;
+    height: auto;
+    min-height: 0;
     overflow: hidden;
+    padding: 10px;
+    border-radius: 16px;
     text-decoration: none;
 }
 
 .relatedProjectPreview {
     grid-column: 1 / -1;
     width: 100%;
-    height: 8rem;
+    height: 100px;
     overflow: hidden;
     background: #07111e;
 }
@@ -1202,9 +1207,9 @@
 .relatedProjectInfo {
     display: grid;
     align-content: center;
-    gap: 0.35rem;
+    gap: 5px;
     min-width: 0;
-    padding: 0.65rem 0.35rem 0.75rem 0.7rem;
+    padding: 8px 4px 4px 5px;
 }
 
 .relatedProjectName,
@@ -1221,7 +1226,7 @@
 .relatedProjectName {
     color: var(--main-text-color);
     font-family: var(--robot-font);
-    font-size: 0.95rem;
+    font-size: 15px;
     font-weight: var(--bold-font-weight);
     line-height: 1.2;
     -webkit-line-clamp: 1;
@@ -1230,7 +1235,7 @@
 .relatedProjectDescription {
     color: var(--description-color);
     font-family: var(--subtitle-font);
-    font-size: 0.78rem;
+    font-size: 13px;
     line-height: 1.4;
     -webkit-line-clamp: 2;
 }
@@ -1261,35 +1266,29 @@ a.relatedProjectCard:focus-visible {
     outline-offset: 2px;
 }
 
-@media (max-width: 800px) {
-    .secthree {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1.25rem;
-        margin-top: 0.5rem;
-    }
-}
-
 @media (max-width: 520px) {
     .relatedProjectsPanel {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 12px;
     }
 
     .relatedProjectCard {
-        grid-template-columns: 4.5rem minmax(0, 1fr) 0.9rem;
-        grid-template-rows: 3.4rem;
-        min-height: 3.4rem;
+        grid-template-columns: 72px minmax(0, 1fr) 18px;
+        grid-template-rows: 54px;
+        min-height: 54px;
     }
 
     .relatedProjectPreview {
         grid-column: 1;
         grid-row: 1;
-        height: 3.4rem;
+        height: 54px;
     }
 
     .relatedProjectInfo {
         grid-column: 2;
         grid-row: 1;
-        padding: 0.35rem 0.45rem;
+        padding: 4px 6px;
     }
 
     .relatedProjectArrow {
@@ -1298,30 +1297,11 @@ a.relatedProjectCard:focus-visible {
     }
 
     .relatedProjectName {
-        font-size: 0.68rem;
+        font-size: 12px;
     }
 
     .relatedProjectDescription {
-        font-size: 0.56rem;
-    }
-
-    .techStackPanel {
-        min-height: 15rem;
-    }
-
-    .techStackIcon {
-        width: 4.25rem;
-        height: 4.25rem;
-        font-size: 2.3rem;
-    }
-
-    .techStackTags {
-        gap: 0.4rem;
-    }
-
-    .techStackTags span {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.68rem;
+        font-size: 10px;
     }
 }
 
