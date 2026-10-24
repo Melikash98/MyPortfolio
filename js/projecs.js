@@ -54,18 +54,18 @@ if (screenshotsElement) {
   });
 }
 
-const contactToDonatePage = document.querySelector('.donateProject');
+const donateProjectElement = document.querySelector('.donateProject');
 
-if (contactToDonatePage) {
-  contactToDonatePage.setAttribute('role', 'link');
-  contactToDonatePage.setAttribute('tabindex', '0');
+if (donateProjectElement) {
+  donateProjectElement.setAttribute('role', 'link');
+  donateProjectElement.setAttribute('tabindex', '0');
 
   const goToDonatePage = () => {
     window.location.href = new URL('../html/donait.html', document.baseURI).href;
   };
 
-  contactToDonatePage.addEventListener('click', goToDonatePage);
-  contactToDonatePage.addEventListener('keydown', (event) => {
+  donateProjectElement.addEventListener('click', goToDonatePage);
+  donateProjectElement.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       goToDonatePage();
