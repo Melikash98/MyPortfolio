@@ -1438,3 +1438,122 @@ a.relatedProjectCard:focus-visible {
         gap: 24px;
     }
 }
+
+/* Light theme: project page */
+:root.sun-mood .indexBody {
+    --description-color: #526D82;
+    --project-card-background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.48),
+        rgba(217, 234, 253, 0.24) 52%,
+        rgba(237, 245, 253, 0.3));
+    --project-card-border: rgba(255, 255, 255, 0.82);
+    --project-soft-background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.38),
+        rgba(237, 245, 253, 0.2));
+}
+
+:root.sun-mood .indexBody .categoryProjrct,
+:root.sun-mood .indexBody .teachItem,
+:root.sun-mood .indexBody .options,
+:root.sun-mood .indexBody .boxEnd,
+:root.sun-mood .indexBody .overViewContainer > .right,
+:root.sun-mood .indexBody .techStackPanel,
+:root.sun-mood .indexBody .relatedProjectsPanel,
+:root.sun-mood .indexBody .relatedProjectCard,
+:root.sun-mood .indexBody .screenshotFrame {
+    background: var(--project-card-background);
+    border-color: var(--project-card-border);
+    backdrop-filter: blur(22px) saturate(145%);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    box-shadow:
+        0 0 0 1px rgba(184, 211, 236, 0.42),
+        0 12px 30px rgba(44, 95, 150, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88),
+        inset 0 -1px 0 rgba(184, 211, 236, 0.2);
+}
+
+:root.sun-mood .indexBody .postgap-showcase::before {
+    display: none;
+}
+
+:root.sun-mood .indexBody .postgap-showcase::after {
+    display: none;
+}
+
+:root.sun-mood .indexBody .postgap-phone {
+    border-color: rgba(65, 96, 140, 0.45);
+    box-shadow: none;
+}
+
+:root.sun-mood .indexBody .categoryProjrct,
+:root.sun-mood .indexBody .teachItem {
+    color: var(--main-text-color);
+}
+
+:root.sun-mood .indexBody .relatedProjectPreview,
+:root.sun-mood .indexBody .techStackIcon,
+:root.sun-mood .indexBody .projectLinkIcon,
+:root.sun-mood .indexBody .techStackTags span,
+:root.sun-mood .indexBody .postgap-showcase__arrow,
+:root.sun-mood .indexBody .screenshotNav {
+    background: var(--project-soft-background);
+    border-color: var(--project-card-border);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow:
+        0 0 0 1px rgba(184, 211, 236, 0.32),
+        0 6px 18px rgba(44, 95, 150, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+:root.sun-mood .indexBody .postgap-showcase__arrow,
+:root.sun-mood .indexBody .screenshotNav {
+    color: var(--main-text-color);
+}
+
+:root.sun-mood .indexBody .boxEnd > i {
+    color: var(--text-select-color);
+}
+
+:root.sun-mood .indexBody .iconBoxOp {
+    background: var(--project-card-background);
+    border: 1px solid var(--project-card-border);
+    color: #000D16;
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow:
+        0 6px 18px rgba(44, 95, 150, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+:root.sun-mood .indexBody .textOp h5,
+:root.sun-mood .indexBody .textOp h6 {
+    color: #000D16;
+}
+
+:root.sun-mood .indexBody .projectsOptionsBox > div:hover {
+    transform: translateY(-6px);
+    border-color: var(--text-select-color);
+    box-shadow:
+        0 12px 28px rgba(14, 131, 136, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+:root.sun-mood .indexBody a.relatedProjectCard:hover,
+:root.sun-mood .indexBody a.relatedProjectCard:focus-visible {
+    background: rgba(199, 223, 248, 0.78);
+    border-color: var(--text-select-color);
+}
+
+:root.sun-mood .indexBody .screenshotSlide:hover .screenshotFrame {
+    border-color: var(--text-select-color);
+    box-shadow: 0 10px 24px rgba(1, 7, 54, 0.12);
+}
+
+:root.sun-mood .indexBody .projectsFooter {
+    border-top-color: rgba(14, 131, 136, 0.22);
+}
+
+:root.sun-mood .indexBody .projectsFooterLinks a {
+    color: #000D16;
+}

@@ -78,3 +78,36 @@ AOS.init({
   duration: 1000,
   once: true
 });
+
+const projectsScrollControl = document.querySelector(".scrollControl");
+
+if (projectsScrollControl) {
+  const getProjectsPageMaxScroll = () =>
+    Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+  const syncProjectsScrollDirection = () => {
+    if (window.scrollY <= 2) {
+      projectsScrollControl.dataset.direction = "down";
+      projectsScrollControl.setAttribute("aria-label", "Scroll to bottom");
+    } else if (window.scrollY >= getProjectsPageMaxScroll() - 2) {
+      projectsScrollControl.dataset.direction = "up";
+      projectsScrollControl.setAttribute("aria-label", "Scroll to top");
+    }
+  };
+
+  projectsScrollControl.addEventListener("click", () => {
+    const target = projectsScrollControl.dataset.direction === "down"
+      ? getProjectsPageMaxScroll()
+      : 0;
+
+    window.scrollTo({
+      top: target,
+      behavior: "smooth"
+    });
+  });
+
+  window.addEventListener("scroll", syncProjectsScrollDirection, { passive: true });
+  window.addEventListener("resize", syncProjectsScrollDirection);
+  window.addEventListener("load", syncProjectsScrollDirection);
+  syncProjectsScrollDirection();
+}

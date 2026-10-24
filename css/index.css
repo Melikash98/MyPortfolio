@@ -3877,3 +3877,43 @@ iframe.skiptranslate {
         transform: scaleY(.1)
     }
 }
+
+/* Swiper pagination colors */
+.services-swiper .swiper-pagination::before,
+.projects-swiper .swiper-pagination::before,
+.tutorialsSwiper .swiper-pagination::before,
+.comments-swiper .swiper-pagination::before {
+    background-color: var(--description-color) !important;
+}
+
+.services-swiper .swiper-pagination-bullet,
+.projects-swiper .swiper-pagination-bullet,
+.tutorialsSwiper .swiper-pagination-bullet,
+.comments-swiper .swiper-pagination-bullet {
+    background: var(--description-color) !important;
+    border-color: var(--description-color) !important;
+}
+
+.services-swiper .swiper-pagination-bullet-active,
+.projects-swiper .swiper-pagination-bullet-active,
+.tutorialsSwiper .swiper-pagination-bullet-active,
+.comments-swiper .swiper-pagination-bullet-active {
+    background: #D9EAFD !important;
+    border-color: #000D16 !important;
+    box-shadow: 0 0 8px rgba(217, 234, 253, 0.45);
+}
+
+:root.sun-mood .services-swiper .swiper-pagination::before,
+:root.sun-mood .projects-swiper .swiper-pagination::before,
+:root.sun-mood .tutorialsSwiper .swiper-pagination::before,
+:root.sun-mood .comments-swiper .swiper-pagination::before {
+    background-color: #526D82 !important;
+}
+
+:root.sun-mood .services-swiper .swiper-pagination-bullet:not(.swiper-pagination-bullet-active),
+:root.sun-mood .projects-swiper .swiper-pagination-bullet:not(.swiper-pagination-bullet-active),
+:root.sun-mood .tutorialsSwiper .swiper-pagination-bullet:not(.swiper-pagination-bullet-active),
+:root.sun-mood .comments-swiper .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    background: #526D82 !important;
+    border-color: #526D82 !important;
+}
