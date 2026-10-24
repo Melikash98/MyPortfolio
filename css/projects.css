@@ -1320,6 +1320,205 @@ a.relatedProjectCard:focus-visible {
 }
 
 
+.overViewContainer {
+    grid-template-columns: 2fr 1fr;
+}
+
+.overViewContainer>.lefts {
+    min-width: 0;
+}
+
+.overViewContainer .descriptions {
+    width: min(100%, 600px);
+    min-width: 0;
+}
+
+.overViewContainer>.right {
+    width: 100%;
+    max-width: 450px;
+    margin: 0;
+    justify-self: end;
+}
+
+.overViewContainer .boxEnd>p {
+    width: min(100%, 500px);
+}
+
+.projectsOptionsBox {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(0.85rem, 1.8vw, 1.5rem);
+    width: 100%;
+    min-width: 0;
+    margin-top: 2rem;
+}
+
+.projectsOptionsBox>.options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.35rem;
+    width: 100%;
+    min-width: 0;
+    min-height: 18rem;
+    height: auto;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    border-radius: 1.5rem;
+    cursor: default;
+}
+
+.projectsOptionsBox .iconBoxOp {
+    display: inline-flex;
+    flex: 0 0 3.75rem;
+    align-items: center;
+    justify-content: center;
+    width: 3.75rem;
+    height: 3.75rem;
+    margin: 0;
+    border-radius: 1rem;
+    font-size: 1.55rem;
+}
+
+.projectsOptionsBox .textOp {
+    display: grid;
+    align-content: start;
+    gap: 0.65rem;
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+}
+
+.projectsOptionsBox .textOp h5 {
+    display: block;
+    min-height: 2.7em;
+    margin: 0;
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    line-height: 1.35;
+}
+
+.projectsOptionsBox .textOp h6 {
+    width: auto;
+    margin: 0;
+    color: var(--description-color);
+    font-family: var(--robot-font);
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    font-weight: 500;
+    line-height: 1.55;
+}
+
+.projectsOptionsBox>.options:hover {
+    border-color: rgba(20, 190, 170, 0.65);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24), 0 0 22px rgba(20, 190, 170, 0.12);
+    transform: translateY(-4px);
+}
+
+.screenshotsSection {
+    width: 100%;
+    margin-top: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.screenshotsHeader {
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.screenshotsHeader .tittleSection {
+    margin: 0;
+}
+
+.screenshotsTools {
+    gap: 0.55rem;
+}
+
+.screenshotCounter {
+    font-size: 0.8rem;
+}
+
+.postgap-screenshots__swiper {
+    width: 100%;
+    overflow: hidden;
+    padding-block: 0.35rem 0.8rem;
+}
+
+.postgap-screenshots__swiper .screenshotSlide {
+    flex: 0 0 clamp(8rem, 15vw, 10.5rem);
+    width: clamp(8rem, 15vw, 10.5rem);
+}
+
+@media (max-width: 900px) {
+    .overViewContainer {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .overViewContainer>.right {
+        grid-column: 1;
+        justify-self: stretch;
+        max-width: none;
+    }
+
+    .projectsOptionsBox {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .projectsOptionsBox>.options {
+        min-height: 16rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .projectsOptionsBox {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .projectsOptionsBox>.options {
+        flex-direction: row;
+        align-items: center;
+        min-height: 0;
+        gap: 1rem;
+        padding: 1.1rem;
+        border-radius: 1.15rem;
+    }
+
+    .projectsOptionsBox .iconBoxOp {
+        flex-basis: 3.25rem;
+        width: 3.25rem;
+        height: 3.25rem;
+        border-radius: 0.9rem;
+        font-size: 1.35rem;
+    }
+
+    .projectsOptionsBox .textOp h5 {
+        min-height: 0;
+        font-size: 1rem;
+    }
+
+    .projectsOptionsBox .textOp h6 {
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .screenshotsHeader {
+        gap: 0.75rem;
+    }
+
+    .screenshotsHeader .numberSection {
+        font-size: 2rem;
+    }
+
+    .screenshotsHeader .numberSection span {
+        font-size: 1.55rem;
+    }
+
+    .postgap-screenshots__swiper .screenshotSlide {
+        flex-basis: 8rem;
+        width: 8rem;
+    }
+}
+
+
 
 .homeProject .categoryProjrct {
     background: rgba(20, 134, 140, 0.14);
