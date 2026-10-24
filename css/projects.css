@@ -1207,6 +1207,10 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
 }
+.donateProject i {
+    font-size: 1.5rem;
+}
+
 
 .relatedProjectName {
     color: var(--main-text-color);
