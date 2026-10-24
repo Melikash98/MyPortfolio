@@ -563,10 +563,10 @@
 
 .iconBoxOp {
     text-align: start;
-    margin-left: .75rem;
-    margin-top: .75rem;
-    width: 50px;
-    height: 50px;
+    margin-left: -.75rem;
+    margin-top: -.75rem;
+    width: 45px;
+    height: 45px;
     background-color: var(--text-select-color);
     align-items: center;
     justify-content: center;
@@ -593,7 +593,7 @@
     font-family: var(--robot-font);
     font-size: 1.2rem;
     margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: -1rem;
     color: var(--main-text-color);
 }
 
@@ -605,8 +605,10 @@
 }
 
 .textOp h6 {
-    width: 95%;
-    margin: .5rem;
+    max-width: 300px;
+    margin-top: 1.5rem;
+    margin-left: -1rem;
+    margin-top: .5rem;
     text-align: start;
     font-size: 1.2rem;
     font-family: var(--main-description-font);
@@ -618,6 +620,8 @@
     transition:
         color .5s ease,
         transform .5s ease;
+    width: 200px;
+    height: 200px;
 }
 
 .projectsOptionsBox>div:hover {
@@ -636,6 +640,7 @@
 .techStackPanel,
 .relatedProjectsPanel,
 .relatedProjectCard {
+    height: 100px;
     box-sizing: border-box;
     background: rgba(20, 134, 140, 0.14);
     backdrop-filter: blur(12px);
@@ -1048,6 +1053,7 @@
 .secthreeOne,
 .secthreeFour {
     min-width: 0;
+    margin-top: 2rem;
 }
 
 
@@ -1103,7 +1109,6 @@
     height: 5.5rem;
     border: 1px solid rgba(70, 105, 159, 0.22);
     border-radius: 1rem;
-    background: rgba(13, 29, 51, 0.74);
     font-size: 3rem;
 }
 
@@ -1130,6 +1135,7 @@
 .techStackTags {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -3rem;
     justify-content: center;
     gap: 0.7rem;
     margin-top: 1.8rem;
@@ -1139,8 +1145,8 @@
     padding: 0.55rem 0.9rem;
     border: 1px solid rgba(61, 93, 145, 0.42);
     border-radius: 999px;
-    color: var(--description-color);
-    font-family: var(--robot-font);
+    color: var(--main-text-color);
+    font-family: var(--tittle-font);
     font-size: 0.8rem;
     line-height: 1.25;
     white-space: nowrap;
@@ -1344,74 +1350,8 @@ a.relatedProjectCard:focus-visible {
     width: min(100%, 500px);
 }
 
-.projectsOptionsBox {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: stretch;
-    gap: clamp(0.85rem, 1.8vw, 1.5rem);
-    width: 100%;
-    min-width: 0;
-    margin-top: 2rem;
-}
 
-.projectsOptionsBox>.options {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.35rem;
-    width: 100%;
-    min-width: 0;
-    min-height: 18rem;
-    height: auto;
-    padding: clamp(1.25rem, 2vw, 1.75rem);
-    border-radius: 1.5rem;
-    cursor: default;
-}
 
-.projectsOptionsBox .iconBoxOp {
-    display: inline-flex;
-    flex: 0 0 3.75rem;
-    align-items: center;
-    justify-content: center;
-    width: 3.75rem;
-    height: 3.75rem;
-    margin: 0;
-    border-radius: 1rem;
-    font-size: 1.55rem;
-}
-
-.projectsOptionsBox .textOp {
-    display: grid;
-    align-content: start;
-    gap: 0.65rem;
-    width: 100%;
-    min-width: 0;
-    text-align: left;
-}
-
-.projectsOptionsBox .textOp h5 {
-    display: block;
-    min-height: 2.7em;
-    margin: 0;
-    font-size: clamp(1rem, 1.25vw, 1.2rem);
-    line-height: 1.35;
-}
-
-.projectsOptionsBox .textOp h6 {
-    width: auto;
-    margin: 0;
-    color: var(--description-color);
-    font-family: var(--robot-font);
-    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-    font-weight: 500;
-    line-height: 1.55;
-}
-
-.projectsOptionsBox>.options:hover {
-    border-color: rgba(20, 190, 170, 0.65);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24), 0 0 22px rgba(20, 190, 170, 0.12);
-    transform: translateY(-4px);
-}
 
 .screenshotsSection {
     width: 100%;
@@ -1446,77 +1386,6 @@ a.relatedProjectCard:focus-visible {
     width: clamp(8rem, 15vw, 10.5rem);
 }
 
-@media (max-width: 900px) {
-    .overViewContainer {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2rem;
-    }
-
-    .overViewContainer>.right {
-        grid-column: 1;
-        justify-self: stretch;
-        max-width: none;
-    }
-
-    .projectsOptionsBox {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-    }
-
-    .projectsOptionsBox>.options {
-        min-height: 16rem;
-    }
-}
-
-@media (max-width: 520px) {
-    .projectsOptionsBox {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .projectsOptionsBox>.options {
-        flex-direction: row;
-        align-items: center;
-        min-height: 0;
-        gap: 1rem;
-        padding: 1.1rem;
-        border-radius: 1.15rem;
-    }
-
-    .projectsOptionsBox .iconBoxOp {
-        flex-basis: 3.25rem;
-        width: 3.25rem;
-        height: 3.25rem;
-        border-radius: 0.9rem;
-        font-size: 1.35rem;
-    }
-
-    .projectsOptionsBox .textOp h5 {
-        min-height: 0;
-        font-size: 1rem;
-    }
-
-    .projectsOptionsBox .textOp h6 {
-        font-size: 0.9rem;
-        line-height: 1.45;
-    }
-
-    .screenshotsHeader {
-        gap: 0.75rem;
-    }
-
-    .screenshotsHeader .numberSection {
-        font-size: 2rem;
-    }
-
-    .screenshotsHeader .numberSection span {
-        font-size: 1.55rem;
-    }
-
-    .postgap-screenshots__swiper .screenshotSlide {
-        flex-basis: 8rem;
-        width: 8rem;
-    }
-}
 
 
 

@@ -72,3 +72,9 @@ if (donateProjectElement) {
     }
   });
 }
+// TODO: *************************************************************** GLOBAL ANIMATION **********************************************************************//
+// ! Word Transition Effect for Role Text
+AOS.init({
+  duration: 1000,
+  once: true
+});
