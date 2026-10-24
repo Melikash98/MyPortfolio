@@ -321,7 +321,8 @@
     border-color: #010736;
 }
 
-.sun-mood .header {
+.sun-mood .header,
+.sun-mood .headerProjects {
     background: rgba(244, 248, 254, 0.22);
     backdrop-filter: blur(18px) saturate(130%);
     -webkit-backdrop-filter: blur(18px) saturate(130%);
