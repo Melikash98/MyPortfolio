@@ -1081,7 +1081,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 17rem;
+    height: auto;
+    min-height: 222px;
+    padding: 16px;
 }
 
 .techStackGrid {
@@ -1093,11 +1095,11 @@
 .techStackItem {
     display: grid;
     justify-items: center;
-    gap: 0.6rem;
+    gap: 6px;
     min-width: 0;
     color: var(--main-text-color);
     font-family: var(--robot-font);
-    font-size: 0.95rem;
+    font-size: 15px;
     line-height: 1.2;
 }
 
@@ -1105,11 +1107,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 80px;
+    height: 80px;
     border: 1px solid rgba(70, 105, 159, 0.22);
-    border-radius: 1rem;
-    font-size: 3rem;
+    border-radius: 14px;
+    font-size: 42px;
 }
 
 .javaIcon {
@@ -1127,7 +1129,7 @@
 .xmlIcon {
     color: #39c9fa;
     font-family: var(--robot-font);
-    font-size: 1.45rem;
+    font-size: 23px;
     font-style: normal;
     font-weight: var(--bold-font-weight);
 }
@@ -1135,19 +1137,19 @@
 .techStackTags {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -3rem;
+    margin-left: 0;
     justify-content: center;
-    gap: 0.7rem;
-    margin-top: 1.8rem;
+    gap: 10px;
+    margin-top: 0;
 }
 
 .techStackTags span {
-    padding: 0.55rem 0.9rem;
+    padding: 8px 12px;
     border: 1px solid rgba(61, 93, 145, 0.42);
     border-radius: 999px;
     color: var(--main-text-color);
     font-family: var(--tittle-font);
-    font-size: 0.8rem;
+    font-size: 13px;
     line-height: 1.25;
     white-space: nowrap;
 }
