@@ -5242,26 +5242,6 @@ html {
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (prefers-reduced-motion: no-preference) {
-    .indexBody:not(:has(.homeSupport)) .skillItem .skillsScoreBar {
-        transform: scaleX(0);
-        transform-origin: left center;
-        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .indexBody:not(:has(.homeSupport)) .skillItem.aos-animate .skillsScoreBar {
-        transform: scaleX(1);
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (prefers-reduced-motion: reduce) {
-    .indexBody:not(:has(.homeSupport)) .skillItem .skillsScoreBar {
-        transform: none;
-        transition: none;
-    }
-}
-
-
 /*
 @media (max-width: 1512px) {
     .main>section.section>.container .section-deco.decoLeft {
