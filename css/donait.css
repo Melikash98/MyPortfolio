@@ -1005,6 +1005,7 @@ iframe.skiptranslate {
 .credit__exp-date,
 .credit__name {
     background: linear-gradient(hsl(0, 0%, 100%), hsl(0, 0%, 85%) 15% 55%, hsl(0, 0%, 70%) 70%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: "Courier Prime", monospace;
