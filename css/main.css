@@ -1443,6 +1443,431 @@ html {
         object-fit: contain;
         transform: translateY(-39%);
     }
+
+    .indexBody:has(.homeProject) {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .indexBody:has(.homeProject) .main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .indexBody:has(.homeProject) .headerProjects {
+        min-height: 3.5rem;
+        gap: 0.35rem;
+        padding-inline: 0.65rem;
+    }
+
+    .indexBody:has(.homeProject) .headerProjects .logoCard img {
+        width: clamp(6.5rem, 34vw, 7.5rem);
+        max-width: 100%;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject {
+        gap: 0.55rem;
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject>div,
+    .indexBody:has(.homeProject) .cvDownload a i {
+        font-size: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject>div>i {
+        font-size: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .cvDownload {
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .homeProject,
+    .indexBody:has(.homeProject) .overView {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        height: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .indexBody:has(.homeProject) .homeProject {
+        padding: 4.25rem 0 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .overView {
+        padding: 1.5rem 0 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProjectContainer.container,
+    .indexBody:has(.homeProject) .overViewContainer.container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0 0.75rem 1.25rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: start;
+        box-sizing: border-box;
+    }
+
+    .indexBody:has(.homeProject) .homeProjectContainer .left {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .backBtn {
+        gap: 0.5rem;
+    }
+
+    .indexBody:has(.homeProject) .categoryProjrct {
+        margin-top: 1rem;
+        padding: 0.45rem 0.8rem;
+    }
+
+    .indexBody:has(.homeProject) .mainText h1 {
+        margin: 1rem 0 0;
+        font-size: clamp(2rem, 10vw, 2.4rem);
+        -webkit-text-stroke-width: 1.5px;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .mainText h1 span {
+        -webkit-text-stroke-width: 1.5px;
+    }
+
+    .indexBody:has(.homeProject) .mainText p {
+        width: 100%;
+        max-width: none;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .indexBody:has(.homeProject) .detailsOption {
+        width: 100%;
+        margin-top: 1.25rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .firstBox,
+    .indexBody:has(.homeProject) .homeProject .detailsOption .secoundBox {
+        width: 100%;
+        flex: 1 1 auto;
+        gap: 0.65rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .firstBox::after {
+        display: none;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .dateProject {
+        justify-content: flex-start;
+        gap: 0.65rem;
+        white-space: normal;
+    }
+
+    .indexBody:has(.homeProject) .iconO i,
+    .indexBody:has(.homeProject) .secoundBox .iconO i {
+        font-size: 2rem;
+    }
+
+    .indexBody:has(.homeProject) .textO h5,
+    .indexBody:has(.homeProject) .secoundBox .textO h5 {
+        font-size: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .textO h6,
+    .indexBody:has(.homeProject) .secoundBox .textO h6 {
+        font-size: 0.85rem;
+    }
+
+    .indexBody:has(.homeProject) .mainTeach {
+        gap: 0.4rem;
+        margin-top: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .mainTeach .teachItem {
+        padding: 0.3rem 0.55rem;
+    }
+
+    .indexBody:has(.homeProject) .linkBtns {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.6rem;
+        margin-top: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .linkBtns .btn {
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        padding: 0.6rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .indexBody:has(.homeProject) .postgap-showcase {
+        width: 100%;
+        min-width: 0;
+        min-height: 16rem;
+        height: 16rem;
+        max-height: 18rem;
+        aspect-ratio: auto;
+    }
+
+    .indexBody:has(.homeProject) .postgap-showcase__swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer>.lefts,
+    .indexBody:has(.homeProject) .overViewContainer>.right {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 0;
+        justify-self: stretch;
+    }
+
+    .indexBody:has(.homeProject) .tittleSection {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        gap: 0.35rem;
+        text-align: left;
+    }
+
+    .indexBody:has(.homeProject) .tittleSection::after {
+        display: none;
+    }
+
+    .indexBody:has(.homeProject) .numberSection {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .indexBody:has(.homeProject) .numberSection span {
+        font-size: 1.35rem;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .descriptions {
+        width: 100%;
+        max-width: none;
+        margin-top: 0.65rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+    }
+
+    .indexBody:has(.homeProject) .descriptions p {
+        margin-top: 0.75rem;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem;
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox>div {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 9rem;
+        padding: 0.7rem;
+        border-radius: 0.9rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .iconBoxOp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin: 0 0 0.55rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h5,
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h6 {
+        max-width: 100%;
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h6 {
+        margin-top: 0.3rem;
+        font-size: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsSection {
+        width: 100%;
+        min-width: 0;
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsHeader {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsHeader .tittleSection {
+        width: auto;
+        flex: 1 1 100%;
+    }
+
+    .indexBody:has(.homeProject) .postgap-screenshots__swiper {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .indexBody:has(.homeProject) .postgap-screenshots__swiper .screenshotSlide {
+        flex-basis: 7rem;
+        width: 7rem;
+    }
+
+    .indexBody:has(.homeProject) .logoBox {
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .logoB {
+        flex-basis: 3.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .indexBody:has(.homeProject) .logoTextB h4 {
+        font-size: 1.1rem;
+    }
+
+    .indexBody:has(.homeProject) .detailsItems {
+        margin-top: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .itemsP {
+        grid-template-columns: 1.1rem minmax(4.5rem, 5.25rem) minmax(0, 1fr);
+        column-gap: 0.45rem;
+    }
+
+    .indexBody:has(.homeProject) .itemsP .tItems,
+    .indexBody:has(.homeProject) .itemsP .aItems {
+        font-size: 0.8rem;
+    }
+
+    .indexBody:has(.homeProject) .linksProjectBox {
+        margin-top: 1.75rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLink {
+        grid-template-columns: 2.25rem minmax(0, 1fr) 0.8rem;
+        column-gap: 0.5rem;
+        min-height: 4.5rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLinkIcon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLinkName {
+        font-size: 0.8rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLinkDescription {
+        font-size: 0.72rem;
+    }
+
+    .indexBody:has(.homeProject) .boxEnd {
+        height: auto;
+        min-height: 0;
+        gap: 0.6rem;
+        margin-top: 1rem;
+        padding: 0.85rem;
+    }
+
+    .indexBody:has(.homeProject) .boxEnd>i {
+        font-size: 1.6rem;
+    }
+
+    .indexBody:has(.homeProject) .boxEnd>p {
+        width: 100%;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .secthree {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+        margin-top: 0;
+    }
+
+    .indexBody:has(.homeProject) .secthreeOne,
+    .indexBody:has(.homeProject) .secthreeFour {
+        margin-top: 0.5rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackPanel {
+        min-height: 0;
+        gap: 1rem;
+        padding: 0.85rem;
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackIcon {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags {
+        gap: 0.4rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags span {
+        padding: 0.35rem 0.55rem;
+        font-size: 0.7rem;
+        white-space: normal;
+    }
+
+    .indexBody:has(.homeProject) .relatedProjectsPanel {
+        gap: 0.5rem;
+        padding: 0.65rem;
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsFooter {
+        min-height: 4.5rem;
+        padding: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsFooterLinks {
+        gap: 1rem;
+    }
 }
 
 @media (min-width: 375px) and (max-width:490px) {
@@ -3152,6 +3577,425 @@ html {
         object-fit: contain;
         transform: translateY(-39%);
     }
+
+    .indexBody:has(.homeProject) {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .indexBody:has(.homeProject) .main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .indexBody:has(.homeProject) .headerProjects {
+        width: 100%;
+        min-height: 3.75rem;
+        height: auto;
+        gap: 0.65rem;
+        padding: 0.35rem clamp(0.75rem, 3vw, 1rem);
+        box-sizing: border-box;
+    }
+
+    .indexBody:has(.homeProject) .headerProjects .logoCard img {
+        width: clamp(7rem, 28vw, 8rem);
+        max-width: 100%;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject {
+        gap: clamp(0.55rem, 2vw, 0.75rem);
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject>div,
+    .indexBody:has(.homeProject) .controlIconProject>div>i,
+    .indexBody:has(.homeProject) .cvDownload a i {
+        font-size: clamp(1rem, 3.8vw, 1.2rem);
+    }
+
+    .indexBody:has(.homeProject) .cvDownload {
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .homeProject,
+    .indexBody:has(.homeProject) .overView {
+        width: 100%;
+        min-width: 0;
+        min-height: 0 !important;
+        height: auto !important;
+        max-height: none;
+        overflow: visible !important;
+    }
+
+    .indexBody:has(.homeProject) .homeProject {
+        padding: 4.5rem 0 1.5rem !important;
+    }
+
+    .indexBody:has(.homeProject) .overView {
+        padding: 1.75rem 0 1.5rem !important;
+    }
+
+    .indexBody:has(.homeProject) .homeProjectContainer.container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0 1rem 1.5rem !important;
+        box-sizing: border-box;
+        align-items: start;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer.container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.75rem;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0 1rem 1.5rem;
+        box-sizing: border-box;
+        align-items: start;
+    }
+
+    .indexBody:has(.homeProject) .homeProjectContainer .left {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .backBtn {
+        gap: 0.65rem;
+    }
+
+    .indexBody:has(.homeProject) .categoryProjrct {
+        margin-top: 1.1rem;
+        padding: 0.5rem 0.9rem;
+    }
+
+    .indexBody:has(.homeProject) .mainText h1 {
+        margin: 1.15rem 0 0;
+        font-size: clamp(2.25rem, 8vw, 2.75rem);
+        -webkit-text-stroke-width: 1.75px;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .mainText h1 span {
+        -webkit-text-stroke-width: 1.75px;
+    }
+
+    .indexBody:has(.homeProject) .mainText p {
+        width: 100%;
+        max-width: none;
+        margin: 0.6rem 0 0;
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .indexBody:has(.homeProject) .detailsOption {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+        width: 100%;
+        margin-top: 1.35rem;
+        gap: 0.85rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .firstBox,
+    .indexBody:has(.homeProject) .homeProject .detailsOption .secoundBox {
+        width: 100%;
+        min-width: 0;
+        gap: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .firstBox::after {
+        display: none;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .dateProject {
+        justify-content: flex-start;
+        gap: 0.75rem;
+        white-space: normal;
+    }
+
+    .indexBody:has(.homeProject) .iconO i,
+    .indexBody:has(.homeProject) .secoundBox .iconO i {
+        font-size: 2.1rem;
+    }
+
+    .indexBody:has(.homeProject) .textO h5,
+    .indexBody:has(.homeProject) .secoundBox .textO h5 {
+        font-size: 1.05rem;
+    }
+
+    .indexBody:has(.homeProject) .textO h6,
+    .indexBody:has(.homeProject) .secoundBox .textO h6 {
+        font-size: 0.9rem;
+    }
+
+    .indexBody:has(.homeProject) .mainTeach {
+        gap: 0.45rem;
+        margin-top: 1.1rem;
+    }
+
+    .indexBody:has(.homeProject) .mainTeach .teachItem {
+        padding: 0.35rem 0.65rem;
+    }
+
+    .indexBody:has(.homeProject) .linkBtns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+        gap: 0.7rem;
+        margin-top: 1.15rem;
+    }
+
+    .indexBody:has(.homeProject) .linkBtns .btn {
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        padding: 0.65rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .indexBody:has(.homeProject) .postgap-showcase {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        height: clamp(18rem, 65vw, 21rem);
+        max-height: none;
+        aspect-ratio: auto;
+    }
+
+    .indexBody:has(.homeProject) .postgap-showcase__swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer>.lefts,
+    .indexBody:has(.homeProject) .overViewContainer>.right {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 0;
+        justify-self: stretch;
+    }
+
+    .indexBody:has(.homeProject) .tittleSection {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        gap: 0.45rem;
+        text-align: left;
+    }
+
+    .indexBody:has(.homeProject) .tittleSection::after {
+        display: none;
+    }
+
+    .indexBody:has(.homeProject) .numberSection {
+        font-size: clamp(1.65rem, 5vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .indexBody:has(.homeProject) .numberSection span {
+        font-size: clamp(1.35rem, 4.7vw, 1.8rem);
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .descriptions {
+        width: 100%;
+        max-width: none;
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .indexBody:has(.homeProject) .descriptions p {
+        margin-top: 0.85rem;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 1.4rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox>div {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 9.5rem;
+        padding: 0.8rem;
+        border-radius: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .iconBoxOp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin: 0 0 0.6rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h5,
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h6 {
+        max-width: 100%;
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h6 {
+        margin-top: 0.35rem;
+        font-size: 0.8rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsSection {
+        width: 100%;
+        min-width: 0;
+        margin-top: 1.75rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsHeader {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsHeader .tittleSection {
+        width: auto;
+        flex: 1 1 100%;
+    }
+
+    .indexBody:has(.homeProject) .postgap-screenshots__swiper {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .indexBody:has(.homeProject) .postgap-screenshots__swiper .screenshotSlide {
+        flex-basis: clamp(7.5rem, 24vw, 9rem);
+        width: clamp(7.5rem, 24vw, 9rem);
+    }
+
+    .indexBody:has(.homeProject) .logoBox {
+        gap: 0.85rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .logoB {
+        flex-basis: 4rem;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .indexBody:has(.homeProject) .detailsItems {
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .itemsP {
+        grid-template-columns: 1.2rem minmax(5rem, 6rem) minmax(0, 1fr);
+        column-gap: 0.6rem;
+    }
+
+    .indexBody:has(.homeProject) .itemsP .tItems,
+    .indexBody:has(.homeProject) .itemsP .aItems {
+        font-size: 0.88rem;
+    }
+
+    .indexBody:has(.homeProject) .linksProjectBox {
+        margin-top: 2rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLink {
+        grid-template-columns: 2.5rem minmax(0, 1fr) 0.9rem;
+        column-gap: 0.65rem;
+        min-height: 5rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLinkIcon {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.2rem;
+    }
+
+    .indexBody:has(.homeProject) .boxEnd {
+        height: auto;
+        min-height: 0;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        padding: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .boxEnd>p {
+        width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .secthree {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .indexBody:has(.homeProject) .secthreeOne,
+    .indexBody:has(.homeProject) .secthreeFour {
+        margin-top: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackPanel,
+    .indexBody:has(.homeProject) .relatedProjectsPanel {
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackPanel {
+        min-height: 0;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackIcon {
+        width: clamp(3.5rem, 14vw, 4rem);
+        height: clamp(3.5rem, 14vw, 4rem);
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
+    }
+
+    .indexBody:has(.homeProject) .techStackTags {
+        gap: 0.5rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags span {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.75rem;
+        white-space: normal;
+    }
+
+    .indexBody:has(.homeProject) .relatedProjectsPanel {
+        gap: 0.6rem;
+        padding: 0.85rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsFooter {
+        min-height: 5rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsFooterLinks {
+        gap: 1.25rem;
+    }
 }
 
 @media (min-width:490px) and (max-width:767px) {
@@ -4397,7 +5241,8 @@ html {
     .indexBody:not(:has(.homeSupport)) .main>#experience>.container {
         padding-inline: clamp(2.25rem, 4vw, 3rem);
     }
- .indexBody:not(:has(.homeSupport)) #experience .workColumn {
+
+    .indexBody:not(:has(.homeSupport)) #experience .workColumn {
         width: min(100%, 20rem);
         margin-left: -23rem;
         margin-top: 2rem;
