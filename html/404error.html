@@ -39,29 +39,54 @@
     <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 
-<body>
-    <!-- From Uiverse.io by preet_7613 -->
-    <main class="my-custom-face-container">
-        <svg class="face" viewBox="0 0 320 380">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="25">
-                <g class="face__eyes" transform="translate(0,112.5)">
-                    <g transform="translate(15,0)">
-                        <polyline class="face__eye-lid" points="37,0 0,120 75,120"></polyline>
-                        <polyline class="face__pupil" points="55,120 55,155" stroke-dasharray="35 35"></polyline>
-                    </g>
-                    <g transform="translate(230,0)">
-                        <polyline class="face__eye-lid" points="37,0 0,120 75,120"></polyline>
-                        <polyline class="face__pupil" points="55,120 55,155" stroke-dasharray="35 35"></polyline>
-                    </g>
-                </g>
-                <rect class="face__nose" x="132.5" y="112.5" width="55" height="155" rx="4" ry="4"></rect>
-                <g transform="translate(65,334)" stroke-dasharray="102 102">
-                    <path class="face__mouth-left" d="M 0 30 C 0 30 40 0 95 0"></path>
-                    <path class="face__mouth-right" d="M 95 0 C 150 0 190 30 190 30"></path>
-                </g>
-            </g>
-        </svg>
+<body class="indexBodyError">
+    <main class="main">
+        <div class="errorLogo">
+            <img src="../images/404Text.png" alt="">
+        </div>
+        <div class="errorTextBox">
+            <h4>The page you're looking for seems to have gone on a break.</h4>
+            <h6>It might have been moved, deleted, or maybe it just needed some time off. <br> Let's get you back on track!
+            </h6>
+            <nav class="errorActions" aria-label="Page navigation">
+                <a class="errorHomeButton" href="../index.html">
+                    <i class="ri-home-4-line" aria-hidden="true"></i>
+                    <span>Go Home</span>
+                </a>
+                <button class="errorBackButton" type="button">
+                    <i class="ri-arrow-left-line" aria-hidden="true"></i>
+                    <span>Back</span>
+                </button>
+            </nav>
+        </div>
     </main>
+
+    <script>
+        document.querySelector(".errorBackButton").addEventListener("click", () => {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "../index.html";
+            }
+        });
+    </script>
+
+    <footer class="errorFooter">
+        <p class="errorFooterText">Let's build something amazing together.</p>
+        <span class="errorFooterLine" aria-hidden="true"></span>
+        <nav class="errorFooterLinks" aria-label="Social media links">
+            <a href="https://github.com/Melikash98" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="ri-github-fill" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/melika-shooryabi/" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn">
+                <i class="ri-linkedin-box-fill" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:Melika.shooryabi24@gmail.com" aria-label="Email">
+                <i class="ri-mail-line" aria-hidden="true"></i>
+            </a>
+        </nav>
+    </footer>
 
 </body>
 

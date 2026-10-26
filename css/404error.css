@@ -1,118 +1,187 @@
-/* From Uiverse.io by preet_7613 */
-/*============================================ Animated Face ============================================*/
-.my-custom-face-container {
+.indexBodyError {
+  --error-footer-color: var(--description-color);
+}
+.indexBodyError {
+  isolation: isolate;
+  background-color: #050d19;
+  position: relative;
+}
+.indexBodyError::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--main-background-error);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.errorLogo{
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  width: 450px;
+  height: auto;
+}
+.errorLogo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.errorTextBox{
+  position: absolute;
+  top: 45%;
+  left: 15%;
+}
+.errorTextBox h4{
+  max-width: 400px;
+  width: 100%;
+  color:var( --main-text-color) ;
+  font-family: var(--robot-font);
+  font-size: 1.5rem;
+}
+.errorTextBox h6{
+  font-size: 1rem;
+  font-family: var(--subtitle-font);
+  color: var(--description-color);
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.errorActions{
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 500px;
-  background: #ffffff00;
-  color: #1a1a1a;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
 }
-
-.my-custom-face-container .face {
-  width: 200px;
+.errorHomeButton{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.5rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  color: #fff;
+  background: #716bfa;
+  box-shadow: 0 8px 22px rgba(78, 70, 220, 0.28);
+  font-family: var(--robot-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-
-.my-custom-face-container .face__eyes,
-.my-custom-face-container .face__eye-lid,
-.my-custom-face-container .face__mouth-left,
-.my-custom-face-container .face__mouth-right,
-.my-custom-face-container .face__nose,
-.my-custom-face-container .face__pupil {
-  animation: eyes 1s 0.3s forwards;
+.errorHomeButton i{
+  font-size: 1rem;
 }
-
-.my-custom-face-container .face__eye-lid,
-.my-custom-face-container .face__pupil {
-  animation-duration: 4s;
-  animation-delay: 1.3s;
-  animation-iteration-count: infinite;
+.errorHomeButton:hover,
+.errorHomeButton:focus-visible{
+  color: #fff;
+  background: #817bff;
+  box-shadow: 0 10px 26px rgba(78, 70, 220, 0.38);
+  transform: translateY(-2px);
 }
-
-.my-custom-face-container .face__eye-lid {
-  animation-name: eye-lid;
+.errorHomeButton:focus-visible,
+.errorBackButton:focus-visible{
+  outline: 2px solid #a9a5ff;
+  outline-offset: 4px;
 }
-.my-custom-face-container .face__mouth-left {
-  animation-name: mouth-left;
+.errorBackButton{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.25rem;
+  border: 0;
+  color: #aeb9d7;
+  cursor: pointer;
+  font-family: var(--robot-font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
-.my-custom-face-container .face__mouth-right {
-  animation-name: mouth-right;
+.errorBackButton i{
+  font-size: 1rem;
 }
-.my-custom-face-container .face__nose {
-  animation-name: nose;
+.errorBackButton:hover{
+  color: var(--main-text-color);
+  transform: translateX(-2px);
 }
-.my-custom-face-container .face__pupil {
-  animation-name: pupil;
+.errorFooter{
+  position: fixed;
+  right: 0;
+  bottom: 2rem;
+  left: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto minmax(1rem, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  min-height: 4rem;
+  padding: 0.75rem clamp(1.5rem, 4vw, 2.75rem);
+  box-sizing: border-box;
 }
-
-@keyframes eye-lid {
-  0%,
-  40%,
-  45%,
-  100% {
-    transform: translateY(0);
+.errorFooterText{
+  margin: 0;
+  color: var(--error-footer-color);
+  font-family: var(--robot-font);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.errorFooterLine{
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--error-footer-color);
+  opacity: 0.35;
+}
+.errorFooterLinks{
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 1.6vw, 1.25rem);
+}
+.errorFooterLinks a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--error-footer-color);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.errorFooterLinks a:hover,
+.errorFooterLinks a:focus-visible{
+  color: var(--main-text-color);
+  transform: translateY(-2px);
+}
+.errorFooterLinks a:focus-visible{
+  outline: 2px solid var(--error-footer-color);
+  outline-offset: 4px;
+}
+@media (max-width: 520px){
+  .errorFooter{
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.55rem 0.85rem;
+    min-height: 4.5rem;
+    padding: 0.75rem 1rem;
   }
-  42.5% {
-    transform: translateY(17.5px);
+  .errorFooterText{
+    max-width: 100%;
+    font-size: 0.68rem;
+    white-space: normal;
   }
-}
-
-@keyframes eyes {
-  from {
-    transform: translateY(112.5px);
+  .errorFooterLine{
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
-  to {
-    transform: translateY(15px);
-  }
-}
-
-@keyframes pupil {
-  0%,
-  37.5%,
-  40%,
-  45%,
-  87.5%,
-  100% {
-    stroke-dashoffset: 0;
-    transform: translate(0, 0);
-  }
-  12.5%,
-  25%,
-  62.5%,
-  75% {
-    transform: translate(-35px, 0);
-  }
-  42.5% {
-    stroke-dashoffset: 35;
-    transform: translate(0, 17.5px);
-  }
-}
-
-@keyframes mouth-left {
-  from,
-  50% {
-    stroke-dashoffset: -102;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes mouth-right {
-  from,
-  50% {
-    stroke-dashoffset: 102;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes nose {
-  from {
-    transform: translate(0, 0);
-  }
-  to {
-    transform: translate(0, 22.5px);
+  .errorFooterLinks{
+    grid-column: 2;
+    grid-row: 1;
+    gap: 0.75rem;
   }
 }
