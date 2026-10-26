@@ -258,5 +258,260 @@ async function initHome() {
     startAnalytics();
 }
  
+
+const EXPERIENCE_PATH = "webdatabase/experience/Experience";
+const EXPERIENCE_CACHE_KEY = "portfolio:experience:v1";
+ 
+// database key -> data-record-document-id in the HTML (optional, name matching is the fallback)
+const EXPERIENCE_KEY_MAP = {
+    Experience1: "iran-technical-vocational"
+    // Experience2: "karlancer",
+    // Experience3: "iranian-school-qatar",
+    // Experience4: "tose-ertebatat-network",
+};
+ 
+// accepted field names (first non-empty one wins)
+const EXP_FIELDS = {
+    company: ["companyName", "company", "name"],
+    title: ["jobTitle", "title", "position", "roleName", "job"],
+    start: ["start", "startDate", "from"],
+    end: ["end", "endDate", "to"],
+    time: ["time", "duration"],
+    logo: ["logo", "image", "img", "companyLogo"],
+    descriptions: ["descriptions", "description", "details"],
+    roles: ["moreRoleEx", "roles", "moreRoles"],
+    docId: ["docId", "documentId"]
+};
+ 
+const EXP_ROLE_FIELDS = {
+    name: ["namePo", "name", "title"],
+    start: ["startR", "start"],
+    end: ["endR", "end"],
+    text: ["roleMe", "description", "descriptions"]
+};
+ 
+const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+ 
+const norm = (value) => String(value ?? "").replace(/\s+/g, " ").trim().toLowerCase();
+ 
+function getStr(obj, keys) {
+    for (const key of keys) {
+        const value = obj?.[key];
+        if (typeof value === "string" || typeof value === "number") {
+            const text = String(value).trim();
+            if (text) return text;
+        }
+    }
+    return "";
+}
+ 
+// object -> [[key, value], ...] sorted naturally (Experience2 before Experience10)
+function entriesOf(value) {
+    if (!value || typeof value !== "object") return [];
+ 
+    return Object.entries(value)
+        .filter(([, v]) => v && typeof v === "object")
+        .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }));
+}
+ 
+function toLines(value) {
+    if (Array.isArray(value)) return value.map((v) => String(v).trim()).filter(Boolean);
+    if (value && typeof value === "object") return toLines(Object.values(value));
+    return String(value ?? "").split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+}
+ 
+// "Jan 2024" / "March 2023" / "Present" -> {y, m}
+function parseMonthYear(text) {
+    const t = String(text ?? "").trim().toLowerCase();
+ 
+    if (!t || /^(present|now|current|today)$/.test(t)) {
+        const now = new Date();
+        return { y: now.getFullYear(), m: now.getMonth() };
+    }
+ 
+    const match = t.match(/^([a-z]{3})[a-z]*\.?\s+(\d{4})$/);
+    if (!match || !(match[1] in MONTHS)) return null;
+ 
+    return { y: Number(match[2]), m: MONTHS[match[1]] };
+}
+ 
+// both months count (Jan 2024 - May 2025 = 1 Yr, 5 Month)
+function calcDuration(start, end) {
+    const from = parseMonthYear(start);
+    const to = parseMonthYear(end);
+    if (!from || !to) return null;
+ 
+    const total = (to.y - from.y) * 12 + (to.m - from.m) + 1;
+    if (total <= 0) {
+        console.warn(`[Firebase] Experience: end date is before start date (${start} - ${end}).`);
+        return null;
+    }
+ 
+    return { years: Math.floor(total / 12), months: total % 12 };
+}
+ 
+function setDuration(el, years, months) {
+    el.textContent = "";
+ 
+    const add = (number, label) => {
+        const span = document.createElement("span");
+        span.className = "value";
+        span.textContent = number;
+        el.append(span, label);
+    };
+ 
+    if (years) add(years, "Yr");
+    if (years && months) el.append(" , ");
+    if (months) add(months, "Month");
+}
+ 
+function findExperienceElement(key, item) {
+    const all = [...document.querySelectorAll('[data-record-collection="experience"]')];
+    const byDocId = (id) => all.find((el) => el.dataset.recordDocumentId === id) || null;
+ 
+    // 1) id stored inside the database item
+    const explicit = getStr(item, EXP_FIELDS.docId);
+    if (explicit && byDocId(explicit)) return byDocId(explicit);
+ 
+    // 2) key map
+    if (EXPERIENCE_KEY_MAP[key] && byDocId(EXPERIENCE_KEY_MAP[key])) {
+        return byDocId(EXPERIENCE_KEY_MAP[key]);
+    }
+ 
+    // 3) company name
+    const company = norm(getStr(item, EXP_FIELDS.company));
+    if (company) {
+        return all.find((el) =>
+            norm(el.querySelector(".tittleWork h3:not(.subjectDegreeItem)")?.textContent) === company
+        ) || null;
+    }
+ 
+    return null;
+}
+ 
+function renderExperienceRoles(el, rolesData) {
+    const workItems = [...el.querySelectorAll(".workItem")];
+    const used = new Set();
+ 
+    entriesOf(rolesData).forEach(([, role], index) => {
+        const name = getStr(role, EXP_ROLE_FIELDS.name);
+ 
+        let target = name
+            ? workItems.find((w) => !used.has(w) && norm(w.querySelector(".roleCompany")?.textContent) === norm(name))
+            : null;
+ 
+        if (!target && workItems[index] && !used.has(workItems[index])) {
+            target = workItems[index];
+        }
+ 
+        if (!target) {
+            console.warn(`[Firebase] Experience: no .workItem found for role "${name || index + 1}".`);
+            return;
+        }
+ 
+        used.add(target);
+ 
+        const start = getStr(role, EXP_ROLE_FIELDS.start);
+        const end = getStr(role, EXP_ROLE_FIELDS.end);
+        const text = getStr(role, EXP_ROLE_FIELDS.text);
+ 
+        const nameEl = target.querySelector(".roleCompany");
+        const dateEl = target.querySelector(".dataWorkTittle");
+        const textEl = target.querySelector(".explainWork");
+ 
+        if (nameEl && name) nameEl.textContent = name;
+        if (dateEl && (start || end)) dateEl.textContent = start ? `${start} - ${end || "Present"}` : end;
+        if (textEl && text) textEl.textContent = text;
+    });
+}
+ 
+function renderExperienceItem(el, item) {
+    const company = getStr(item, EXP_FIELDS.company);
+    const title = getStr(item, EXP_FIELDS.title);
+    const start = getStr(item, EXP_FIELDS.start);
+    const end = getStr(item, EXP_FIELDS.end);
+    const manualTime = getStr(item, EXP_FIELDS.time);
+    const logo = getStr(item, EXP_FIELDS.logo);
+ 
+    // company name + job title
+    const companyEl = el.querySelector(".tittleWork h3:not(.subjectDegreeItem)");
+    const titleEl = el.querySelector(".tittleWork .subjectDegreeItem");
+    if (companyEl && company) companyEl.textContent = company;
+    if (titleEl && title) titleEl.textContent = title;
+ 
+    // logo
+    const logoEl = el.querySelector(".imgCompany img");
+    if (logoEl && logo) {
+        logoEl.src = logo;
+        if (company) logoEl.alt = company;
+    }
+ 
+    // dates + duration
+    const dateEl = el.querySelector(".calenderEX");
+    if (dateEl && start) dateEl.textContent = `${start} - ${end || "Present"}`;
+ 
+    const durationEl = el.querySelector(".valueDateEx");
+    if (durationEl) {
+        if (manualTime) {
+            durationEl.textContent = manualTime;
+        } else if (start) {
+            const duration = calcDuration(start, end);
+            if (duration) setDuration(durationEl, duration.years, duration.months);
+        }
+    }
+ 
+    // bullet list (only when the database has text, otherwise the HTML stays)
+    const list = el.querySelector("ul.explainItem");
+    const lines = toLines(pick(...EXP_FIELDS.descriptions.map((k) => item[k])));
+ 
+    if (list && lines.length) {
+        list.textContent = "";
+ 
+        lines.forEach((line) => {
+            const li = document.createElement("li");
+            const icon = document.createElement("i");
+            icon.className = "ri-circle-fill";
+            li.append(icon, ` ${line}`);
+            list.appendChild(li);
+        });
+    }
+ 
+    // roles / projects inside the company
+    const rolesData = pick(...EXP_FIELDS.roles.map((k) => item[k]));
+    if (rolesData) renderExperienceRoles(el, rolesData);
+}
+ 
+// open accordion items must grow/shrink to the new content
+function refreshOpenResumeItems() {
+    document.querySelectorAll(".resumeItem.active .detailItem").forEach((details) => {
+        details.style.maxHeight = `${details.scrollHeight}px`;
+    });
+}
+ 
+function renderExperience(data) {
+    entriesOf(data).forEach(([key, item]) => {
+        const el = findExperienceElement(key, item);
+ 
+        if (!el) {
+            console.warn(`[Firebase] Experience: no matching element in the HTML for "${key}". Add it to EXPERIENCE_KEY_MAP.`);
+            return;
+        }
+ 
+        renderExperienceItem(el, item);
+    });
+ 
+    refreshOpenResumeItems();
+}
+ 
+const loadExperience = createSectionLoader({
+    path: EXPERIENCE_PATH,
+    cacheKey: EXPERIENCE_CACHE_KEY,
+    render: renderExperience,
+    label: "Experience"
+});
+ 
+ 
+/* ---------- boot ---------- */
 initHome();
+loadExperience();
  
