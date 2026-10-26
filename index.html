@@ -124,28 +124,28 @@
         <!-- !Home -->
         <section class="section home" id="home">
             <div class="homeContainer container">
-                <div class="homeContent">
+                <div class="homeContent" id="profile-content">
                     <div class="homeInfo">
                         <h5 class="startText" data-aos="fade-down">Hallo, <span class="randomText"
                                 id="role-animation">My
                                 Name Is Melika</span>
                         </h5>
-                        <h1 class="nameText" data-aos="fade-down">Melika <span>Shooryabi</span></h1>
-                        <h6 class="rolName" data-aos="fade-down">Software Engineer & Backend Developer</h6>
+                        <h1 class="nameText" data-aos="fade-down" id="profile-name-desktop">Melika <span>Shooryabi</span></h1>
+                        <h6 class="rolName" data-aos="fade-down" id="profile-role-desktop">Software Engineer & Backend Developer</h6>
                     </div>
                     <div class="homeProfilePic">
                         <div class="picBack" data-aos="fade-up">
-                            <img src="images/me2.png" alt="Profile Pic">
+                            <img src="images/me2.png" alt="Profile Pic" id="profile-photo">
                         </div>
-                        <div class="exInfo infoOne">
+                        <div class="exInfo infoOne" id="profile-stat-experience">
                             <span class="exInfo-number">+4</span>
                             <h3 class="exInfo-text">Years Of <span> Experience</span></h3>
                         </div>
-                        <div class="exInfo infoTwo">
+                        <div class="exInfo infoTwo" id="profile-stat-projects">
                             <span class="exInfo-number">+18</span>
                             <h3 class="exInfo-text">Completed<span> Projects</span></h3>
                         </div>
-                        <div class="exInfo infoThree">
+                        <div class="exInfo infoThree" id="profile-stat-courses">
                             <span class="exInfo-number">+6</span>
                             <h3 class="exInfo-text">Training<span> Course</span></h3>
                         </div>
@@ -159,13 +159,13 @@
 
                     </div>
                     <div class="homeInfoTwo">
-                        <h1 class="nameTextTwo" data-aos="fade-down">Melika <span>Shooryabi</span></h1>
+                        <h1 class="nameTextTwo" data-aos="fade-down" id="profile-name-compact">Melika <span>Shooryabi</span></h1>
                         <h5 class="startTextTwo" data-aos="fade-down">Hallo, <span class="randomText"
                                 id="role-animationTwo">My
                                 Name Is Melika</span>
                         </h5>
-                        <h6 class="rolNameTwo" data-aos="fade-down">Software Engineer & Backend Developer</h6>
-                        <p class="descriptionAboutTwo" data-aos="fade-down">I’m Melika Shooryabi, a Software Engineer
+                        <h6 class="rolNameTwo" data-aos="fade-down" id="profile-role-compact">Software Engineer & Backend Developer</h6>
+                        <p class="descriptionAboutTwo" data-aos="fade-down" id="profile-biography-compact">I’m Melika Shooryabi, a Software Engineer
                             focused
                             on building reliable and modern software solutions.
                             I specialize in Java, Spring Boot, REST APIs, PostgreSQL, and backend development, with
@@ -179,7 +179,7 @@
 
                         </p>
                     </div>
-                    <p class="descriptionAbout" data-aos="fade-down">
+                    <p class="descriptionAbout" data-aos="fade-down" id="profile-biography">
                         <span class="aboutFullText">I’m Melika Shooryabi, a Software Engineer focused
                             on building reliable and modern software solutions.
                             I specialize in Java, Spring Boot, REST APIs, PostgreSQL, and backend development, with
@@ -190,20 +190,20 @@
                             development journey.</span>
                         <span class="aboutTabletExcerpt" aria-hidden="true">I’m Melika Shooryabi, a Software Engineer focused on building reliable and modern software solutions. I specialize in Java, Spring Boot, REST APIs, PostgreSQL, and backend development, with experience in Android application development. I enjoy turning ideas into clean, maintainable, and user-foc...</span>
                     </p>
-                    <div class="socialGroup SocialLinks">
+                    <div class="socialGroup SocialLinks" id="profile-social-links">
                         <!-- TODO: Telegram,Linkedin,Github,Email -->
-                        <a href="https://t.me/melika_sh_de" class="socialLink" data-aos="fade-right"><i
+                        <a href="https://t.me/melika_sh_de" class="socialLink" id="profile-social-telegram" data-aos="fade-right"><i
                                 class="uil uil-telegram-alt"></i></a>
-                        <a href="https://www.linkedin.com/in/melika-shooryabi/" class="socialLink"
+                        <a href="https://www.linkedin.com/in/melika-shooryabi/" class="socialLink" id="profile-social-linkedin"
                             data-aos="fade-right"><i class="uil uil-linkedin"></i></a>
-                        <a href="https://github.com/Melikash98" class="socialLink" data-aos="fade-right"><i
+                        <a href="https://github.com/Melikash98" class="socialLink" id="profile-social-github" data-aos="fade-right"><i
                                 class="ri-github-line"></i></a>
-                        <a href="mailto:Melika.shooryabi24@gmail.com" class="socialLink" data-aos="fade-right"><i
+                        <a href="mailto:Melika.shooryabi24@gmail.com" class="socialLink" id="profile-social-email" data-aos="fade-right"><i
                                 class="uis uis-at"></i></a>
                     </div>
                     <!-- TODO: CV & Skill(Section) Button -->
                     <div class="btns">
-                        <a href="pdf/Lebenslauf.pdf" download="" target="_blank" class="btn"
+                        <a href="pdf/Lebenslauf.pdf" download="" target="_blank" class="btn" id="profile-cv-download"
                             data-aos="fade-up-right">Download
                             CV</a>
                         <a href="#skills" class="skillsLink" data-aos="fade-right">My Skills</a>
@@ -224,7 +224,7 @@
                     <div class="experiencekColumns">
                         <div class="educationColumn" data-aos="fade-down-right">
                             <h2 class="clumnTittle">Education</h2>
-                            <div class="educationItem resumeItem">
+                            <div class="educationItem resumeItem" id="education-masters-computer-networks">
                                 <div class="mainItem resumeToggle">
                                     <h3>Master’s Degree</h3>
                                     <div class="detailsBtn">
@@ -250,7 +250,7 @@
 
                                 </div>
                             </div>
-                            <div class="educationItem resumeItem">
+                            <div class="educationItem resumeItem" id="education-bachelors-computer-engineering">
                                 <div class="mainItem resumeToggle">
                                     <h3>Bachelor's Degree</h3>
                                     <div class="detailsBtn">
@@ -281,7 +281,7 @@
                         </div>
                         <div class="workColumn" data-aos="fade-down">
                             <h2 class="clumnTittle">Experience</h2>
-                            <div class="experienceItem resumeItem">
+                            <div class="experienceItem resumeItem" id="experience-iranian-school-qatar">
                                 <div class="mainItem resumeToggle workMainItem">
                                     <div class="tittleWork">
                                         <div class="imgCompany">
@@ -310,7 +310,7 @@
 
                                 </div>
                             </div>
-                            <div class="experienceItem resumeItem">
+                            <div class="experienceItem resumeItem" id="experience-karlancer">
                                 <div class="mainItem resumeToggle workMainItem">
                                     <div class="tittleWork">
                                         <div class="imgCompany">
@@ -333,28 +333,28 @@
                                         <h6 class="valueDateEx"><span class="value">3</span>Yr, <span>6</span> Month
                                         </h6>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-karlancer-postgap">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">PostGap</h4>
                                             <h5 class="dataWorkTittle">Jan 2026 - Jun 2026</h5>
                                         </div>
                                         <p class="explainWork"></p>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-karlancer-plavio">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">PLAVIO</h4>
                                             <h5 class="dataWorkTittle">Mar 2025 - Dec 2025</h5>
                                         </div>
                                         <p class="explainWork"></p>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-karlancer-brewbitte">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">BrewBitte</h4>
                                             <h5 class="dataWorkTittle">Feb 2024 - Jan 2025</h5>
                                         </div>
                                         <p class="explainWork"></p>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-karlancer-fanjano">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">Fanjano</h4>
                                             <h5 class="dataWorkTittle">Jan 2023 - Nov 2023</h5>
@@ -363,7 +363,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="experienceItem resumeItem">
+                            <div class="experienceItem resumeItem" id="experience-iran-technical-vocational">
                                 <div class="mainItem resumeToggle workMainItem">
                                     <div class="tittleWork">
                                         <div class="imgCompany">
@@ -388,21 +388,21 @@
                                         <h6 class="valueDateEx"><span class="value">1</span>Yr , <span
                                                 class="value">5</span>Month</h6>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-iran-tvto-java">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">Java</h4>
                                             <h5 class="dataWorkTittle">Mar 2026 - Jun 2026</h6>
                                         </div>
                                         <p class="explainWork"></p>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-iran-tvto-android">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">Android</h4>
                                             <h5 class="dataWorkTittle">Mar 2026 - Jun 2026</h6>
                                         </div>
                                         <p class="explainWork"></p>
                                     </div>
-                                    <div class="workItem">
+                                    <div class="workItem" id="work-iran-tvto-basic-python">
                                         <div class="sectioWorkTittle">
                                             <h4 class="roleCompany">Basic Python</h4>
                                             <h5 class="dataWorkTittle">Mar 2026 - Jun 2026</h6>
@@ -411,7 +411,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="experienceItem resumeItem">
+                            <div class="experienceItem resumeItem" id="experience-tose-ertebatat-network">
                                 <div class="mainItem resumeToggle workMainItem">
                                     <div class="tittleWork">
                                         <div class="imgCompany">
@@ -445,7 +445,7 @@
                         </div>
                         <div class="awardColumn" data-aos="fade-down-left">
                             <h2 class="clumnTittle">Award</h2>
-                            <div class="awardItem resumeItem">
+                            <div class="awardItem resumeItem" id="award-python-2024">
                                 <div class="mainItem resumeToggle">
                                     <h3>Python</h3>
                                     <div class="detailsBtn">
@@ -460,7 +460,7 @@
 
                                 </div>
                             </div>
-                            <div class="awardItem resumeItem">
+                            <div class="awardItem resumeItem" id="award-android-2023">
                                 <div class="mainItem resumeToggle">
                                     <h3>Android</h3>
                                     <div class="detailsBtn">
@@ -527,7 +527,7 @@
                     <div class="skilldContent">
                         <div class="skillsGroup skillsActive" data-content id="Programming">
                             <div class="skillsList grid">
-                                <div class="skillItem swiper-slide" data-aos="fade-right">
+                                <div class="skillItem swiper-slide" id="skill-programming-java" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-java-line"></i> JAVA</h3>
                                         <span class="skillNumber">95%</span>
@@ -536,7 +536,7 @@
                                         <span class="skillsScoreBar" style="width: 95%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem swiper-slide" data-aos="fade-right">
+                                <div class="skillItem swiper-slide" id="skill-programming-python" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 650" id="python">
@@ -557,7 +557,7 @@
                                         <span class="skillsScoreBar" style="width: 95%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem swiper-slide" data-aos="fade-right">
+                                <div class="skillItem swiper-slide" id="skill-programming-oop" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-code-line"></i> OOP</h3>
                                         <span class="skillNumber">100%</span>
@@ -566,7 +566,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem swiper-slide" data-aos="fade-right">
+                                <div class="skillItem swiper-slide" id="skill-programming-data-structures-algorithms" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-git-branch-line"></i> Data Structures &
                                             Algorithms</h3>
@@ -576,7 +576,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem swiper-slide" data-aos="fade-right">
+                                <div class="skillItem swiper-slide" id="skill-programming-multithreading" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-cpu-line"></i> Multithreading</h3>
                                         <span class="skillNumber">100%</span>
@@ -585,7 +585,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem swiper-slide" data-aos="fade-right">
+                                <div class="skillItem swiper-slide" id="skill-programming-solid-patterns" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-shapes-line"></i>SOLID & Design Patterns
                                         </h3>
@@ -599,7 +599,7 @@
                         </div>
                         <div class="skillsGroup" data-content id="Backend">
                             <div class="skillsList grid">
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-backend-spring-boot" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-leaf-line"></i>Spring Boot </h3>
                                         <span class="skillNumber">100%</span>
@@ -608,7 +608,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-backend-spring-mvc" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-layout-grid-line"></i>Spring MVC </h3>
                                         <span class="skillNumber">100%</span>
@@ -617,7 +617,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-backend-jpa-hibernate" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-links-line"></i>JPA & Hibernate</h3>
                                         <span class="skillNumber">100%</span>
@@ -626,7 +626,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-backend-rest-apis" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-server-line"></i>REST APIs</h3>
                                         <span class="skillNumber">100%</span>
@@ -635,7 +635,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-backend-postgresql-mysql" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-database-2-line"></i>PostgreSQL & MySQL</h3>
                                         <span class="skillNumber">100%</span>
@@ -644,7 +644,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-backend-spring-security-jwt" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-shield-keyhole-line"></i>Spring Security &
                                             JWT</h3>
@@ -658,7 +658,7 @@
                         </div>
                         <div class="skillsGroup" data-content id="Android">
                             <div class="skillsList grid">
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-android-development" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-android-line"></i>Android Development</h3>
                                         <span class="skillNumber">100%</span>
@@ -667,7 +667,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-android-java" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-java-line"></i>Java for Android</h3>
                                         <span class="skillNumber">100%</span>
@@ -676,7 +676,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-android-sdk-xml" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-code-box-line"></i>Android SDK & XML</h3>
                                         <span class="skillNumber">100%</span>
@@ -685,7 +685,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-android-mvvm" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-layout-4-line"></i>MVVM</h3>
                                         <span class="skillNumber">100%</span>
@@ -694,7 +694,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-android-firebase" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-fire-fill"></i>Firebase</h3>
                                         <span class="skillNumber">100%</span>
@@ -703,7 +703,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-android-retrofit-okhttp" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-wifi-line"></i>Retrofit & OkHttp</h3>
                                         <span class="skillNumber">100%</span>
@@ -716,7 +716,7 @@
                         </div>
                         <div class="skillsGroup" data-content id="Network">
                             <div class="skillsList grid">
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-network-computer-networks" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-global-line"></i>Computer Networks</h3>
                                         <span class="skillNumber">100%</span>
@@ -725,7 +725,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-network-http-https" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-global-line"></i>HTTP / HTTPS</h3>
                                         <span class="skillNumber">100%</span>
@@ -734,7 +734,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-network-git-github" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-github-fill"></i>Git & GitHub</h3>
                                         <span class="skillNumber">100%</span>
@@ -743,7 +743,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-network-maven-gradle" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-tools-line"></i>Maven & Gradle</h3>
                                         <span class="skillNumber">100%</span>
@@ -752,7 +752,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-network-postman" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-send-plane-line"></i>Postman</h3>
                                         <span class="skillNumber">100%</span>
@@ -761,7 +761,7 @@
                                         <span class="skillsScoreBar" style="width: 100%;"></span>
                                     </div>
                                 </div>
-                                <div class="skillItem" data-aos="fade-right">
+                                <div class="skillItem" id="skill-network-intellij-android-studio" data-aos="fade-right">
                                     <div class="skillTittles">
                                         <h3 class="skillName"><i class="ri-terminal-box-line"></i>IntelliJ IDEA &
                                             Android Studio</h3>
@@ -788,7 +788,7 @@
             <div class="container">
                 <div class="swiper services-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide card" data-aos="fade-right" data-aos-delay="400">
+                        <div class="swiper-slide card" id="service-backend-development" data-aos="fade-right" data-aos-delay="400">
                             <h4 class="subtitle-service">Backend Development</h4>
                             <h3 class="tittle-service">Java & Spring Boot</h3>
                             <p class="description-service">I develop backend applications and REST APIs that manage
@@ -822,7 +822,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="swiper-slide card" id="service-mobile-development" data-aos="zoom-in" data-aos-delay="450">
                             <h4 class="subtitle-service">Mobile Development</h4>
                             <h3 class="tittle-service">Native Android Applications</h3>
                             <p class="description-service">I build native Android applications with Java, focusing on...
@@ -858,7 +858,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card" data-aos="fade-left" data-aos-delay="500">
+                        <div class="swiper-slide card" id="service-api-development" data-aos="fade-left" data-aos-delay="500">
                             <h4 class="subtitle-service">API Development</h4>
                             <h3 class="tittle-service">RESTful API Solutions</h3>
                             <p class="description-service"> I design and implement APIs that provide structured...</p>
@@ -891,7 +891,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card">
+                        <div class="swiper-slide card" id="service-database-cloud-integration">
                             <h4 class="subtitle-service">Database & Cloud Integration</h4>
                             <h3 class="tittle-service">Firebase & PostgreSQL</h3>
                             <p class="description-service"> I work with both cloud-based and relational data solutions..
@@ -925,7 +925,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card">
+                        <div class="swiper-slide card" id="service-ui-development">
                             <h4 class="subtitle-service">UI Development</h4>
                             <h3 class="tittle-service">Custom Android Components</h3>
                             <p class="description-service"> CI create reusable Android components and interactive...</p>
@@ -957,7 +957,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide card">
+                        <div class="swiper-slide card" id="service-software-product-development">
                             <h4 class="subtitle-service">Software Product Development</h4>
                             <h3 class="tittle-service">Custom Apps & MVPs</h3>
                             <p class="description-service"> I develop practical software products by combining mobile...
@@ -1024,7 +1024,7 @@
                 <div class="projectContainer swiper projects-swiper">
                     <div class="swiper-wrapper">
                         <!-- TODO Haus Suche 13-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app"
+                        <div class="boxCard swiper-slide" id="project-haus-suche" data-key="fitness" data-category="app"
                             data-image-type="landscape" data-aos="fade-right" data-aos-offset="100"
                             data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
@@ -1046,7 +1046,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1098,7 +1098,7 @@
                             </div>
                         </div>
                         <!-- TODO BrewBite 12-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app"
+                        <div class="boxCard swiper-slide" id="project-brewbite" data-key="fitness" data-category="app"
                             data-image-type="landscape" data-aos="fade-right" data-aos-offset="100"
                             data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
@@ -1118,7 +1118,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1169,7 +1169,7 @@
                             </div>
                         </div>
                         <!-- TODO EasyEmail 11-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="library"
+                        <div class="boxCard swiper-slide" id="project-easyemail" data-key="fitness" data-category="library"
                             data-image-type="portrait" data-aos="fade-right" data-aos-offset="100"
                             data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
@@ -1189,7 +1189,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1235,7 +1235,7 @@
                             </div>
                         </div>
                         <!-- TODO Editify 10-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="library"
+                        <div class="boxCard swiper-slide" id="project-editify" data-key="fitness" data-category="library"
                             data-image-type="portrait" data-aos="fade-right" data-aos-offset="100"
                             data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
@@ -1255,7 +1255,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1299,7 +1299,7 @@
                             </div>
                         </div>
                         <!-- TODO MorphNavBar 9-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="library"
+                        <div class="boxCard swiper-slide" id="project-morphnavbar" data-key="fitness" data-category="library"
                             data-image-type="portrait" data-aos="fade-right" data-aos-offset="100"
                             data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
@@ -1320,7 +1320,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1365,7 +1365,7 @@
                             </div>
                         </div>
                         <!-- TODO Portfolio One 8-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="web" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-portfolio-website-1" data-key="fitness" data-category="web" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/portfolio.png" alt="portfolio.png">
@@ -1384,7 +1384,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1431,7 +1431,7 @@
                             </div>
                         </div>
                         <!-- TODO Portfolio Two 7-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="web" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-portfolio-website-2" data-key="fitness" data-category="web" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/portfolioTwo.png" alt="portfolio.png">
@@ -1450,7 +1450,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1497,7 +1497,7 @@
                             </div>
                         </div>
                         <!-- TODO Admin Panel 6-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="web" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-admin-panel" data-key="fitness" data-category="web" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/adminpannel.webp" alt="adminpannel.png">
@@ -1516,7 +1516,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1564,7 +1564,7 @@
                             </div>
                         </div>
                         <!-- TODO Fanjano 5-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-fanjano-app" data-key="fitness" data-category="app" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/Fanjano Café App Showcase.png"
@@ -1584,7 +1584,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1635,7 +1635,7 @@
                             </div>
                         </div>
                         <!-- TODO PostGap 4-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-postgap" data-key="fitness" data-category="app" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/PostGap_ Your World in One App.png"
@@ -1655,7 +1655,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1706,7 +1706,7 @@
                             </div>
                         </div>
                         <!-- TODO PLAVIO 3-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-plavio-1" data-key="fitness" data-category="app" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/PLAVIO_ Your Perfect Place Awaits.png"
@@ -1726,7 +1726,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1781,7 +1781,7 @@
                             </div>
                         </div>
                          <!-- TODO Portfolio App MPA 2-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-plavio-2" data-key="fitness" data-category="app" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/PLAVIO_ Your Perfect Place Awaits.png"
@@ -1801,7 +1801,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1856,7 +1856,7 @@
                             </div>
                         </div>
                          <!-- TODO Portfolio App MPA AdminPannel 1-->
-                        <div class="boxCard swiper-slide" data-key="fitness" data-category="app" data-aos="fade-right"
+                        <div class="boxCard swiper-slide" id="project-plavio-3" data-key="fitness" data-category="app" data-aos="fade-right"
                             data-image-type="landscape" data-aos-offset="100" data-aos-easing="ease-in-sine">
                             <div class="boxCardImg">
                                 <img loading="lazy" src="images/PLAVIO_ Your Perfect Place Awaits.png"
@@ -1876,7 +1876,7 @@
                                     <img loading="lazy" src="images/dot-modol3-dark.png" alt="" class="shape">
                                 </div>
                             </div>
-                            <div class="projectDetail" id="projectDetail">
+                            <div class="projectDetail">
                                 <div>
                                     <div>
                                         <div>
@@ -1985,7 +1985,7 @@
             <div class="container">
                 <div class="swiper tutorialsSwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                        <div class="swiper-slide  tutorialsCard" id="tutorial-advanced-java" data-status="coming-soon" data-aos="fade-right"
                             data-aos-delay="450">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
@@ -2043,7 +2043,7 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                        <div class="swiper-slide  tutorialsCard" id="tutorial-spring-boot-1" data-status="coming-soon" data-aos="fade-right"
                             data-aos-delay="500">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
@@ -2052,7 +2052,7 @@
                             <div class="infoTutorialsCard">
                                 <div class="up">
                                     <div class="roleTutorials">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="spring-boot">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                                             <path fill="#ABF0E9"
                                                 d="M40.41 32.784C35.472 39.362 24.928 37.142 18.166 37.46C18.166 37.46 16.968 37.528 15.764 37.726C15.764 37.726 16.22 37.532 16.802 37.33C21.55 35.688 23.794 35.358 26.68 33.876C32.1 31.1 37.496 25.05 38.594 18.766C36.53 24.81 30.254 30.012 24.54 32.124C20.63 33.568 13.556 34.972 13.554 34.972C13.4579 34.9228 13.3626 34.8721 13.268 34.82C8.458 32.48 8.318 22.06 17.056 18.702C20.888 17.23 24.55 18.038 28.692 17.052C33.108 16.002 38.224 12.692 40.302 8.36402C42.632 15.28 45.432 26.096 40.41 32.784ZM40.494 6.22402C39.9354 7.56351 39.2204 8.83231 38.364 10.004C36.5024 8.08531 34.2743 6.56005 31.812 5.51873C29.3498 4.47741 26.7034 3.94123 24.03 3.94202C12.984 3.94202 4 12.926 4 23.97C3.99871 26.7249 4.56753 29.4502 5.67068 31.9745C6.77383 34.4989 8.38744 36.7676 10.41 38.638L10.85 39.026C10.5293 38.7048 10.3493 38.2693 10.3496 37.8154C10.3499 37.3615 10.5304 36.9262 10.8515 36.6054C11.1726 36.2845 11.608 36.1044 12.0619 36.1045C12.5159 36.1045 12.9512 36.2849 13.2721 36.6059C13.5931 36.9269 13.7735 37.3622 13.7736 37.8161C13.7737 38.27 13.5935 38.7054 13.2726 39.0265C12.9518 39.3476 12.5166 39.5282 12.0626 39.5285C11.6087 39.5287 11.1732 39.3487 10.852 39.028L11.15 39.292C14.7508 42.3363 19.3148 44.0046 24.03 44C34.586 44 43.256 35.784 43.998 25.416C44.546 20.338 43.046 13.89 40.494 6.22402Z">
                                             </path>
@@ -2089,7 +2089,7 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                        <div class="swiper-slide  tutorialsCard" id="tutorial-firebase" data-status="coming-soon" data-aos="fade-right"
                             data-aos-delay="550">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
@@ -2146,7 +2146,7 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard" data-status="coming-soon" data-aos="fade-right"
+                        <div class="swiper-slide  tutorialsCard" id="tutorial-unit-testing" data-status="coming-soon" data-aos="fade-right"
                             data-aos-delay="600">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
@@ -2189,7 +2189,7 @@
 
                             </div>
                         </div>
-                        <div class="swiper-slide  tutorialsCard m" data-status="coming-soon" data-aos="fade-right"
+                        <div class="swiper-slide  tutorialsCard m" id="tutorial-spring-boot-2" data-status="coming-soon" data-aos="fade-right"
                             data-aos-delay="750">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
@@ -2198,7 +2198,7 @@
                             <div class="infoTutorialsCard">
                                 <div class="up">
                                     <div class="roleTutorials">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="spring-boot">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                                             <path fill="#ABF0E9"
                                                 d="M40.41 32.784C35.472 39.362 24.928 37.142 18.166 37.46C18.166 37.46 16.968 37.528 15.764 37.726C15.764 37.726 16.22 37.532 16.802 37.33C21.55 35.688 23.794 35.358 26.68 33.876C32.1 31.1 37.496 25.05 38.594 18.766C36.53 24.81 30.254 30.012 24.54 32.124C20.63 33.568 13.556 34.972 13.554 34.972C13.4579 34.9228 13.3626 34.8721 13.268 34.82C8.458 32.48 8.318 22.06 17.056 18.702C20.888 17.23 24.55 18.038 28.692 17.052C33.108 16.002 38.224 12.692 40.302 8.36402C42.632 15.28 45.432 26.096 40.41 32.784ZM40.494 6.22402C39.9354 7.56351 39.2204 8.83231 38.364 10.004C36.5024 8.08531 34.2743 6.56005 31.812 5.51873C29.3498 4.47741 26.7034 3.94123 24.03 3.94202C12.984 3.94202 4 12.926 4 23.97C3.99871 26.7249 4.56753 29.4502 5.67068 31.9745C6.77383 34.4989 8.38744 36.7676 10.41 38.638L10.85 39.026C10.5293 38.7048 10.3493 38.2693 10.3496 37.8154C10.3499 37.3615 10.5304 36.9262 10.8515 36.6054C11.1726 36.2845 11.608 36.1044 12.0619 36.1045C12.5159 36.1045 12.9512 36.2849 13.2721 36.6059C13.5931 36.9269 13.7735 37.3622 13.7736 37.8161C13.7737 38.27 13.5935 38.7054 13.2726 39.0265C12.9518 39.3476 12.5166 39.5282 12.0626 39.5285C11.6087 39.5287 11.1732 39.3487 10.852 39.028L11.15 39.292C14.7508 42.3363 19.3148 44.0046 24.03 44C34.586 44 43.256 35.784 43.998 25.416C44.546 20.338 43.046 13.89 40.494 6.22402Z">
                                             </path>
@@ -2236,7 +2236,7 @@
 
                             </div>
                         </div>
-                         <div class="swiper-slide  tutorialsCard m" data-status="coming-soon" data-aos="fade-right"
+                         <div class="swiper-slide  tutorialsCard m" id="tutorial-spring-boot-3" data-status="coming-soon" data-aos="fade-right"
                             data-aos-delay="750">
                             <div class="tutorialStatus">Coming Soon</div>
                             <div class="cardTutorialsImg">
@@ -2245,7 +2245,7 @@
                             <div class="infoTutorialsCard">
                                 <div class="up">
                                     <div class="roleTutorials">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="spring-boot">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                                             <path fill="#ABF0E9"
                                                 d="M40.41 32.784C35.472 39.362 24.928 37.142 18.166 37.46C18.166 37.46 16.968 37.528 15.764 37.726C15.764 37.726 16.22 37.532 16.802 37.33C21.55 35.688 23.794 35.358 26.68 33.876C32.1 31.1 37.496 25.05 38.594 18.766C36.53 24.81 30.254 30.012 24.54 32.124C20.63 33.568 13.556 34.972 13.554 34.972C13.4579 34.9228 13.3626 34.8721 13.268 34.82C8.458 32.48 8.318 22.06 17.056 18.702C20.888 17.23 24.55 18.038 28.692 17.052C33.108 16.002 38.224 12.692 40.302 8.36402C42.632 15.28 45.432 26.096 40.41 32.784ZM40.494 6.22402C39.9354 7.56351 39.2204 8.83231 38.364 10.004C36.5024 8.08531 34.2743 6.56005 31.812 5.51873C29.3498 4.47741 26.7034 3.94123 24.03 3.94202C12.984 3.94202 4 12.926 4 23.97C3.99871 26.7249 4.56753 29.4502 5.67068 31.9745C6.77383 34.4989 8.38744 36.7676 10.41 38.638L10.85 39.026C10.5293 38.7048 10.3493 38.2693 10.3496 37.8154C10.3499 37.3615 10.5304 36.9262 10.8515 36.6054C11.1726 36.2845 11.608 36.1044 12.0619 36.1045C12.5159 36.1045 12.9512 36.2849 13.2721 36.6059C13.5931 36.9269 13.7735 37.3622 13.7736 37.8161C13.7737 38.27 13.5935 38.7054 13.2726 39.0265C12.9518 39.3476 12.5166 39.5282 12.0626 39.5285C11.6087 39.5287 11.1732 39.3487 10.852 39.028L11.15 39.292C14.7508 42.3363 19.3148 44.0046 24.03 44C34.586 44 43.256 35.784 43.998 25.416C44.546 20.338 43.046 13.89 40.494 6.22402Z">
                                             </path>
@@ -2299,7 +2299,7 @@
             <div class="container">
                 <div class="swiper comments-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide commentCard" data-aos="fade-right" data-aos-delay="400">
+                        <div class="swiper-slide commentCard" id="testimonial-kasra-masoudy" data-aos="fade-right" data-aos-delay="400">
                             <div class="commaCard">
                                 <img loading="lazy" src="images/quote-right.svg" alt="">
                             </div>
@@ -2318,7 +2318,7 @@
                                 <h6>Computer Engineering Student</h6>
                             </div>
                         </div>
-                        <div class="swiper-slide commentCard" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="swiper-slide commentCard" id="testimonial-amirhossein-fazli" data-aos="zoom-in" data-aos-delay="450">
                             <div class="commaCard">
                                 <img loading="lazy" src="images/quote-right.svg" alt="">
                             </div>
@@ -2336,7 +2336,7 @@
                                 <h6>Flutter Developer ,Flutter ,Dart</h6>
                             </div>
                         </div>
-                        <div class="swiper-slide commentCard" data-aos="fade-left" data-aos-delay="500">
+                        <div class="swiper-slide commentCard" id="testimonial-rasta-fathi" data-aos="fade-left" data-aos-delay="500">
                             <div class="commaCard">
                                 <img loading="lazy" src="images/quote-right.svg" alt="">
                             </div>
@@ -2365,7 +2365,7 @@
 
                             <div class="companyTrack">
                                 <div class="companySet">
-                                    <a href="https://www.arbeitsagentur.de/" class="companyItem"
+                                    <a href="https://www.arbeitsagentur.de/" class="companyItem" id="company-arbeitsagentur"
                                         data-name="Arbeitsagentur" data-role="Career Platform" target="_blank"
                                         rel="noopener noreferrer">
                                         <div class="companyLogo">
@@ -2373,7 +2373,7 @@
                                         </div>
                                     </a>
 
-                                    <a href="https://www.instaffo.com/en/talent" class="companyItem"
+                                    <a href="https://www.instaffo.com/en/talent" class="companyItem" id="company-instaffo"
                                         data-name="Instaffo" data-role="Talent Platform" target="_blank"
                                         rel="noopener noreferrer">
                                         <div class="companyLogo">
@@ -2382,28 +2382,28 @@
                                         </div>
                                     </a>
 
-                                    <a href="https://www.jobware.de/" class="companyItem" data-name="Jobware"
+                                    <a href="https://www.jobware.de/" class="companyItem" id="company-jobware" data-name="Jobware"
                                         data-role="Career Platform" target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/jobware-seeklogo.svg" alt="Jobware">
                                         </div>
                                     </a>
 
-                                    <a href="https://www.triology.de/karriere" class="companyItem" data-name="Triology"
+                                    <a href="https://www.triology.de/karriere" class="companyItem" id="company-triology" data-name="Triology"
                                         data-role="Careers" target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/triology.svg" alt="Triology">
                                         </div>
                                     </a>
 
-                                    <a href="https://www.xing.com/profile-preview" class="companyItem" data-name="XING"
+                                    <a href="https://www.xing.com/profile-preview" class="companyItem" id="company-xing" data-name="XING"
                                         data-role="Professional Network" target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/xing.svg" alt="XING">
                                         </div>
                                     </a>
 
-                                    <a href="https://profile.indeed.com/" class="companyItem" data-name="Indeed"
+                                    <a href="https://profile.indeed.com/" class="companyItem" id="company-indeed" data-name="Indeed"
                                         data-role="Career Platform" target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/indeed.webp" alt="Indeed">
@@ -2411,35 +2411,35 @@
                                     </a>
 
                                     <a href="https://touch.ferchau.com/de/de?sortingType=actuality&amp;sortingDirection=DESC"
-                                        class="companyItem" data-name="FERCHAU" data-role="Engineering and IT"
+                                        class="companyItem" id="company-ferchau" data-name="FERCHAU" data-role="Engineering and IT"
                                         target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/ferchau_logo.jpeg" alt="FERCHAU">
                                         </div>
                                     </a>
 
-                                    <a href="#" class="companyItem" data-name="Faradars" data-role="Education Platform"
+                                    <a href="#" class="companyItem" id="company-faradars" data-name="Faradars" data-role="Education Platform"
                                         target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/fradars.svg" alt="Faradars">
                                         </div>
                                     </a>
 
-                                    <a href="#" class="companyItem" data-name="Daneshjooyar"
+                                    <a href="#" class="companyItem" id="company-daneshjooyar" data-name="Daneshjooyar"
                                         data-role="Education Platform" target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/logotype.svg" alt="Daneshjooyar">
                                         </div>
                                     </a>
 
-                                    <a href="#" class="companyItem" data-name="Maktabkhooneh"
+                                    <a href="#" class="companyItem" id="company-maktabkhooneh" data-name="Maktabkhooneh"
                                         data-role="Education Platform" target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/maktabkhone.jpeg" alt="Maktabkhooneh">
                                         </div>
                                     </a>
 
-                                    <a href="#" class="companyItem" data-name="IITS Consulting" data-role="Consulting"
+                                    <a href="#" class="companyItem" id="company-iits-consulting" data-name="IITS Consulting" data-role="Consulting"
                                         target="_blank" rel="noopener noreferrer">
                                         <div class="companyLogo">
                                             <img loading="lazy" src="images/iits-consulting.svg" alt="IITS Consulting">
