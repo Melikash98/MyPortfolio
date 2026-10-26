@@ -1,12 +1,12 @@
-const projectFirebaseRecord = document.querySelector(
-  '.projectRecord[data-firebase-collection="projects"]'
+const projectRecord = document.querySelector(
+  '.projectRecord[data-record-collection="projects"]'
 );
 const requestedProjectDocumentId = new URLSearchParams(window.location.search).get("projectId");
 
-if (projectFirebaseRecord && requestedProjectDocumentId && window.assignFirebaseRecordDomId) {
-  window.assignFirebaseRecordDomId(
-    projectFirebaseRecord,
-    projectFirebaseRecord.dataset.firebaseCollection,
+if (projectRecord && requestedProjectDocumentId && window.assignRecordDomId) {
+  window.assignRecordDomId(
+    projectRecord,
+    projectRecord.dataset.recordCollection,
     requestedProjectDocumentId
   );
 }
