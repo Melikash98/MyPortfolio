@@ -5243,9 +5243,6 @@ html {
     }
 }
 
-
-
-/*
 @media (max-width: 1512px) {
     .main>section.section>.container .section-deco.decoLeft {
         left: clamp(-72px, calc(684px - 50vw), 24px);
