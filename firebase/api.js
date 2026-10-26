@@ -264,16 +264,16 @@ const EXPERIENCE_CACHE_KEY = "portfolio:experience:v1";
  
 // database key -> data-record-document-id in the HTML (optional, name matching is the fallback)
 const EXPERIENCE_KEY_MAP = {
-    Experience1: "iran-technical-vocational"
-    // Experience2: "karlancer",
-    // Experience3: "iranian-school-qatar",
-    // Experience4: "tose-ertebatat-network",
+    Experience1: "iran-technical-vocational",
+    Experience2: "karlancer",
+    Experience3: "iranian-school-qatar",
+    Experience4: "tose-ertebatat-network",
 };
  
 // accepted field names (first non-empty one wins)
 const EXP_FIELDS = {
     company: ["companyName", "company", "name"],
-    title: ["jobTitle", "title", "position", "roleName", "job"],
+    title: ["jobTitle", "title", "position", "roleName", "job", "roleEx"],
     start: ["start", "startDate", "from"],
     end: ["end", "endDate", "to"],
     time: ["time", "duration"],
@@ -315,7 +315,7 @@ function entriesOf(value) {
 }
  
 function toLines(value) {
-    if (Array.isArray(value)) return value.map((v) => String(v).trim()).filter(Boolean);
+    if (Array.isArray(value)) return value.filter((v) => v != null).map((v) => String(v).trim()).filter(Boolean);
     if (value && typeof value === "object") return toLines(Object.values(value));
     return String(value ?? "").split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
 }
@@ -503,6 +503,74 @@ function renderExperience(data) {
     refreshOpenResumeItems();
 }
  
+function createSectionLoader({ path, cacheKey, render, label }) {
+    return async function loadSection() {
+        let cached = null;
+
+        // Render cached content immediately when possible.
+        try {
+            const raw = localStorage.getItem(cacheKey);
+            cached = raw ? JSON.parse(raw) : null;
+            if (cached) render(cached);
+        } catch {
+            // Cache may be unavailable or contain invalid JSON.
+        }
+
+        // Fetch the latest snapshot over REST, then keep listening for updates.
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), REST_TIMEOUT_MS);
+
+        try {
+            const response = await fetch(
+                `${firebaseConfig.databaseURL}/${path}.json`,
+                { signal: controller.signal }
+            );
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status} ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            if (!data) throw new Error(`no data at /${path}`);
+
+            try {
+                localStorage.setItem(cacheKey, JSON.stringify(data));
+            } catch {
+                // Keep rendering even if browser storage is unavailable.
+            }
+
+            render(data);
+            console.info(`[Firebase] ${label} data loaded.`);
+        } catch (error) {
+            console.error(
+                `[Firebase] Could not load ${label} (${error.name === "AbortError" ? "timeout" : error.message}).`,
+                cached ? "Showing last saved values." : "Showing the HTML values."
+            );
+        } finally {
+            clearTimeout(timer);
+        }
+
+        onValue(
+            ref(db, path),
+            (snapshot) => {
+                if (!snapshot.exists()) return;
+                const data = snapshot.val();
+
+                try {
+                    localStorage.setItem(cacheKey, JSON.stringify(data));
+                } catch {
+                    // Cache is optional; the live data can still be rendered.
+                }
+
+                render(data);
+            },
+            (error) => {
+                console.warn(`[Firebase] ${label} realtime listener error:`, error.code, error.message);
+            }
+        );
+    };
+}
+
 const loadExperience = createSectionLoader({
     path: EXPERIENCE_PATH,
     cacheKey: EXPERIENCE_CACHE_KEY,
