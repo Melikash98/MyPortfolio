@@ -302,36 +302,81 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // TODO: ***************************************************************HOME Section**********************************************************************//
 // TODO: Word Transition Effect for Role Text
-const roles = ["Melika", "Software Developer", "Backend Developer", "Android Developer"];
-const roleElement = document.getElementById('role-animation');
+let roles = [
+  "Melika",
+  "Software Developer",
+  "Backend Developer",
+  "Android Developer"
+];
+
+const roleElements = [
+  document.getElementById("role-animation"),
+  document.getElementById("role-animationTwo")
+].filter(Boolean);
+
 let roleIndex = 0;
 let letterIndex = 0;
-let typingInterval;
+let typingInterval = null;
+let roleTimeout = null;
 
 function updateRole() {
-  roleElement.style.opacity = 0;
-  setTimeout(() => {
-    roleElement.textContent = "";
+  if (!roleElements.length || !roles.length) return;
+
+  clearTimeout(roleTimeout);
+  clearInterval(typingInterval);
+
+  roleElements.forEach((element) => {
+    element.style.opacity = "0";
+  });
+
+  roleTimeout = setTimeout(() => {
+    roleElements.forEach((element) => {
+      element.textContent = "";
+    });
+
     letterIndex = 0;
 
     typingInterval = setInterval(() => {
-      if (letterIndex < roles[roleIndex].length) {
-        roleElement.textContent += roles[roleIndex].charAt(letterIndex);
+      const currentRole = roles[roleIndex];
+
+      if (letterIndex < currentRole.length) {
+        const character = currentRole.charAt(letterIndex);
+
+        roleElements.forEach((element) => {
+          element.textContent += character;
+        });
+
         letterIndex++;
-      }
-      else {
+      } else {
         clearInterval(typingInterval);
-        setTimeout(() => {
+
+        roleTimeout = setTimeout(() => {
           roleIndex = (roleIndex + 1) % roles.length;
           updateRole();
         }, 1000);
       }
     }, 150);
-    roleElement.style.opacity = 1;
+
+    roleElements.forEach((element) => {
+      element.style.opacity = "1";
+    });
   }, 500);
 }
-updateRole();
 
+window.addEventListener("home:updated", (event) => {
+  const newRoles = Array.isArray(event.detail?.roles)
+    ? event.detail.roles.map((role) => String(role).trim()).filter(Boolean)
+    : [];
+
+  if (!newRoles.length) return;
+
+  roles = newRoles;
+  roleIndex = 0;
+  letterIndex = 0;
+  updateRole();
+});
+
+updateRole();
 // TODO: *************************************************************** GLOBAL ANIMATION **********************************************************************//
 // ! Word Transition Effect for Role Text
 AOS.init({
