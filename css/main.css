@@ -77,6 +77,7 @@
 }
 
 /*============================================ Light Theme Overrides ============================================*/
+/* TODO ============================================ ALL PAGES THEME TOKENS ============================================*/
 :root.sun-mood {
     --main-background: url('../images/light-background.svg');
     --main-text-color: #010736;
@@ -95,6 +96,7 @@
     --cookie-border: rgba(14, 131, 136, 0.3);
 }
 
+/* TODO ============================================ HOME PAGE THEME ============================================*/
 .sun-mood .skillTittles .skillName i,
 .skillsTab .skillsHeader .skillIcon {
     color: #14868C;
@@ -322,6 +324,7 @@
     border-color: #010736;
 }
 
+/* TODO ============================================ HOME AND PROJECT PAGES THEME ============================================*/
 .sun-mood .header,
 .sun-mood .headerProjects {
     background: rgba(244, 248, 254, 0.22);
@@ -332,6 +335,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
+/* TODO ============================================ SUPPORT PAGE THEME ============================================*/
 .sun-mood .headerSupport {
     background: rgba(244, 248, 254, 0.22);
     backdrop-filter: blur(18px) saturate(130%);
@@ -341,10 +345,12 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
+/* TODO ============================================ HOME PAGE THEME ============================================*/
 .sun-mood .filterList li.active {
     background-color: #D9EAFD;
 }
 
+/* TODO ============================================ ALL PAGES LANGUAGE CONTROLS THEME ============================================*/
 .sun-mood .translate>i {
     color: #010736;
 }
@@ -373,6 +379,7 @@
     color: #000D16;
 }
 
+/* TODO ============================================ HOME PAGE NAVIGATION THEME ============================================*/
 .sun-mood .slideHeder {
     height: 100vh;
     min-height: 100vh;
@@ -409,10 +416,12 @@
     box-shadow: 2px 2px gray;
 }
 
+/* TODO ============================================ HOME PAGE SOCIAL LINKS THEME ============================================*/
 .sun-mood .socialLink:hover {
     color: #4c1d95;
 }
 
+/* TODO ============================================ HOME PAGE PROJECTS THEME ============================================*/
 .sun-mood .boxCard {
     border-color: #010736;
 }
@@ -467,6 +476,7 @@
     color: #EEEEEE;
 }
 
+/* TODO ============================================ HOME PAGE CONTENT THEME ============================================*/
 .sun-mood .card .description-service {
     color: #9DB2BF;
 }
@@ -522,6 +532,7 @@
     color: #F2F9FF;
 }
 
+/* TODO ============================================ HOME PAGE COMMENTS THEME ============================================*/
 .sun-mood .companyBar {
     border-top: 1px solid rgba(14, 131, 136, 0.12);
     border-bottom: 1px solid rgba(14, 131, 136, 0.12);
@@ -620,6 +631,7 @@
         grayscale(100%) brightness(0.78) contrast(1.05);
 }
 
+/* TODO ============================================ ALL PAGES CHAT WIDGET THEME ============================================*/
 .sun-mood #cw-box {
     color: #14283a;
     background: rgba(247, 251, 255, .9);
@@ -663,6 +675,7 @@
     color: #607486;
     opacity: 1;
 }
+/* TODO ============================================ SUPPORT PAGE THEME ============================================*/
 :root.sun-mood .indexBody {
     --description-color: #52677b;
     --page-background: #f4f8fe;
@@ -817,6 +830,7 @@
     }
 }
 
+/* TODO ============================================ PROJECT PAGE THEME ============================================*/
 :root.sun-mood .indexBody {
     --description-color: #526D82;
     --project-card-background: linear-gradient(135deg,
