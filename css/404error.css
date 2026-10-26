@@ -34,6 +34,7 @@
   position: absolute;
   top: 45%;
   left: 15%;
+  text-align: left;
 }
 .errorTextBox h4{
   max-width: 400px;

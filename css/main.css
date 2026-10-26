@@ -1883,7 +1883,7 @@ html {
     .indexBodyError .main {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         min-height: 100svh;
         padding: 1rem 0.9rem 7rem;
@@ -1895,7 +1895,7 @@ html {
         top: auto;
         left: auto;
         width: clamp(14rem, 70vw, 17rem);
-        margin: 0.5rem auto 0;
+        margin: 0.5rem 0 0;
     }
 
     .indexBodyError .errorLogo img {
@@ -1910,7 +1910,7 @@ html {
         left: auto;
         width: 100%;
         max-width: 25rem;
-        margin: 1rem auto 0;
+        margin: 1rem 0 0;
     }
 
     .indexBodyError .errorTextBox h4 {
@@ -4113,7 +4113,7 @@ html {
     .indexBodyError .main {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         min-height: 100svh;
         padding: 1.25rem 1.25rem 7.25rem;
@@ -4125,7 +4125,7 @@ html {
         top: auto;
         left: auto;
         width: clamp(14rem, 55vw, 19rem);
-        margin: 0.75rem auto 0;
+        margin: 0.75rem 0 0;
     }
 
     .indexBodyError .errorLogo img {
@@ -4140,7 +4140,7 @@ html {
         left: auto;
         width: 100%;
         max-width: 28rem;
-        margin: 1.25rem auto 0;
+        margin: 1.25rem 0 0;
     }
 
     .indexBodyError .errorTextBox h4 {
@@ -5081,7 +5081,7 @@ html {
     .indexBodyError .main {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         width: 100%;
         min-height: 100svh;
@@ -5094,7 +5094,7 @@ html {
         top: auto;
         left: auto;
         width: clamp(21rem, 50vw, 28rem);
-        margin: 0 auto 1.25rem;
+        margin: 0 0 1.25rem;
     }
 
     .indexBodyError .errorLogo img {
@@ -5109,7 +5109,7 @@ html {
         left: auto;
         width: 100%;
         max-width: 31rem;
-        margin: 0 auto;
+        margin: 0;
     }
 
     .indexBodyError .errorTextBox h4 {
@@ -7229,7 +7229,7 @@ html {
     .indexBodyError .main {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         gap: clamp(1.5rem, 4vw, 3rem);
         width: 100%;
@@ -7243,7 +7243,7 @@ html {
         top: auto;
         left: auto;
         width: min(100%, 30rem);
-        margin: 0 auto;
+        margin: 0;
     }
 
     .indexBodyError .errorLogo img {
@@ -7258,7 +7258,7 @@ html {
         left: auto;
         width: 100%;
         max-width: 30rem;
-        margin: 0 auto;
+        margin: 0;
     }
 
     .indexBodyError .errorTextBox h4 {
