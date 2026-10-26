@@ -3590,6 +3590,7 @@ iframe.skiptranslate {
     height: var(--github-cell-size);
 }
 
+/* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
 @media (max-width: 520px) {
     .githubActivity__header {
         align-items: flex-start;
@@ -3808,6 +3809,7 @@ iframe.skiptranslate {
 }
 
 
+/* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
 @media (max-width: 490px) {
     #cw-fab {
         left: 16px;

@@ -1,4 +1,5 @@
 /*!============================================ Projects.css ============================================*/
+/* TODO ============================================ PROJECT PAGE HEADER SECTION ============================================*/
 .headerProjects {
     width: 100%;
     height: max-content;
@@ -65,6 +66,7 @@
     font-size: 1.35rem;
 }
 
+/* TODO ============================================ PROJECT INTRODUCTION SECTION ============================================*/
 .homeProject,
 .overView {
     max-height: max-content;
@@ -317,6 +319,7 @@
     font-size: .85rem;
 }
 
+/* TODO ============================================ PROJECT SHOWCASE SECTION ============================================*/
 .homeProjectContainer::after {
     content: "";
     position: absolute;
@@ -515,6 +518,7 @@
     right: 8px;
 }
 
+/* TODO ============================================ PROJECT OVERVIEW SECTION ============================================*/
 .tittleSection {
     width: max-content;
     margin-top: -6rem;
@@ -697,6 +701,7 @@
 
 
 
+/* TODO ============================================ PROJECT SCREENSHOTS SECTION ============================================*/
 .screenshotsSection {
     width: 100%;
     min-width: 0;
@@ -822,6 +827,7 @@
 
 
 
+/* TODO ============================================ PROJECT DETAILS SECTION ============================================*/
 .logoBox {
     display: flex;
     align-items: center;
@@ -1039,6 +1045,7 @@
     outline-offset: 3px;
 }
 
+/* TODO ============================================ TECH STACK AND RELATED PROJECTS SECTION ============================================*/
 .secthree {
     grid-column: 1 / -1;
     display: grid;
@@ -1297,6 +1304,7 @@ a.relatedProjectCard:focus-visible {
 
 
 
+/* TODO ============================================ PROJECT SCREENSHOTS LAYOUT OVERRIDES ============================================*/
 .screenshotsSection {
     width: 100%;
     margin-top: clamp(1.25rem, 3vw, 2.5rem);

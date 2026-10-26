@@ -1210,8 +1210,7 @@ html {
 
 /*============================================ Responsive Layouts ============================================*/
 @media (max-width:360px) {
-
-    /* Small-phone layout for the donation page; covers the gap below 375px. */
+    /* TODO ============================================ SUPPORT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeSupport) {
         width: 100%;
         overflow-x: hidden;
@@ -1715,6 +1714,7 @@ html {
         transform: translateY(-39%);
     }
 
+    /* TODO ============================================ PROJECT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeProject) {
         width: 100%;
         overflow-x: hidden;
@@ -2140,6 +2140,7 @@ html {
         gap: 1rem;
     }
 
+    /* TODO ============================================ 404 ERROR PAGE RESPONSIVE ============================================*/
     .indexBodyError {
         width: 100%;
         min-height: 100svh;
@@ -2233,6 +2234,7 @@ html {
 }
 
 @media (min-width: 375px) and (max-width:490px) {
+    /* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
     .scrollControl {
         display: none;
         visibility: hidden;
@@ -3523,6 +3525,7 @@ html {
         filter: none;
     }
 
+    /* TODO ============================================ SUPPORT PAGE RESPONSIVE ============================================*/
     /* Support page: keep its mobile rules scoped away from the portfolio sections. */
     .indexBody {
         width: 100%;
@@ -3940,6 +3943,7 @@ html {
         transform: translateY(-39%);
     }
 
+    /* TODO ============================================ PROJECT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeProject) {
         width: 100%;
         overflow-x: hidden;
@@ -4370,6 +4374,7 @@ html {
         opacity: 1;
     }
 
+    /* TODO ============================================ 404 ERROR PAGE RESPONSIVE ============================================*/
     .indexBodyError {
         width: 100%;
         min-height: 100svh;
@@ -4445,6 +4450,7 @@ html {
 }
 
 @media (min-width:490px) and (max-width:767px) {
+    /* TODO ============================================ SUPPORT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeSupport) {
         width: 100%;
         overflow-x: hidden;
@@ -4959,6 +4965,7 @@ html {
         }
     }
 
+    /* TODO ============================================ PROJECT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeProject) {
         width: 100%;
         overflow-x: hidden;
@@ -5338,6 +5345,7 @@ html {
         gap: clamp(1.25rem, 3vw, 1.75rem);
     }
 
+    /* TODO ============================================ 404 ERROR PAGE RESPONSIVE ============================================*/
     .indexBodyError {
         width: 100%;
         min-height: 100svh;
@@ -5403,6 +5411,7 @@ html {
         padding: 0.8rem clamp(1.5rem, 4vw, 2.5rem);
     }
 }
+/* TODO ============================================ PROJECT PAGE RESPONSIVE ============================================*/
 @media (max-width: 520px) {
     .relatedProjectsPanel {
         grid-template-columns: 1fr;
@@ -5450,6 +5459,7 @@ html {
     }
 }
 @media (min-width:768px) and (max-width:1024px) {
+    /* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
     .indexBody:not(:has(.homeSupport)) .homeContent>.homeProfilePic {
         width: min(105%, 14rem);
         max-width: none;
@@ -5468,6 +5478,7 @@ html {
         visibility: hidden;
     }
 
+    /* TODO ============================================ SUPPORT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeSupport) {
         width: 100%;
         overflow-x: hidden;
@@ -5904,6 +5915,7 @@ html {
         transform: translateY(-39%);
     }
 
+    /* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
     .header {
         margin: 0px;
     }
@@ -7023,6 +7035,7 @@ html {
         line-height: 1.25;
     }
 
+    /* TODO ============================================ PROJECT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeProject) {
         width: 100%;
         overflow-x: hidden;
@@ -7531,6 +7544,7 @@ html {
         align-self: center;
     }
 
+    /* TODO ============================================ 404 ERROR PAGE RESPONSIVE ============================================*/
     .indexBodyError {
         width: 100%;
         min-height: 100svh;
