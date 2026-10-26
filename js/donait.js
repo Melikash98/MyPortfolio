@@ -1,3 +1,17 @@
+const donationPageRecord = document.querySelector(
+  '.donationPageRecord[data-record-collection="pages"]'
+);
+const requestedDonationDocumentId = new URLSearchParams(window.location.search).get("donationId");
+
+if (donationPageRecord && requestedDonationDocumentId && window.assignRecordDomId) {
+  window.assignRecordDomId(
+    donationPageRecord,
+    donationPageRecord.dataset.recordCollection,
+    requestedDonationDocumentId
+  );
+  window.hydrateRecordDomIds?.(document);
+}
+
 // TODO: *************************************************************** Donation Card Copy Controls **********************************************************************//
 async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {

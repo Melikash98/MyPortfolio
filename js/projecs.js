@@ -9,6 +9,7 @@ if (projectRecord && requestedProjectDocumentId && window.assignRecordDomId) {
     projectRecord.dataset.recordCollection,
     requestedProjectDocumentId
   );
+  window.hydrateRecordDomIds?.(document);
 }
 
 new Swiper(".postgap-showcase__swiper", {
