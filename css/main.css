@@ -4846,6 +4846,7 @@ html {
         text-align: justify;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
+        line-clamp: 4;
     }
 
     .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone {
