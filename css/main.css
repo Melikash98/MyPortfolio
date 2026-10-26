@@ -4001,6 +4001,12 @@ html {
     .indexBody:has(.homeProject) .projectsFooterLinks {
         gap: 1.25rem;
     }
+
+    .indexBody:has(.homeProject) .scrollControl {
+        display: grid;
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 @media (min-width:490px) and (max-width:767px) {
