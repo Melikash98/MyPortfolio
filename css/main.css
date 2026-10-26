@@ -6471,4 +6471,427 @@ html {
         font-size: clamp(0.75rem, 1.1vw, 0.85rem);
         line-height: 1.25;
     }
+
+    .indexBody:has(.homeProject) {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .indexBody:has(.homeProject) .main {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .indexBody:has(.homeProject) .headerProjects {
+        width: 100%;
+        min-height: 4.25rem;
+        height: auto;
+        gap: clamp(1rem, 2vw, 1.5rem);
+        padding: 0.5rem clamp(1.5rem, 4vw, 2.5rem);
+        box-sizing: border-box;
+    }
+
+    .indexBody:has(.homeProject) .headerProjects .logoCard img {
+        width: clamp(9rem, 16vw, 11rem);
+        max-width: 100%;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject {
+        gap: clamp(0.85rem, 1.8vw, 1.2rem);
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .controlIconProject>div,
+    .indexBody:has(.homeProject) .controlIconProject>div>i,
+    .indexBody:has(.homeProject) .cvDownload a i {
+        font-size: clamp(1.35rem, 2.2vw, 1.6rem);
+    }
+
+    .indexBody:has(.homeProject) .cvDownload {
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .homeProject,
+    .indexBody:has(.homeProject) .overView {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        height: auto;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .indexBody:has(.homeProject) .homeProject {
+        padding: 5.25rem 0 2rem !important;
+    }
+
+    .indexBody:has(.homeProject) .overView {
+        padding: 2rem 0 1.75rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProjectContainer.container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20.5rem), 1fr));
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 4vw, 2.5rem) 1.75rem !important;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .indexBody:has(.homeProject) .homeProjectContainer .left {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .indexBody:has(.homeProject) .categoryProjrct {
+        margin-top: 1.3rem;
+        padding: 0.6rem 1.1rem;
+    }
+
+    .indexBody:has(.homeProject) .mainText h1 {
+        margin: 1.5rem 0 0;
+        font-size: clamp(2.8rem, 5vw, 3.4rem);
+        -webkit-text-stroke-width: 2px;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .mainText h1 span {
+        -webkit-text-stroke-width: 2px;
+    }
+
+    .indexBody:has(.homeProject) .mainText p {
+        width: 100%;
+        max-width: 38rem;
+        margin: 0.8rem 0 0;
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .indexBody:has(.homeProject) .detailsOption {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+        width: 100%;
+        margin-top: 1.75rem;
+        gap: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .firstBox,
+    .indexBody:has(.homeProject) .homeProject .detailsOption .secoundBox {
+        width: 100%;
+        min-width: 0;
+        gap: 0.9rem;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .firstBox::after {
+        display: none;
+    }
+
+    .indexBody:has(.homeProject) .homeProject .detailsOption .dateProject {
+        justify-content: flex-start;
+        gap: 0.9rem;
+        white-space: normal;
+    }
+
+    .indexBody:has(.homeProject) .mainTeach {
+        gap: 0.6rem;
+        margin-top: 1.4rem;
+    }
+
+    .indexBody:has(.homeProject) .linkBtns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+        gap: 0.85rem;
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .linkBtns .btn {
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .indexBody:has(.homeProject) .postgap-showcase {
+        width: 100%;
+        min-width: 0;
+        min-height: 22rem;
+        height: clamp(22rem, 40vw, 26rem);
+        max-height: none;
+        aspect-ratio: auto;
+    }
+
+    .indexBody:has(.homeProject) .postgap-showcase__swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer.container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 4vw, 2.5rem) 1.75rem;
+        box-sizing: border-box;
+        align-items: start;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer>.lefts,
+    .indexBody:has(.homeProject) .overViewContainer>.right {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 0;
+        justify-self: stretch;
+    }
+
+    .indexBody:has(.homeProject) .tittleSection {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        gap: 0.65rem;
+        text-align: left;
+    }
+
+    .indexBody:has(.homeProject) .tittleSection::after {
+        display: none;
+    }
+
+    .indexBody:has(.homeProject) .numberSection {
+        font-size: clamp(1.9rem, 3.5vw, 2.25rem);
+        line-height: 1.2;
+    }
+
+    .indexBody:has(.homeProject) .numberSection span {
+        font-size: clamp(1.6rem, 3vw, 2rem);
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .descriptions {
+        width: 100%;
+        max-width: none;
+        margin-top: 1rem;
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .indexBody:has(.homeProject) .descriptions p {
+        margin-top: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox>div {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 10rem;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .iconBoxOp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        margin: 0 0 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h5,
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h6 {
+        max-width: 100%;
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+
+    .indexBody:has(.homeProject) .projectsOptionsBox .textOp h6 {
+        margin-top: 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsSection {
+        width: 100%;
+        min-width: 0;
+        margin-top: 2rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsHeader {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .screenshotsHeader .tittleSection {
+        width: auto;
+        flex: 1 1 100%;
+    }
+
+    .indexBody:has(.homeProject) .postgap-screenshots__swiper {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .indexBody:has(.homeProject) .postgap-screenshots__swiper .screenshotSlide {
+        flex-basis: clamp(8rem, 12vw, 10.5rem);
+        width: clamp(8rem, 12vw, 10.5rem);
+    }
+
+    .indexBody:has(.homeProject) .logoBox {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .logoB {
+        flex-basis: 5rem;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .indexBody:has(.homeProject) .detailsItems {
+        margin-top: 2rem;
+    }
+
+    .indexBody:has(.homeProject) .itemsP {
+        grid-template-columns: 1.25rem minmax(6rem, 7.5rem) minmax(0, 1fr);
+        column-gap: 0.8rem;
+    }
+
+    .indexBody:has(.homeProject) .linksProjectBox {
+        margin-top: 2.25rem;
+    }
+
+    .indexBody:has(.homeProject) .projectLink {
+        grid-template-columns: 2.75rem minmax(0, 1fr) 1rem;
+        column-gap: 0.85rem;
+        min-height: 5.5rem;
+    }
+
+    .indexBody:has(.homeProject) .boxEnd {
+        height: auto;
+        min-height: 0;
+        margin-top: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .secthree {
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .secthreeOne,
+    .indexBody:has(.homeProject) .secthreeFour {
+        margin-top: 0.75rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackPanel,
+    .indexBody:has(.homeProject) .relatedProjectsPanel {
+        margin-top: 1.5rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackPanel {
+        min-height: 0;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackIcon {
+        width: clamp(4rem, 7vw, 5rem);
+        height: clamp(4rem, 7vw, 5rem);
+        font-size: clamp(2.1rem, 4.5vw, 2.6rem);
+    }
+
+    .indexBody:has(.homeProject) .techStackIcon.xmlIcon {
+        font-size: clamp(1.2rem, 2vw, 1.4rem);
+        line-height: 1;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags {
+        gap: 0.65rem;
+    }
+
+    .indexBody:has(.homeProject) .relatedProjectsPanel {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .indexBody:has(.homeProject) .projectsFooter {
+        min-height: 6rem;
+        padding: 1.25rem clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .indexBody:has(.homeProject) .projectsFooterLinks {
+        gap: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer.container {
+        grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer>.lefts {
+        display: contents;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer .secOne {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer .projectsOptionsBox {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer>.right {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer .screenshotsSection {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        width: 100%;
+        min-width: 0;
+        margin-top: 1.75rem;
+    }
+
+    .indexBody:has(.homeProject) .overViewContainer .secthree {
+        grid-column: 1 / -1;
+        grid-row: 4;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags {
+        direction: ltr;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
 }
