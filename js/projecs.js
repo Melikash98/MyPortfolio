@@ -1,3 +1,16 @@
+const projectFirebaseRecord = document.querySelector(
+  '.projectRecord[data-firebase-collection="projects"]'
+);
+const requestedProjectDocumentId = new URLSearchParams(window.location.search).get("projectId");
+
+if (projectFirebaseRecord && requestedProjectDocumentId && window.assignFirebaseRecordDomId) {
+  window.assignFirebaseRecordDomId(
+    projectFirebaseRecord,
+    projectFirebaseRecord.dataset.firebaseCollection,
+    requestedProjectDocumentId
+  );
+}
+
 new Swiper(".postgap-showcase__swiper", {
   loop: true,
   centeredSlides: true,

@@ -1,3 +1,102 @@
+// DOM IDs for database records use the Firebase collection and document key.
+function createFirebaseRecordDomId(collectionName, documentId) {
+  const encodePart = (value) => encodeURIComponent(String(value));
+  return `${encodePart(collectionName)}-${encodePart(documentId)}`;
+}
+
+function assignFirebaseRecordFieldDomIds(record, recordDomId) {
+  const selector = '[data-firebase-field]';
+  const fields = [];
+
+  if (record instanceof Element && record.matches(selector)) {
+    fields.push(record);
+  }
+
+  if (record.querySelectorAll) {
+    fields.push(...record.querySelectorAll(selector));
+  }
+
+  fields.forEach((field) => {
+    const fieldName = field.dataset.firebaseField;
+    if (fieldName) {
+      field.id = `${recordDomId}--${encodeURIComponent(fieldName)}`;
+    }
+  });
+}
+
+function assignFirebaseRecordDomId(element, collectionName, documentId) {
+  if (!(element instanceof Element) || collectionName == null || documentId == null || String(documentId) === '') {
+    return null;
+  }
+
+  const id = createFirebaseRecordDomId(collectionName, documentId);
+  element.id = id;
+  element.dataset.firebaseCollection = String(collectionName);
+  element.dataset.firebaseDocumentId = String(documentId);
+  assignFirebaseRecordFieldDomIds(element, id);
+  return id;
+}
+
+function hydrateFirebaseRecordDomIds(root = document) {
+  const selector = '[data-firebase-collection][data-firebase-document-id]';
+  const records = [];
+
+  if (root instanceof Element && root.matches(selector)) {
+    records.push(root);
+  }
+
+  if (root.querySelectorAll) {
+    records.push(...root.querySelectorAll(selector));
+  }
+
+  records.forEach((record) => {
+    assignFirebaseRecordDomId(
+      record,
+      record.dataset.firebaseCollection,
+      record.dataset.firebaseDocumentId
+    );
+  });
+
+  if (root instanceof Element) {
+    const parentRecord = root.closest(selector);
+    if (parentRecord) {
+      assignFirebaseRecordFieldDomIds(parentRecord, parentRecord.id);
+    }
+  }
+}
+
+function observeFirebaseRecordDomIds() {
+  if (!document.body) {
+    return;
+  }
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node instanceof Element) {
+          hydrateFirebaseRecordDomIds(node);
+        }
+      });
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+function initializeFirebaseRecordDomIds() {
+  hydrateFirebaseRecordDomIds();
+  observeFirebaseRecordDomIds();
+}
+
+window.assignFirebaseRecordDomId = assignFirebaseRecordDomId;
+window.hydrateFirebaseRecordDomIds = hydrateFirebaseRecordDomIds;
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeFirebaseRecordDomIds);
+} else {
+  initializeFirebaseRecordDomIds();
+}
+
 // ! *************************************************************** index.js **********************************************************************//
 // TODO: *************************************************************** Menu Slide **********************************************************************//
 document.addEventListener('DOMContentLoaded', () => {

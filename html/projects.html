@@ -84,7 +84,7 @@
             <div id="google_translate_element"></div>
         </div>
     </header>
-    <main class="main">
+    <main class="main projectRecord" data-firebase-collection="projects" data-firebase-document-id="postgap">
         <section class="section homeProject">
             <div class="homeProjectContainer container">
                 <div class="left">
@@ -93,12 +93,12 @@
                         <span class="btnText">Back to Projects</span>
                     </a>
                     <div class="categoryProjrct">
-                        <h5>Android App</h5>
+                        <h5 data-firebase-field="category">Android App</h5>
                     </div>
                     <div class="demoInfoProject">
                         <div class="mainText">
-                            <h1>Post<span>Gap</span></h1>
-                            <p>A social media app for sharing posts, connecting with people, and building communities.
+                            <h1 data-firebase-field="title">Post<span>Gap</span></h1>
+                            <p data-firebase-field="summary">A social media app for sharing posts, connecting with people, and building communities.
                             </p>
                         </div>
                         <div class="detailsOption" aria-label="Project details">
@@ -108,8 +108,8 @@
                                         <i class="fi fi-br-daily-calendar"></i>
                                     </div>
                                     <div class="textO">
-                                        <h5>2023 -2024</h5>
-                                        <h6>Privet Company Project</h6>
+                                        <h5 data-firebase-field="dateRange">2023 -2024</h5>
+                                        <h6 data-firebase-field="clientType">Privet Company Project</h6>
                                     </div>
                                 </div>
                             </div>
@@ -118,12 +118,12 @@
                                     <i class="fi fi-sr-mobile-notch"></i>
                                 </div>
                                 <div class="textO">
-                                    <h5>Android <span>(Java)</span></h5>
-                                    <h6>Mobile Application</h6>
+                                    <h5 data-firebase-field="platform">Android <span data-firebase-field="platformLanguage">(Java)</span></h5>
+                                    <h6 data-firebase-field="applicationType">Mobile Application</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="mainTeach" aria-label="Technologies">
+                        <div class="mainTeach" aria-label="Technologies" data-firebase-field="technologies">
                             <div class="teachItem">
                                 <h6>Android</h6>
                             </div>
@@ -144,13 +144,13 @@
                             </div>
                         </div>
                         <div class="linkBtns">
-                            <a class="githubBtn btn" href="https://github.com/Melikash98/PostGap" target="_blank"
+                            <a class="githubBtn btn" data-firebase-field="sourceCodeUrl" href="https://github.com/Melikash98/PostGap" target="_blank"
                                 rel="noopener noreferrer">
                                 <i class="fi fi-brands-github" aria-hidden="true"></i>
                                 <span>View on GitHub</span>
                                 <i class="fi fi-sr-arrow-up-right-from-square" aria-hidden="true"></i>
                             </a>
-                            <a class="liveMoodBtn btn" href="https://github.com/Melikash98/PostGap/releases"
+                            <a class="liveMoodBtn btn" data-firebase-field="demoUrl" href="https://github.com/Melikash98/PostGap/releases"
                                 target="_blank" rel="noopener noreferrer">
                                 <span>Live Demo</span>
                                 <i class="fi fi-sr-arrow-up-right-from-square" aria-hidden="true"></i>
@@ -159,7 +159,7 @@
 
                     </div>
                 </div>
-                <div class="postgap-showcase">
+                <div class="postgap-showcase" data-firebase-field="heroScreenshots">
                     <div class="swiper postgap-showcase__swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -224,43 +224,43 @@
                                 <h1 class="numberSection">01. <span>Overview</span></h1>
                             </div>
                             <div class="descriptions" data-aos="fade-down-right">
-                                <p>PostGap is a modern social media application desigmed to help users share their
+                                <p data-firebase-field="overview">PostGap is a modern social media application desigmed to help users share their
                                     moments,
                                     connect with friends and discover new communities. The app provides features like
                                     posts,
                                     stories, private messaging and community groups, giving users a simple and engaging
                                     way
                                     to stay connected.</p>
-                                <p>I developed this project using native Android with Java, Firebase for real-time
+                                <p data-firebase-field="developmentDetails">I developed this project using native Android with Java, Firebase for real-time
                                     database
                                     and authentication, and Retrofit for API integration. The focus was on creating a
                                     smooth
                                     user experience with a clean UI and reliable performance.</p>
                             </div>
                         </div>
-                        <div class="projectsOptionsBox">
-                            <div class="options" data-aos="zoom-in" data-aos-duration="500">
+                        <div class="projectsOptionsBox" data-firebase-field="features">
+                            <div class="options" data-aos="zoom-in" data-aos-duration="500" data-firebase-field="featureCreatePosts">
                                 <div class="iconBoxOp"><i class="fi fi-sr-pen-clip"></i></div>
                                 <div class="textOp">
                                     <h5>Create Posts</h5>
                                     <h6>Share your thoughts, photos, and moments.</h6>
                                 </div>
                             </div>
-                            <div class="options" data-aos="zoom-in" data-aos-duration="700">
+                            <div class="options" data-aos="zoom-in" data-aos-duration="700" data-firebase-field="featureRealtimeChat">
                                 <div class="iconBoxOp"><i class="fi fi-sr-messages"></i></div>
                                 <div class="textOp">
                                     <h5>Real-Time Chat</h5>
                                     <h6>Message your friends instantly.</h6>
                                 </div>
                             </div>
-                            <div class="options" data-aos="zoom-in" data-aos-duration="900">
+                            <div class="options" data-aos="zoom-in" data-aos-duration="900" data-firebase-field="featureCommunities">
                                 <div class="iconBoxOp"><i class="fi fi-sr-users-alt"></i></div>
                                 <div class="textOp">
                                     <h5>Communities</h5>
                                     <h6>Join and explore interest-based groups.</h6>
                                 </div>
                             </div>
-                            <div class="options" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="options" data-aos="zoom-in" data-aos-duration="1000" data-firebase-field="featureStories">
                                 <div class="iconBoxOp"><i class="fi fi-sr-pending"></i></div>
                                 <div class="textOp">
                                     <h5>Stories</h5>
@@ -289,7 +289,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="swiper postgap-screenshots__swiper" aria-label="Project screenshots">
+                            <div class="swiper postgap-screenshots__swiper" aria-label="Project screenshots" data-firebase-field="screenshots">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide screenshotSlide" data-aos="fade-right"
                                         data-aos-duration="500">
@@ -352,31 +352,31 @@
                     <div class="right">
                         <div class="logoBox">
                             <div class="logoB">
-                                <img src="../images/logo.png" alt="logoApp">
+                                <img src="../images/logo.png" alt="logoApp" data-firebase-field="appLogo">
                             </div>
                             <div class="logoTextB">
-                                <h4>PostGap</h4>
-                                <h6>Social Media App</h6>
+                                <h4 data-firebase-field="appName">PostGap</h4>
+                                <h6 data-firebase-field="tagline">Social Media App</h6>
                             </div>
                         </div>
                         <div class="detailsItems">
-                            <ul>
+                            <ul data-firebase-field="specifications">
                                 <li class="itemsP"><i class="fi fi-sr-data-transfer"></i> <span
-                                        class="tItems">Platform</span> <span class="aItems">Android</span></li>
+                                        class="tItems">Platform</span> <span class="aItems" data-firebase-field="specPlatform">Android</span></li>
                                 <li class="itemsP"><i class="fi fi-br-l"></i> <span class="tItems">Language</span> <span
-                                        class="aItems">Java</span></li>
+                                        class="aItems" data-firebase-field="specLanguage">Java</span></li>
                                 <li class="itemsP"><i class="fi fi-br-database"></i> <span
-                                        class="tItems">Database</span> <span class="aItems">Firebase (Realtime
+                                        class="tItems">Database</span> <span class="aItems" data-firebase-field="specDatabase">Firebase (Realtime
                                         Database)</span></li>
                                 <li class="itemsP"><i class="fi fi-rr-api"></i> <span class="tItems">API
-                                        Integration</span> <span class="aItems">Retrofit</span></li>
+                                        Integration</span> <span class="aItems" data-firebase-field="specApiIntegration">Retrofit</span></li>
                                 <li class="itemsP"><i class="fi fi-br-ux-browser"></i> <span class="tItems">UI</span>
-                                    <span class="aItems">XML</span>
+                                    <span class="aItems" data-firebase-field="specUi">XML</span>
                                 </li>
                                 <li class="itemsP"><i class="fi fi-sr-workflow"></i> <span class="tItems">Project
-                                        Type</span> <span class="aItems">Personal Project</span></li>
+                                        Type</span> <span class="aItems" data-firebase-field="specProjectType">Personal Project</span></li>
                                 <li class="itemsP"><i class="fi fi-ss-duration-alt"></i> <span
-                                        class="tItems">Duration</span> <span class="aItems">2023-2024</span></li>
+                                        class="tItems">Duration</span> <span class="aItems" data-firebase-field="specDuration">2023-2024</span></li>
                             </ul>
                         </div>
                         <div class="linksProjectBox">
@@ -384,15 +384,15 @@
                                 <i class="fi fi-bs-link-horizontal" aria-hidden="true"></i>
                                 <h6>Projects Links</h6>
                             </div>
-                            <div class="projectLinksList">
+                            <div class="projectLinksList" data-firebase-field="projectLinks">
                                 <a class="projectLink" href="https://github.com/Melikash98/PostGap" target="_blank"
                                     rel="noopener noreferrer">
                                     <span class="projectLinkIcon" aria-hidden="true">
                                         <i class="ri-github-fill"></i>
                                     </span>
                                     <span class="projectLinkText">
-                                        <span class="projectLinkName">GitHub Repository</span>
-                                        <span class="projectLinkDescription">View source code</span>
+                                        <span class="projectLinkName" data-firebase-field="githubLinkName">GitHub Repository</span>
+                                        <span class="projectLinkDescription" data-firebase-field="githubLinkDescription">View source code</span>
                                     </span>
                                     <i class="ri-arrow-right-line projectLinkArrow" aria-hidden="true"></i>
                                 </a>
@@ -402,8 +402,8 @@
                                         <i class="ri-download-line"></i>
                                     </span>
                                     <span class="projectLinkText">
-                                        <span class="projectLinkName">Live Demo (APK)</span>
-                                        <span class="projectLinkDescription">Download &amp; test</span>
+                                        <span class="projectLinkName" data-firebase-field="demoLinkName">Live Demo (APK)</span>
+                                        <span class="projectLinkDescription" data-firebase-field="demoLinkDescription">Download &amp; test</span>
                                     </span>
                                     <i class="ri-arrow-right-line projectLinkArrow" aria-hidden="true"></i>
                                 </a>
@@ -411,7 +411,7 @@
                         </div>
                         <div class="boxEnd">
                             <i class="fi fi-sr-sparkles" aria-hidden="true"></i>
-                            <p>This project helped me improve<br>
+                            <p data-firebase-field="projectNote">This project helped me improve<br>
                                 my Android development skills, API<br>
                                 integration and working with real-time data.</p>
                         </div>
@@ -422,32 +422,32 @@
                                 <h1 class="numberSection">03. <span>Tech Stack</span></h1>
                             </div>
                             <div class="techStackPanel" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                                <div class="techStackGrid">
-                                    <div class="techStackItem">
+                                <div class="techStackGrid" data-firebase-field="techStack">
+                                    <div class="techStackItem" data-firebase-field="techStackJava">
                                         <span class="techStackIcon javaIcon" aria-hidden="true"><i
                                                 class="fa-brands fa-java"></i></span>
                                         <span>Java</span>
                                     </div>
-                                    <div class="techStackItem">
+                                    <div class="techStackItem" data-firebase-field="techStackFirebase">
                                         <span class="techStackIcon firebaseIcon" aria-hidden="true"><i
                                                 class="ri-fire-fill"></i></span>
                                         <span>Firebase</span>
                                     </div>
-                                    <div class="techStackItem">
+                                    <div class="techStackItem" data-firebase-field="techStackRetrofit">
                                         <span class="techStackIcon retrofitIcon" aria-hidden="true"><i
                                                 class="ri-database-2-fill"></i></span>
                                         <span>Retrofit</span>
                                     </div>
-                                    <div class="techStackItem">
+                                    <div class="techStackItem" data-firebase-field="techStackXml">
                                         <span class="techStackIcon xmlIcon" aria-hidden="true">XML</span>
                                         <span>XML</span>
                                     </div>
                                 </div>
-                                <div class="techStackTags" aria-label="Additional technologies">
-                                    <span>Android SDK</span>
-                                    <span>Material Design</span>
-                                    <span>SQLite</span>
-                                    <span>Git</span>
+                                <div class="techStackTags" aria-label="Additional technologies" data-firebase-field="technologyTags">
+                                    <span data-firebase-field="tagAndroidSdk">Android SDK</span>
+                                    <span data-firebase-field="tagMaterialDesign">Material Design</span>
+                                    <span data-firebase-field="tagSqlite">SQLite</span>
+                                    <span data-firebase-field="tagGit">Git</span>
                                 </div>
                             </div>
                         </section>
@@ -456,39 +456,39 @@
                             <div class="tittleSection">
                                 <h1 class="numberSection">04. <span>Related Projects</span></h1>
                             </div>
-                            <div class="relatedProjectsPanel" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                                <a class="relatedProjectCard" href="https://github.com/Melikash98/Fanjano-App"
+                            <div class="relatedProjectsPanel" data-firebase-field="relatedProjects" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                <a class="relatedProjectCard" data-firebase-field="relatedFanjanoCard" href="https://github.com/Melikash98/Fanjano-App"
                                     target="_blank" rel="noopener noreferrer">
                                     <div class="relatedProjectPreview">
                                         <img src="../images/Fanjano%20Caf%C3%A9%20App%20Showcase.png"
                                             alt="Fanjano cafe app preview" loading="lazy">
                                     </div>
                                     <div class="relatedProjectInfo">
-                                        <span class="relatedProjectName">Fanjano-App</span>
-                                        <span class="relatedProjectDescription">Food ordering &amp; cafe discovery
+                                        <span class="relatedProjectName" data-firebase-field="relatedFanjanoName">Fanjano-App</span>
+                                        <span class="relatedProjectDescription" data-firebase-field="relatedFanjanoDescription">Food ordering &amp; cafe discovery
                                             app</span>
                                     </div>
                                     <i class="ri-arrow-right-line relatedProjectArrow" aria-hidden="true"></i>
                                 </a>
-                                <a class="relatedProjectCard" href="https://github.com/Melikash98/BrewBiteApp"
+                                <a class="relatedProjectCard" data-firebase-field="relatedBrewBiteCard" href="https://github.com/Melikash98/BrewBiteApp"
                                     target="_blank" rel="noopener noreferrer">
                                     <div class="relatedProjectPreview">
                                         <img src="../images/app_video.gif" alt="BrewBite app preview" loading="lazy">
                                     </div>
                                     <div class="relatedProjectInfo">
-                                        <span class="relatedProjectName">BrewBiteApp</span>
-                                        <span class="relatedProjectDescription">Cafe ordering &amp; admin app</span>
+                                        <span class="relatedProjectName" data-firebase-field="relatedBrewBiteName">BrewBiteApp</span>
+                                        <span class="relatedProjectDescription" data-firebase-field="relatedBrewBiteDescription">Cafe ordering &amp; admin app</span>
                                     </div>
                                     <i class="ri-arrow-right-line relatedProjectArrow" aria-hidden="true"></i>
                                 </a>
-                                <a class="relatedProjectCard" href="https://github.com/Melikash98/BrewBiteApp"
+                                <a class="relatedProjectCard" data-firebase-field="relatedBrewBiteCardSecondary" href="https://github.com/Melikash98/BrewBiteApp"
                                     target="_blank" rel="noopener noreferrer">
                                     <div class="relatedProjectPreview">
                                         <img src="../images/app_video.gif" alt="BrewBite app preview" loading="lazy">
                                     </div>
                                     <div class="relatedProjectInfo">
-                                        <span class="relatedProjectName">BrewBiteApp</span>
-                                        <span class="relatedProjectDescription">Cafe ordering &amp; admin app</span>
+                                        <span class="relatedProjectName" data-firebase-field="relatedBrewBiteNameSecondary">BrewBiteApp</span>
+                                        <span class="relatedProjectDescription" data-firebase-field="relatedBrewBiteDescriptionSecondary">Cafe ordering &amp; admin app</span>
                                     </div>
                                     <i class="ri-arrow-right-line relatedProjectArrow" aria-hidden="true"></i>
                                 </a>
