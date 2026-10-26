@@ -6894,4 +6894,58 @@ html {
         flex-direction: row;
         justify-content: flex-start;
     }
+
+    .indexBody:has(.homeProject) .secthree {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(0.85rem, 2vw, 1.5rem);
+        align-items: start;
+    }
+
+    .indexBody:has(.homeProject) .secthreeOne,
+    .indexBody:has(.homeProject) .secthreeFour {
+        min-width: 0;
+        margin-top: 0;
+    }
+
+    .indexBody:has(.homeProject) .techStackPanel {
+        min-height: 0;
+        gap: 0.9rem;
+        padding: clamp(0.75rem, 1.6vw, 1.15rem);
+    }
+
+    .indexBody:has(.homeProject) .techStackGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(0.35rem, 1vw, 0.75rem);
+    }
+
+    .indexBody:has(.homeProject) .techStackItem {
+        font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    }
+
+    .indexBody:has(.homeProject) .techStackIcon {
+        width: clamp(3rem, 6vw, 3.75rem);
+        height: clamp(3rem, 6vw, 3.75rem);
+        font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+    }
+
+    .indexBody:has(.homeProject) .techStackIcon.xmlIcon {
+        font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+        line-height: 1;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags {
+        gap: 0.4rem;
+    }
+
+    .indexBody:has(.homeProject) .techStackTags span {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .indexBody:has(.homeProject) .relatedProjectsPanel {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+        gap: 0.65rem;
+        padding: 0.85rem;
+        align-content: start;
+    }
 }
