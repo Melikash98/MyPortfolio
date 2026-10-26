@@ -4846,7 +4846,6 @@ html {
         text-align: justify;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
-        line-clamp: 4;
     }
 
     .indexBody:not(:has(.homeSupport)) .comments-swiper .infoPersone {
@@ -5242,39 +5241,3 @@ html {
         line-height: 1.25;
     }
 }
-
-@media (max-width: 1512px) {
-    .main>section.section>.container .section-deco.decoLeft {
-        left: clamp(-72px, calc(684px - 50vw), 24px);
-    }
-
-    .main>section.section>.container .section-deco.decoRight {
-        right: clamp(-72px, calc(684px - 50vw), 24px);
-    }
-}
-
-@media (min-width: 375px) and (max-width: 490px) {
-    .main>section.section>.container>.homeContent>.section-deco.decoLeft {
-        left: 8px;
-    }
-
-    .main>section.section>.container>.homeContent>.section-deco.decoRight {
-        right: 8px;
-    }
-}
-
-.main>section.section {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    min-height: 100svh;
-    height: auto;
-    overflow: visible;
-}
-
-@media (min-width: 375px) and (max-width: 490px) {
-    .main>section.section.contact {
-        min-height: 100vh !important;
-        min-height: 100svh !important;
-    }
-}*/
