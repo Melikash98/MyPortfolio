@@ -4845,6 +4845,7 @@ html {
         line-height: 1.4;
         text-align: justify;
         -webkit-box-orient: vertical;
+        line-clamp: 4;
         -webkit-line-clamp: 4;
     }
 
