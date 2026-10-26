@@ -1395,10 +1395,16 @@ a.relatedProjectCard:focus-visible {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    position: relative;
+    isolation: isolate;
     width: 100%;
     min-height: 106px;
     padding: 16px 48px;
     border-top: 1px solid rgba(90, 120, 165, 0.18);
+    background-image: url('../images/a_wide_horizontal_image_on_a_transparent_backgroun.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
 }
 
 .projectsFooterLinks {
