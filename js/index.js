@@ -610,25 +610,37 @@ function closeResumeItem(item, details, icon) {
   icon.classList.add("ri-add-large-fill");
 }
 // TODO: *************************************************************** Skills Section **********************************************************************//
-const tabs = document.querySelectorAll("[data-target]");
-const tabContent = document.querySelectorAll("[data-content]");
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = document.querySelector(
-      tab.dataset.target
-    );
-    if (!target) return;
-    tabContent.forEach((tabContents) => {
-      tabContents.classList.remove("skillsActive");
-    });
-    tabs.forEach((tabItem) => {
-      tabItem.classList.remove("skillsActive");
-    });
-    tab.classList.add("skillsActive");
-    target.classList.add("skillsActive");
+const skillsTabRoot = document.querySelector(".skillsTab");
 
+function activateSkillTab(tab) {
+  const targetId = tab?.dataset.target?.replace(/^#/, "");
+  const target = targetId ? document.getElementById(targetId) : null;
+  if (!target || !target.matches(".skillsGroup[data-content]")) return;
+
+  skillsTabRoot?.querySelectorAll(".skillsHeader[data-target]").forEach((tabItem) => {
+    const active = tabItem === tab;
+    tabItem.classList.toggle("skillsActive", active);
+    tabItem.setAttribute("aria-expanded", String(active));
   });
 
+  document.querySelectorAll(".skilldContent .skillsGroup[data-content]").forEach((group) => {
+    const active = group === target;
+    group.classList.toggle("skillsActive", active);
+    group.setAttribute("aria-hidden", String(!active));
+  });
+}
+
+skillsTabRoot?.addEventListener("click", (event) => {
+  const tab = event.target.closest(".skillsHeader[data-target]");
+  if (tab) activateSkillTab(tab);
+});
+
+skillsTabRoot?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const tab = event.target.closest(".skillsHeader[data-target]");
+  if (!tab) return;
+  event.preventDefault();
+  activateSkillTab(tab);
 });
 
 const skillSwipers = document.querySelectorAll('.skillsList.swiper');
