@@ -7695,6 +7695,8 @@ html {
     }
 
     .indexBody .activityPopupModel .popupActivityContainer {
+        --wakatime-cell-size: clamp(0.42rem, 1.15vw, 0.5rem);
+        --wakatime-cell-gap: clamp(0.1rem, 0.32vw, 0.14rem);
         width: min(100%, 34rem);
         max-width: 34rem;
         min-height: clamp(10rem, 34svh, 14rem);
@@ -7719,10 +7721,17 @@ html {
         top: 0.5rem;
         right: 0.5rem;
     }
+
+    .indexBody .activityPopupModel .wakatimeCalendarViewport {
+        margin-inline: -0.25rem;
+        width: calc(100% + 0.5rem);
+    }
 }
 
 @media (max-width: 420px) {
     .indexBody .activityPopupModel .popupActivityContainer {
+        --wakatime-cell-size: 0.4rem;
+        --wakatime-cell-gap: 0.08rem;
         min-height: 9rem;
         border-radius: 1.1rem;
     }
@@ -7734,6 +7743,10 @@ html {
 
     .indexBody .activityPopupModel .popupActivityTitle {
         font-size: clamp(1.45rem, 7vw, 1.9rem);
+    }
+
+    .indexBody .activityPopupModel .wakatimeStatus {
+        font-size: 0.78rem;
     }
 
     .indexBody .activityPopupModel .containerASClosed {

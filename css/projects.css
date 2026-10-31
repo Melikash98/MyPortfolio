@@ -1402,6 +1402,8 @@ a.relatedProjectCard:focus-visible {
 }
 
 .popupActivityContainer {
+    --wakatime-cell-size: 0.52rem;
+    --wakatime-cell-gap: 0.16rem;
     display: flex;
     align-items: center;
     width: min(90vw, 700px);
@@ -1476,22 +1478,144 @@ a.relatedProjectCard:focus-visible {
 .popupActivitySubtitle {
     margin: 0;
     color: var(--text-select-color);
-    font-family: var(--subtitle-font, sans-serif);
-    font-size: clamp(.9rem, 1.5vw, 1.05rem);
-    font-weight: var(--bold-font-weight, 700);
+    font-family: var(--subtitle-font);
+    font-size: 1rem;
     line-height: 1.4;
     letter-spacing: .04em;
-    text-transform: uppercase;
 }
 
 .popupActivityTitle {
     margin: 0;
     color: var(--main-text-color);
-    font-family: var(--tittle-font, sans-serif);
+    font-family: var(--tittle-font);
     font-size: clamp(1.65rem, 4vw, 2.6rem);
     font-weight: var(--bold-font-weight, 700);
     line-height: 1.2;
     overflow-wrap: anywhere;
+}
+
+.wakatimeStatus {
+    max-width: 42rem;
+    margin: 0.25rem 0 0;
+    color: var(--description-color);
+    font-family: var(--robot-font, Arial), sans-serif;
+    font-size: clamp(0.8rem, 1.35vw, 0.95rem);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.wakatimeStatus[data-state="unavailable"] {
+    color: #f4bd74;
+}
+
+.wakatimeStatus[data-state="error"] {
+    color: #ff8a8a;
+}
+
+.wakatimeCalendarViewport {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.35rem 0.15rem 0.5rem;
+    overflow-x: auto;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wakatimeCalendarViewport[hidden],
+.wakatimeLegend[hidden] {
+    display: none !important;
+}
+
+.wakatimeCalendar {
+    display: grid;
+    grid-template-columns: 2.65rem max-content;
+    align-items: start;
+    column-gap: 0.5rem;
+    width: max-content;
+    margin-inline: auto;
+}
+
+.wakatimeWeekdays {
+    display: grid;
+    grid-template-rows: repeat(7, var(--wakatime-cell-size));
+    gap: var(--wakatime-cell-gap);
+    color: var(--description-color);
+    font-family: var(--robot-font, Arial), sans-serif;
+    font-size: 0.62rem;
+    line-height: 1;
+}
+
+.wakatimeWeekdays span {
+    display: flex;
+    align-items: center;
+}
+
+.wakatimeChart {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: var(--wakatime-cell-size);
+    grid-template-rows: repeat(7, var(--wakatime-cell-size));
+    gap: var(--wakatime-cell-gap);
+    width: max-content;
+}
+
+.wakatimeCell,
+.wakatimeLegend i {
+    display: block;
+    width: var(--wakatime-cell-size);
+    height: var(--wakatime-cell-size);
+    box-sizing: border-box;
+    border: 1px solid rgba(139, 148, 158, 0.2);
+    border-radius: 2px;
+    background-color: var(--wakatime-day-color, #161b22);
+}
+
+.wakatimeCell[data-level="0"],
+.wakatimeLegend i[data-level="0"] {
+    --wakatime-day-color: #161b22;
+}
+
+.wakatimeCell[data-level="1"],
+.wakatimeLegend i[data-level="1"] {
+    --wakatime-day-color: #0e4429;
+}
+
+.wakatimeCell[data-level="2"],
+.wakatimeLegend i[data-level="2"] {
+    --wakatime-day-color: #006d32;
+}
+
+.wakatimeCell[data-level="3"],
+.wakatimeLegend i[data-level="3"] {
+    --wakatime-day-color: #26a641;
+}
+
+.wakatimeCell[data-level="4"],
+.wakatimeLegend i[data-level="4"] {
+    --wakatime-day-color: #39d353;
+}
+
+.wakatimeCell[data-level="5"],
+.wakatimeLegend i[data-level="5"] {
+    --wakatime-day-color: #7ee787;
+}
+
+.wakatimeCell--empty {
+    visibility: hidden;
+}
+
+.wakatimeLegend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.2rem;
+    color: var(--description-color);
+    font-family: var(--robot-font, Arial), sans-serif;
+    font-size: 0.7rem;
 }
 
 .containerASClosed:hover {

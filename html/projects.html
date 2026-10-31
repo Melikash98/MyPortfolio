@@ -156,7 +156,7 @@
                                 <span>Live Demo</span>
                                 <i class="fi fi-sr-arrow-up-right-from-square" aria-hidden="true"></i>
                             </a>
-                            <button class="activityPopup" type="button" aria-label="Show backend development details"
+                            <button class="activityPopup" type="button" aria-label="Show project coding activity"
                                 aria-haspopup="dialog" aria-controls="activityPopupDialog" aria-expanded="false">
                                 <i class="ri-bubble-chart-fill" aria-hidden="true"></i>
                             </button>
@@ -555,7 +555,8 @@
 
 
     <div class="activityPopupModel">
-        <div class="popupActivityContainer" id="activityPopupDialog" role="dialog" aria-modal="true"
+        <div class="popupActivityContainer" id="activityPopupDialog" data-wakatime-endpoint="../wakatime-activity.php"
+            role="dialog" aria-modal="true"
             aria-labelledby="popupActivityTitle" aria-describedby="popupActivitySubtitle" aria-hidden="true"
             tabindex="-1">
             <button class="containerASClosed" type="button" aria-label="Close activity details">
@@ -563,9 +564,38 @@
             </button>
             <div class="popupActivityBox">
                 <div class="mainActivityBox">
-                    <h6 class="popupActivitySubtitle" id="popupActivitySubtitle">Backend Development</h6>
-                    <h1 class="popupActivityTitle" id="popupActivityTitle">Java &amp; Spring Boot</h1>
-    
+                    <h6 class="popupActivitySubtitle" id="popupActivitySubtitle">WakaTime activity</h6>
+                    <h1 class="popupActivityTitle" id="popupActivityTitle" data-wakatime-project-title>
+                        Project coding activity
+                    </h1>
+                    <p class="wakatimeStatus" data-wakatime-status role="status" aria-live="polite">
+                        Open this project activity to load its WakaTime data.
+                    </p>
+                    <div class="wakatimeCalendarViewport" data-wakatime-calendar hidden tabindex="0" role="region"
+                        aria-label="Scrollable project coding activity for the last 365 days">
+                        <div class="wakatimeCalendar">
+                            <div class="wakatimeWeekdays" aria-hidden="true">
+                                <span>Mon</span>
+                                <span>Tue</span>
+                                <span>Wed</span>
+                                <span>Thu</span>
+                                <span>Fri</span>
+                                <span>Sat</span>
+                                <span>Sun</span>
+                            </div>
+                            <div class="wakatimeChart" data-wakatime-chart role="img"></div>
+                        </div>
+                    </div>
+                    <div class="wakatimeLegend" data-wakatime-legend aria-hidden="true" hidden>
+                        <span>Less</span>
+                        <i data-level="0"></i>
+                        <i data-level="1"></i>
+                        <i data-level="2"></i>
+                        <i data-level="3"></i>
+                        <i data-level="4"></i>
+                        <i data-level="5"></i>
+                        <span>More</span>
+                    </div>
                 </div>
             </div>
         </div>
