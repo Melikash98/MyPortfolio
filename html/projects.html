@@ -156,9 +156,10 @@
                                 <span>Live Demo</span>
                                 <i class="fi fi-sr-arrow-up-right-from-square" aria-hidden="true"></i>
                             </a>
-                            <div class="activityPopup">
-                                <i class="ri-bubble-chart-fill"></i>
-                            </div>
+                            <button class="activityPopup" type="button" aria-label="Show backend development details"
+                                aria-haspopup="dialog" aria-controls="activityPopupDialog" aria-expanded="false">
+                                <i class="ri-bubble-chart-fill" aria-hidden="true"></i>
+                            </button>
                         </div>
 
                     </div>
@@ -554,12 +555,16 @@
 
 
     <div class="activityPopupModel">
-        <div class="popupActivityContainer">
-            <i class="uil uil-times containerASClosed"></i>
+        <div class="popupActivityContainer" id="activityPopupDialog" role="dialog" aria-modal="true"
+            aria-labelledby="popupActivityTitle" aria-describedby="popupActivitySubtitle" aria-hidden="true"
+            tabindex="-1">
+            <button class="containerASClosed" type="button" aria-label="Close activity details">
+                <i class="uil uil-times" aria-hidden="true"></i>
+            </button>
             <div class="popupActivityBox">
                 <div class="mainActivityBox">
-                    <h6 class="popupActivitySubtitle">Backend Development</h6>
-                    <h1 class="popupActivityTitle">Java & Spring Boot</h1>
+                    <h6 class="popupActivitySubtitle" id="popupActivitySubtitle">Backend Development</h6>
+                    <h1 class="popupActivityTitle" id="popupActivityTitle">Java &amp; Spring Boot</h1>
     
                 </div>
             </div>

@@ -319,6 +319,39 @@
     font-size: .85rem;
 }
 
+.activityPopup {
+    display: inline-flex;
+    flex: 0 0 2.75rem;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid rgba(242, 249, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--main-text-color);
+    cursor: pointer;
+    transition: color .25s ease, border-color .25s ease, background .25s ease, transform .25s ease;
+}
+
+.activityPopup i {
+    font-size: 1.15rem;
+}
+
+.activityPopup:hover {
+    color: var(--text-select-color);
+    border-color: var(--text-select-color);
+    background: rgba(20, 134, 140, 0.16);
+    transform: translateY(-2px);
+}
+
+.activityPopup:focus-visible,
+.containerASClosed:focus-visible {
+    outline: 3px solid var(--text-select-color);
+    outline-offset: 3px;
+}
+
 /* TODO ============================================ PROJECT SHOWCASE SECTION ============================================*/
 .homeProjectContainer::after {
     content: "";
@@ -1345,7 +1378,8 @@ a.relatedProjectCard:focus-visible {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right))
+        max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
     background-color: rgba(0, 0, 0, 0.80);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -1353,6 +1387,8 @@ a.relatedProjectCard:focus-visible {
     visibility: hidden;
     pointer-events: none;
     z-index: 10000;
+    overflow-y: auto;
+    box-sizing: border-box;
     transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
@@ -1366,31 +1402,51 @@ a.relatedProjectCard:focus-visible {
 }
 
 .popupActivityContainer {
-    width: 80%;
+    display: flex;
+    align-items: center;
+    width: min(90vw, 700px);
     max-width: 700px;
-    padding: 20px;
-    border-radius: 8px;
+    min-height: 14rem;
+    max-height: calc(100svh - 2rem);
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+    border-radius: 20px;
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.1),
         inset 0 0 0px 0px rgba(255, 255, 255, 0);
+    opacity: 0;
+    transform: scale(.7);
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1), opacity .3s ease;
+}
+
+.activityPopupModel.active .popupActivityContainer {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .containerASClosed {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
     font-size: 1.8rem;
+    line-height: 1;
     cursor: pointer;
     color: var(--main-text-color);
-    padding: .4rem;
     border-radius: 6rem;
     transition: ease-in .3s;
     z-index: 100000;
@@ -1398,19 +1454,51 @@ a.relatedProjectCard:focus-visible {
 
 .popupActivityBox {
     width: 100%;
-    height: 100%;
+    max-height: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
+    overscroll-behavior: contain;
 }
 
 .mainActivityBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .65rem;
     width: 100%;
-    height: 100%;
-    padding-left: 4rem;
+    min-height: 11rem;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.popupActivitySubtitle {
+    margin: 0;
+    color: var(--text-select-color);
+    font-family: var(--subtitle-font, sans-serif);
+    font-size: clamp(.9rem, 1.5vw, 1.05rem);
+    font-weight: var(--bold-font-weight, 700);
+    line-height: 1.4;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.popupActivityTitle {
+    margin: 0;
+    color: var(--main-text-color);
+    font-family: var(--tittle-font, sans-serif);
+    font-size: clamp(1.65rem, 4vw, 2.6rem);
+    font-weight: var(--bold-font-weight, 700);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.containerASClosed:hover {
+    color: var(--text-select-color);
 }
 
 .containerASClosed:hover i {
-    color: var(--text-select-color);
     transform: scale(1.1);
 }
 

@@ -7686,3 +7686,58 @@ html {
         text-align: center;
     }
 }
+
+@media (max-width: 767px) {
+    .indexBody .activityPopupModel {
+        align-items: center;
+        padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right))
+            max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+    }
+
+    .indexBody .activityPopupModel .popupActivityContainer {
+        width: min(100%, 34rem);
+        max-width: 34rem;
+        min-height: clamp(10rem, 34svh, 14rem);
+        max-height: calc(100svh - 1.5rem);
+        padding: clamp(3.5rem, 9vw, 4rem) clamp(1rem, 5vw, 2rem) clamp(1.25rem, 4vw, 2rem);
+        border-radius: 1.35rem;
+    }
+
+    .indexBody .activityPopupModel .popupActivityBox {
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .indexBody .activityPopupModel .mainActivityBox {
+        min-height: 8rem;
+        padding: clamp(0.75rem, 4vw, 1.5rem);
+    }
+
+    .indexBody .activityPopupModel .containerASClosed {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .indexBody .activityPopupModel .popupActivityContainer {
+        min-height: 9rem;
+        border-radius: 1.1rem;
+    }
+
+    .indexBody .activityPopupModel .mainActivityBox {
+        min-height: 7rem;
+        padding-inline: 0.5rem;
+    }
+
+    .indexBody .activityPopupModel .popupActivityTitle {
+        font-size: clamp(1.45rem, 7vw, 1.9rem);
+    }
+
+    .indexBody .activityPopupModel .containerASClosed {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
