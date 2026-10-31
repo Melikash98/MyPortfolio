@@ -46,3 +46,13 @@ Optional server settings:
 
 The server needs PHP cURL. `wakatime-activity.php` accepts only a portfolio `projectId` (or exact database slug), resolves the record from Firebase, maps it to WakaTime, and then requests that project's daily summaries. Successful responses are cached in the server temporary directory for 20 minutes. If WakaTime is temporarily unavailable, the endpoint can return the last successfully synced response with `cacheStatus: "stale"`; the frontend labels live, cached, and stale responses separately.
 
+## Local Windows development
+
+Live Server serves `.php` as a static file. Start a PHP-enabled server from the repository root instead:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\start-wakatime-server.ps1
+```
+
+The script checks for PHP cURL, asks for the OAuth token with hidden input when it is not already set in the current PowerShell process, and passes it only to the PHP server process. It does not save the token. Then open `http://127.0.0.1:8000/html/projects.html?id=<portfolio-project-id>`.
+
