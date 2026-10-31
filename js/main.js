@@ -2,6 +2,12 @@
 // TODO: *************************************************************** Dark Mood & Light Mood **********************************************************************//
 const themeButton = document.querySelector('.themeMoode');
 const themeIcon = themeButton?.querySelector('i');
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+const updateThemeColor = () => {
+    const pageUsesLightTheme = document.documentElement.classList.contains('sun-mood');
+    themeColorMeta?.setAttribute('content', pageUsesLightTheme ? '#D9EAFD' : '#070F2B');
+};
 
 let savedTheme = null;
 
@@ -22,6 +28,7 @@ if (savedTheme === 'dark') {
         themeIcon.className = 'ri-moon-fill';
     }
 }
+updateThemeColor();
 
 themeButton?.addEventListener('click', () => {
     const root = document.documentElement;
@@ -40,6 +47,7 @@ themeButton?.addEventListener('click', () => {
             themeIcon.className = 'ri-sun-fill';
         }
     }
+    updateThemeColor();
 
     try {
         window.localStorage.setItem('theme', theme);

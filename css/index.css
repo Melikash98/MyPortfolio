@@ -4084,3 +4084,567 @@ iframe.skiptranslate {
     border: 2px solid #F2F9FF;
     box-shadow: 0 0 8px rgba(14, 131, 136, 0.35);
 }
+
+/* Portfolio home layout for small phones and portrait tablets */
+@media (max-width: 767px) {
+    .portfolioHome {
+        overflow-x: hidden;
+    }
+
+    .portfolioHome .main {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    .portfolioHome .header {
+        width: 100%;
+        min-height: calc(4rem + env(safe-area-inset-top, 0px));
+        padding: calc(0.4rem + env(safe-area-inset-top, 0px)) max(0.75rem, env(safe-area-inset-right, 0px)) 0.4rem max(0.75rem, env(safe-area-inset-left, 0px));
+        box-sizing: border-box;
+        gap: 0.5rem;
+    }
+
+    .portfolioHome .header .logoCard {
+        flex: 0 1 auto;
+        width: auto;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .portfolioHome .header .logoCard img {
+        width: clamp(6.5rem, 24vw, 9.5rem);
+        max-width: 100%;
+        height: auto;
+    }
+
+    .portfolioHome .header .controlIcon {
+        flex: 0 0 auto;
+        gap: clamp(0.25rem, 2vw, 0.7rem);
+        margin: 0;
+    }
+
+    .portfolioHome .header .controlIcon > div {
+        flex: 0 0 auto;
+        width: 2.5rem;
+        height: 2.5rem;
+        justify-content: center;
+    }
+
+    .portfolioHome .header .controlIcon > div > i {
+        font-size: clamp(1rem, 4.2vw, 1.3rem);
+    }
+
+    .portfolioHome .header .controlIcon .menuOpen,
+    .portfolioHome #google_translate_element {
+        display: none !important;
+    }
+
+    .portfolioHome .section-deco,
+    .portfolioHome .scrollControl {
+        display: none !important;
+    }
+
+    .portfolioHome .main > section.section {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 3.25rem 0 !important;
+        scroll-margin-top: 4.5rem;
+    }
+
+    .portfolioHome .main > section.section:not(.home) > .container {
+        width: 100%;
+        max-width: 1320px;
+        min-width: 0;
+        padding: 0 clamp(0.75rem, 4vw, 1.25rem) !important;
+        box-sizing: border-box;
+    }
+
+    .portfolioHome .main > section.section .sectionTittle {
+        max-width: 100%;
+        padding-inline: 0.75rem;
+        font-size: clamp(1.8rem, 6vw, 2.6rem);
+        line-height: 1.2;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .home {
+        padding: 0 !important;
+    }
+
+    .portfolioHome .homeContainer.container {
+        width: 100%;
+        max-width: 100%;
+        padding: 4.75rem clamp(0.75rem, 4vw, 1.25rem) 1.5rem !important;
+        box-sizing: border-box;
+    }
+
+    .portfolioHome .homeContent {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        min-width: 0;
+        min-height: 0 !important;
+        margin: 0;
+        padding: 0 0 1.5rem !important;
+    }
+
+    .portfolioHome .homeContent > .homeInfo,
+    .portfolioHome .homeContent > .descriptionAbout {
+        display: none !important;
+    }
+
+    .portfolioHome .homeContent > .homeProfilePic {
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+        display: grid !important;
+        place-items: center;
+        width: min(100%, 25rem) !important;
+        height: auto !important;
+        min-height: 0;
+        aspect-ratio: 1;
+        margin: 0 auto;
+    }
+
+    .portfolioHome .homeProfilePic::before {
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 82% !important;
+        height: auto !important;
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .portfolioHome .homeContent .picBack {
+        width: 76% !important;
+        max-width: 19rem;
+        margin: 0 auto !important;
+        aspect-ratio: 21 / 25;
+        transform: none !important;
+    }
+
+    .portfolioHome .homeProfilePic .picBack img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .portfolioHome .homeProfilePic .shape-1 {
+        top: 2%;
+        right: 0;
+        width: clamp(6.5rem, 30vw, 11rem);
+    }
+
+    .portfolioHome .homeProfilePic .shape-2,
+    .portfolioHome .homeProfilePic .shape-3 {
+        bottom: 8%;
+        width: clamp(4.5rem, 22vw, 8rem);
+    }
+
+    .portfolioHome .homeProfilePic .shape-2 {
+        left: 0;
+    }
+
+    .portfolioHome .homeProfilePic .shape-3 {
+        right: 0;
+    }
+
+    .portfolioHome .homeProfilePic > .shape {
+        z-index: 1;
+    }
+
+    .portfolioHome .homeProfilePic .exInfo {
+        width: min(10rem, 44vw);
+        min-width: 0;
+        height: auto;
+        min-height: 3.25rem;
+        padding: 0.35rem 0.5rem;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 0.2rem;
+    }
+
+    .portfolioHome .homeProfilePic .infoOne {
+        bottom: 8%;
+        left: 0;
+    }
+
+    .portfolioHome .homeProfilePic .infoTwo {
+        bottom: 31%;
+        right: 0;
+    }
+
+    .portfolioHome .homeProfilePic .infoThree {
+        display: none;
+    }
+
+    .portfolioHome .homeProfilePic .exInfo-number {
+        margin: 0;
+        font-size: clamp(1.2rem, 5.5vw, 1.8rem);
+        line-height: 1;
+    }
+
+    .portfolioHome .homeProfilePic .exInfo-text {
+        font-size: clamp(0.72rem, 2.8vw, 0.9rem);
+        line-height: 1.1;
+    }
+
+    .portfolioHome .homeContent > .homeInfoTwo {
+        display: grid !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 100%;
+        max-width: 38rem;
+        min-width: 0;
+        justify-items: center;
+        gap: 0.4rem;
+        margin: 0 auto 1rem !important;
+        padding-inline: 0.2rem;
+        text-align: center;
+    }
+
+    .portfolioHome .homeInfoTwo > * {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .nameTextTwo {
+        margin: 0;
+        font-size: clamp(1.65rem, 7.5vw, 2.6rem);
+        line-height: 1.2;
+    }
+
+    .portfolioHome .startTextTwo {
+        margin: 0;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        text-align: center;
+    }
+
+    .portfolioHome .rolNameTwo {
+        width: 100%;
+        margin: 0;
+        font-size: clamp(1.1rem, 4.4vw, 1.4rem);
+        line-height: 1.35;
+        text-align: center;
+    }
+
+    .portfolioHome .descriptionAboutTwo {
+        width: 100%;
+        margin: 0;
+        font-size: clamp(1rem, 3.8vw, 1.15rem);
+        line-height: 1.4;
+        text-align: start;
+    }
+
+    .portfolioHome .homeContent > .socialGroup {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        width: 100%;
+        margin: 0;
+    }
+
+    .portfolioHome .homeContent > .socialGroup .socialLink {
+        margin: 0;
+        font-size: 1.6rem;
+    }
+
+    .portfolioHome .homeContent > .btns {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        width: 100%;
+    }
+
+    .portfolioHome .homeContent > .btns .btn {
+        min-height: 2.75rem;
+        padding: 0.7rem 1.25rem;
+    }
+
+    .portfolioHome .experienceContent .experiencekColumns {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .portfolioHome .experiencekColumns > * {
+        min-width: 0;
+    }
+
+    .portfolioHome .skillsContent {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        min-width: 0;
+        margin: 1.5rem 0 0;
+        gap: 1rem;
+    }
+
+    .portfolioHome .skillsTab,
+    .portfolioHome .skilldContent {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .portfolioHome .skillsHeader {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 0.6rem;
+        padding: 0.75rem;
+        box-sizing: border-box;
+    }
+
+    .portfolioHome .skillsHeader > div {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .portfolioHome .skillTabTittle {
+        font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .skillTabSubject {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .portfolioHome .skillsHeader .skillArrow {
+        flex: 0 0 auto;
+        margin-left: 0;
+    }
+
+    .portfolioHome .skilldContent .skillsGroup,
+    .portfolioHome .skilldContent .skillsList {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .portfolioHome .skillItem {
+        min-width: 0;
+        padding-left: 1.5rem;
+    }
+
+    .portfolioHome .skillItem::before {
+        left: 0.25rem;
+    }
+
+    .portfolioHome .skillItem:not(:last-child)::after {
+        left: calc(0.25rem + 4px);
+    }
+
+    .portfolioHome .skillTittles {
+        gap: 0.5rem;
+    }
+
+    .portfolioHome .skillName {
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+        font-size: clamp(1rem, 3.8vw, 1.2rem);
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .services-swiper,
+    .portfolioHome .projects-swiper,
+    .portfolioHome .tutorialsSwiper,
+    .portfolioHome .comments-swiper {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .portfolioHome .services-swiper .swiper-slide,
+    .portfolioHome .projects-swiper .swiper-slide,
+    .portfolioHome .tutorialsSwiper .swiper-slide,
+    .portfolioHome .comments-swiper .swiper-slide {
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .portfolioHome .projects .filterList {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        width: 100%;
+        margin: 1rem auto;
+        padding: 0;
+    }
+
+    .portfolioHome .projects .filterList .filterItems {
+        padding: 0.4rem 0.65rem;
+        font-size: clamp(0.82rem, 3vw, 1rem);
+    }
+
+    .portfolioHome .projectContainer {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .portfolioHome .contact .contactContent {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch;
+        gap: 1.75rem;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .portfolioHome .contact .contactInfo,
+    .portfolioHome .contact .contactForms,
+    .portfolioHome .contact .contactForm {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .portfolioHome .contact .contactInfo {
+        gap: 0.75rem;
+    }
+
+    .portfolioHome .contact .contactItem {
+        width: 100%;
+        min-width: 0;
+        gap: 0.75rem;
+    }
+
+    .portfolioHome .contact .contactDetails {
+        min-width: 0;
+        padding-left: 0.5rem;
+    }
+
+    .portfolioHome .contact .contactDetails p {
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .contact .contactForm .formRow {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .portfolioHome .contact .contactForm .formGroup,
+    .portfolioHome .contact .contactForm input,
+    .portfolioHome .contact .contactForm textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .portfolioHome .contact .contactForm .formBottom {
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 0;
+    }
+
+    .portfolioHome .contact .contactForm .formBottom .terms {
+        width: 100%;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .contact .contactForm .contactButton {
+        width: 100%;
+        max-width: 18rem;
+        min-height: 2.75rem;
+        align-self: flex-end;
+    }
+
+    .portfolioHome .contact .contact-map,
+    .portfolioHome .contact .contactLocation {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .portfolioHome #cw-fab {
+        left: 0.75rem;
+        bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+        width: 3.5rem;
+        height: 3.75rem;
+        display: grid;
+        place-items: start center;
+    }
+
+    .portfolioHome #cw-fab img,
+    .portfolioHome #cw-fab svg {
+        width: 4rem;
+        height: 4rem;
+        margin-top: -0.75rem;
+        object-fit: contain;
+    }
+
+    .portfolioHome #contact {
+        padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+}
+
+@media (max-width: 360px) {
+    .portfolioHome .homeInfoTwo {
+        padding-inline: 0;
+    }
+
+    .portfolioHome .homeProfilePic .exInfo {
+        width: min(9rem, 43vw);
+        padding-inline: 0.35rem;
+    }
+
+    .portfolioHome .homeProfilePic .exInfo-text {
+        font-size: 0.7rem;
+    }
+
+}
+
+/* Keep the fixed site bars on the same background as the page. */
+.portfolioHome {
+    --page-background: #070F2B;
+}
+
+:root.sun-mood .portfolioHome {
+    --page-background: #D9EAFD;
+}
+
+.portfolioHome .header {
+    background-color: var(--page-background);
+    background-image: var(--main-background);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
