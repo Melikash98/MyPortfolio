@@ -3395,9 +3395,9 @@ iframe.skiptranslate {
     --github-cell-size: 0.72rem;
     --github-cell-gap: 0.22rem;
     width: 100%;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 2.5rem auto 0;
-    padding: clamp(1rem, 3vw, 1.75rem);
+    padding: clamp(0.9rem, 2vw, 1.25rem);
     box-sizing: border-box;
     color: var(--main-text-color);
     background: rgba(14, 131, 136, 0.08);
