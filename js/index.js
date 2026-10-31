@@ -1011,11 +1011,6 @@ const commentSwiper = new Swiper('.comments-swiper', {
   },
 });
 // TODO: *************************************************************** Contact Section **********************************************************************//
-const locationContact = document.getElementById("locationContact");
-const emailContact = document.getElementById("emailContact");
-const telegramContact = document.getElementById("telegramContact");
-const linkedinContact = document.getElementById("linkedinContact");
-
 const contactForm = document.getElementById("contactForm");
 const formBottom = document.querySelector(".formBottom");
 const terms = document.querySelector(".terms");
@@ -1104,31 +1099,52 @@ function hideContactMap() {
   }, 400);
 }
 
-locationContact.addEventListener("click", () => {
-  showContactMap();
-});
+const contactInfo = document.querySelector(".contactInfo");
+const fallbackContactLinks = {
+  telegram: "https://t.me/melika_sh_de",
+  linkedin: "https://www.linkedin.com/in/melika-shooryabi/"
+};
 
-emailContact.addEventListener("click", () => {
-  hideContactMap();
-  showContactForm();
-});
+function openContactLink(item, type) {
+  const destination = item.dataset.firebaseContactManaged === "true"
+    ? item.dataset.contactLink
+    : item.dataset.contactLink || fallbackContactLinks[type];
+  if (!destination) return;
 
-telegramContact.addEventListener("click", () => {
-  const telegramUsername = "melika_sh_de";
+  let url;
+  try {
+    url = new URL(destination, window.location.href);
+  } catch {
+    return;
+  }
 
-  window.open(
-    `https://t.me/${telegramUsername}`,
-    "_blank",
-    "noopener,noreferrer"
-  );
-});
+  if (url.protocol === "https:" || url.protocol === "http:") {
+    window.open(url.href, "_blank", "noopener,noreferrer");
+  } else if (url.protocol === "mailto:" || url.protocol === "tel:") {
+    window.location.href = url.href;
+  }
+}
 
-linkedinContact.addEventListener("click", () => {
-  window.open(
-    "https://www.linkedin.com/in/melika-shooryabi/",
-    "_blank",
-    "noopener,noreferrer"
-  );
+contactInfo?.addEventListener("click", (event) => {
+  const target = event.target instanceof Element ? event.target : null;
+  const item = target?.closest(".contactItem");
+  if (!item || !contactInfo.contains(item) || item.hidden) return;
+
+  const type = (item.dataset.contactType || "").toLowerCase();
+  if (type === "address" || type === "location" || item.id === "locationContact") {
+    showContactMap();
+    return;
+  }
+
+  if (type === "email" || item.id === "emailContact") {
+    hideContactMap();
+    showContactForm();
+    return;
+  }
+
+  if (type === "telegram" || type === "linkedin" || item.dataset.contactLink) {
+    openContactLink(item, type);
+  }
 });
 
 showContactForm();

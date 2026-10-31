@@ -21,13 +21,15 @@ const EXPERIENCE_PATH = "webdatabase/experience/Experience";
 const SKILLS_PATH = "webdatabase/skills";
 const COMMENTS_PATH = "webdatabase/comments";
 const PROJECTS_PATH = "webdatabase/projects";
+const CONTACT_PATH = "webdatabase/contact";
 
 const CACHE_KEYS = {
     home: "portfolio:home:v2",
     experience: "portfolio:experience:v2",
     skills: "portfolio:skills:v1",
     comments: "portfolio:comments:v1",
-    projects: "portfolio:projects:v1"
+    projects: "portfolio:projects:v1",
+    contact: "portfolio:contact:v1"
 };
 
 const DEFAULT_HOME = {
@@ -250,6 +252,137 @@ function renderHome(data) {
     if (roles.length && rolesKey !== lastRolesKey) {
         lastRolesKey = rolesKey;
         window.dispatchEvent(new CustomEvent("home:updated", { detail: { roles } }));
+    }
+}
+
+function getContactIconClasses(record) {
+    const iconClass = getString(record, ["icon"]);
+    const iconAliases = {
+        location: "ri-map-pin-2-line",
+        email: "ri-mail-line"
+    };
+    return (iconAliases[iconClass.toLowerCase()] || iconClass)
+        .split(/\s+/)
+        .filter((className) => /^[A-Za-z][A-Za-z0-9_-]*$/.test(className));
+}
+
+function createContactIcon(record) {
+    const iconElement = document.createElement("i");
+    const iconClasses = getContactIconClasses(record);
+    iconElement.className = iconClasses.length ? iconClasses.join(" ") : "ri-links-line";
+    iconElement.setAttribute("aria-hidden", "true");
+    return iconElement;
+}
+
+function createContactItem(record, id) {
+    const item = document.createElement("div");
+    item.className = "contactItem";
+    item.id = id;
+
+    const icon = document.createElement("div");
+    icon.className = "contactIcon";
+    const iconElement = createContactIcon(record);
+    icon.appendChild(iconElement);
+
+    const details = document.createElement("div");
+    details.className = "contactDetails";
+    const title = document.createElement("h3");
+    const value = document.createElement("p");
+    details.append(title, value);
+    item.append(icon, details);
+    return item;
+}
+
+function renderContact(data) {
+    const container = document.querySelector(".contactInfo");
+    if (!container || !isRecord(data)) return;
+
+    const contactRecords = entriesOf(data).filter(([, record]) => {
+        const type = getString(record, ["type"]).toLowerCase();
+        const fallbackValue = type === "email" ? data.email :
+            type === "address" || type === "location" ? data.address :
+                type === "phone" || type === "telegram" ? data.phone : "";
+        return getString(record, ["title", "label"]) ||
+            getText(record, ["value", "text", "description"]) ||
+            getString({ value: fallbackValue }, ["value"]);
+    });
+    if (!contactRecords.length) return;
+
+    const renderedItems = new Set();
+    const seenIds = new Set();
+
+    contactRecords.forEach(([key, record]) => {
+        const id = getString(record, ["id", "htmlId", "elementId"]) || key;
+        if (!/^[A-Za-z][A-Za-z0-9_:-]*$/.test(id)) {
+            console.warn("[Firebase] Contact: invalid HTML id was skipped.", id);
+            return;
+        }
+        if (seenIds.has(id)) {
+            console.warn("[Firebase] Contact: duplicate contact id \"" + id + "\" was skipped.");
+            return;
+        }
+        seenIds.add(id);
+
+        let item = byId(id);
+        if (item && (!item.classList.contains("contactItem") || !container.contains(item))) {
+            console.warn("[Firebase] Contact: id \"" + id + "\" is already used outside the contact list.");
+            return;
+        }
+        if (!item) {
+            item = createContactItem(record, id);
+            container.appendChild(item);
+        }
+
+        const title = item.querySelector(".contactDetails h3");
+        const value = item.querySelector(".contactDetails p");
+        setText(title, getString(record, ["title", "label"]));
+        const type = getString(record, ["type"]).toLowerCase();
+        const fallbackValue = type === "email" ? getString(data, ["email"]) :
+            type === "address" || type === "location" ? getString(data, ["address"]) :
+                type === "phone" || type === "telegram" ? getString(data, ["phone"]) : "";
+        setText(value, getText(record, ["value", "text", "description"]) || fallbackValue);
+
+        const iconContainer = item.querySelector(".contactIcon");
+        if (iconContainer && getString(record, ["icon"])) {
+            iconContainer.replaceChildren(createContactIcon(record));
+        }
+
+        const href = safeLink(getString(record, ["link", "url", "href"])) ||
+            (type === "email" ? safeLink(getString(data, ["email"])) : "");
+        if (type) item.dataset.contactType = type;
+        else delete item.dataset.contactType;
+        if (href) item.dataset.contactLink = href;
+        else delete item.dataset.contactLink;
+
+        item.dataset.firebaseContactManaged = "true";
+        item.hidden = false;
+        container.appendChild(item);
+        renderedItems.add(item);
+    });
+
+    // Once Firebase returns contact records, omitted entries should not leave stale HTML values visible.
+    container.querySelectorAll(".contactItem").forEach((item) => {
+        item.dataset.firebaseContactManaged = "true";
+        item.hidden = !renderedItems.has(item);
+    });
+
+    const mapFrame = byId("contactMapFrame") || document.querySelector(".contact-map iframe");
+    const mapEmbed = getString(data, ["mapEmbedUrl", "mapUrl"]);
+    if (mapFrame && /^https:\/\/www\.google\.com\/maps\/embed(?:[/?#]|$)/i.test(mapEmbed)) {
+        mapFrame.src = mapEmbed;
+        mapFrame.title = "Map showing " + (getString(data, ["address"]) || "the contact location");
+    } else if (mapFrame) {
+        const addressRecord = contactRecords.find(([, record]) => {
+            const type = getString(record, ["type"]).toLowerCase();
+            return type === "address" || type === "location" ||
+                getString(record, ["id", "htmlId", "elementId"]) === "locationContact";
+        })?.[1];
+        const address = getText(addressRecord, ["value", "text", "description"]) ||
+            getString(data, ["address"]);
+        if (address) {
+            mapFrame.src = "https://www.google.com/maps?q=" + encodeURIComponent(address) + "&output=embed";
+            mapFrame.title = "Map showing " + address;
+        }
     }
 }
 
@@ -1477,6 +1610,13 @@ const loadComments = createSectionLoader({
     label: "Comments"
 });
 
+const loadContact = createSectionLoader({
+    path: CONTACT_PATH,
+    cacheKey: CACHE_KEYS.contact,
+    render: renderContact,
+    label: "Contact"
+});
+
 async function startAnalytics() {
     try {
         const { getAnalytics } = await import(
@@ -1500,6 +1640,10 @@ if (document.querySelector(".projectContainer.projects-swiper") || projectsPageR
 
 if (document.querySelector(".comments-swiper")) {
     loadComments();
+}
+
+if (document.querySelector("#contact .contactInfo")) {
+    loadContact();
 }
 
 startAnalytics();
