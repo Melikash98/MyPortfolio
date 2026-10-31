@@ -8349,9 +8349,9 @@ html {
     .portfolioHome #experience .clumnTittle::after {
         content: "";
         position: absolute;
-        right: 0;
+        right: 24px;
         bottom: 0;
-        left: 0;
+        left: 24px;
         height: 1px;
         background-color: var(--description-color);
         opacity: 0.8;
@@ -8364,13 +8364,50 @@ html {
     .portfolioHome #experience .resumeItem::after {
         content: "";
         position: absolute;
-        right: 0;
+        right: 24px;
         bottom: 0;
-        left: 0;
+        left: 24px;
         height: 2px;
         background-color: var(--description-color);
         opacity: 0.8;
         pointer-events: none;
     }
 
+    .portfolioHome #experience .detailUni,
+    .portfolioHome #experience .detailAward {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: baseline;
+        gap: 0.5rem 1.25rem;
+        width: calc(100% - 16px);
+        margin: 0.5rem 8px;
+        padding: 0 20px 0 8px;
+        box-sizing: border-box;
+    }
+
+    .portfolioHome #experience .detailUni h3,
+    .portfolioHome #experience .detailAward h3 {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioHome #experience .detailUni .dataItem,
+    .portfolioHome #experience .detailAward .dataItem {
+        margin: 0;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .portfolioHome #experience .detailsBtn,
+    .portfolioHome #experience .detailsEXBtn {
+        right: 0.95rem;
+    }
+
+    .portfolioHome #experience .educationItem + .educationItem::before,
+    .portfolioHome #experience .experienceItem + .experienceItem::before,
+    .portfolioHome #experience .awardItem + .awardItem::before {
+        right: 1.9rem;
+    }
 }

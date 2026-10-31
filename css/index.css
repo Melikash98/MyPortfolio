@@ -4421,13 +4421,22 @@ iframe.skiptranslate {
     .portfolioHome #experience .resumeItem::after {
         content: "";
         position: absolute;
-        right: clamp(0.75rem, 4vw, 1rem);
+        right: 24px;
         bottom: 0;
-        left: clamp(0.75rem, 4vw, 1rem);
+        left: 24px;
         height: 2px;
         background-color: var(--description-color);
         opacity: 0.8;
         pointer-events: none;
+    }
+
+    .portfolioHome #experience .detailsBtn,
+    .portfolioHome #experience .detailsEXBtn {
+        right: 0.15rem;
+    }
+
+    .portfolioHome #experience .resumeItem + .resumeItem::before {
+        right: 1.1rem;
     }
 
     .portfolioHome .experiencekColumns > * {
@@ -4438,17 +4447,21 @@ iframe.skiptranslate {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        width: 100%;
+        width: 22rem;
+        max-width: 100%;
         min-width: 0;
-        margin: 1.5rem 0 0;
-        gap: 1rem;
+        margin: 1.5rem auto 0;
+        gap: 0.75rem;
+        box-sizing: border-box;
     }
 
     .portfolioHome .skillsTab,
     .portfolioHome .skilldContent {
         width: 100%;
+        max-width: 100%;
         min-width: 0;
         margin: 0;
+        box-sizing: border-box;
     }
 
     .portfolioHome .skillsHeader {
@@ -4456,7 +4469,7 @@ iframe.skiptranslate {
         max-width: 100%;
         min-width: 0;
         gap: 0.6rem;
-        padding: 0.75rem;
+        padding: 0.6rem;
         box-sizing: border-box;
     }
 
@@ -4466,8 +4479,8 @@ iframe.skiptranslate {
     }
 
     .portfolioHome .skillTabTittle {
-        font-size: clamp(0.95rem, 3.8vw, 1.2rem);
-        line-height: 1.3;
+        font-size: 1rem;
+        line-height: 1.25;
         overflow-wrap: anywhere;
     }
 
@@ -4489,9 +4502,15 @@ iframe.skiptranslate {
         padding: 0;
     }
 
+    .portfolioHome .skilldContent .skillsList {
+        row-gap: 1.5rem;
+    }
+
     .portfolioHome .skillItem {
+        width: 100%;
         min-width: 0;
         padding-left: 1.5rem;
+        box-sizing: border-box;
     }
 
     .portfolioHome .skillItem::before {
@@ -4500,6 +4519,7 @@ iframe.skiptranslate {
 
     .portfolioHome .skillItem:not(:last-child)::after {
         left: calc(0.25rem + 4px);
+        bottom: calc(-1.3rem - 0.65rem);
     }
 
     .portfolioHome .skillTittles {
@@ -4510,8 +4530,12 @@ iframe.skiptranslate {
         flex: 1 1 auto;
         width: auto;
         min-width: 0;
-        font-size: clamp(1rem, 3.8vw, 1.2rem);
+        font-size: 1rem;
         overflow-wrap: anywhere;
+    }
+
+    .portfolioHome .skillNumber {
+        font-size: 0.9rem;
     }
 
     .portfolioHome .services-swiper,
@@ -4653,6 +4677,12 @@ iframe.skiptranslate {
         padding-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)) !important;
     }
 
+}
+
+@media (min-width: 491px) and (max-width: 767px) {
+    .portfolioHome .skillsContent {
+        width: 22rem;
+    }
 }
 
 @media (max-width: 360px) {
