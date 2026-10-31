@@ -19,12 +19,14 @@ const REST_TIMEOUT_MS = 8000;
 const HOME_PATH = "webdatabase/home";
 const EXPERIENCE_PATH = "webdatabase/experience/Experience";
 const SKILLS_PATH = "webdatabase/skills";
+const COMMENTS_PATH = "webdatabase/comments";
 const PROJECTS_PATH = "webdatabase/projects";
 
 const CACHE_KEYS = {
     home: "portfolio:home:v2",
     experience: "portfolio:experience:v2",
     skills: "portfolio:skills:v1",
+    comments: "portfolio:comments:v1",
     projects: "portfolio:projects:v1"
 };
 
@@ -812,6 +814,72 @@ function renderSkills(data) {
     if (window.AOS?.refresh) window.AOS.refresh();
 }
 
+/* Comments */
+function createCommentCard(comment, key, index) {
+    const id = normalizeDomId(getString(comment, ["id", "recordId"]) || key, key);
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide commentCard";
+    slide.id = id;
+    slide.dataset.recordCollection = "comments";
+    slide.dataset.recordDocumentId = id;
+    slide.setAttribute("data-aos", index === 1 ? "zoom-in" : index === 2 ? "fade-left" : "fade-right");
+    slide.setAttribute("data-aos-delay", String(400 + index * 50));
+
+    const quote = document.createElement("div");
+    quote.className = "commaCard";
+    const quoteImage = document.createElement("img");
+    quoteImage.src = "images/quote-right.svg";
+    quoteImage.alt = "";
+    quoteImage.loading = "lazy";
+    quote.appendChild(quoteImage);
+
+    const image = document.createElement("img");
+    const imageUrl = safeImageUrl(getString(comment, ["image", "photo", "avatar"]));
+    if (imageUrl) image.src = imageUrl;
+    image.alt = getString(comment, ["name"]) + " portrait";
+    image.loading = "lazy";
+
+    const portrait = document.createElement("div");
+    portrait.className = "imageCommentCard";
+    if (imageUrl) portrait.appendChild(image);
+
+    const text = document.createElement("p");
+    text.textContent = getString(comment, ["text", "comment", "message"]);
+
+    const person = document.createElement("div");
+    person.className = "infoPersone";
+    const name = document.createElement("h3");
+    name.textContent = getString(comment, ["name"]) || "Client";
+    const role = document.createElement("h6");
+    role.textContent = getString(comment, ["role", "position", "title"]);
+    person.append(name, role);
+
+    slide.append(quote, portrait, text, person);
+    return slide;
+}
+
+function renderComments(data) {
+    const swiperRoot = document.querySelector(".comments-swiper");
+    const wrapper = swiperRoot?.querySelector(".swiper-wrapper");
+    if (!swiperRoot || !wrapper) return;
+
+    const seenIds = new Set();
+    const cards = [];
+    entriesOf(data).forEach(([key, comment], index) => {
+        const id = normalizeDomId(getString(comment, ["id", "recordId"]) || key, key);
+        if (seenIds.has(id)) {
+            console.warn("[Firebase] Comments: duplicate comment id \"" + id + "\" was skipped.");
+            return;
+        }
+        seenIds.add(id);
+        cards.push(createCommentCard(comment, key, index));
+    });
+
+    replaceSwiperSlides(swiperRoot, wrapper, cards);
+    if (window.AOS?.refresh) window.AOS.refresh();
+    console.info("[Firebase] Rendered " + cards.length + " comments.");
+}
+
 /* Projects */
 function projectItems(value) {
     if (Array.isArray(value)) return value.filter((item) => item !== null && item !== undefined);
@@ -831,7 +899,7 @@ function projectItems(value) {
         .filter((item) => item !== null && item !== undefined);
 }
 
-function replaceProjectSwiperSlides(swiperRoot, wrapper, slides) {
+function replaceSwiperSlides(swiperRoot, wrapper, slides) {
     const swiper = swiperRoot?.swiper;
     if (swiper && !swiper.destroyed) {
         swiper.removeAllSlides();
@@ -987,7 +1055,7 @@ function renderProjectCards(data) {
         cards.push(createProjectCard(project, key));
     });
 
-    replaceProjectSwiperSlides(swiperRoot, wrapper, cards);
+    replaceSwiperSlides(swiperRoot, wrapper, cards);
     if (window.AOS?.refresh) window.AOS.refresh();
     window.dispatchEvent(new CustomEvent("projects:data-rendered", {
         detail: { ids: [...seenIds], cards }
@@ -1036,7 +1104,7 @@ function renderProjectHero(page) {
         slide.appendChild(frame);
         slides.push(slide);
     });
-    replaceProjectSwiperSlides(section.querySelector(".postgap-showcase__swiper"), wrapper, slides);
+    replaceSwiperSlides(section.querySelector(".postgap-showcase__swiper"), wrapper, slides);
     section.hidden = wrapper.children.length === 0;
 }
 
@@ -1097,7 +1165,7 @@ function renderProjectScreenshots(page) {
         slide.appendChild(frame);
         slides.push(slide);
     });
-    replaceProjectSwiperSlides(section.querySelector(".postgap-screenshots__swiper"), wrapper, slides);
+    replaceSwiperSlides(section.querySelector(".postgap-screenshots__swiper"), wrapper, slides);
 
     const total = wrapper.children.length;
     const totalCounter = section.querySelector(".screenshotTotal");
@@ -1402,6 +1470,13 @@ const loadSkills = createSectionLoader({
     label: "Skills"
 });
 
+const loadComments = createSectionLoader({
+    path: COMMENTS_PATH,
+    cacheKey: CACHE_KEYS.comments,
+    render: renderComments,
+    label: "Comments"
+});
+
 async function startAnalytics() {
     try {
         const { getAnalytics } = await import(
@@ -1421,6 +1496,10 @@ if (document.querySelector("#home") && document.querySelector("#experience") && 
 
 if (document.querySelector(".projectContainer.projects-swiper") || projectsPageRoot) {
     loadProjects();
+}
+
+if (document.querySelector(".comments-swiper")) {
+    loadComments();
 }
 
 startAnalytics();
