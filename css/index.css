@@ -4371,13 +4371,39 @@ iframe.skiptranslate {
         visibility: visible !important;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 0.75rem 1.25rem;
+        gap: 0.75rem 2rem;
         width: 100%;
     }
 
     .portfolioHome .homeContent > .btns .btn {
         min-height: 2.75rem;
         padding: 0.7rem 1.25rem;
+    }
+
+    .portfolioHome .homeContent > .btns .skillsLink::before {
+        left: -2rem;
+        width: 1.5rem;
+    }
+
+    .portfolioHome .homeContent > .btns .skillsLink::after {
+        left: -2rem;
+    }
+
+    .portfolioHome .homeContent > .btns .skillsLink:hover::after {
+        animation-name: skillsLineMoveCompact;
+    }
+
+    @keyframes skillsLineMoveCompact {
+        0%,
+        100% {
+            left: -2rem;
+            opacity: 1;
+        }
+
+        50% {
+            left: -0.75rem;
+            opacity: 1;
+        }
     }
 
     .portfolioHome .experienceContent .experiencekColumns {
@@ -4647,4 +4673,23 @@ iframe.skiptranslate {
     background-attachment: fixed;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+}
+
+/* Inset resume dividers on phones and tablets without changing the text width. */
+@media (max-width: 1024px) {
+    .portfolioHome #experience .resumeItem {
+        border-bottom: 0;
+    }
+
+    .portfolioHome #experience .resumeItem::after {
+        content: "";
+        position: absolute;
+        right: clamp(2rem, 4vw, 2.5rem);
+        bottom: 0;
+        left: clamp(2rem, 4vw, 2.5rem);
+        height: 2px;
+        background-color: var(--description-color);
+        opacity: 0.8;
+        pointer-events: none;
+    }
 }
