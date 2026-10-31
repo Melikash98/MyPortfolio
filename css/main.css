@@ -3357,7 +3357,13 @@ html {
         font-size: .4rem;
     }
 
-    .infoTextTwo {
+    .projectsPopupModel .infoTextTwo {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .projectsPopupModel .explainProjectBox {
         display: block;
         visibility: visible;
         opacity: 1;
@@ -3463,8 +3469,10 @@ html {
         display: none;
     }
 
-    .infoListTwo {
+    .projectsPopupModel .infoListTwo {
         display: block;
+        visibility: visible;
+        opacity: 1;
         margin-top: 1rem;
     }
 
