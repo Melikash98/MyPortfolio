@@ -805,7 +805,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!list) return;
     list.replaceChildren();
     const headingTags = ["h4", "h6", "h5"];
-    items.slice(0, 3).forEach(({ label, value }, index) => {
+    items.slice(0, 3).forEach(({ label, value, detail }, index) => {
       if (!value) return;
       const item = document.createElement("li");
       const heading = document.createElement(headingTags[index]);
@@ -815,6 +815,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = document.createElement("span");
       text.textContent = value;
       heading.append(icon, document.createTextNode(label + ": "), text);
+      if (detail) {
+        const detailText = document.createElement("span");
+        detailText.textContent = detail;
+        heading.append(document.createTextNode(" "), detailText);
+      }
       item.appendChild(heading);
       list.appendChild(item);
     });
@@ -869,8 +874,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    const mobileDescription = plainDescription || data.overview || "";
     if (overviewText) {
-      overviewText.textContent = data.overview || plainDescription;
+      overviewText.textContent = mobileDescription;
       overviewText.dataset.fullText = overviewText.textContent.replace(/\s+/g, " ").trim();
     }
 
@@ -884,8 +890,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderValueRows(infoListDetails, details);
     renderMobileDemoRows(demoDetails, [
       { label: "Name", value: data.title },
-      { label: "Company", value: data.companyName },
-      { label: "Date", value: data.date }
+      { label: "Name Company", value: data.companyName },
+      { label: "Date", value: data.date, detail: data.duration }
     ]);
 
     const githubHref = popupHref(data.githubLink);
@@ -915,7 +921,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.dispatchEvent(new CustomEvent("project:popup-opened", {
-      detail: { description: data.overview || plainDescription }
+      detail: { description: mobileDescription }
     }));
     projectPopup.classList.add("active");
     document.body.classList.add("popup-open");
