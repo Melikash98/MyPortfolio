@@ -812,6 +812,582 @@ function renderSkills(data) {
     if (window.AOS?.refresh) window.AOS.refresh();
 }
 
+/* Projects */
+function projectItems(value) {
+    if (Array.isArray(value)) return value.filter((item) => item !== null && item !== undefined);
+    if (!isRecord(value)) return [];
+
+    return Object.entries(value)
+        .sort(([keyA, itemA], [keyB, itemB]) => {
+            const orderA = Number(itemA?.order);
+            const orderB = Number(itemB?.order);
+            const hasOrderA = Number.isFinite(orderA);
+            const hasOrderB = Number.isFinite(orderB);
+            if (hasOrderA && hasOrderB && orderA !== orderB) return orderA - orderB;
+            if (hasOrderA !== hasOrderB) return hasOrderA ? -1 : 1;
+            return keyA.localeCompare(keyB, undefined, { numeric: true });
+        })
+        .map(([, item]) => item)
+        .filter((item) => item !== null && item !== undefined);
+}
+
+function replaceProjectSwiperSlides(swiperRoot, wrapper, slides) {
+    const swiper = swiperRoot?.swiper;
+    if (swiper && !swiper.destroyed) {
+        swiper.removeAllSlides();
+        if (slides.length) swiper.appendSlide(slides);
+        swiper.update();
+        return;
+    }
+    wrapper.replaceChildren(...slides);
+}
+
+function isProjectDetailPage() {
+    return Boolean(document.querySelector(".projectRecord"));
+}
+
+function projectAssetUrl(value) {
+    const safeUrl = safeImageUrl(value);
+    if (!safeUrl) return "";
+    if (/^(https?:\/\/|\/|\.\.?\/)/i.test(safeUrl)) return safeUrl;
+    if (isProjectDetailPage() && /^(images|pdf)\//i.test(safeUrl)) return "../" + safeUrl;
+    return safeUrl;
+}
+
+function projectHref(value) {
+    if (typeof value !== "string") return "";
+    const href = value.trim();
+    if (/^(https?:|mailto:|tel:)/i.test(href)) return href;
+    if (/^(#|\/|\.\.\/)/.test(href)) return href;
+    if (/^(html|pdf)\//i.test(href)) return isProjectDetailPage() ? "../" + href : href;
+    return "";
+}
+
+function setProjectLink(anchor, value) {
+    if (!anchor) return;
+    const href = projectHref(value);
+    if (!href) {
+        anchor.removeAttribute("href");
+        anchor.hidden = true;
+        return;
+    }
+    anchor.href = href;
+    anchor.hidden = false;
+    if (/^https?:/i.test(href)) {
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+    } else {
+        anchor.removeAttribute("target");
+        anchor.removeAttribute("rel");
+    }
+}
+
+function addClassTokens(element, values) {
+    if (!element) return;
+    const tokens = values
+        .flatMap((value) => String(value ?? "").split(/\s+/))
+        .filter((token) => /^[\w-]+$/.test(token));
+    if (tokens.length) element.classList.add(...tokens);
+}
+
+function createProjectCard(project, key) {
+    const id = normalizeDomId(getString(project, ["id", "recordId", "cardId"]) || key, key);
+    const page = isRecord(project.page) ? project.page : {};
+    const savedPopup = isRecord(project.popup) ? project.popup : {};
+    const card = document.createElement("div");
+    card.className = "boxCard swiper-slide";
+    card.id = id;
+    card.dataset.recordCollection = "projects";
+    card.dataset.recordDocumentId = id;
+    card.dataset.projectId = id;
+    card.dataset.category = getString(project, ["category"]) || "app";
+    card.dataset.imageType = getString(project, ["imageType"]) || "landscape";
+    card.setAttribute("data-aos", "fade-right");
+    card.setAttribute("data-aos-offset", "100");
+    card.setAttribute("data-aos-easing", "ease-in-sine");
+
+    const imageBox = document.createElement("div");
+    imageBox.className = "boxCardImg";
+    const image = document.createElement("img");
+    image.loading = "lazy";
+    image.src = projectAssetUrl(project.image);
+    image.alt = getString(project, ["title"]) + " project preview";
+    imageBox.appendChild(image);
+
+    const overlay = document.createElement("div");
+    overlay.className = "box-show";
+    const details = document.createElement("div");
+    details.className = "firstDetails";
+
+    const title = document.createElement("h3");
+    title.className = "nameProject";
+    title.textContent = getString(project, ["title"]) || getString(savedPopup, ["title"]) || "Project";
+    const company = document.createElement("span");
+    company.className = "comapnyName";
+    company.textContent = getString(project, ["companyName"]);
+    const description = document.createElement("p");
+    description.textContent = getString(project, ["shortDescription", "description"]);
+    const category = document.createElement("span");
+    category.className = "projectCategory";
+    category.textContent = getString(project, ["categoryLabel", "category"]);
+    details.append(title, company, description, category);
+
+    const showButton = document.createElement("span");
+    showButton.className = "showProject";
+    const showIcon = document.createElement("i");
+    showIcon.className = "uil uil-external-link-alt";
+    showIcon.setAttribute("aria-hidden", "true");
+    showButton.appendChild(showIcon);
+
+    const dots = document.createElement("div");
+    dots.className = "dotImgCard";
+    const dotsImage = document.createElement("img");
+    dotsImage.className = "shape";
+    dotsImage.src = "images/dot-modol3-dark.png";
+    dotsImage.alt = "";
+    dots.appendChild(dotsImage);
+    overlay.append(details, showButton, dots);
+
+    const popupData = {
+        id,
+        title: getString(savedPopup, ["title"]) || getString(project, ["title"]),
+        companyName: getString(savedPopup, ["companyName"]) || getString(project, ["companyName"]),
+        employer: getString(savedPopup, ["employer", "companyName"]) || getString(project, ["companyName"]),
+        date: getString(savedPopup, ["date"]) || getString(page, ["dateRange"]),
+        duration: getString(savedPopup, ["duration"]),
+        image: getString(savedPopup, ["image"]) || getString(project, ["image"]),
+        description: pick(savedPopup.description, project.description),
+        overview: getString(page, ["overview"]) || getString(project, ["overview", "description"]),
+        roleMe: getString(savedPopup, ["roleMe"]),
+        role: getString(savedPopup, ["role"]),
+        rate: getString(savedPopup, ["rate"]),
+        githubLink: getString(savedPopup, ["githubLink"]) || getString(project, ["githubLink"]),
+        seeMoreLink: getString(savedPopup, ["seeMoreLink"]) || getString(project, ["projectLink"]) ||
+            ("html/projects.html?id=" + encodeURIComponent(id))
+    };
+    card.dataset.projectPopup = JSON.stringify(popupData);
+    card.append(imageBox, overlay);
+    return card;
+}
+
+function renderProjectCards(data) {
+    const swiperRoot = document.querySelector(".projectContainer.projects-swiper");
+    const wrapper = swiperRoot?.querySelector(".swiper-wrapper");
+    if (!wrapper) return;
+
+    const seenIds = new Set();
+    const cards = [];
+    entriesOf(data).forEach(([key, project]) => {
+        const id = normalizeDomId(getString(project, ["id", "recordId", "cardId"]) || key, key);
+        if (seenIds.has(id)) {
+            console.warn("[Firebase] Projects: duplicate project id \"" + id + "\" was skipped.");
+            return;
+        }
+        seenIds.add(id);
+        cards.push(createProjectCard(project, key));
+    });
+
+    replaceProjectSwiperSlides(swiperRoot, wrapper, cards);
+    if (window.AOS?.refresh) window.AOS.refresh();
+    window.dispatchEvent(new CustomEvent("projects:data-rendered", {
+        detail: { ids: [...seenIds], cards }
+    }));
+}
+
+function setPageHref(element, value) {
+    if (!element) return;
+    const href = projectHref(value);
+    if (!href) {
+        element.removeAttribute("href");
+        element.hidden = true;
+        return;
+    }
+    element.href = href;
+    element.hidden = false;
+    if (/^https?:/i.test(href)) {
+        element.target = "_blank";
+        element.rel = "noopener noreferrer";
+    } else {
+        element.removeAttribute("target");
+        element.removeAttribute("rel");
+    }
+}
+
+function renderProjectHero(page) {
+    const section = document.querySelector(".postgap-showcase");
+    const wrapper = section?.querySelector(".postgap-showcase__swiper .swiper-wrapper");
+    if (!section || !wrapper) return;
+
+    const screenshots = projectItems(page.heroScreenshots);
+    const slides = [];
+    screenshots.forEach((screenshot, index) => {
+        const src = projectAssetUrl(getString(screenshot, ["src", "image", "url"]));
+        if (!src) return;
+
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        const frame = document.createElement("div");
+        frame.className = "postgap-phone";
+        const image = document.createElement("img");
+        image.alt = getString(screenshot, ["alt"]) || (getString(page, ["appName"]) + " screen " + (index + 1));
+        image.loading = index === 0 ? "eager" : "lazy";
+        image.src = src;
+        frame.appendChild(image);
+        slide.appendChild(frame);
+        slides.push(slide);
+    });
+    replaceProjectSwiperSlides(section.querySelector(".postgap-showcase__swiper"), wrapper, slides);
+    section.hidden = wrapper.children.length === 0;
+}
+
+function renderProjectFeatures(page) {
+    const container = document.querySelector(".projectsOptionsBox");
+    if (!container) return;
+
+    const features = projectItems(page.features);
+    container.replaceChildren();
+    features.forEach((feature) => {
+        if (!isRecord(feature)) return;
+        const card = document.createElement("div");
+        card.className = "options";
+        card.setAttribute("data-aos", "zoom-in");
+
+        const iconBox = document.createElement("div");
+        iconBox.className = "iconBoxOp";
+        const icon = document.createElement("i");
+        addClassTokens(icon, [getString(feature, ["icon"]) || "ri-sparkling-line"]);
+        icon.setAttribute("aria-hidden", "true");
+        iconBox.appendChild(icon);
+
+        const textBox = document.createElement("div");
+        textBox.className = "textOp";
+        const title = document.createElement("h5");
+        title.textContent = getString(feature, ["title", "name"]);
+        const description = document.createElement("h6");
+        description.textContent = getString(feature, ["text", "description"]);
+        textBox.append(title, description);
+        card.append(iconBox, textBox);
+        container.appendChild(card);
+    });
+    container.hidden = features.length === 0;
+}
+
+function renderProjectScreenshots(page) {
+    const section = document.querySelector(".screenshotsSection");
+    const wrapper = section?.querySelector(".postgap-screenshots__swiper .swiper-wrapper");
+    if (!section || !wrapper) return;
+
+    const screenshots = projectItems(page.screenshots);
+    const slides = [];
+    screenshots.forEach((screenshot, index) => {
+        const src = projectAssetUrl(getString(screenshot, ["src", "image", "url"]));
+        if (!src) return;
+
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide screenshotSlide";
+        slide.setAttribute("data-aos", "fade-right");
+        slide.setAttribute("data-aos-duration", String(500 + index * 200));
+        const frame = document.createElement("div");
+        frame.className = "screenshotFrame";
+        const image = document.createElement("img");
+        image.alt = getString(screenshot, ["alt"]) || ("Project screenshot " + (index + 1));
+        image.loading = "lazy";
+        image.src = src;
+        frame.appendChild(image);
+        slide.appendChild(frame);
+        slides.push(slide);
+    });
+    replaceProjectSwiperSlides(section.querySelector(".postgap-screenshots__swiper"), wrapper, slides);
+
+    const total = wrapper.children.length;
+    const totalCounter = section.querySelector(".screenshotTotal");
+    const currentCounter = section.querySelector(".screenshotCurrent");
+    if (totalCounter) totalCounter.textContent = String(total).padStart(2, "0");
+    if (currentCounter) currentCounter.textContent = total ? "01" : "00";
+    section.hidden = total === 0;
+}
+
+function renderProjectSpecifications(page) {
+    const specifications = isRecord(page.specifications) ? page.specifications : {};
+    const fields = {
+        specPlatform: pick(specifications.platform, page.platform),
+        specLanguage: pick(specifications.language, page.platformLanguage),
+        specDatabase: specifications.database,
+        specApiIntegration: specifications.apiIntegration,
+        specUi: specifications.ui,
+        specProjectType: pick(specifications.projectType, page.clientType),
+        specDuration: pick(specifications.duration, page.dateRange)
+    };
+
+    Object.entries(fields).forEach(([field, value]) => {
+        const element = document.querySelector('[data-record-field="' + field + '"]');
+        if (element && value !== undefined && value !== null && value !== "") {
+            element.textContent = String(value).replace(/^\((.*)\)$/, "$1");
+        }
+    });
+}
+
+function renderProjectLinks(page) {
+    const container = document.querySelector(".projectLinksList");
+    if (!container) return;
+
+    const links = projectItems(page.projectLinks);
+    container.replaceChildren();
+    links.forEach((link) => {
+        if (!isRecord(link)) return;
+        const href = projectHref(link.url);
+        if (!href) return;
+
+        const anchor = document.createElement("a");
+        anchor.className = "projectLink";
+        anchor.href = href;
+        if (/^https?:/i.test(href)) {
+            anchor.target = "_blank";
+            anchor.rel = "noopener noreferrer";
+        }
+        const iconBox = document.createElement("span");
+        iconBox.className = "projectLinkIcon";
+        iconBox.setAttribute("aria-hidden", "true");
+        const icon = document.createElement("i");
+        addClassTokens(icon, [getString(link, ["icon"]) || "ri-links-line"]);
+        iconBox.appendChild(icon);
+
+        const copy = document.createElement("span");
+        copy.className = "projectLinkText";
+        const name = document.createElement("span");
+        name.className = "projectLinkName";
+        name.textContent = getString(link, ["name"]) || "Project link";
+        const description = document.createElement("span");
+        description.className = "projectLinkDescription";
+        description.textContent = getString(link, ["description"]);
+        copy.append(name, description);
+
+        const arrow = document.createElement("i");
+        arrow.className = "ri-arrow-right-line projectLinkArrow";
+        arrow.setAttribute("aria-hidden", "true");
+        anchor.append(iconBox, copy, arrow);
+        container.appendChild(anchor);
+    });
+}
+
+function renderProjectTechStack(page) {
+    const stack = document.querySelector(".techStackGrid");
+    if (stack) {
+        stack.replaceChildren();
+        projectItems(page.techStack).forEach((technology) => {
+            if (!isRecord(technology)) return;
+            const item = document.createElement("div");
+            item.className = "techStackItem";
+
+            const iconBox = document.createElement("span");
+            iconBox.className = "techStackIcon";
+            addClassTokens(iconBox, [getString(technology, ["iconClass"])]);
+            const iconText = getString(technology, ["icon"]);
+            if (/^[A-Z][A-Z0-9 +&-]{0,9}$/.test(iconText)) {
+                iconBox.textContent = iconText;
+            } else {
+                const icon = document.createElement("i");
+                addClassTokens(icon, [iconText || "ri-code-s-slash-line"]);
+                icon.setAttribute("aria-hidden", "true");
+                iconBox.appendChild(icon);
+            }
+
+            const name = document.createElement("span");
+            name.textContent = getString(technology, ["name"]);
+            item.append(iconBox, name);
+            stack.appendChild(item);
+        });
+    }
+
+    const tagsContainer = document.querySelector(".techStackTags");
+    if (tagsContainer) {
+        tagsContainer.replaceChildren();
+        projectItems(page.technologyTags).forEach((tag) => {
+            const text = typeof tag === "string" ? tag.trim() : getString(tag, ["name", "title"]);
+            if (!text) return;
+            const element = document.createElement("span");
+            element.textContent = text;
+            tagsContainer.appendChild(element);
+        });
+        tagsContainer.hidden = tagsContainer.children.length === 0;
+    }
+}
+
+function renderRelatedProjects(page) {
+    const container = document.querySelector(".relatedProjectsPanel");
+    if (!container) return;
+
+    container.replaceChildren();
+    projectItems(page.relatedProjects).forEach((project) => {
+        if (!isRecord(project)) return;
+        const href = projectHref(getString(project, ["url"]));
+        if (!href) return;
+
+        const anchor = document.createElement("a");
+        anchor.className = "relatedProjectCard";
+        anchor.href = href;
+        if (/^https?:/i.test(href)) {
+            anchor.target = "_blank";
+            anchor.rel = "noopener noreferrer";
+        }
+        const preview = document.createElement("div");
+        preview.className = "relatedProjectPreview";
+        const image = document.createElement("img");
+        image.src = projectAssetUrl(getString(project, ["image"]));
+        image.alt = getString(project, ["name"]) + " project preview";
+        image.loading = "lazy";
+        preview.appendChild(image);
+
+        const info = document.createElement("div");
+        info.className = "relatedProjectInfo";
+        const name = document.createElement("span");
+        name.className = "relatedProjectName";
+        name.textContent = getString(project, ["name"]);
+        const description = document.createElement("span");
+        description.className = "relatedProjectDescription";
+        description.textContent = getString(project, ["description"]);
+        info.append(name, description);
+
+        const arrow = document.createElement("i");
+        arrow.className = "ri-arrow-right-line relatedProjectArrow";
+        arrow.setAttribute("aria-hidden", "true");
+        anchor.append(preview, info, arrow);
+        container.appendChild(anchor);
+    });
+    container.hidden = container.children.length === 0;
+}
+
+function renderProjectPage(project) {
+    const root = document.querySelector(".projectRecord");
+    if (!root || !isRecord(project)) return;
+    const page = isRecord(project.page) ? project.page : {};
+    const id = getString(project, ["id", "recordId", "cardId"]);
+    const title = getString(project, ["title"]) || getString(page, ["appName"]);
+
+    root.dataset.recordDocumentId = id;
+    root.dataset.projectId = id;
+    document.title = title ? title + " | MShooryabi.com" : document.title;
+
+    const titleElement = root.querySelector('[data-record-field="title"]');
+    const titleMain = getString(page, ["titleMain"]);
+    const titleAccent = getString(page, ["titleAccent"]);
+    if (titleElement) {
+        titleElement.replaceChildren();
+        if (titleMain && titleAccent) {
+            titleElement.append(document.createTextNode(titleMain));
+            const accent = document.createElement("span");
+            accent.textContent = titleAccent;
+            titleElement.appendChild(accent);
+        } else {
+            titleElement.textContent = title;
+        }
+    }
+
+    const projectFields = {
+        category: getString(page, ["category", "categoryLabel"]) || getString(project, ["categoryLabel", "category"]),
+        summary: getString(page, ["summary"]) || getString(project, ["shortDescription", "description"]),
+        dateRange: getString(page, ["dateRange"]),
+        clientType: getString(page, ["clientType"]),
+        applicationType: getString(page, ["applicationType"]),
+        appName: getString(page, ["appName"]) || title,
+        tagline: getString(page, ["tagline"]),
+        overview: getString(page, ["overview"]),
+        developmentDetails: getString(page, ["developmentDetails"]),
+        projectNote: getString(page, ["projectNote"])
+    };
+    Object.entries(projectFields).forEach(([field, value]) => {
+        if (field === "projectNote") {
+            setText(root.querySelector('[data-record-field="' + field + '"]'), value);
+            return;
+        }
+        setText(root.querySelector('[data-record-field="' + field + '"]'), value);
+    });
+
+    const platformElement = root.querySelector('[data-record-field="platform"]');
+    if (platformElement) {
+        const languageElement = platformElement.querySelector('[data-record-field="platformLanguage"]');
+        platformElement.replaceChildren(document.createTextNode(getString(page, ["platform"])));
+        if (languageElement) {
+            languageElement.textContent = getString(page, ["platformLanguage"]);
+            platformElement.append(" ", languageElement);
+        }
+    }
+
+    const technologies = root.querySelector(".mainTeach");
+    if (technologies) {
+        technologies.replaceChildren();
+        projectItems(page.technologies).forEach((technology) => {
+            const text = typeof technology === "string" ? technology.trim() : getString(technology, ["name"]);
+            if (!text) return;
+            const item = document.createElement("div");
+            item.className = "teachItem";
+            const label = document.createElement("h6");
+            label.textContent = text;
+            item.appendChild(label);
+            technologies.appendChild(item);
+        });
+    }
+
+    const image = projectAssetUrl(getString(page, ["appLogo"]) || getString(project, ["image"]));
+    const logo = root.querySelector('[data-record-field="appLogo"]');
+    if (logo && image) {
+        logo.src = image;
+        logo.alt = getString(page, ["appName"]) + " logo";
+    }
+
+    const githubButton = root.querySelector(".linkBtns .githubBtn");
+    setPageHref(githubButton, getString(page, ["sourceCodeUrl"]) || getString(project, ["githubLink"]));
+    const demoButton = root.querySelector(".linkBtns .liveMoodBtn");
+    setPageHref(demoButton, getString(page, ["demoUrl"]));
+
+    renderProjectHero(page);
+    renderProjectFeatures(page);
+    renderProjectScreenshots(page);
+    renderProjectSpecifications(page);
+    renderProjectLinks(page);
+    renderProjectTechStack(page);
+    renderRelatedProjects(page);
+
+    if (window.AOS?.refresh) window.AOS.refresh();
+}
+
+const projectsPageRoot = document.querySelector(".projectRecord");
+const requestedProjectId = projectsPageRoot
+    ? new URLSearchParams(window.location.search).get("id") ||
+        new URLSearchParams(window.location.search).get("projectId") ||
+        projectsPageRoot.dataset.recordDocumentId
+    : "";
+
+function findProject(data, id) {
+    return entriesOf(data).find(([key, project]) =>
+        getString(project, ["id", "recordId", "cardId"]) === id ||
+        key === id ||
+        getString(project.page, ["id", "projectId"]) === id
+    )?.[1] || null;
+}
+
+function renderProjectsData(data) {
+    if (document.querySelector(".projectContainer.projects-swiper")) {
+        renderProjectCards(data);
+    }
+
+    if (projectsPageRoot) {
+        const project = findProject(data, requestedProjectId);
+        if (project) {
+            renderProjectPage(project);
+        } else {
+            console.warn("[Firebase] Projects: no project matches id \"" + requestedProjectId + "\".");
+        }
+    }
+}
+
+const loadProjects = createSectionLoader({
+    path: PROJECTS_PATH,
+    cacheKey: CACHE_KEYS.projects,
+    render: renderProjectsData,
+    label: "Projects"
+});
+
 const loadExperience = createSectionLoader({
     path: EXPERIENCE_PATH,
     cacheKey: CACHE_KEYS.experience,
@@ -837,7 +1413,14 @@ async function startAnalytics() {
     }
 }
 
-loadHome();
-loadExperience();
-loadSkills();
+if (document.querySelector("#home") && document.querySelector("#experience") && document.querySelector("#skills")) {
+    loadHome();
+    loadExperience();
+    loadSkills();
+}
+
+if (document.querySelector(".projectContainer.projects-swiper") || projectsPageRoot) {
+    loadProjects();
+}
+
 startAnalytics();

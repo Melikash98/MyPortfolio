@@ -659,304 +659,292 @@ skillSwipers.forEach((swiperElement) => {
 });
 // TODO: *************************************************************** Projects Section **********************************************************************//
 // ! Swiper Projects Items
-const projectItems = [...document.querySelectorAll('.boxCard')];
-
-const projectsSwiper = new Swiper('.projects-swiper', {
-  slidesPerView: 1,
-  spaceBetween: 24,
-  grabCursor: true,
-  loop: false,
-
-  grid: {
-    rows: 3,
-    fill: 'row',
-  },
-
-  pagination: {
-    el: '.projects-swiper .swiper-pagination',
-    clickable: true,
-  },
-
-  breakpoints: {
-    491: {
-      grid: { rows: 1, fill: 'row' },
+let projectItems = [...document.querySelectorAll(".projectContainer .boxCard")];
+const projectsSwiper = document.querySelector(".projects-swiper")
+  ? new Swiper(".projects-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    grabCursor: true,
+    loop: false,
+    grid: { rows: 3, fill: "row" },
+    pagination: {
+      el: ".projects-swiper .swiper-pagination",
+      clickable: true
     },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 24,
-    },
+    breakpoints: {
+      491: { grid: { rows: 1, fill: "row" } },
+      768: { slidesPerView: 2, spaceBetween: 24 },
+      1208: { slidesPerView: 3, spaceBetween: 32 }
+    }
+  })
+  : null;
 
-    1208: {
-      slidesPerView: 3,
-      spaceBetween: 32,
-    },
-  },
-});
+const filterButtons = document.querySelectorAll(".filterItems");
 
-
-// ! Project Filtering
-const filterButtons = document.querySelectorAll('.filterItems');
+function applyProjectFilter(filterValue) {
+  if (!projectsSwiper) return;
+  const filteredProjects = projectItems.filter((item) =>
+    filterValue === "all" || item.dataset.category === filterValue
+  );
+  projectsSwiper.removeAllSlides();
+  projectsSwiper.appendSlide(filteredProjects);
+  projectsSwiper.update();
+  projectsSwiper.slideTo(0, 0);
+}
 
 filterButtons.forEach((button) => {
-
-  button.addEventListener('click', () => {
-
-    // Active button
-    filterButtons.forEach((btn) => {
-      btn.classList.remove('active');
-    });
-
-    button.classList.add('active');
-
-    const filterValue = button.getAttribute('data-filter');
-
-    // Remove current slides
-    projectsSwiper.removeAllSlides();
-
-    // Filter projects
-    const filteredProjects = projectItems.filter((item) => {
-
-      const category = item.getAttribute('data-category');
-
-      return filterValue === 'all' || category === filterValue;
-
-    });
-
-    // Add filtered slides
-    projectsSwiper.appendSlide(filteredProjects);
-
-    // Update swiper
-    projectsSwiper.update();
-
-    // Start from first slide
-    projectsSwiper.slideTo(0, 0);
-
+  button.addEventListener("click", () => {
+    filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+    applyProjectFilter(button.dataset.filter || "all");
   });
-
 });
+
+window.addEventListener("projects:data-rendered", (event) => {
+  projectItems = Array.isArray(event.detail?.cards)
+    ? event.detail.cards
+    : [...document.querySelectorAll(".projectContainer .boxCard")];
+  const activeFilter = document.querySelector(".filterItems.active")?.dataset.filter || "all";
+  applyProjectFilter(activeFilter);
+});
+
 // ! Project Popup => Show Details Project
 document.addEventListener("DOMContentLoaded", () => {
-
   const projectPopup = document.querySelector(".projectsPopupModel");
-  const projectCards = document.querySelectorAll(".projectContainer .boxCard");
-
   if (!projectPopup) return;
 
-  const popupContainer = projectPopup.querySelector(".popupContainer");
   const closeButton = projectPopup.querySelector(".containerPClosed");
-
   const popupImage = projectPopup.querySelector(".projectCardImg img");
   const popupImageBox = projectPopup.querySelector(".projectCardImg");
-
   const popupName = projectPopup.querySelector(".nameProject");
   const popupCompany = projectPopup.querySelector(".companyName");
   const popupDate = projectPopup.querySelector(".dateFiishProject");
   const popupDescription = projectPopup.querySelector(".explainProject");
   const popupList = projectPopup.querySelector(".infoList ul");
+  const popupGithubWrapper = projectPopup.querySelector(".btn-github-linke");
+  const popupGithub = projectPopup.querySelector(".btn-github-linke a");
+  const popupMoreWrapper = projectPopup.querySelector(".btn-project-more");
+  const popupMore = projectPopup.querySelector(".btn-project-more a");
+  const demoDetails = projectPopup.querySelector(".ditailInfoDemo");
+  const overviewText = projectPopup.querySelector(".explainProjectTwo");
+  const infoListDetails = projectPopup.querySelector(".infoListTwo .dataTwo");
+  const projectContainer = document.querySelector(".projectContainer");
 
-  const popupGithubWrapper =
-    projectPopup.querySelector(".btn-github-linke");
-
-  const popupGithub =
-    projectPopup.querySelector(".btn-github-linke a");
-
-  const popupMore =
-    projectPopup.querySelector(".btn-project-more a");
-
-
-  function setPopupImage(detailImage) {
-
-    if (!popupImage || !detailImage) return;
-
-    popupImageBox.classList.remove("landscape", "portrait");
-
-    popupImage.src = detailImage.src;
-    popupImage.alt = detailImage.alt || "";
-
-    popupImage.onload = () => {
-
-      if (popupImage.naturalWidth > popupImage.naturalHeight) {
-        popupImageBox.classList.add("landscape");
-      } else {
-        popupImageBox.classList.add("portrait");
-      }
-
-    };
-
+  function popupHref(value) {
+    const href = String(value || "").trim();
+    if (/^(https?:\/\/|mailto:|tel:)/i.test(href)) return href;
+    if (/^(html\/|\/|#)/i.test(href)) return href;
+    return "";
   }
 
+  function appendSafeMarkup(target, value) {
+    const parsed = new DOMParser().parseFromString(String(value || ""), "text/html");
+    const allowedTags = new Set(["STRONG", "B", "EM", "I", "BR"]);
+    const blockedTags = new Set(["SCRIPT", "STYLE", "IFRAME", "OBJECT", "SVG", "MATH"]);
 
-  function openProjectPopup(card) {
+    function copyNode(source, parent) {
+      if (source.nodeType === Node.TEXT_NODE) {
+        parent.appendChild(document.createTextNode(source.textContent || ""));
+        return;
+      }
+      if (source.nodeType !== Node.ELEMENT_NODE || blockedTags.has(source.tagName)) return;
+      if (allowedTags.has(source.tagName)) {
+        const safeElement = document.createElement(source.tagName.toLowerCase());
+        [...source.childNodes].forEach((child) => copyNode(child, safeElement));
+        parent.appendChild(safeElement);
+        return;
+      }
+      [...source.childNodes].forEach((child) => copyNode(child, parent));
+    }
+
+    [...parsed.body.childNodes].forEach((node) => copyNode(node, target));
+  }
+
+  function getProjectPopupData(card) {
+    try {
+      const data = JSON.parse(card.dataset.projectPopup || "");
+      if (data && typeof data === "object") return data;
+    } catch {
+      // The static HTML remains a usable fallback when Firebase is unavailable.
+    }
 
     const detail = card.querySelector(".projectDetail");
-
-    if (!detail) return;
-
+    if (!detail) return null;
     const detailImage = detail.querySelector("img");
-    const detailName = detail.querySelector("h4");
-    const detailCompany = detail.querySelector("h6");
     const detailDate = detail.querySelector("h5");
-    const detailDescription = detail.querySelector("p");
-    const detailListItems = detail.querySelectorAll("ul li");
+    return {
+      title: detail.querySelector("h4")?.textContent.trim(),
+      companyName: detail.querySelector("h6")?.textContent.trim(),
+      date: detailDate?.textContent.replace(/^Date:\s*/i, "").trim(),
+      duration: detailDate?.querySelector("span")?.textContent.trim(),
+      image: detailImage?.getAttribute("src"),
+      description: detail.querySelector("p")?.innerHTML || "",
+      employer: detail.querySelector("ul li:nth-child(1) span")?.textContent.trim(),
+      roleMe: detail.querySelector("ul li:nth-child(2) span")?.textContent.trim(),
+      role: detail.querySelector("ul li:nth-child(3) span")?.textContent.trim(),
+      rate: detail.querySelector("ul li:nth-child(4) span")?.textContent.trim(),
+      githubLink: detail.querySelector(".btn-github-linke a")?.getAttribute("href"),
+      seeMoreLink: detail.querySelector(".btn-project-more a")?.getAttribute("href")
+    };
+  }
 
-    const detailGithub =
-      detail.querySelector(".btn-github-linke a");
+  function renderValueRows(list, items) {
+    if (!list) return;
+    list.replaceChildren();
+    items.forEach(({ label, value }) => {
+      if (!value) return;
+      const item = document.createElement("li");
+      item.append(document.createTextNode(label + " : "));
+      const valueElement = document.createElement("span");
+      valueElement.textContent = value;
+      item.appendChild(valueElement);
+      list.appendChild(item);
+    });
+  }
 
-    const detailMore =
-      detail.querySelector(".btn-project-more a");
+  function renderMobileDemoRows(list, items) {
+    if (!list) return;
+    list.replaceChildren();
+    const headingTags = ["h4", "h6", "h5"];
+    items.slice(0, 3).forEach(({ label, value }, index) => {
+      if (!value) return;
+      const item = document.createElement("li");
+      const heading = document.createElement(headingTags[index]);
+      const icon = document.createElement("i");
+      icon.className = "ri-circle-fill";
+      icon.setAttribute("aria-hidden", "true");
+      const text = document.createElement("span");
+      text.textContent = value;
+      heading.append(icon, document.createTextNode(label + ": "), text);
+      item.appendChild(heading);
+      list.appendChild(item);
+    });
+  }
 
+  function setPopupImage(source, alt) {
+    if (!popupImage || !popupImageBox) return;
+    popupImageBox.classList.remove("landscape", "portrait");
+    popupImage.onload = () => {
+      const landscape = popupImage.naturalWidth > popupImage.naturalHeight;
+      popupImageBox.classList.toggle("landscape", landscape);
+      popupImageBox.classList.toggle("portrait", !landscape);
+    };
+    popupImage.onerror = () => popupImageBox.classList.remove("landscape", "portrait");
+    popupImage.src = source || "";
+    popupImage.alt = alt || "";
+    if (popupImage.complete && popupImage.naturalWidth) popupImage.onload();
+  }
 
-    setPopupImage(detailImage);
+  function openProjectPopup(card) {
+    const data = getProjectPopupData(card);
+    if (!data) return;
+    const descriptionItems = Array.isArray(data.description) ? data.description : [data.description];
+    const descriptions = descriptionItems
+      .map((item) => String(item || "").trim())
+      .filter(Boolean);
+    const plainDescription = descriptions.map((item) => {
+      const parsed = new DOMParser().parseFromString(item, "text/html");
+      return parsed.body.textContent.replace(/\s+/g, " ").trim();
+    }).filter(Boolean).join(" ");
 
+    setPopupImage(data.image, data.title ? data.title + " project" : "Project preview");
+    if (popupName) popupName.textContent = data.title || "Project";
+    if (popupCompany) popupCompany.textContent = data.companyName || "";
 
-    if (popupName && detailName) {
-      popupName.textContent =
-        detailName.textContent.trim();
-    }
-
-
-    if (popupCompany && detailCompany) {
-      popupCompany.textContent =
-        detailCompany.textContent.trim();
-    }
-
-
-    if (popupDate && detailDate) {
-      popupDate.innerHTML =
-        detailDate.innerHTML;
-    }
-
-
-    if (popupDescription && detailDescription) {
-      popupDescription.innerHTML =
-        detailDescription.innerHTML.trim();
-    }
-
-
-    if (popupList) {
-
-      popupList.innerHTML = "";
-
-      detailListItems.forEach((item) => {
-
-        const newItem =
-          document.createElement("li");
-
-        newItem.innerHTML =
-          item.innerHTML;
-
-        popupList.appendChild(newItem);
-
-      });
-
-    }
-
-
-    if (popupGithubWrapper && popupGithub) {
-
-      if (detailGithub) {
-
-        popupGithub.href =
-          detailGithub.getAttribute("href");
-
-        popupGithub.target = "_blank";
-
-        popupGithub.rel =
-          "noopener noreferrer";
-
-        popupGithubWrapper.style.display = "";
-
-      } else {
-
-        popupGithub.removeAttribute("href");
-
-        popupGithub.removeAttribute("target");
-
-        popupGithub.removeAttribute("rel");
-
-        popupGithubWrapper.style.display = "none";
-
+    if (popupDate) {
+      popupDate.replaceChildren(document.createTextNode("Date: " + (data.date || "—") + " "));
+      if (data.duration) {
+        const duration = document.createElement("span");
+        duration.textContent = data.duration;
+        popupDate.appendChild(duration);
       }
-
     }
 
-
-    if (popupMore && detailMore) {
-      popupMore.href =
-        detailMore.getAttribute("href");
+    if (popupDescription) {
+      popupDescription.replaceChildren();
+      descriptions.forEach((description, index) => {
+        if (index) {
+          popupDescription.append(document.createElement("br"), document.createElement("br"));
+        }
+        appendSafeMarkup(popupDescription, description);
+      });
     }
 
+    if (overviewText) {
+      overviewText.textContent = data.overview || plainDescription;
+      overviewText.dataset.fullText = overviewText.textContent.replace(/\s+/g, " ").trim();
+    }
 
+    const details = [
+      { label: "Employer", value: data.employer || data.companyName },
+      { label: "Role", value: data.roleMe },
+      { label: "Responsibilities", value: data.role },
+      { label: "Rate", value: data.rate }
+    ];
+    renderValueRows(popupList, details);
+    renderValueRows(infoListDetails, details);
+    renderMobileDemoRows(demoDetails, [
+      { label: "Name", value: data.title },
+      { label: "Company", value: data.companyName },
+      { label: "Date", value: data.date }
+    ]);
+
+    const githubHref = popupHref(data.githubLink);
+    if (popupGithubWrapper && popupGithub) {
+      if (githubHref) {
+        popupGithub.href = githubHref;
+        popupGithub.target = "_blank";
+        popupGithub.rel = "noopener noreferrer";
+        popupGithubWrapper.style.display = "";
+      } else {
+        popupGithub.removeAttribute("href");
+        popupGithub.removeAttribute("target");
+        popupGithub.removeAttribute("rel");
+        popupGithubWrapper.style.display = "none";
+      }
+    }
+
+    const moreHref = popupHref(data.seeMoreLink);
+    if (popupMoreWrapper && popupMore) {
+      if (moreHref) {
+        popupMore.href = moreHref;
+        popupMoreWrapper.style.display = "";
+      } else {
+        popupMore.removeAttribute("href");
+        popupMoreWrapper.style.display = "none";
+      }
+    }
+
+    window.dispatchEvent(new CustomEvent("project:popup-opened", {
+      detail: { description: data.overview || plainDescription }
+    }));
     projectPopup.classList.add("active");
     document.body.classList.add("popup-open");
-
   }
 
-
-  projectCards.forEach((card) => {
-
-    const showProject =
-      card.querySelector(".showProject");
-
-    if (!showProject) return;
-
-    showProject.addEventListener("click", (event) => {
-
-      event.preventDefault();
-      event.stopPropagation();
-
-      openProjectPopup(card);
-
-    });
-
+  projectContainer?.addEventListener("click", (event) => {
+    const trigger = event.target.closest(".showProject");
+    if (!trigger) return;
+    const card = trigger.closest(".boxCard");
+    if (!card) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openProjectPopup(card);
   });
-
 
   function closeProjectPopup() {
-
     projectPopup.classList.remove("active");
     document.body.classList.remove("popup-open");
-
   }
 
-
-  if (closeButton) {
-    closeButton.addEventListener(
-      "click",
-      closeProjectPopup
-    );
-  }
-
-
+  closeButton?.addEventListener("click", closeProjectPopup);
   projectPopup.addEventListener("click", (event) => {
-
-    if (event.target === projectPopup) {
-      closeProjectPopup();
-    }
-
+    if (event.target === projectPopup) closeProjectPopup();
   });
-
-
-  if (popupContainer) {
-
-    popupContainer.addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
-
-  }
-
-
   document.addEventListener("keydown", (event) => {
-
-    if (
-      event.key === "Escape" &&
-      projectPopup.classList.contains("active")
-    ) {
+    if (event.key === "Escape" && projectPopup.classList.contains("active")) {
       closeProjectPopup();
     }
-
   });
-
 });
 // TODO: *************************************************************** Tutorials Section **********************************************************************//
 const tutorialsSwiper = new Swiper('.tutorialsSwiper', {
@@ -1687,10 +1675,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "(min-width: 375px) and (max-width: 490px)"
   );
 
-  const projectCards = document.querySelectorAll(
-    ".projectContainer .boxCard"
-  );
-
   const demoToggle = projectPopup.querySelector(
     ".infoTextTwo .box1Btn"
   );
@@ -1783,23 +1767,11 @@ document.addEventListener("DOMContentLoaded", () => {
     overviewText.textContent = getFullDescription();
   }
 
-  projectCards.forEach((card) => {
-    const showProject = card.querySelector(".showProject");
-    if (!showProject) return;
-
-    showProject.addEventListener(
-      "click",
-      () => {
-        const detailDescription = card.querySelector(
-          ".projectDetail p"
-        );
-
-        if (detailDescription) {
-          setProjectDescription(detailDescription.textContent);
-        }
-      },
-      { capture: true }
-    );
+  window.addEventListener("project:popup-opened", (event) => {
+    const description = event.detail?.description;
+    if (typeof description === "string") {
+      setProjectDescription(description);
+    }
   });
 
   function toggleDemo() {
