@@ -7633,3 +7633,39 @@ html {
         padding: 0.9rem clamp(2rem, 4vw, 3rem);
     }
 }
+
+/* GitHub contribution calendar responsive layout */
+@media (max-width: 900px) {
+    .indexBody .githubActivity {
+        --github-cell-size: clamp(0.44rem, 1.25vw, 0.72rem);
+        --github-cell-gap: clamp(0.1rem, 0.38vw, 0.22rem);
+    }
+
+    .indexBody .githubActivity__scroll {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .indexBody .githubActivity .githubActivity__header {
+        align-items: center;
+        text-align: center;
+    }
+
+    .indexBody .githubActivity .githubActivity__header > div {
+        width: 100%;
+    }
+
+    .indexBody .githubActivity .githubActivity__profileLink {
+        align-self: center;
+    }
+
+    .indexBody .githubActivity .githubActivity__summary {
+        text-align: center;
+    }
+
+    .indexBody .githubActivity .githubActivity__footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
