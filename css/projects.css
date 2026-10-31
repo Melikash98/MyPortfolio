@@ -1227,6 +1227,7 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
 }
+
 .donateProject i {
     font-size: 1.5rem;
 }
@@ -1338,8 +1339,80 @@ a.relatedProjectCard:focus-visible {
     width: clamp(8rem, 15vw, 10.5rem);
 }
 
+.activityPopupModel {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.80);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 10000;
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
 
 
+.activityPopupModel.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.popupActivityContainer {
+    width: 80%;
+    max-width: 700px;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 0px 0px rgba(255, 255, 255, 0);
+}
+
+.containerASClosed {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--main-text-color);
+    padding: .4rem;
+    border-radius: 6rem;
+    transition: ease-in .3s;
+    z-index: 100000;
+}
+
+.popupActivityBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mainActivityBox {
+    width: 100%;
+    height: 100%;
+    padding-left: 4rem;
+}
+
+.containerASClosed:hover i {
+    color: var(--text-select-color);
+    transform: scale(1.1);
+}
 
 .homeProject .categoryProjrct {
     background: rgba(20, 134, 140, 0.14);

@@ -37,7 +37,7 @@
     /*============================================ font Colors ============================================*/
     --main-background: url('../images/main-back-dark.svg');
     --main-background-splash: url('../images/splash-background.svg');
-    --main-background-error:url('../images/404Backe.png');
+    --main-background-error: url('../images/404Backe.png');
     --icon-default-color: #0E8388;
     --icon-hover-color: #301B3F;
     --main-text-color: #F2F9FF;
@@ -231,7 +231,8 @@
     border-radius: 20px;
 }
 
-.sun-mood .popupContainer {
+.sun-mood .popupContainer,
+.sun-mood .popupActivityContainer {
     background-color: #D9EAFD;
 }
 
@@ -242,7 +243,8 @@
 }
 
 .sun-mood .containerSClosed:hover i,
-.sun-mood .containerPClosed:hover i {
+.sun-mood .containerPClosed:hover i,
+.sun-mood .containerASClosed:hover i {
     color: #8D5BF5;
     z-index: 10000000;
 }
@@ -516,7 +518,8 @@
 }
 
 .sun-mood .containerPClosed:hover,
-.sun-mood .containerSClosed:hover {
+.sun-mood .containerSClosed:hover,
+.sun-mood .containerASClosed:hover {
     color: #00F7FF;
 }
 
@@ -675,6 +678,7 @@
     color: #607486;
     opacity: 1;
 }
+
 /* TODO ============================================ SUPPORT PAGE THEME ============================================*/
 :root.sun-mood .indexBody {
     --description-color: #52677b;
@@ -822,6 +826,7 @@
 }
 
 @media (prefers-reduced-transparency: reduce) {
+
     .sun-mood .indexBody .headerSupport,
     .sun-mood .indexBody .socialSupportLink,
     .sun-mood .indexBody .descriptionSection .cardDes {
@@ -834,20 +839,20 @@
 :root.sun-mood .indexBody {
     --description-color: #526D82;
     --project-card-background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.48),
-        rgba(217, 234, 253, 0.24) 52%,
-        rgba(237, 245, 253, 0.3));
+            rgba(255, 255, 255, 0.48),
+            rgba(217, 234, 253, 0.24) 52%,
+            rgba(237, 245, 253, 0.3));
     --project-card-border: rgba(255, 255, 255, 0.82);
     --project-soft-background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.38),
-        rgba(237, 245, 253, 0.2));
+            rgba(255, 255, 255, 0.38),
+            rgba(237, 245, 253, 0.2));
 }
 
 :root.sun-mood .indexBody .categoryProjrct,
 :root.sun-mood .indexBody .teachItem,
 :root.sun-mood .indexBody .options,
 :root.sun-mood .indexBody .boxEnd,
-:root.sun-mood .indexBody .overViewContainer > .right,
+:root.sun-mood .indexBody .overViewContainer>.right,
 :root.sun-mood .indexBody .techStackPanel,
 :root.sun-mood .indexBody .relatedProjectsPanel,
 :root.sun-mood .indexBody .relatedProjectCard,
@@ -902,7 +907,7 @@
     color: var(--main-text-color);
 }
 
-:root.sun-mood .indexBody .boxEnd > i {
+:root.sun-mood .indexBody .boxEnd>i {
     color: var(--text-select-color);
 }
 
@@ -922,7 +927,7 @@
     color: #000D16;
 }
 
-:root.sun-mood .indexBody .projectsOptionsBox > div:hover {
+:root.sun-mood .indexBody .projectsOptionsBox>div:hover {
     transform: translateY(-6px);
     border-color: var(--text-select-color);
     box-shadow:
@@ -948,6 +953,7 @@
 :root.sun-mood .indexBody .projectsFooterLinks a {
     color: #000D16;
 }
+
 /*============================================ Global Base Styles ============================================*/
 * {
     box-sizing: border-box;
@@ -1224,6 +1230,7 @@ html {
 
 /*============================================ Responsive Layouts ============================================*/
 @media (max-width:360px) {
+
     /* TODO ============================================ SUPPORT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeSupport) {
         width: 100%;
@@ -2248,6 +2255,7 @@ html {
 }
 
 @media (min-width: 375px) and (max-width:490px) {
+
     /* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
     .scrollControl {
         display: none;
@@ -2895,12 +2903,14 @@ html {
     }
 
     .servicesPopupModel,
-    .projectsPopupModel {
+    .projectsPopupModel,
+    .activityPopupModel {
         padding: .5rem;
     }
 
     .servicesPopupModel .popupContainer,
-    .projectsPopupModel .popupContainer {
+    .projectsPopupModel .popupContainer,
+    .activityPopupModel .popupActivityContainer {
         width: min(calc(100vw - 1rem), 30rem) !important;
         height: auto !important;
         max-height: 85svh !important;
@@ -2912,7 +2922,8 @@ html {
     }
 
     .servicesPopupModel .popupBox,
-    .projectsPopupModel .popupProjectBox {
+    .projectsPopupModel .popupProjectBox,
+    .activityPopupModel .popupActivityBox {
         flex: 0 1 auto;
         width: 100% !important;
         height: auto !important;
@@ -3213,7 +3224,8 @@ html {
         border: 0;
     }
 
-    .projectsPopupModel .popupContainer {
+    .projectsPopupModel .popupContainer,
+    .activityPopupModel .popupActivityContainer {
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -4472,6 +4484,7 @@ html {
 }
 
 @media (min-width:490px) and (max-width:767px) {
+
     /* TODO ============================================ SUPPORT PAGE RESPONSIVE ============================================*/
     .indexBody:has(.homeSupport) {
         width: 100%;
@@ -5433,6 +5446,7 @@ html {
         padding: 0.8rem clamp(1.5rem, 4vw, 2.5rem);
     }
 }
+
 /* TODO ============================================ PROJECT PAGE RESPONSIVE ============================================*/
 @media (max-width: 520px) {
     .relatedProjectsPanel {
@@ -5440,7 +5454,8 @@ html {
         gap: 10px;
         padding: 12px;
     }
-     .projectsFooter {
+
+    .projectsFooter {
         min-height: 84px;
         padding: 12px 20px;
     }
@@ -5480,7 +5495,9 @@ html {
         font-size: 10px;
     }
 }
+
 @media (min-width:768px) and (max-width:1024px) {
+
     /* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
     .indexBody:not(:has(.homeSupport)) .homeContent>.homeProfilePic {
         width: min(105%, 14rem);
@@ -6211,7 +6228,7 @@ html {
         padding-inline: clamp(2.25rem, 4vw, 3rem);
     }
 
- .indexBody:not(:has(.homeSupport)) #experience .workColumn {
+    .indexBody:not(:has(.homeSupport)) #experience .workColumn {
         width: min(100%, 20rem);
         margin-left: -23rem;
         margin-top: 2rem;
@@ -7652,7 +7669,7 @@ html {
         text-align: center;
     }
 
-    .indexBody .githubActivity .githubActivity__header > div {
+    .indexBody .githubActivity .githubActivity__header>div {
         width: 100%;
     }
 
