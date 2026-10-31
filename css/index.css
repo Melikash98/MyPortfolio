@@ -4414,6 +4414,22 @@ iframe.skiptranslate {
         min-width: 0;
     }
 
+    .portfolioHome #experience .resumeItem {
+        border-bottom: 0;
+    }
+
+    .portfolioHome #experience .resumeItem::after {
+        content: "";
+        position: absolute;
+        right: clamp(0.75rem, 4vw, 1rem);
+        bottom: 0;
+        left: clamp(0.75rem, 4vw, 1rem);
+        height: 2px;
+        background-color: var(--description-color);
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
     .portfolioHome .experiencekColumns > * {
         min-width: 0;
     }
@@ -4673,23 +4689,4 @@ iframe.skiptranslate {
     background-attachment: fixed;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
-}
-
-/* Inset resume dividers on phones and tablets without changing the text width. */
-@media (max-width: 1024px) {
-    .portfolioHome #experience .resumeItem {
-        border-bottom: 0;
-    }
-
-    .portfolioHome #experience .resumeItem::after {
-        content: "";
-        position: absolute;
-        right: clamp(2rem, 4vw, 2.5rem);
-        bottom: 0;
-        left: clamp(2rem, 4vw, 2.5rem);
-        height: 2px;
-        background-color: var(--description-color);
-        opacity: 0.8;
-        pointer-events: none;
-    }
 }
