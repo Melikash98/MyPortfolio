@@ -467,7 +467,6 @@ function wakatimeHttpGet(string $url, array $headers): array
     $body = curl_exec($curl);
     $status = (int) curl_getinfo($curl, CURLINFO_HTTP_CODE);
     $error = curl_error($curl);
-    curl_close($curl);
 
     $json = is_string($body) ? json_decode($body, true) : null;
     $ok = is_array($json) && $status >= 200 && $status < 300;
@@ -498,7 +497,10 @@ function wakatimeFetchPortfolioProjects(): array
 
     $response = wakatimeHttpGet($url, []);
     if (!$response['ok'] || !is_array($response['json'])) {
-        error_log('WakaTime activity could not read the Portfolio project collection. HTTP ' . $response['status'] . '.');
+        error_log(
+            'WakaTime activity could not read the Portfolio project collection. HTTP '
+            . $response['status'] . '. ' . $response['reason']
+        );
         return ['ok' => false, 'projects' => []];
     }
 
