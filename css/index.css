@@ -3902,7 +3902,84 @@ iframe.skiptranslate {
         animation: cw-blink 4.5s infinite
     }
 }
+/* ===== Thought bubble ===== */
+#cw-bubble {
+    position: fixed;
+    left: 24px;
+    bottom: 160px;            
+    z-index: 1003;
+    width: max-content;
+    max-width: min(260px, calc(100vw - 48px));
+    padding: 14px 30px 14px 18px;
+    color: var(--main-text-color);
+    font-family: var(--robot-font, Arial), sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    background: rgba(128, 140, 160, .16);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .4);
+    opacity: 0;
+    transform: translateY(10px) scale(.9);
+    transform-origin: 40px 100%;
+    pointer-events: none;
+    transition: opacity .35s ease, transform .4s cubic-bezier(.2, 1.4, .4, 1);
+}
 
+#cw-bubble.show {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+#cw-bubble[data-kind="welcome"] { cursor: pointer; }
+
+#cw-bubble::before,
+#cw-bubble::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(128, 140, 160, .16);
+    border: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+#cw-bubble::before { width: 16px; height: 16px; left: 52px; bottom: -20px; }
+#cw-bubble::after  { width: 9px;  height: 9px;  left: 44px; bottom: -34px; }
+
+.cw-bubble-x {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--description-color);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+.cw-bubble-x:hover { color: var(--text-select-color); }
+
+.cw-bubble-text { margin: 0; }
+.cw-coffee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    color: var(--text-select-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.cw-coffee i { font-size: 30px; transition: transform .25s ease; }
+.cw-coffee:hover i { transform: rotate(-12deg) scale(1.12); }
+
+@media (prefers-reduced-motion: reduce) {
+    #cw-bubble, .cw-coffee i { transition: none; }
+}
 
 /* TODO ============================================ HOME PAGE RESPONSIVE ============================================*/
 @media (max-width: 490px) {
