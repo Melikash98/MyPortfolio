@@ -1779,4 +1779,285 @@ iframe.skiptranslate {
     object-position: center;
 
 }
+/* TODO ============================================ Chat Widget  ============================================*/
+#cw-fab {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 1002;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    line-height: 0;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35));
+}
 
+#cw-fab:focus-visible,
+#cw-input:focus-visible {
+    outline: 3px solid var(--text-select-color);
+    outline-offset: 4px;
+    border-radius: 10px
+}
+
+#cw-fab svg,
+#cw-fab img {
+    width: 56px;
+    height: auto;
+    display: block
+}
+
+#cw-fab.has-new::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ff4d6d;
+    border: 2px solid #000D16;
+}
+
+#cw-box {
+    position: fixed;
+    left: 24px;
+    bottom: 100px;
+    z-index: 10002;
+    width: 300px;
+    max-width: calc(100vw - 32px);
+    height: 380px;
+    max-height: calc(100svh - 140px);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    color: var(--main-text-color);
+    font-family: var(--robot-font, Arial), sans-serif;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 0 0px 0px rgba(255, 255, 255, 0);
+}
+
+#cw-box.open {
+    display: flex
+}
+
+.cw-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2)
+}
+
+.cw-head svg,
+.cw-head img {
+    width: 30px;
+    height: auto;
+    display: block
+}
+
+.cw-head b {
+    display: block;
+    font-size: 14px
+}
+
+.cw-head small {
+    display: block;
+    font-size: 11px;
+    color: var(--description-color)
+}
+
+#cw-close {
+    margin-left: auto;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--main-text-color);
+    cursor: pointer;
+    background: none;
+    border: 0
+}
+
+#cw-close:hover {
+    color: var(--text-select-color)
+}
+
+#cw-msgs {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px
+}
+
+.cw-m {
+    max-width: 84%;
+    padding: 8px 11px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    unicode-bidi: plaintext
+}
+
+.cw-m.bot {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, .12);
+    border-bottom-left-radius: 4px
+}
+
+.cw-m.me {
+    align-self: flex-end;
+    background: var(--text-select-color);
+    color: #fff;
+    border-bottom-right-radius: 4px
+}
+
+#cw-form {
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, .2)
+}
+
+#cw-input {
+    width: 100%;
+    padding: 9px 12px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--main-text-color);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 12px
+}
+
+#cw-input::placeholder {
+    color: var(--description-color);
+    opacity: .8
+}
+
+.cw-eye {
+    transform-box: fill-box;
+    transform-origin: center
+}
+
+#cw-fab::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    bottom: 4px;
+    width: 48px;
+    height: 7px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--text-select-color);
+    box-shadow: 0 0 9px rgba(87, 220, 112, .36);
+}
+
+#cw-fab img,
+#cw-fab svg {
+    position: relative;
+    z-index: 1;
+    width: 108px;
+    height: 108px;
+    margin-top: -4rem;
+    object-fit: contain;
+}
+
+@media (prefers-reduced-motion:no-preference) {
+    #cw-fab svg {
+        animation: cw-float 3s ease-in-out infinite
+    }
+
+    .cw-eye {
+        animation: cw-blink 4.5s infinite
+    }
+}
+/* ===== Thought bubble ===== */
+#cw-bubble {
+    position: fixed;
+    left: 24px;
+    bottom: 160px;            
+    z-index: 1003;
+    width: max-content;
+    max-width: min(260px, calc(100vw - 48px));
+    padding: 14px 30px 14px 18px;
+    color: var(--main-text-color);
+    font-family: var(--robot-font, Arial), sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    background: rgba(128, 140, 160, .16);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .4);
+    opacity: 0;
+    transform: translateY(10px) scale(.9);
+    transform-origin: 40px 100%;
+    pointer-events: none;
+    transition: opacity .35s ease, transform .4s cubic-bezier(.2, 1.4, .4, 1);
+}
+
+#cw-bubble.show {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+#cw-bubble[data-kind="welcome"] { cursor: pointer; }
+
+#cw-bubble::before,
+#cw-bubble::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(128, 140, 160, .16);
+    border: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+#cw-bubble::before { width: 16px; height: 16px; left: 52px; bottom: -20px; }
+#cw-bubble::after  { width: 9px;  height: 9px;  left: 44px; bottom: -34px; }
+
+.cw-bubble-x {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--description-color);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+.cw-bubble-x:hover { color: var(--text-select-color); }
+
+.cw-bubble-text { margin: 0; }
+.cw-coffee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    color: var(--text-select-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.cw-coffee i { font-size: 30px; transition: transform .25s ease; }
+.cw-coffee:hover i { transform: rotate(-12deg) scale(1.12); }
+
+@media (prefers-reduced-motion: reduce) {
+    #cw-bubble, .cw-coffee i { transition: none; }
+}
