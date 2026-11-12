@@ -8411,3 +8411,59 @@ html {
         right: 1.9rem;
     }
 }
+
+/* Chat robot button: responsive sizing uses the existing main.css breakpoints. */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body #cw-fab {
+        left: clamp(1rem, 2.35vw, 1.5rem);
+        bottom: clamp(1rem, 2.35vw, 1.5rem);
+        width: clamp(4rem, 10.55vw, 6.75rem);
+        height: 2.75rem;
+        display: grid;
+        place-items: end center;
+        isolation: isolate;
+    }
+
+    body #cw-fab img,
+    body #cw-fab svg {
+        width: clamp(4rem, 10.55vw, 6.75rem);
+        height: clamp(4rem, 10.55vw, 6.75rem);
+        margin-top: 0;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 767px) {
+    body #cw-fab {
+        left: clamp(0.75rem, 3.13vw, 1rem);
+        bottom: calc(4.875rem + env(safe-area-inset-bottom, 0px));
+        width: clamp(44px, 10.2vw, 52px);
+        height: clamp(52px, 11.75vw, 60px);
+        display: grid;
+        place-items: start center;
+        isolation: isolate;
+    }
+
+    body #cw-fab img,
+    body #cw-fab svg {
+        width: clamp(52px, 13.85vw, 68px);
+        height: clamp(52px, 13.85vw, 68px);
+        margin-top: clamp(-1rem, -3.25vw, -0.75rem);
+        object-fit: contain;
+    }
+
+    body.portfolioHome #cw-fab {
+        left: 0.75rem;
+        bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+        width: 3.5rem;
+        height: 3.75rem;
+        place-items: start center;
+    }
+
+    body.portfolioHome #cw-fab img,
+    body.portfolioHome #cw-fab svg {
+        width: 4rem;
+        height: 4rem;
+        margin-top: -0.75rem;
+    }
+}
