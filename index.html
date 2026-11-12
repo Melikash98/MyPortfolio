@@ -9,16 +9,14 @@
     <title>MShooryabi.com</title>
     <!-- TODO: Define The Website Favicon-->
     <link rel="icon" type="image/png" href="images/logo.png">
-    <!--Firebase-->
+     <!--Firebase-->
     <script type="module" src="firebase/api.js"></script>
     <link rel="preconnect" href="https://portfolio-f66fb-default-rtdb.firebaseio.com">
     <link rel="preconnect" href="https://res.cloudinary.com">
 
-
     <!--Main & index CSS-->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/chatgpt.css">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -128,7 +126,7 @@
         </ul>
     </nav>
     <!-- !Main -->
-    <main data-page-type="mainWeb" class="main">
+    <main class="main">
         <!-- !Home -->
         <section class="section home" id="home">
             <div class="homeContainer container">
@@ -139,8 +137,7 @@
                                 Name Is Melika</span>
                         </h5>
                         <h1 class="nameText" data-aos="fade-down" id="profile-name-desktop">Melika
-                            <span>Shooryabi</span>
-                        </h1>
+                            <span>Shooryabi</span></h1>
                         <h6 class="rolName" data-aos="fade-down" id="profile-role-desktop">Software Engineer & Backend
                             Developer</h6>
                     </div>
@@ -171,8 +168,7 @@
                     </div>
                     <div class="homeInfoTwo">
                         <h1 class="nameTextTwo" data-aos="fade-down" id="profile-name-compact">Melika
-                            <span>Shooryabi</span>
-                        </h1>
+                            <span>Shooryabi</span></h1>
                         <h5 class="startTextTwo" data-aos="fade-down">Hallo, <span class="randomText"
                                 id="role-animationTwo">My
                                 Name Is Melika</span>
@@ -533,8 +529,8 @@
                             </div>
                             <i class="ri-arrow-drop-down-line skillArrow"></i>
                         </div>
-                        <div class="skillsHeader" data-target="#Backend" data-aos="fade-down" role="button" tabindex="0"
-                            aria-controls="Backend" aria-expanded="false">
+                        <div class="skillsHeader" data-target="#Backend" data-aos="fade-down" role="button"
+                            tabindex="0" aria-controls="Backend" aria-expanded="false">
                             <i class="ri-server-line skillIcon"></i>
                             <div>
                                 <h1 class="skillTabTittle">Backend & Databases</h1>
@@ -542,8 +538,8 @@
                             </div>
                             <i class="ri-arrow-drop-down-line skillArrow"></i>
                         </div>
-                        <div class="skillsHeader" data-target="#Android" data-aos="fade-down" role="button" tabindex="0"
-                            aria-controls="Android" aria-expanded="false">
+                        <div class="skillsHeader" data-target="#Android" data-aos="fade-down" role="button"
+                            tabindex="0" aria-controls="Android" aria-expanded="false">
                             <i class="ri-android-line skillIcon"></i>
                             <div>
                                 <h1 class="skillTabTittle">Android Development</h1>
@@ -551,8 +547,8 @@
                             </div>
                             <i class="ri-arrow-drop-down-line skillArrow"></i>
                         </div>
-                        <div class="skillsHeader" data-target="#Network" data-aos="fade-down" role="button" tabindex="0"
-                            aria-controls="Network" aria-expanded="false">
+                        <div class="skillsHeader" data-target="#Network" data-aos="fade-down" role="button"
+                            tabindex="0" aria-controls="Network" aria-expanded="false">
                             <i class="ri-global-line skillIcon"></i>
                             <div>
                                 <h1 class="skillTabTittle">Networking & Development Tools</h1>
@@ -2809,61 +2805,21 @@
             </button>
         </div>
     </aside>
-
-
-    <!-- !Chat Widget -->
-
-    <template id="cw-robot">
-        <img src="/images/Cute Mint Cat-Eared Robot Mascot.png" alt="Melika's AI Assistant">
+    <template id="cw-robot" data-aos="fade-right" data-aos-delay="300">
+        <img src="images/Cute Mint Cat-Eared Robot Mascot.png" alt="">
     </template>
-
-    <button id="cw-fab" type="button" aria-label="Open chat" data-aos="fade-right" data-aos-delay="300">
-    </button>
-
-    <section id="cw-box" aria-label="Chat support" aria-live="polite">
+    <button id="cw-fab" type="button" aria-label="Open chat" data-aos="fade-right" data-aos-delay="300"></button>
+    <section id="cw-box" aria-label="Chat support" data-aos="fade-right" data-aos-delay="300">
         <div class="cw-head">
             <span id="cw-avatar"></span>
-
-            <div class="cw-title">
-                <b>Melika's Assistant</b>
-                <small>Ask me about my work & projects</small>
-            </div>
-
+            <div><b>Melika's Assistant</b><small>Usually replies within minutes</small></div>
             <button id="cw-close" type="button" aria-label="Close chat">×</button>
         </div>
-
         <div id="cw-msgs" aria-live="polite"></div>
-
-        <form id="cw-form" autocomplete="off">
-            <input id="cw-input" type="text" placeholder="Write your message…" autocomplete="off" maxlength="2000"
-                required>
-
-            <button id="cw-send" type="submit" aria-label="Send message">➤</button>
+        <form id="cw-form">
+            <input id="cw-input" placeholder="Write your message… (Enter)" autocomplete="off" required>
         </form>
-
-        <a id="cw-coffee" class="cw-coffee" href="#" target="_blank" rel="noopener noreferrer" hidden>
-            ☕ Buy me a coffee
-        </a>
     </section>
-
-    <div id="cw-welcome" role="status" aria-live="polite">
-        <button id="cw-welcome-close" type="button" aria-label="Close welcome message">×</button>
-
-        <p>Hi, how are you? 👋</p>
-
-        <span>
-            Thanks for visiting my website!
-            I'd love to hear your thoughts.
-            And if you'd like, you can buy me a coffee. ☕
-        </span>
-
-        <button id="cw-welcome-open" type="button">
-            Let's talk →
-        </button>
-    </div>
-
-
-
 
 
 
@@ -2884,7 +2840,6 @@
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
     <script src="js/github-activity.js"></script>
-    <script src="js/chatgpt.js" defer></script>
     <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement(
@@ -2898,6 +2853,137 @@
         }
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- ! Chat Widget -->
+    <script>
+        (() => {
+            const API = "https://mysite-chat.melika-shooryabi98.workers.dev";
+            const $ = id => document.getElementById(id);
+            const store = {
+                get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { } }
+            };
+
+            let sid = store.get("cw_sid");
+            if (!sid) { sid = crypto.randomUUID(); store.set("cw_sid", sid); }
+
+            const robot = $("cw-robot").innerHTML;
+            $("cw-fab").innerHTML = robot;
+            $("cw-avatar").innerHTML = robot;
+
+            const box = $("cw-box"), msgs = $("cw-msgs"), fab = $("cw-fab");
+            let since = 0, greeted = false;
+            const lead = { name: store.get("cw_name") || "", email: "", question: "" };
+            let step = lead.name ? 3 : 0;
+
+            function add(text, who) {
+                const d = document.createElement("div");
+                d.className = "cw-m " + who;
+                d.textContent = text;
+                msgs.appendChild(d);
+                msgs.scrollTop = msgs.scrollHeight;
+            }
+            const reply = text => setTimeout(() => add(text, "bot"), 600);
+
+            const post = (path, body) => fetch(API + path, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+
+            function getMeta() {
+                const ua = navigator.userAgent;
+                const type = (/iPad|Tablet|PlayBook|Silk/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua))) ? "Tablet"
+                    : /Mobi|iPhone|Android/i.test(ua) ? "Mobile" : "Desktop";
+                const os = /Windows/.test(ua) ? "Windows" : /Android/.test(ua) ? "Android"
+                    : /iPhone|iPad|iPod/.test(ua) ? "iOS" : /Mac OS X/.test(ua) ? "macOS"
+                        : /Linux/.test(ua) ? "Linux" : "Unknown";
+                const browser = /Edg\//.test(ua) ? "Edge" : /OPR\/|Opera/.test(ua) ? "Opera"
+                    : /Firefox\//.test(ua) ? "Firefox" : /Chrome\//.test(ua) ? "Chrome"
+                        : /Safari\//.test(ua) ? "Safari" : "Unknown";
+                return {
+                    device: `${type} · ${os} · ${browser}`,
+                    screen: `${screen.width}x${screen.height}`,
+                    lang: navigator.language,
+                    tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    localTime: new Date().toLocaleString(),
+                    page: location.href,
+                    ref: document.referrer
+                };
+            }
+
+            function toggle(open) {
+                box.classList.toggle("open", open);
+                if (open) {
+                    fab.classList.remove("has-new");
+                    $("cw-input").focus();
+                    if (!greeted) {
+                        greeted = true;
+                        add(step === 3 ? `Welcome back, ${lead.name}! 👋 How can I help?` : "Hi! 👋 How can I help you?", "bot");
+                    }
+                }
+            }
+            fab.onclick = () => toggle(!box.classList.contains("open"));
+            $("cw-close").onclick = () => toggle(false);
+
+            $("cw-form").onsubmit = async e => {
+                e.preventDefault();
+                const text = $("cw-input").value.trim();
+                if (!text) return;
+                $("cw-input").value = "";
+                add(text, "me");
+
+                if (step === 0) {
+                    lead.question = text;
+                    step = 1;
+                    return reply("Thanks for reaching out! 🙌 What's your name?");
+                }
+                if (step === 1) {
+                    lead.name = text.slice(0, 80);
+                    step = 2;
+                    return reply(`Nice to meet you, ${lead.name}! What's your email address?`);
+                }
+                if (step === 2) {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text)) {
+                        return reply("That email doesn't look right. Could you check it and send it again?");
+                    }
+                    lead.email = text;
+                    try {
+                        const r = await post("/lead", {
+                            sid, name: lead.name, email: lead.email, text: lead.question, meta: getMeta()
+                        });
+                        if (!r.ok) throw new Error("lead failed");
+                        step = 3;
+                        store.set("cw_name", lead.name);
+                        reply("Thank you! 🙏 I've received your message and will reply here as soon as I can.");
+                    } catch (err) {
+                        reply("Message not sent. Please send your email again to retry.");
+                    }
+                    return;
+                }
+
+                try {
+                    const r = await post("/send", { sid, text, name: lead.name });
+                    if (!r.ok) throw new Error("send failed");
+                } catch (err) {
+                    reply("Message not sent. Please try again.");
+                }
+            };
+
+            async function poll() {
+                if (document.hidden) return;
+                try {
+                    const r = await fetch(`${API}/poll?sid=${sid}&since=${since}`);
+                    const data = await r.json();
+                    data.forEach(m => {
+                        add(m.text, "bot");
+                        since = Math.max(since, m.id);
+                        if (!box.classList.contains("open")) fab.classList.add("has-new");
+                    });
+                } catch (e) { }
+            }
+            setInterval(poll, 3000);
+        })();
+    </script>
 </body>
 
 </html>
