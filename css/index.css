@@ -3906,7 +3906,7 @@ iframe.skiptranslate {
 #cw-bubble {
     position: fixed;
     left: 24px;
-    bottom: 160px;            
+    bottom: 160px;
     z-index: 1003;
     width: max-content;
     max-width: min(260px, calc(100vw - 48px));
@@ -3964,6 +3964,7 @@ iframe.skiptranslate {
 .cw-bubble-x:hover { color: var(--text-select-color); }
 
 .cw-bubble-text { margin: 0; }
+
 .cw-coffee {
     display: flex;
     flex-direction: column;
